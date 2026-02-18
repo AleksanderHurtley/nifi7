@@ -8,8 +8,8 @@ This describes the logical NiFi pipeline implemented by the scripts in this repo
 ### 0) Initialize
 **Goal:** create workspace directories and initialize core attributes.
 Scripts:
-- `Initialize/Initialize Flowfile.groovy`
-- `Initialize/Initialize Directories.groovy`
+- `01_Initialize/01_Initialize Flowfile.groovy`
+- `01_Initialize/02_Initialize Directories.groovy`
 
 Outputs (typical):
 - `package.name` (packageId)
@@ -26,16 +26,16 @@ Failure:
 **Goal:** stage required content + metadata from SAM-FS archival storage to local disk.
 Scripts (by content type):
 - Metadata:
-  - `Fetch files from SAM-FS/Metadata files/Fetch and Organize metadata files.groovy`
-  - `Fetch files from SAM-FS/Metadata files/Extract checksums + batch map.groovy`
-  - `Fetch files from SAM-FS/Metadata files/Cleanup extracted metadata.groovy`
+  - `02_Fetch files from SAM-FS/03_Metadata files/01_Fetch and Organize metadata files.groovy`
+  - `02_Fetch files from SAM-FS/03_Metadata files/02_Extract checksums + batch map.groovy`
+  - `02_Fetch files from SAM-FS/03_Metadata files/03_Cleanup extracted metadata.groovy`
 - Tar:
-  - `Fetch files from SAM-FS/Tar files/Tar fragments.groovy`
-  - `Fetch files from SAM-FS/Tar files/Fetch and Untar.groovy`
+  - `02_Fetch files from SAM-FS/01_Tar files/01_Tar fragments.groovy`
+  - `02_Fetch files from SAM-FS/01_Tar files/02_Fetch and Untar.groovy`
 - Audio:
-  - `Fetch files from SAM-FS/Audio files/Copy audio files.bash`
+  - `02_Fetch files from SAM-FS/02_Audio files/01_Copy audio files.bash`
 - Timing/stat updates:
-  - `Fetch files from SAM-FS/Set fetch.end, fetch.duration, package.size.start.groovy`
+  - `02_Fetch files from SAM-FS/04_Set fetch.end, fetch.duration, package.size.start.groovy`
 
 Event (recommended):
 - `eventType=transfer`
@@ -49,7 +49,7 @@ Notes:
 ### 2) Fixity validation (DPX)
 **Goal:** confirm bit-level integrity after transfer by comparing computed MD5 against SAM-FS metadata checksums.
 Script:
-- `Checksum/Verify DPX Checksums.groovy`
+- `03_Checksum/01_Verify DPX Checksums.groovy`
 
 Event detail (selected):
 - “Fixity check after transfer: computed MD5 checksums for DPX files in the staging area and compared them to MD5 values recorded in SAM-FS archival storage metadata to confirm bit-level integrity.”
@@ -67,9 +67,9 @@ Failure:
 ### 3) RAWcooked migration
 **Goal:** convert DPX image sequences to preservation-friendly FFV1-in-Matroska (MKV).
 Scripts:
-- `RAWcooked/Batch.groovy`
-- `RAWcooked/RAWcooked.groovy`
-- `RAWcooked/Cleanup.groovy`
+- `04_RAWcooked/01_Batch.groovy`
+- `04_RAWcooked/02_RAWcooked.groovy`
+- `04_RAWcooked/03_Cleanup.groovy`
 
 Event:
 - `eventType=migration`
@@ -89,7 +89,7 @@ Outputs (typical):
 ### 4) (Optional) Generate checksums for outputs
 **Goal:** compute checksums for artifacts produced by processing (e.g., MKV).
 Script:
-- `Generate checksums/Generate checksums.groovy`
+- `05_Generate checksums/01_Generate checksums.groovy`
 
 ---
 

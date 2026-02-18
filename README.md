@@ -18,11 +18,11 @@ The NiFi flow is organized into logical process groups matching the folder struc
 
 ## Repo structure
 
-- `Initialize/` – create directories and initial flowfile attributes
-- `Fetch files from SAM-FS/` – gather metadata + content (tar, audio, etc.) into staging
-- `Checksum/` – verify DPX fixity after transfer using SAM-FS checksum metadata
-- `Generate checksums/` – compute checksums for outputs if needed downstream
-- `RAWcooked/` – batch conversion + cleanup, and emits migration event (RAWcooked as agent)
+- `01_Initialize/` – create directories and initial flowfile attributes
+- `02_Fetch files from SAM-FS/` – gather metadata + content (tar, audio, etc.) into staging
+- `03_Checksum/` – verify DPX fixity after transfer using SAM-FS checksum metadata
+- `05_Generate checksums/` – compute checksums for outputs if needed downstream
+- `04_RAWcooked/` – batch conversion + cleanup, and emits migration event (RAWcooked as agent)
 
 ## Operating assumptions
 
@@ -33,7 +33,7 @@ The NiFi flow is organized into logical process groups matching the folder struc
 ## Where to start
 
 Read:
-- `FLOW_OVERVIEW.md`
-- `ATTRIBUTES.md`
-- `EVENTS.md`
-- `OPERATIONS.md`
+- `docs/FLOW_OVERVIEW.md`
+- `docs/ATTRIBUTES.md`
+- `docs/EVENTS.md`
+- `docs/OPERATIONS.md`
