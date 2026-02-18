@@ -1,10 +1,6 @@
 import java.nio.file.*
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
-import java.time.ZoneOffset
-import java.time.format.DateTimeFormatter
-import java.time.temporal.ChronoUnit
-import java.time.Instant
 
 def ff = session.get()
 if (!ff) return
@@ -263,22 +259,10 @@ try {
     // Route + event attributes
     // ------------------------------------------------------------
     if (status == "OK") {
-        def endIsoUtc = Instant.ofEpochMilli(chkEnd)
-                .atOffset(ZoneOffset.UTC)
-                .truncatedTo(ChronoUnit.SECONDS)
-                .format(DateTimeFormatter.ISO_OFFSET_DATE_TIME)
-
-        ff = session.putAttribute(ff, "event.datetime", endIsoUtc)
-        ff = session.putAttribute(ff, "event.type", "fixity check")
-        ff = session.putAttribute(ff, "event.detail", "Fixity check after transfer: computed MD5 checksums for DPX files in the staging area and compared them to MD5 values recorded in SAM-FS archival storage metadata to confirm bit-level integrity.")
-        ff = session.putAttribute(ff, "event.outcome", "success")
-
         session.transfer(ff, REL_SUCCESS)
     } else {
         def summary = "Fixity validation failed: mismatches=${mismatches.size()}, conflicts=${duplicateConflicts.size()}, unexpected=${unexpected.size()}"
         ff = session.putAttribute(ff, "error.message", summary)
-        ff = session.putAttribute(ff, "event.type", "fixity check")
-        ff = session.putAttribute(ff, "event.outcome", "failure")
         log.error("DPX message digest validation failed for ${pkg}: mismatches=${mismatches.size()}, conflicts=${duplicateConflicts.size()}, unexpected=${unexpected.size()}")
         session.transfer(ff, REL_FAILURE)
     }
@@ -291,8 +275,6 @@ try {
     ff = session.putAttribute(ff, "checksum.durationMs", durationMs.toString())
     ff = session.putAttribute(ff, "checksum.status", "ERROR")
     ff = session.putAttribute(ff, "error.message", e.message ?: "Checksum validation error")
-    ff = session.putAttribute(ff, "event.type", "fixity check")
-    ff = session.putAttribute(ff, "event.outcome", "failure")
 
     def pkgErr = getAttr("package.name") ?: "UNKNOWN"
     log.error("Checksum validation error for ${pkgErr}: ${e.message}", e)
