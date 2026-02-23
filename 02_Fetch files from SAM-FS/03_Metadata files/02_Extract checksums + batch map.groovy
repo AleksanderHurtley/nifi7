@@ -3,7 +3,6 @@ import java.nio.file.*
 import javax.xml.parsers.DocumentBuilderFactory
 import org.w3c.dom.Element
 import groovy.xml.MarkupBuilder
-import groovy.xml.XmlUtil
 
 def ff = session.get()
 if (!ff) return
@@ -154,6 +153,7 @@ try {
   def sw = new StringWriter()
   def xml = new MarkupBuilder(sw)
   xml.setDoubleQuotes(true)
+  xml.mkp.xmlDeclaration(version: "1.0", encoding: "UTF-8")
   xml.dpxManifest(packageId: pkg, checksumAlgorithm: "MD5", createdFrom: "metadata.extract.dir") {
     batches {
       orderedBatchIds.each { String batchId ->
@@ -170,7 +170,7 @@ try {
     }
   }
 
-  def manifestXml = XmlUtil.serialize(sw.toString())
+  def manifestXml = sw.toString() + "\n"
   Files.write(manifestTmp, manifestXml.getBytes(StandardCharsets.UTF_8),
       StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.WRITE)
   try {
