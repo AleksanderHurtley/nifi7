@@ -1,4 +1,3 @@
-import groovy.json.JsonSlurper
 import java.nio.file.*
 import static java.nio.file.StandardCopyOption.*
 
@@ -16,6 +15,7 @@ try {
   def dpxPreDirStr  = getAttr("dpx.unpack.dir.pre")   // optional
   def batchesDirStr = getAttr("batches.dir")
   def metaDirStr    = getAttr("metadata.preservation.dpx.dir")
+  def manifestPathStr = getAttr("dpxmeta.manifest.path")
   def batchPreId    = getAttr("batch.pre.id")
 
   def missing = []
@@ -50,22 +50,62 @@ try {
 
   Files.createDirectories(batchesDir)
 
-  // Read batches.json
-  Path batchesJsonPath = metaDir.resolve("batches.json")
-  if (!Files.isRegularFile(batchesJsonPath)) {
-    throw new RuntimeException("batches.json not found: ${batchesJsonPath}")
+  // Read DPX manifest XML
+  Path manifestPath = manifestPathStr ? Paths.get(manifestPathStr) : metaDir.resolve("${pkg}_dpx_manifest.xml")
+  if (!Files.isRegularFile(manifestPath)) {
+    throw new RuntimeException("DPX manifest not found: ${manifestPath}")
   }
 
-  def parsed = new JsonSlurper().parse(batchesJsonPath.toFile())
-  def batchesMap = parsed?.batches
-  if (!(batchesMap instanceof Map) || batchesMap.isEmpty()) {
-    throw new RuntimeException("Invalid batches.json: missing or empty 'batches' object")
+  def xml = new groovy.xml.XmlSlurper(false, false).parse(manifestPath.toFile())
+  if ((xml.name()?.toString() ?: "") != "dpxManifest") {
+    throw new RuntimeException("Invalid DPX manifest root element (expected dpxManifest): ${manifestPath}")
+  }
+  if ((xml.@packageId?.toString() ?: "").trim() != pkg) {
+    throw new RuntimeException("DPX manifest packageId does not match package.name (${pkg}): ${manifestPath}")
+  }
+  if (((xml.@checksumAlgorithm?.toString() ?: "").trim().toUpperCase()) != "MD5") {
+    throw new RuntimeException("DPX manifest checksumAlgorithm must be MD5: ${manifestPath}")
+  }
+
+  def batchesMap = new LinkedHashMap<String, List<String>>()
+  def batchNodes = xml.batches?.batch
+  if (!batchNodes || batchNodes.size() == 0) {
+    throw new RuntimeException("Invalid DPX manifest: missing batches/batch nodes: ${manifestPath}")
+  }
+
+  batchNodes.each { b ->
+    def batchId = (b.@id?.toString() ?: "").trim()
+    if (!batchId) {
+      throw new RuntimeException("Invalid DPX manifest: batch id missing in ${manifestPath}")
+    }
+
+    def files = []
+    b.file.each { f ->
+      def name = (f.@name?.toString() ?: "").trim()
+      def md5  = (f.@md5?.toString() ?: "").trim()?.toLowerCase()
+      if (!name) {
+        throw new RuntimeException("Invalid DPX manifest: file/@name missing in batch ${batchId} (${manifestPath})")
+      }
+      if (!(md5 ==~ /[a-f0-9]{32}/)) {
+        throw new RuntimeException("Invalid DPX manifest: file/@md5 invalid for ${name} in batch ${batchId} (${manifestPath})")
+      }
+      files << name
+    }
+
+    if (files.isEmpty()) {
+      throw new RuntimeException("Batch '${batchId}' has no files in DPX manifest: ${manifestPath}")
+    }
+    batchesMap[batchId] = files
+  }
+
+  if (batchesMap.isEmpty()) {
+    throw new RuntimeException("Invalid DPX manifest: no batch entries found: ${manifestPath}")
   }
 
   // If PRE exists in mapping, require pre dir
   boolean needsPre = batchesMap.containsKey(batchPreId)
   if (needsPre && !hasPreDir) {
-    throw new RuntimeException("PRE batch present in batches.json but dpx.unpack.dir.pre is missing or not a directory: ${dpxPreDirStr ?: 'null'}")
+    throw new RuntimeException("PRE batch present in DPX manifest but dpx.unpack.dir.pre is missing or not a directory: ${dpxPreDirStr ?: 'null'}")
   }
 
   // Process batches in stable order: PRE first, then batch0001..
@@ -85,7 +125,7 @@ try {
   batchIds.each { String batchId ->
     def files = batchesMap[batchId]
     if (!(files instanceof List) || files.isEmpty()) {
-      throw new RuntimeException("Batch '${batchId}' has no files in batches.json")
+      throw new RuntimeException("Batch '${batchId}' has no files in DPX manifest")
     }
 
     Path batchDir = batchesDir.resolve(batchId)
@@ -93,7 +133,7 @@ try {
 
     Path srcBase = (batchId == batchPreId) ? dpxPreDir : dpxDir
 
-    // File order is kept exactly as in batches.json
+    // File order is kept exactly as in the XML manifest.
     files.each { Object o ->
       def fname = (o?.toString() ?: "").trim()
       if (!fname) return

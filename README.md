@@ -2,7 +2,7 @@
 
 This repository contains Groovy and Bash scripts used in an Apache NiFi flow that:
 1) transfers packages out of SAM-FS archival storage into a local staging/work area,
-2) validates fixity using checksums recorded in SAM-FS metadata (DPX/MD5),
+2) validates fixity using checksums recorded in a DPX metadata manifest XML generated from SAM-FS metadata,
 3) migrates DPX image sequences to FFV1-in-Matroska using RAWcooked,
 4) records preservation events (NDJSON) and pipeline timing stats for reporting.
 

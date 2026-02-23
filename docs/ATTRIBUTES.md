@@ -16,6 +16,9 @@ Names are case-sensitive.
   - Example: `/mnt/fs00/LB/workspace/nifi_protected`
 - `deleteDirectory`
   - Meaning: directory path used by cleanup/deletion steps (when applicable)
+- `dpxmeta.manifest.path`
+  - Meaning: absolute path to DPX manifest XML generated from metadata extraction
+  - Example: `/.../metadata/preservation/dpx/<package.name>_dpx_manifest.xml`
 
 (Additional path attributes may exist in flow; list them here as you standardize.)
 
@@ -50,6 +53,15 @@ Conventions:
 - `total.pipeline.start`, `total.pipeline.end`, `total.pipeline.duration`
 - `package.size.start`, `package.size.end`
 - `rawcooked.compression.bytes`, `rawcooked.compression.ratio` (if used)
+
+## DPX Manifest XML contract
+- Location: `metadata/preservation/dpx/<package.name>_dpx_manifest.xml`
+- Root:
+  - `<dpxManifest packageId=\"<package.name>\" checksumAlgorithm=\"MD5\" createdFrom=\"metadata.extract.dir\">`
+- Batch/file structure:
+  - `<batches><batch id=\"batchPRE|batch0001...\">`
+  - `<file name=\"<dpx file name>\" md5=\"<32 lower-case hex>\"/>`
+- File order is authoritative for downstream batch processing.
 
 ## Error reporting (recommended)
 - `error.message`

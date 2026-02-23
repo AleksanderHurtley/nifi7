@@ -43,6 +43,10 @@ Event (recommended):
 
 Notes:
 - Avoid commands like `tree/du/find` on SAM-FS if it can trigger recall/staging.
+- Metadata extraction writes a single DPX manifest:
+  - `metadata/preservation/dpx/<package.name>_dpx_manifest.xml`
+  - root: `dpxManifest`
+  - key fields: batch id, DPX file name, MD5 checksum.
 
 ---
 
@@ -50,6 +54,8 @@ Notes:
 **Goal:** confirm bit-level integrity after transfer by comparing computed MD5 against SAM-FS metadata checksums.
 Script:
 - `03_Checksum/01_Verify DPX Checksums.groovy`
+Input metadata source:
+- `dpxmeta.manifest.path` (or fallback path under `metadata.preservation.dpx.dir`)
 
 Event detail (selected):
 - “Fixity check after transfer: computed MD5 checksums for DPX files in the staging area and compared them to MD5 values recorded in SAM-FS archival storage metadata to confirm bit-level integrity.”
