@@ -10,6 +10,24 @@ import java.time.temporal.ChronoUnit
 def ff = session.get()
 if (!ff) return
 
+final String ERROR_STAGE = "fetch.metrics"
+final int ERROR_DETAILS_MAX = 2048
+
+def capDetails = { s ->
+    if (s == null) return null
+    String t = s.toString()
+    (t.length() > ERROR_DETAILS_MAX) ? t.substring(0, ERROR_DETAILS_MAX) : t
+}
+
+def setFailure = { flowFile, String message, String details = null ->
+    def out = session.putAttribute(flowFile, "error.stage", ERROR_STAGE)
+    out = session.putAttribute(out, "error.message", message ?: "Fetch metrics calculation failed")
+    if (details != null && details.toString().trim()) {
+        out = session.putAttribute(out, "error.details", capDetails(details))
+    }
+    return out
+}
+
 try {
     // ------------------------------------------------------------
     // FETCH END AND DURATION
@@ -78,6 +96,7 @@ try {
     ff = session.putAttribute(ff, "fetch.duration", "-1")
     ff = session.putAttribute(ff, "package.size.start", "-1")
     ff = session.putAttribute(ff, "fetch.error", e.message)
+    ff = setFailure(ff, e.message ?: "Fetch metrics calculation failed", e.toString())
 
     session.transfer(ff, REL_FAILURE)
 }

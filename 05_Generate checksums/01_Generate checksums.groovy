@@ -10,8 +10,26 @@ import java.time.Instant
 def ff = session.get()
 if (!ff) return
 
+final String ERROR_STAGE = "outputs.checksum.generate"
+final int ERROR_DETAILS_MAX = 2048
+
 final String ALG = "MD5"
 final String OUT_FILE_NAME = "checksums.md5"
+
+def capDetails = { s ->
+  if (s == null) return null
+  String t = s.toString()
+  (t.length() > ERROR_DETAILS_MAX) ? t.substring(0, ERROR_DETAILS_MAX) : t
+}
+
+def setFailure = { flowFile, String message, String details = null ->
+  def out = session.putAttribute(flowFile, "error.stage", ERROR_STAGE)
+  out = session.putAttribute(out, "error.message", message ?: "Checksum generation failed")
+  if (details != null && details.toString().trim()) {
+    out = session.putAttribute(out, "error.details", capDetails(details))
+  }
+  return out
+}
 
 def isoUtcSecondsFromEpochMs = { long epochMs ->
   Instant.ofEpochMilli(epochMs)
@@ -29,6 +47,7 @@ def fail = { String msg, String outcomeDetail ->
   long nowMs = System.currentTimeMillis()
   ff = session.putAttribute(ff, "checksums.md5.status", "FAIL")
   ff = session.putAttribute(ff, "checksums.md5.error", msg)
+  ff = setFailure(ff, msg, outcomeDetail)
 
   session.transfer(ff, REL_FAILURE)
 }
@@ -195,6 +214,7 @@ try {
   ff = session.putAttribute(ff, "checksums.md5.status", "ERROR")
   ff = session.putAttribute(ff, "checksums.md5.durationMs", String.valueOf(durationMs))
   ff = session.putAttribute(ff, "checksums.md5.error", e.toString())
+  ff = setFailure(ff, e.message ?: "Checksum generation failed", e.toString())
   
   session.transfer(ff, REL_FAILURE)
 }

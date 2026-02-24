@@ -7,7 +7,8 @@
 
 ## Standard failure attributes (recommended)
 - `error.message` (short)
-- `error.details` (optional, longer)
+- `error.details` (optional, longer, cap at 2048 characters)
+- `error.stage` (dot-notation source, e.g. `fetch.tar.untar`, `checksum.verify`)
 - `event.outcome` = `failure`
 - `event.detail` updated to include the reason (when the event itself should exist)
 - Route FlowFile to REL_FAILURE

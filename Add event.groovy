@@ -12,6 +12,24 @@ import java.time.temporal.ChronoUnit
 def ff = session.get()
 if (!ff) return
 
+final String ERROR_STAGE = "event.append"
+final int ERROR_DETAILS_MAX = 2048
+
+def capDetails = { s ->
+    if (s == null) return null
+    String t = s.toString()
+    (t.length() > ERROR_DETAILS_MAX) ? t.substring(0, ERROR_DETAILS_MAX) : t
+}
+
+def setFailure = { flowFile, String message, String details = null ->
+    def out = session.putAttribute(flowFile, "error.stage", ERROR_STAGE)
+    out = session.putAttribute(out, "error.message", message ?: "Event append failed")
+    if (details != null && details.toString().trim()) {
+        out = session.putAttribute(out, "error.details", capDetails(details))
+    }
+    return out
+}
+
 def isBlank = { v -> v == null || v.toString().trim().isEmpty() }
 
 // ----------------------------------------------------------------------
@@ -61,8 +79,10 @@ def missing = []
 }
 
 if (!missing.isEmpty()) {
+    def msg = "Missing attributes: ${missing.join(', ')}"
     ff = session.putAttribute(ff, 'events.append.status', 'FAIL')
-    ff = session.putAttribute(ff, 'events.append.error', "Missing attributes: ${missing.join(', ')}")
+    ff = session.putAttribute(ff, 'events.append.error', msg)
+    ff = setFailure(ff, msg)
     session.transfer(ff, REL_FAILURE)
     return
 }
@@ -70,22 +90,28 @@ if (!missing.isEmpty()) {
 Path eventsPath = Paths.get(eventsPathStr.trim())
 
 if (!Files.exists(eventsPath)) {
+    def msg = "Events file not found: ${eventsPath}"
     ff = session.putAttribute(ff, 'events.append.status', 'FAIL')
-    ff = session.putAttribute(ff, 'events.append.error', "Events file not found: ${eventsPath}")
+    ff = session.putAttribute(ff, 'events.append.error', msg)
+    ff = setFailure(ff, msg)
     session.transfer(ff, REL_FAILURE)
     return
 }
 
 if (!Files.isRegularFile(eventsPath)) {
+    def msg = "Events path is not a file: ${eventsPath}"
     ff = session.putAttribute(ff, 'events.append.status', 'FAIL')
-    ff = session.putAttribute(ff, 'events.append.error', "Events path is not a file: ${eventsPath}")
+    ff = session.putAttribute(ff, 'events.append.error', msg)
+    ff = setFailure(ff, msg)
     session.transfer(ff, REL_FAILURE)
     return
 }
 
 if (!Files.isWritable(eventsPath)) {
+    def msg = "Events file is not writable: ${eventsPath}"
     ff = session.putAttribute(ff, 'events.append.status', 'FAIL')
-    ff = session.putAttribute(ff, 'events.append.error', "Events file is not writable: ${eventsPath}")
+    ff = session.putAttribute(ff, 'events.append.error', msg)
+    ff = setFailure(ff, msg)
     session.transfer(ff, REL_FAILURE)
     return
 }
@@ -147,5 +173,6 @@ try {
 } catch (Exception e) {
     ff = session.putAttribute(ff, 'events.append.status', 'FAIL')
     ff = session.putAttribute(ff, 'events.append.error', e.toString())
+    ff = setFailure(ff, e.message ?: "Event append failed", e.toString())
     session.transfer(ff, REL_FAILURE)
 }

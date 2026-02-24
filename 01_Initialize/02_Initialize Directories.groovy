@@ -4,6 +4,24 @@ import static java.nio.file.StandardOpenOption.*
 def ff = session.get()
 if (!ff) return
 
+final String ERROR_STAGE = "initialize.directories"
+final int ERROR_DETAILS_MAX = 2048
+
+def capDetails = { s ->
+  if (s == null) return null
+  String t = s.toString()
+  (t.length() > ERROR_DETAILS_MAX) ? t.substring(0, ERROR_DETAILS_MAX) : t
+}
+
+def setFailure = { flowFile, String message, String details = null ->
+  def out = session.putAttribute(flowFile, "error.stage", ERROR_STAGE)
+  out = session.putAttribute(out, "error.message", message ?: "Directory initialization failed")
+  if (details != null && details.toString().trim()) {
+    out = session.putAttribute(out, "error.details", capDetails(details))
+  }
+  return out
+}
+
 def getAttr = { String k ->
   def v = ff.getAttribute(k)
   (v && v.trim()) ? v.trim() : null
@@ -42,8 +60,10 @@ def missing = []
 ].each { if (!it[1]) missing << it[0] }
 
 if (!missing.isEmpty()) {
+  def msg = "Missing attributes: ${missing.join(', ')}"
   ff = session.putAttribute(ff, "setup.status", "FAIL")
-  ff = session.putAttribute(ff, "setup.error", "Missing attributes: ${missing.join(', ')}")
+  ff = session.putAttribute(ff, "setup.error", msg)
+  ff = setFailure(ff, msg)
   session.transfer(ff, REL_FAILURE)
   return
 }
@@ -82,5 +102,6 @@ try {
 } catch (Exception e) {
   ff = session.putAttribute(ff, "setup.status", "FAIL")
   ff = session.putAttribute(ff, "setup.error", e.toString())
+  ff = setFailure(ff, e.message ?: "Directory initialization failed", e.toString())
   session.transfer(ff, REL_FAILURE)
 }

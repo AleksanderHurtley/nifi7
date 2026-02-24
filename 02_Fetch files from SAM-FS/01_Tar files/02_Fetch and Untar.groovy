@@ -8,6 +8,24 @@ import java.nio.file.StandardCopyOption
 def ff = session.get()
 if (!ff) return
 
+final String ERROR_STAGE = "fetch.tar.untar"
+final int ERROR_DETAILS_MAX = 2048
+
+def capDetails = { s ->
+    if (s == null) return null
+    String t = s.toString()
+    (t.length() > ERROR_DETAILS_MAX) ? t.substring(0, ERROR_DETAILS_MAX) : t
+}
+
+def setFailure = { flowFile, String message, String details = null ->
+    def out = session.putAttribute(flowFile, "error.stage", ERROR_STAGE)
+    out = session.putAttribute(out, "error.message", message ?: "Untar failure")
+    if (details != null && details.toString().trim()) {
+        out = session.putAttribute(out, "error.details", capDetails(details))
+    }
+    return out
+}
+
 try {
     // ------------------------------------------------------------
     // Read required attributes
@@ -89,6 +107,9 @@ try {
 
         ff = session.putAttribute(ff, "tar.exit.code", rc.toString())
         ff = session.putAttribute(ff, "tar.error", "true")
+        ff = setFailure(ff,
+            "TAR extraction failed for ${new File(tarPath).getName()} (exit=${rc})",
+            "exitCode=${rc};tar=${tarPath};target=${targetDir};output=${output ?: ''}")
         session.transfer(ff, REL_FAILURE)
         return
     }
@@ -99,5 +120,6 @@ try {
 
 } catch (Exception e) {
     ff = session.putAttribute(ff, "tar.error", e.message ?: e.toString())
+    ff = setFailure(ff, e.message ?: "Untar failed", e.toString())
     session.transfer(ff, REL_FAILURE)
 }

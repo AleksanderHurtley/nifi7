@@ -3,6 +3,24 @@ import java.nio.file.*
 def ff = session.get()
 if (!ff) return
 
+final String ERROR_STAGE = "fetch.tar.fragments"
+final int ERROR_DETAILS_MAX = 2048
+
+def capDetails = { s ->
+    if (s == null) return null
+    String t = s.toString()
+    (t.length() > ERROR_DETAILS_MAX) ? t.substring(0, ERROR_DETAILS_MAX) : t
+}
+
+def setFailure = { flowFile, String message, String details = null ->
+    def out = session.putAttribute(flowFile, "error.stage", ERROR_STAGE)
+    out = session.putAttribute(out, "error.message", message ?: "TAR fragment discovery failed")
+    if (details != null && details.toString().trim()) {
+        out = session.putAttribute(out, "error.details", capDetails(details))
+    }
+    return out
+}
+
 try {
     def pkgPath = ff.getAttribute("package.path")
     def pkgName = ff.getAttribute("package.name")
@@ -60,5 +78,6 @@ try {
 
 } catch (Exception e) {
     log.error("Error in TAR listing: ${e.message}", e)
+    ff = setFailure(ff, e.message ?: "TAR fragment discovery failed", e.toString())
     session.transfer(ff, REL_FAILURE)
 }

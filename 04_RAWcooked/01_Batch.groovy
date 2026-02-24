@@ -4,6 +4,24 @@ import static java.nio.file.StandardCopyOption.*
 def ff = session.get()
 if (!ff) return
 
+final String ERROR_STAGE = "rawcooked.batch"
+final int ERROR_DETAILS_MAX = 2048
+
+def capDetails = { s ->
+  if (s == null) return null
+  String t = s.toString()
+  (t.length() > ERROR_DETAILS_MAX) ? t.substring(0, ERROR_DETAILS_MAX) : t
+}
+
+def setFailure = { flowFile, String message, String details = null ->
+  def out = session.putAttribute(flowFile, "error.stage", ERROR_STAGE)
+  out = session.putAttribute(out, "error.message", message ?: "RAWcooked batch preparation failed")
+  if (details != null && details.toString().trim()) {
+    out = session.putAttribute(out, "error.details", capDetails(details))
+  }
+  return out
+}
+
 def getAttr = { String k ->
   def v = ff.getAttribute(k)
   (v && v.trim()) ? v.trim() : null
@@ -28,8 +46,10 @@ try {
   ].each { if (!it[1]) missing << it[0] }
 
   if (!missing.isEmpty()) {
+    def msg = "Missing attributes: ${missing.join(', ')}"
     ff = session.putAttribute(ff, "batch.status", "FAIL")
-    ff = session.putAttribute(ff, "batch.error", "Missing attributes: ${missing.join(', ')}")
+    ff = session.putAttribute(ff, "batch.error", msg)
+    ff = setFailure(ff, msg)
     session.transfer(ff, REL_FAILURE)
     return
   }
@@ -166,5 +186,6 @@ try {
   log.error("Batch folder creation error: ${e.message}", e)
   ff = session.putAttribute(ff, "batch.status", "FAIL")
   ff = session.putAttribute(ff, "batch.error", (e.message ?: e.toString()))
+  ff = setFailure(ff, e.message ?: "RAWcooked batch preparation failed", e.toString())
   session.transfer(ff, REL_FAILURE)
 }

@@ -4,6 +4,24 @@ import java.security.MessageDigest
 def ff = session.get()
 if (!ff) return
 
+final String ERROR_STAGE = "checksum.verify"
+final int ERROR_DETAILS_MAX = 2048
+
+def capDetails = { s ->
+    if (s == null) return null
+    String t = s.toString()
+    (t.length() > ERROR_DETAILS_MAX) ? t.substring(0, ERROR_DETAILS_MAX) : t
+}
+
+def setFailure = { flowFile, String message, String details = null ->
+    def out = session.putAttribute(flowFile, "error.stage", ERROR_STAGE)
+    out = session.putAttribute(out, "error.message", message ?: "Checksum validation error")
+    if (details != null && details.toString().trim()) {
+        out = session.putAttribute(out, "error.details", capDetails(details))
+    }
+    return out
+}
+
 def getAttr = { String k ->
     def v = ff.getAttribute(k)
     (v && v.trim()) ? v.trim() : null
@@ -231,7 +249,8 @@ try {
         session.transfer(ff, REL_SUCCESS)
     } else {
         def summary = "Fixity validation failed: mismatches=${mismatches.size()}, conflicts=${duplicateConflicts.size()}, unexpected=${unexpected.size()}"
-        ff = session.putAttribute(ff, "error.message", summary)
+        ff = setFailure(ff, summary,
+            "source=${sourceKind};expected=${expected.size()};checked=${checked};mismatches=${mismatches.size()};conflicts=${duplicateConflicts.size()};unexpected=${unexpected.size()}")
         log.error("DPX message digest validation failed for ${pkg}: mismatches=${mismatches.size()}, conflicts=${duplicateConflicts.size()}, unexpected=${unexpected.size()}")
         session.transfer(ff, REL_FAILURE)
     }
@@ -243,7 +262,7 @@ try {
     ff = session.putAttribute(ff, "checksum.end", chkEnd.toString())
     ff = session.putAttribute(ff, "checksum.durationMs", durationMs.toString())
     ff = session.putAttribute(ff, "checksum.status", "ERROR")
-    ff = session.putAttribute(ff, "error.message", e.message ?: "Checksum validation error")
+    ff = setFailure(ff, e.message ?: "Checksum validation error", e.toString())
 
     def pkgErr = getAttr("package.name") ?: "UNKNOWN"
     log.error("Checksum validation error for ${pkgErr}: ${e.message}", e)

@@ -1,6 +1,24 @@
 def ff = session.get()
 if (!ff) return
 
+final String ERROR_STAGE = "initialize.flowfile"
+final int ERROR_DETAILS_MAX = 2048
+
+def capDetails = { s ->
+    if (s == null) return null
+    String t = s.toString()
+    (t.length() > ERROR_DETAILS_MAX) ? t.substring(0, ERROR_DETAILS_MAX) : t
+}
+
+def setFailure = { flowFile, String message, String details = null ->
+    def out = session.putAttribute(flowFile, "error.stage", ERROR_STAGE)
+    out = session.putAttribute(out, "error.message", message ?: "Initialization failed")
+    if (details != null && details.toString().trim()) {
+        out = session.putAttribute(out, "error.details", capDetails(details))
+    }
+    return out
+}
+
 try {
     // ------------------------------------------------------------
     // READ INPUT ATTRIBUTES
@@ -10,6 +28,7 @@ try {
 
     if (!packageName || !packagePath) {
         log.error("Missing package.name or package.path attributes")
+        ff = setFailure(ff, "Missing package.name or package.path attributes")
         session.transfer(ff, REL_FAILURE)
         return
     }
@@ -108,5 +127,6 @@ try {
 
 } catch (Exception e) {
     log.error("Error configuring package paths", e)
+    ff = setFailure(ff, e.message ?: "Error configuring package paths", e.toString())
     session.transfer(ff, REL_FAILURE)
 }

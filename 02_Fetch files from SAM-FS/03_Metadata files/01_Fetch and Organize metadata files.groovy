@@ -4,6 +4,24 @@ import java.nio.charset.StandardCharsets
 def ff = session.get()
 if (!ff) return
 
+final String ERROR_STAGE = "fetch.metadata.organize"
+final int ERROR_DETAILS_MAX = 2048
+
+def capDetails = { s ->
+  if (s == null) return null
+  String t = s.toString()
+  (t.length() > ERROR_DETAILS_MAX) ? t.substring(0, ERROR_DETAILS_MAX) : t
+}
+
+def setFailure = { flowFile, String message, String details = null ->
+  def out = session.putAttribute(flowFile, "error.stage", ERROR_STAGE)
+  out = session.putAttribute(out, "error.message", message ?: "Metadata organization failed")
+  if (details != null && details.toString().trim()) {
+    out = session.putAttribute(out, "error.details", capDetails(details))
+  }
+  return out
+}
+
 def pkg                = ff.getAttribute('package.name')
 def sourceDirStr       = ff.getAttribute('source.dir')
 def repDirStr          = ff.getAttribute('rep.dir')
@@ -31,16 +49,20 @@ def missing = []
 }
 
 if (!missing.isEmpty()) {
+  def msg = "Missing attributes: ${missing.join(',')}"
   ff = session.putAttribute(ff, 'metadata.org.status', 'FAIL')
-  ff = session.putAttribute(ff, 'metadata.org.error', "Missing attributes: ${missing.join(',')}")
+  ff = session.putAttribute(ff, 'metadata.org.error', msg)
+  ff = setFailure(ff, msg)
   session.transfer(ff, REL_FAILURE)
   return
 }
 
 Path sourceDir = Paths.get(sourceDirStr)
 if (!Files.isDirectory(sourceDir)) {
+  def msg = "Source dir not found: ${sourceDirStr}"
   ff = session.putAttribute(ff, 'metadata.org.status', 'FAIL')
-  ff = session.putAttribute(ff, 'metadata.org.error', "Source dir not found: ${sourceDirStr}")
+  ff = session.putAttribute(ff, 'metadata.org.error', msg)
+  ff = setFailure(ff, msg)
   session.transfer(ff, REL_FAILURE)
   return
 }
@@ -263,5 +285,6 @@ try {
 } catch (Exception e) {
   ff = session.putAttribute(ff, 'metadata.org.status', 'FAIL')
   ff = session.putAttribute(ff, 'metadata.org.error', e.toString())
+  ff = setFailure(ff, e.message ?: "Metadata organization failed", e.toString())
   session.transfer(ff, REL_FAILURE)
 }

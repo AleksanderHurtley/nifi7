@@ -68,6 +68,10 @@ Conventions:
   - Short, user-readable cause (path missing, mismatch, command failed, etc.)
 - `error.details` (optional)
   - Longer context (first mismatch, counts, stderr excerpt)
+  - Recommended cap: 2048 characters
+- `error.stage`
+  - Dot-notation stage source for failures
+  - Example: `fetch.tar.untar`, `checksum.verify`, `rawcooked.run`
 - `events.append.status`
   - `OK` / `FAIL` from the add-event appender
 - `events.append.error`
