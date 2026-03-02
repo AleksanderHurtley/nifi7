@@ -76,3 +76,33 @@ Conventions:
   - `OK` / `FAIL` from the add-event appender
 - `events.append.error`
   - Error text if append fails
+
+## Delivery margin / buffer control (DPS-2)
+- `error.buffer.capacity`
+  - Maximum retained failures for manual review (default `2` if missing)
+- `error.buffer.action`
+  - Gate decision: `retain` or `autocleanup`
+- `error.buffer.slot`
+  - Reserved slot id when retained (for example `1`, `2`)
+- `error.buffer.reason`
+  - Human-readable decision reason from the gate
+- `error.buffer.count`
+  - Number of occupied slots at decision time
+- `error.autocleaned`
+  - `true` if package is auto-cleaned because buffer is full, else `false`
+- `error.buffer.release.released`
+  - `true` if one or more slots were released for the package
+- `error.buffer.release.slots`
+  - Comma-separated released slot ids (empty if none)
+
+## Package cleanup attributes
+- `cleanup.package.status`
+  - `OK` or `FAIL`
+- `cleanup.package.deleted.any`
+  - `true` if at least one package directory was removed
+- `cleanup.package.exists.payloads|transfer|work`
+  - Whether target package directory existed in each base path
+- `cleanup.package.deleted.payloads|transfer|work`
+  - Whether each target package directory was deleted
+- `cleanup.package.path.payloads|transfer|work`
+  - Resolved target path used for each cleanup root

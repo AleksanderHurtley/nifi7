@@ -30,3 +30,11 @@ Prefer:
   - `event.outcome=failure`
   - `event.detail` describing what failed and what was being validated/converted
   - `event.outcomeDetail` containing a short machine-readable hint (optional)
+
+## Delivery margin buffer (DPS-2)
+- Retain up to 2 failed packages in a manual review queue (configurable via `error.buffer.capacity`)
+- When the margin is full, mark next failure for auto-cleanup:
+  - `error.buffer.action=autocleanup`
+  - `error.autocleaned=true`
+- Keep standard failure attributes (`error.stage`, `error.message`, `error.details`) for both retained and auto-cleaned failures
+- Ensure logs and DB messages clearly indicate when auto-cleanup happened due to full margin

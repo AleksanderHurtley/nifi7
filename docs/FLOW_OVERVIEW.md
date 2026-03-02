@@ -105,6 +105,32 @@ Script:
 
 ---
 
+### 6) DPS-2 delivery margin control
+**Goal:** avoid uncontrolled backpressure on large failures while preserving a small manual review buffer.
+Scripts:
+- `06_dps-2/01_Failure Buffer Gate.groovy`
+- `06_dps-2/02_Release Buffer Slot.groovy`
+
+Behavior:
+- Delivery failures pass through a buffer gate that marks:
+  - `error.buffer.action=retain` (manual review queue)
+  - `error.buffer.action=autocleanup` (send directly to cleanup/failure finalization)
+- Retain up to 2 failed packages by default (`error.buffer.capacity`, default `2`)
+- On manual retry/discard, release slot ownership before continuing
+
+---
+
+### 7) Package cleanup
+**Goal:** remove large package directories from local disk when cleanup is required.
+Script:
+- `07_Package cleanup/01_Delete package directories.groovy`
+
+Behavior:
+- Removes `/fc1/payloads/<package.name>`, `/fc1/transfer/<package.name>`, `/fc1/work/<package.name>`
+- Uses strict path guardrails and standard `error.*` handling
+
+---
+
 ## Event emission
 Events are appended as NDJSON via a shared “add event” script (not listed here).
 Scripts set attributes:
