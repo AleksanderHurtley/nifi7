@@ -109,14 +109,16 @@ Script:
 **Goal:** avoid uncontrolled backpressure on large failures while preserving a small manual review buffer.
 Scripts:
 - `06_dps-2/01_Failure Buffer Gate.groovy`
-- `06_dps-2/02_Release Buffer Slot.groovy`
 
 Behavior:
 - Delivery failures pass through a buffer gate that marks:
   - `error.buffer.action=retain` (manual review queue)
   - `error.buffer.action=autocleanup` (send directly to cleanup/failure finalization)
 - Retain up to 2 failed packages by default (`error.buffer.capacity`, default `2`)
-- On manual retry/discard, release slot ownership before continuing
+- Use one shared processor instance for both operations:
+  - `error.buffer.op=acquire` on failure path (default if missing)
+  - `error.buffer.op=release` on manual retry/discard path
+- On release, slot ownership for `package.name` is removed before continuing
 
 ---
 

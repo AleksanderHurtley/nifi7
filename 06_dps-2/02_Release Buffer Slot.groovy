@@ -1,3 +1,6 @@
+// Deprecated: use 01_Failure Buffer Gate.groovy with error.buffer.op=release
+// in the same ExecuteScript processor instance used for acquire.
+
 import org.apache.nifi.components.state.Scope
 
 def ff = session.get()

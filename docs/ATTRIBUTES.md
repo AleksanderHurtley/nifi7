@@ -80,6 +80,8 @@ Conventions:
 ## Delivery margin / buffer control (DPS-2)
 - `error.buffer.capacity`
   - Maximum retained failures for manual review (default `2` if missing)
+- `error.buffer.op`
+  - Operation for buffer manager: `acquire` (default) or `release`
 - `error.buffer.action`
   - Gate decision: `retain` or `autocleanup`
 - `error.buffer.slot`

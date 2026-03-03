@@ -33,6 +33,9 @@ Prefer:
 
 ## Delivery margin buffer (DPS-2)
 - Retain up to 2 failed packages in a manual review queue (configurable via `error.buffer.capacity`)
+- Use one shared buffer-manager processor instance for both actions:
+  - `error.buffer.op=acquire` (reserve/decide retain vs autocleanup)
+  - `error.buffer.op=release` (free slot on manual retry/discard)
 - When the margin is full, mark next failure for auto-cleanup:
   - `error.buffer.action=autocleanup`
   - `error.autocleaned=true`
