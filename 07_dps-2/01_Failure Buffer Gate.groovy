@@ -4,6 +4,23 @@ def ff = session.get()
 if (!ff) return
 
 final Scope STATE_SCOPE = Scope.LOCAL
+final String ERROR_STAGE = "dps2.buffer.gate"
+final int ERROR_DETAILS_MAX = 2048
+
+def capDetails = { s ->
+    if (s == null) return null
+    String t = s.toString()
+    (t.length() > ERROR_DETAILS_MAX) ? t.substring(0, ERROR_DETAILS_MAX) : t
+}
+
+def setFailure = { flowFile, String message, String details = null ->
+    def out = session.putAttribute(flowFile, "error.stage", ERROR_STAGE)
+    out = session.putAttribute(out, "error.message", message ?: "Buffer gate failure")
+    if (details != null && details.toString().trim()) {
+        out = session.putAttribute(out, "error.details", capDetails(details))
+    }
+    return out
+}
 
 def getAttr = { String k ->
     def v = ff.getAttribute(k)
@@ -21,8 +38,9 @@ def occupiedCount = { Map<String, String> st, int cap ->
 try {
     def pkg = getAttr("package.name")
     if (!pkg) {
+        def msg = "Missing required attribute: package.name"
         ff = session.putAttribute(ff, "buffer.gate.status", "FAIL")
-        ff = session.putAttribute(ff, "buffer.gate.error", "Missing required attribute: package.name")
+        ff = setFailure(ff, msg)
         session.transfer(ff, REL_FAILURE)
         return
     }
@@ -35,8 +53,9 @@ try {
 
     String op = (getAttr("error.buffer.op") ?: "acquire").toLowerCase()
     if (!(op in ["acquire", "release"])) {
+        def msg = "Invalid error.buffer.op: ${op}. Expected acquire or release"
         ff = session.putAttribute(ff, "buffer.gate.status", "FAIL")
-        ff = session.putAttribute(ff, "buffer.gate.error", "Invalid error.buffer.op: ${op}. Expected acquire or release")
+        ff = setFailure(ff, msg)
         session.transfer(ff, REL_FAILURE)
         return
     }
@@ -48,8 +67,9 @@ try {
     if (op == "release") {
         String manualAction = (getAttr("error.buffer.manual_action") ?: "retry").toLowerCase()
         if (!(manualAction in ["retry", "failure"])) {
+            def msg = "Invalid error.buffer.manual_action: ${manualAction}. Expected retry or failure"
             ff = session.putAttribute(ff, "buffer.gate.status", "FAIL")
-            ff = session.putAttribute(ff, "buffer.gate.error", "Invalid error.buffer.manual_action: ${manualAction}. Expected retry or failure")
+            ff = setFailure(ff, msg)
             session.transfer(ff, REL_FAILURE)
             return
         }
@@ -140,6 +160,6 @@ try {
 
 } catch (Exception e) {
     ff = session.putAttribute(ff, "buffer.gate.status", "FAIL")
-    ff = session.putAttribute(ff, "buffer.gate.error", e.toString())
+    ff = setFailure(ff, e.message ?: "Buffer gate failure", e.toString())
     session.transfer(ff, REL_FAILURE)
 }

@@ -87,11 +87,7 @@ try {
     // ------------------------------------------------------------
     // Build TAR command
     // ------------------------------------------------------------
-    List<String> cmd = [
-        "bash",
-        "-c",
-        "tar -xf \"${tarPath}\" -C \"${targetDir}\""
-    ].collect { it.toString() }
+    List<String> cmd = ["tar", "-xf", tarPath, "-C", targetDir]
 
     def pb = new ProcessBuilder(cmd)
     pb.redirectErrorStream(true)
@@ -119,7 +115,7 @@ try {
     session.transfer(ff, REL_SUCCESS)
 
 } catch (Exception e) {
-    ff = session.putAttribute(ff, "tar.error", e.message ?: e.toString())
+    ff = session.putAttribute(ff, "tar.error", "true")
     ff = setFailure(ff, e.message ?: "Untar failed", e.toString())
     session.transfer(ff, REL_FAILURE)
 }

@@ -16,6 +16,7 @@ Outputs (typical):
 - `workDirectoryRoot` (parameter context)
 - derived local paths for staging, rawcooked output, metadata output
 - event payload path (NDJSON): `events.payload.path`
+- `total.pipeline.start` (epoch ms — pipeline-wide timing anchor)
 
 Failure:
 - route to failure, set `error.message`
@@ -32,14 +33,12 @@ Scripts (by content type):
 - Tar:
   - `02_Fetch files from SAM-FS/01_Tar files/01_Tar fragments.groovy`
   - `02_Fetch files from SAM-FS/01_Tar files/02_Fetch and Untar.groovy`
-- Audio:
-  - `02_Fetch files from SAM-FS/02_Audio files/01_Copy audio files.bash`
 - Timing/stat updates:
   - `02_Fetch files from SAM-FS/04_Set fetch.end, fetch.duration, package.size.start.groovy`
 
 Event (recommended):
 - `eventType=transfer`
-- Detail: “Package transferred from SAM-FS archival storage to local staging storage for preservation processing.”
+- Detail: "Package transferred from SAM-FS archival storage to local staging storage for preservation processing."
 
 Notes:
 - Avoid commands like `tree/du/find` on SAM-FS if it can trigger recall/staging.
@@ -47,6 +46,7 @@ Notes:
   - `metadata/preservation/dpx/<package.name>_dpx_manifest.xml`
   - root: `dpxManifest`
   - key fields: batch id, DPX file name, MD5 checksum.
+- Audio files are fetched outside this repo (e.g. rsync/copy step in the NiFi flow).
 
 ---
 
@@ -58,10 +58,10 @@ Input metadata source:
 - `dpxmeta.manifest.path` (or fallback path under `metadata.preservation.dpx.dir`)
 
 Event detail (selected):
-- “Fixity check after transfer: computed MD5 checksums for DPX files in the staging area and compared them to MD5 values recorded in SAM-FS archival storage metadata to confirm bit-level integrity.”
+- "Fixity check after transfer: computed MD5 checksums for DPX files in the staging area and compared them to MD5 values recorded in SAM-FS archival storage metadata to confirm bit-level integrity."
 
 Outputs (typical):
-- `checksum.start`, `checksum.end`, `checksum.duration`
+- `checksum.start`, `checksum.end`, `checksum.durationMs`
 - set event fields for the add-event appender
 
 Failure:
@@ -71,9 +71,18 @@ Failure:
 ---
 
 ### 3) Catalog
-**Goal:** catalog processing.
+**Goal:** build the DPS submission payload from package metadata.
 Scripts:
-- (To be added)
+- `04_Catalog/01_Create submission body.groovy`
+
+Behaviour:
+- Searches for a `_WORK_*.xml` file in `metadata.descriptive.dir` (and `transfer.dir/metadata/descriptive` as fallback)
+- Extracts title (prefers `Originaltittel`); falls back to `"Unknown Title"` if no XML found
+- Writes a JSON submission payload to `submission.payload.path`
+
+Outputs:
+- `submission.payload.status` (`OK` / `FAIL`)
+- `submission.payload.path` (confirmed)
 
 ---
 
@@ -87,28 +96,38 @@ Scripts:
 Event:
 - `eventType=migration`
 - Agent: RAWcooked (with version)
-- Detail: “DPX image sequences converted to FFV1 video wrapped in a Matroska (MKV) container for preservation storage.”
+- Detail: "DPX image sequences converted to FFV1 video wrapped in a Matroska (MKV) container for preservation storage."
 
 Outcome detail:
 - command + ffmpeg/ffprobe versions + container/codec/profile (probe results)
 
 Outputs (typical):
-- `rawcooked.start`, `rawcooked.end`, `rawcooked.duration`
-- compression bytes/ratio (if computed)
-- output file sizes/paths
+- `rawcooked.start`, `rawcooked.end`, `rawcooked.durationMs`
+- `rawcooked.total.input.bytes`, `rawcooked.total.output.bytes`, `rawcooked.total.compression_ratio`
+- `rawcooked.batches.count`, `rawcooked.batches.names`, `rawcooked.outputs.names`
 
 ---
 
-### 5) (Optional) Generate checksums for outputs
-**Goal:** compute checksums for artifacts produced by processing (e.g., MKV).
+### 5) Generate checksums for outputs
+**Goal:** compute MD5 checksums for all files under `metadata/` and `representations/` in the work directory.
 Script:
 - `06_Generate checksums/01_Generate checksums.groovy`
 
+Outputs:
+- `checksums.md5.path` — path to written checksum file
+- `checksums.md5.count`, `checksums.md5.totalBytes`, `checksums.md5.durationMs`
+- `checksums.md5.scope` = `metadata+representations`
+
+Note: `checksums.md5.totalBytes` is used downstream as `package.size.end`.
+
 ---
 
-### 6) Database update / finalization
-**Goal:** record timings and stats into DI_PARAMETER (or equivalent reporting table).
-(Implemented outside this repo or as a SQL processor configuration.)
+### 6) EARK packaging + DPS delivery
+**Goal:** package the representation as an EARK-compliant AIP and deliver to DPS.
+(Implemented outside this repo in the NiFi flow.)
+
+Outputs expected on the flowfile after this stage:
+- `eark.start`, `eark.end`, `eark.duration`
 
 ---
 
@@ -129,10 +148,36 @@ Behavior:
 
 ---
 
-### 8) Package cleanup
+### 8) Finalize stats
+**Goal:** compute end-of-pipeline timing totals and output size, then record all stats into the database.
+Scripts:
+- `08_Finalize stats/01_Finalize stats.groovy`
+- `08_Finalize stats/02_PutSQL.sql` (PutSQL processor configuration)
+
+Behavior:
+- Sets `total.pipeline.end` (epoch ms)
+- Computes `total.pipeline.duration = end - start`
+- Sets `package.size.end` from `checksums.md5.totalBytes`
+
+Stats written to `DI_PARAMETER`:
+
+| Parameter name | Source attribute |
+|---|---|
+| `fetch.start/end/duration` | set during fetch stage |
+| `checksum.start/end/duration` | `checksum.durationMs` |
+| `rawcooked.start/end/duration` | `rawcooked.durationMs` |
+| `rawcooked.input/output.bytes` | `rawcooked.total.input/output.bytes` |
+| `rawcooked.compression.ratio` | `rawcooked.total.compression_ratio` |
+| `eark.start/end/duration` | set outside this repo |
+| `pipeline.start/end/duration` | `total.pipeline.*` |
+| `package.size.start/end` | fetch stage / `checksums.md5.totalBytes` |
+
+---
+
+### 9) Package cleanup
 **Goal:** remove large package directories from local disk when cleanup is required.
 Script:
-- `08_Package cleanup/01_Delete package directories.groovy`
+- `09_Package cleanup/01_Delete package directories.groovy`
 
 Behavior:
 - Removes `/fc1/payloads/<package.name>`, `/fc1/transfer/<package.name>`, `/fc1/work/<package.name>`
@@ -141,7 +186,7 @@ Behavior:
 ---
 
 ## Event emission
-Events are appended as NDJSON via a shared “add event” script (not listed here).
+Events are appended as NDJSON via a shared "add event" script (not listed here).
 Scripts set attributes:
 - `event.datetime`, `event.type`, `event.outcome`, `event.detail`, optional `event.outcomeDetail`
 - optional agent overrides: `agent.name`, `agent.type`, `agent.version`
