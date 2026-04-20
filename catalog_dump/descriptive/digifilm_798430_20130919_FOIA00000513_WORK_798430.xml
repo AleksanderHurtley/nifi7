@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?><adlibXML>
+  <recordList>
+    <record deleted="false" created="2025-07-01T16:18:54" priref="798430" modification="2025-10-27T10:50:56" selected="false">
+      <audit_notes>Merge, Håvard Oppøyen, 12-MAR-12 / Title 75227 SOLUNGEN has been merged into title 798430 Solungen</audit_notes>
+      <censor_rating>5 år</censor_rating>
+      <censor_rating.lref>5944</censor_rating.lref>
+      <check_record>
+        <value lang="neutral">U</value>
+        <value lang="0">Unverified</value>
+      </check_record>
+      <colour_type>Farger</colour_type>
+      <colour_type.lref>5942</colour_type.lref>
+      <content.genre>Animasjon, tegnefilm</content.genre>
+      <content.genre.lref>6065</content.genre.lref>
+      <dataset_name>
+        <value lang="neutral">catalogue</value>
+        <value lang="0">Audio-Visual Catalogue</value>
+        <value lang="12">AV-katalogen</value>
+      </dataset_name>
+      <duplicate_status>
+        <value lang="neutral">U</value>
+        <value lang="0">Unknown</value>
+      </duplicate_status>
+      <edit.date>2025-08-08</edit.date>
+      <edit.name>torbjorn.pedersen@nb.no</edit.name>
+      <edit.source>collect&gt;catalogue</edit.source>
+      <edit.time>23:21:44</edit.time>
+      <Alternative_number>
+        <alternative_number>47476</alternative_number>
+        <alternative_number.type>Film: NFI Identifier for Merge (Mavisnr fra NFI-basen)</alternative_number.type>
+        <alternative_number.type.lref>5983</alternative_number.type.lref>
+      </Alternative_number>
+      <Credits>
+        <credit.name>Tegnefilmcompagniet</credit.name>
+        <credit.name.lref>274260</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen/>
+        <credit.principal_role/>
+        <credit.type>Produksjon/produsent</credit.type>
+        <credit.type.lref>6018</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Larsen, Guttorm</credit.name>
+        <credit.name.lref>1038334</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen/>
+        <credit.principal_role>x</credit.principal_role>
+        <credit.type>Regissør</credit.type>
+        <credit.type.lref>6024</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Svensson, Pelle</credit.name>
+        <credit.name.lref>1058763</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen/>
+        <credit.type>Fotograf (levende bilder)</credit.type>
+        <credit.type.lref>6051</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Westford, Håkan</credit.name>
+        <credit.name.lref>1037468</credit.name.lref>
+        <credit.notes>Design</credit.notes>
+        <credit.on_screen/>
+        <credit.type>Animasjon</credit.type>
+        <credit.type.lref>6124</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Osmundsen, Mari</credit.name>
+        <credit.name.lref>274522</credit.name.lref>
+        <credit.notes>Solungen (billedbok)</credit.notes>
+        <credit.on_screen/>
+        <credit.type>Litterært forelegg</credit.type>
+        <credit.type.lref>6072</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Larsen, Guttorm</credit.name>
+        <credit.name.lref>1038334</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen/>
+        <credit.type>Klipp</credit.type>
+        <credit.type.lref>6106</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Jorfald, Knut W</credit.name>
+        <credit.name.lref>270594</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen/>
+        <credit.type>Klipp</credit.type>
+        <credit.type.lref>6106</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Skorgan, Anita</credit.name>
+        <credit.name.lref>146501</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen/>
+        <credit.type>Komponist</credit.type>
+        <credit.type.lref>6022</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Lammetun, Håkon</credit.name>
+        <credit.name.lref>300020</credit.name.lref>
+        <credit.notes>Innspilling</credit.notes>
+        <credit.on_screen/>
+        <credit.type>Lyd</credit.type>
+        <credit.type.lref>6019</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Boassen, Øistein</credit.name>
+        <credit.name.lref>215901</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen/>
+        <credit.type>Lyd</credit.type>
+        <credit.type.lref>6019</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Brænne, Trond</credit.name>
+        <credit.name.lref>1034480</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen>Stemme</credit.on_screen>
+        <credit.type>Skuespiller</credit.type>
+        <credit.type.lref>6041</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Jacobsen, Anne Marit</credit.name>
+        <credit.name.lref>1036769</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen>Stemme</credit.on_screen>
+        <credit.type>Skuespiller</credit.type>
+        <credit.type.lref>6041</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Larsen-Floer, Gjuro-Auden</credit.name>
+        <credit.name.lref>1072398</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen>Stemme</credit.on_screen>
+        <credit.type>Skuespiller</credit.type>
+        <credit.type.lref>6041</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Håndlykken Kvernstrøm, Ida</credit.name>
+        <credit.name.lref>1060694</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen>Stemme</credit.on_screen>
+        <credit.type>Skuespiller</credit.type>
+        <credit.type.lref>6041</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Larsen, Guttorm</credit.name>
+        <credit.name.lref>1038334</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen>Stemme</credit.on_screen>
+        <credit.type>Skuespiller</credit.type>
+        <credit.type.lref>6041</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Norsk filminstitutt</credit.name>
+        <credit.name.lref>201</credit.name.lref>
+        <credit.notes>v/ Tore Kinge</credit.notes>
+        <credit.type>Finansiering/sponsing</credit.type>
+        <credit.type.lref>6114</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Larsen, Guttorm</credit.name>
+        <credit.name.lref>1038334</credit.name.lref>
+        <credit.type>Rettighetshaver</credit.type>
+        <credit.type.lref>6058</credit.type.lref>
+      </Credits>
+      <Dating>
+        <dating.date.end>1995</dating.date.end>
+        <dating.date.start>1995</dating.date.start>
+        <dating.notes/>
+        <dating.type>Produksjon</dating.type>
+        <dating.type.lref>6372</dating.type.lref>
+      </Dating>
+      <Dating>
+        <dating.date.end>2013</dating.date.end>
+        <dating.date.start>2013</dating.date.start>
+        <dating.notes>DVD  BR Animert i 100 år 1913-2013 NFI</dating.notes>
+        <dating.type>Nyutgivelse</dating.type>
+        <dating.type.lref>6375</dating.type.lref>
+      </Dating>
+      <Description>
+        <description>Solungen" er en munter variant av bibelens skapelsesberetning. Sola er alene og lager et barn for å ha noen å snakke med, og som kan holde mørket på plass. Sammen skaper de natur og dyr. Etter en bok av Mari Osmundsen.
+(Omtale fra Filmbutikken/NFI)</description>
+        <description.type>Beskrivelse</description.type>
+        <description.type.lref>5963</description.type.lref>
+      </Description>
+      <Description>
+        <description>Solungen er en munter variant av bibelens skapelsesberetning. Sola er alene og lager et barn for å ha noen å snakke med, og som kan holde mørket på plass. Sammen skaper de natur og dyr. Etter en bok av Mari Osmundsen.
+(Omtale fra Filmbutikken/NFI)</description>
+        <description.type>Norsk til publisering</description.type>
+        <description.type.lref>7993</description.type.lref>
+      </Description>
+      <edit_history>
+        <edit.history.date>2023-07-07</edit.history.date>
+        <edit.history.name>Benedikte Aune Olsen</edit.history.name>
+        <edit.history.notes/>
+        <edit.history.source/>
+        <edit.history.time/>
+      </edit_history>
+      <edit_history>
+        <edit.history.date>2025-07-01</edit.history.date>
+        <edit.history.name>axiell-bilder</edit.history.name>
+        <edit.history.notes>Migrere description.type fra Mavis</edit.history.notes>
+        <edit.history.source>bilder-collections-api</edit.history.source>
+        <edit.history.time>14:18:54</edit.history.time>
+      </edit_history>
+      <edit_history>
+        <edit.history.date>2025-07-11</edit.history.date>
+        <edit.history.name>per.korsnes@nb.no</edit.history.name>
+        <edit.history.source>collect&gt;catalogue</edit.history.source>
+        <edit.history.time>10:16:57</edit.history.time>
+      </edit_history>
+      <edit_history>
+        <edit.history.date>2025-07-28</edit.history.date>
+        <edit.history.name>torbjorn.pedersen@nb.no</edit.history.name>
+        <edit.history.source>collect&gt;catalogue</edit.history.source>
+        <edit.history.time>15:13:46</edit.history.time>
+      </edit_history>
+      <Language>
+        <language>Norsk</language>
+        <language.lref>6066</language.lref>
+        <language.usage>Originalspråk</language.usage>
+        <language.usage.lref>6067</language.usage.lref>
+      </Language>
+      <Medium>
+        <medium>Levende bilder</medium>
+        <medium.lref>6078</medium.lref>
+        <medium.principal>x</medium.principal>
+      </Medium>
+      <Medium>
+        <medium>Lyd</medium>
+        <medium.lref>6060</medium.lref>
+      </Medium>
+      <Object_name>
+        <object_name>Film</object_name>
+        <object_name.lref>6029</object_name.lref>
+      </Object_name>
+      <Parts>
+        <parts.carrier_type.specific/>
+        <parts.collection.name/>
+        <parts.condition/>
+        <parts.condition.date/>
+        <parts.current_location.context/>
+        <parts.current_location.name/>
+        <parts.dating.date.start/>
+        <parts.default_location.name/>
+        <parts.dimension.type/>
+        <parts.dimension.unit/>
+        <parts.dimension.value/>
+        <parts.file.size/>
+        <parts.fileformat/>
+        <parts.format>
+          <value lang="neutral"/>
+        </parts.format>
+        <parts.item_description/>
+        <parts.item_status/>
+        <parts.lead_word/>
+        <parts.linked_acquisition.number/>
+        <parts.manifestation_title/>
+        <parts.manifestation_type>Ukjent</parts.manifestation_type>
+        <parts.material/>
+        <parts.part/>
+        <parts.record_type>
+          <value lang="neutral">MANIFESTATION</value>
+          <value lang="0">Manifestation</value>
+          <value lang="1">Manifestatie</value>
+          <value lang="3">Manifestation</value>
+          <value lang="9">Manifestation</value>
+          <value lang="12">Manifestasjon</value>
+        </parts.record_type>
+        <parts.reel.number/>
+        <parts.reference.lref>25798430</parts.reference.lref>
+        <parts.runtime_combined>00:7:00:00</parts.runtime_combined>
+        <parts.sequence_no/>
+        <parts.title>Solungen</parts.title>
+        <parts_reference>
+          <Title>
+            <title>Solungen</title>
+          </Title>
+          <Title>
+            <title>Sun child</title>
+          </Title>
+          <object_number>AV-25798430</object_number>
+          <priref>25798430</priref>
+          <record_type>
+            <value lang="neutral">MANIFESTATION</value>
+            <value lang="0">Manifestation</value>
+            <value lang="1">Manifestatie</value>
+            <value lang="3">Manifestation</value>
+            <value lang="9">Manifestation</value>
+            <value lang="12">Manifestasjon</value>
+          </record_type>
+        </parts_reference>
+      </Parts>
+      <Related_object>
+        <related_object.association>Mangler type</related_object.association>
+        <related_object.association.lref>8017</related_object.association.lref>
+        <related_object.dataset>
+          <value lang="neutral">catalogue</value>
+          <value lang="0">Audio-visual catalogue</value>
+          <value lang="12">AV-katalogen</value>
+        </related_object.dataset>
+        <related_object.object_name>Filmdokumentasjon</related_object.object_name>
+        <related_object.record_type>
+          <value lang="neutral">WORK</value>
+          <value lang="0">Work</value>
+          <value lang="1">Werk</value>
+          <value lang="3">Werk</value>
+          <value lang="9">Verk</value>
+          <value lang="12">Verk/uttrykk</value>
+        </related_object.record_type>
+        <related_object.reference>AV-1173616</related_object.reference>
+        <related_object.reference.lref>1173616</related_object.reference.lref>
+        <related_object.title>Solungen : [storyboard, søknad, kalkyle]</related_object.title>
+        <related_object.title.article/>
+      </Related_object>
+      <Related_object>
+        <related_object.association>Mangler type</related_object.association>
+        <related_object.association.lref>8017</related_object.association.lref>
+        <related_object.dataset>
+          <value lang="neutral">catalogue</value>
+          <value lang="0">Audio-visual catalogue</value>
+          <value lang="12">AV-katalogen</value>
+        </related_object.dataset>
+        <related_object.object_name>Filmdokumentasjon</related_object.object_name>
+        <related_object.record_type>
+          <value lang="neutral">WORK</value>
+          <value lang="0">Work</value>
+          <value lang="1">Werk</value>
+          <value lang="3">Werk</value>
+          <value lang="9">Verk</value>
+          <value lang="12">Verk/uttrykk</value>
+        </related_object.record_type>
+        <related_object.reference>AV-1459487</related_object.reference>
+        <related_object.reference.lref>1459487</related_object.reference.lref>
+        <related_object.title>Solungen : [manus]</related_object.title>
+        <related_object.title.article/>
+      </Related_object>
+      <Runtime_main>
+        <runtime.combined>00:7:00:00</runtime.combined>
+        <runtime.minutes>7</runtime.minutes>
+      </Runtime_main>
+      <Segment_of>
+        <segment_of>AV-797587</segment_of>
+        <segment_of.lref>797587</segment_of.lref>
+        <segment_of.title>Katten Mons ; Lavrasiid aigi ; Solungen</segment_of.title>
+        <segment_of.type>
+          <value lang="neutral">WORK</value>
+        </segment_of.type>
+      </Segment_of>
+      <Segment_of>
+        <segment_of>AV-1638174</segment_of>
+        <segment_of.lref>1638174</segment_of.lref>
+        <segment_of.title>Animert i 100 år : norsk animasjonsfilm 1913 - 2013</segment_of.title>
+        <segment_of.type>
+          <value lang="neutral">WORK</value>
+        </segment_of.type>
+      </Segment_of>
+      <Segment_of>
+        <segment_of>AV-21826558</segment_of>
+        <segment_of.lref>21826558</segment_of.lref>
+        <segment_of.title>[NFI : samlemaster : kortfilmer]</segment_of.title>
+        <segment_of.type>
+          <value lang="neutral">WORK</value>
+        </segment_of.type>
+      </Segment_of>
+      <Submedium>
+        <submedium>Film</submedium>
+        <submedium.lref>6077</submedium.lref>
+        <submedium.principal>x</submedium.principal>
+      </Submedium>
+      <Title>
+        <title>Solungen</title>
+        <title.main>x</title.main>
+        <title.type>Originaltittel</title.type>
+        <title.type.lref>5936</title.type.lref>
+      </Title>
+      <Title>
+        <title>Sun child</title>
+        <title.type>Utenlandsk tittel</title.type>
+        <title.type.lref>5951</title.type.lref>
+      </Title>
+      <Verification>
+        <verification.notes>46607 Filmbutikken</verification.notes>
+      </Verification>
+      <guid>d894f907-2752-431a-bf1c-1d8f6c298123</guid>
+      <input.date>2004-05-25</input.date>
+      <input.name>Laila Johns</input.name>
+      <management_status>
+        <value lang="neutral">INTERNAL</value>
+        <value lang="0">internal</value>
+        <value lang="1">eigen beheer</value>
+        <value lang="3">Intern</value>
+      </management_status>
+      <object_name.domain>
+        <value lang="neutral">FILM_FORM</value>
+        <value lang="0">form (Film)</value>
+        <value lang="1">vorm (Film)</value>
+        <value lang="3">Form (Film)</value>
+        <value lang="12">Koder</value>
+      </object_name.domain>
+      <object_number>AV-798430</object_number>
+      <priref>798430</priref>
+      <production_country>Norge</production_country>
+      <production_country.lref>5</production_country.lref>
+      <publish_on_web>x</publish_on_web>
+      <record_access.owner>NLNadmin</record_access.owner>
+      <record_type>
+        <value lang="neutral">WORK</value>
+        <value lang="0">Work</value>
+        <value lang="1">Werk</value>
+        <value lang="3">Werk</value>
+        <value lang="9">Verk</value>
+        <value lang="12">Verk/uttrykk</value>
+      </record_type>
+      <relevance>x</relevance>
+      <sound>
+        <value lang="neutral">LYD</value>
+        <value lang="0">Sound</value>
+        <value lang="12">Lyd</value>
+      </sound>
+      <total_parts>1</total_parts>
+      <total_segments>0</total_segments>
+      <total_series>0</total_series>
+      <work.description_type>
+        <value lang="neutral">WORK</value>
+        <value lang="0">Work</value>
+        <value lang="9">Självständigt verk</value>
+        <value lang="12">Verkstittel</value>
+      </work.description_type>
+    </record>
+  </recordList>
+  <diagnostic>
+    <hits>1</hits>
+    <xmltype>Grouped</xmltype>
+    <hits_on_display>1</hits_on_display>
+    <search>priref = 798430</search>
+    <first_item>1</first_item>
+    <forward>0</forward>
+    <backward>0</backward>
+    <limit>1</limit>
+    <dbname>collect</dbname>
+    <dsname>catalogue</dsname>
+    <cgistring>
+      <param name="database">catalogue</param>
+    </cgistring>
+    <link_resolve_time unit="mS" culture="en-US">140,6336</link_resolve_time>
+    <response_time unit="mS" culture="en-US">192</response_time>
+  </diagnostic>
+</adlibXML>

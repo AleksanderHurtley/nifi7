@@ -21,10 +21,11 @@ The NiFi flow is organized into logical process groups matching the folder struc
 - `01_Initialize/` – create directories and initial flowfile attributes
 - `02_Fetch files from SAM-FS/` – gather metadata + content (tar, audio, etc.) into staging
 - `03_Checksum/` – verify DPX fixity after transfer using SAM-FS checksum metadata
-- `04_RAWcooked/` – batch conversion + cleanup, and emits migration event (RAWcooked as agent)
-- `05_Generate checksums/` – compute checksums for outputs if needed downstream
-- `06_dps-2/` – delivery-stage failure margin (single buffer manager script for acquire/release)
-- `07_Package cleanup/` – package-level cleanup of staging/output folders
+- `04_Catalog/` – log or catalog the package
+- `05_RAWcooked/` – batch conversion + cleanup, and emits migration event (RAWcooked as agent)
+- `06_Generate checksums/` – compute checksums for outputs if needed downstream
+- `07_dps-2/` – delivery-stage failure margin (single buffer manager script for acquire/release)
+- `08_Package cleanup/` – package-level cleanup of staging/output folders
 
 ## Operating assumptions
 

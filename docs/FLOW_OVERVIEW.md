@@ -70,12 +70,19 @@ Failure:
 
 ---
 
-### 3) RAWcooked migration
+### 3) Catalog
+**Goal:** catalog processing.
+Scripts:
+- (To be added)
+
+---
+
+### 4) RAWcooked migration
 **Goal:** convert DPX image sequences to preservation-friendly FFV1-in-Matroska (MKV).
 Scripts:
-- `04_RAWcooked/01_Batch.groovy`
-- `04_RAWcooked/02_RAWcooked.groovy`
-- `04_RAWcooked/03_Cleanup.groovy`
+- `05_RAWcooked/01_Batch.groovy`
+- `05_RAWcooked/02_RAWcooked.groovy`
+- `05_RAWcooked/03_Cleanup.groovy`
 
 Event:
 - `eventType=migration`
@@ -92,23 +99,23 @@ Outputs (typical):
 
 ---
 
-### 4) (Optional) Generate checksums for outputs
+### 5) (Optional) Generate checksums for outputs
 **Goal:** compute checksums for artifacts produced by processing (e.g., MKV).
 Script:
-- `05_Generate checksums/01_Generate checksums.groovy`
+- `06_Generate checksums/01_Generate checksums.groovy`
 
 ---
 
-### 5) Database update / finalization
+### 6) Database update / finalization
 **Goal:** record timings and stats into DI_PARAMETER (or equivalent reporting table).
 (Implemented outside this repo or as a SQL processor configuration.)
 
 ---
 
-### 6) DPS-2 delivery margin control
+### 7) DPS-2 delivery margin control
 **Goal:** avoid uncontrolled backpressure on large failures while preserving a small manual review buffer.
 Scripts:
-- `06_dps-2/01_Failure Buffer Gate.groovy`
+- `07_dps-2/01_Failure Buffer Gate.groovy`
 
 Behavior:
 - Delivery failures pass through a buffer gate that marks:
@@ -122,10 +129,10 @@ Behavior:
 
 ---
 
-### 7) Package cleanup
+### 8) Package cleanup
 **Goal:** remove large package directories from local disk when cleanup is required.
 Script:
-- `07_Package cleanup/01_Delete package directories.groovy`
+- `08_Package cleanup/01_Delete package directories.groovy`
 
 Behavior:
 - Removes `/fc1/payloads/<package.name>`, `/fc1/transfer/<package.name>`, `/fc1/work/<package.name>`

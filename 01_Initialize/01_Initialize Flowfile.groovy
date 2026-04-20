@@ -59,7 +59,12 @@ try {
     def batchesDirPre   = "${workDir}/batches_pre"
 
     // Rep
-    def repDir     = "${workDir}/representations/rep-${packageName}"
+    def dateStr = new java.text.SimpleDateFormat("yyyyMMdd").format(new Date())
+    def matcher = packageName =~ /_(\d{8})_/
+    if (matcher.find()) {
+        dateStr = matcher.group(1)
+    }
+    def repDir     = "${workDir}/representations/primary_${dateStr}"
     def repDataDir = "${repDir}/data"
 
     def videoFilename   = "${packageName}.mkv"
@@ -122,6 +127,8 @@ try {
     ff = session.putAttribute(ff, "metadata.preservation.mkv.dir", metadataPreservationMkvDir)
 
     ff = session.putAttribute(ff, "batch.pre.id", "batchPRE")
+
+    ff = session.putAttribute(ff, "total.pipeline.start", System.currentTimeMillis().toString())
 
     session.transfer(ff, REL_SUCCESS)
 
