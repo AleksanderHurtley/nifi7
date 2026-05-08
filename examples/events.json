@@ -1,0 +1,50 @@
+{
+  "events": [
+    {
+      "packageId": "digifilm_2301560_20170803_FOOA00000480",
+      "agent": {
+        "agentName": "Scanity",
+        "agentType": "hardware",
+        "agentVersion": "V3.0.3",
+        "agentNotes": "Filmskanner produsert av Digital Film Technology GmbH. Brukes til digitalisering av analog film til DPX-bildesekvenser."
+      },
+      "event": {
+        "eventDateTime": "2017-08-04T14:47:49+02:00",
+        "eventType": "creation",
+        "eventDetail": "Digitalisering av analog film til DPX-bildesekvenser ved bruk av filmskanner Scanity V3.0.3 (Digital Film Technology GmbH, serienr. 201). imageProducer: Nasjonalbiblioteket; captureDevice: still from video.",
+        "outcome": "success"
+      }
+    },
+    {
+      "packageId": "digifilm_2301560_20170803_FOOA00000480",
+      "agent": {
+        "agentName": "Apache NiFi",
+        "agentType": "software",
+        "agentVersion": "2.2.0",
+        "agentNotes": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
+      },
+      "event": {
+        "eventDateTime": "2026-04-20T14:58:51.818+02:00",
+        "eventType": "transfer",
+        "eventDetail": "Overført pakke fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; DPX-sjekksummer verifisert mot SAM-FS-metadata med md5sum (GNU coreutils); Opprettet E-ARK SIP med commons-ip2 2.12.0.",
+        "outcome": "success"
+      }
+    },
+    {
+      "packageId": "digifilm_2301560_20170803_FOOA00000480",
+      "agent": {
+        "agentName": "RAWcooked",
+        "agentType": "software",
+        "agentVersion": "RAWcooked 24.11",
+        "agentNotes": "Verktøy for tapsfri konvertering av DPX-bildesekvenser til FFV1-video i Matroska-container, med bit-eksakt rekonstruksjon."
+      },
+      "event": {
+        "eventDateTime": "2026-04-20T12:56:32Z",
+        "eventType": "migration",
+        "eventDetail": "Konvertering av DPX-bildesekvenser til FFV1-video i Matroska (MKV) container for langtidsbevaring. Brukte parametere: command=rawcooked --all --check -y; tool.ffmpeg=ffmpeg version N-113331-g202a35ecdb Copyright (c) 2000-2024 the FFmpeg developers; tool.ffprobe=ffprobe version N-113331-g202a35ecdb Copyright (c) 2007-2024 the FFmpeg developers.",
+        "outcome": "success",
+        "outcomeDetail": "container=Matroska / WebM;videoCodec=ffv1"
+      }
+    }
+  ]
+}

@@ -52,12 +52,15 @@ agent override:
 - agentNotes: `Filmskanner produsert av <scannerManufacturer>. Brukes til digitalisering av analog film til DPX-bildesekvenser.`
 eventDateTime: earliest `mix:GeneralCaptureInformation/mix:dateTimeCreated` across all reels
 eventDetail (template):
-- “Digitalisering av analog \<gauge> film til DPX-bildesekvenser ved bruk av filmskanner \<scannerModelName> (\<scannerManufacturer>, serienr. \<scannerModelSerialNo>). imageProducer: \<imageProducer>; captureDevice: \<captureDevice>.”
+- “Digitalisering av analog film til DPX-bildesekvenser ved bruk av filmskanner \<scannerModelName> (\<scannerManufacturer>, serienr. \<scannerModelSerialNo>). imageProducer: \<imageProducer>; captureDevice: \<captureDevice>.”
 
 Source XML elements (in `metadata/other/deprecated_mets/METS_*.xml`):
 - `mix:GeneralCaptureInformation` (`dateTimeCreated`, `imageProducer`, `captureDevice`)
 - `mix:ScannerCapture` (`scannerManufacturer`, `ScannerModel/scannerModelName`, `ScannerModel/scannerModelSerialNo`)
-- `mix:SourceInformation/mix:SourceSize/mix:SourceXDimension` (film gauge)
+
+Note: `mix:SourceXDimension` (film gauge) is intentionally not used — the
+recorded value is unreliable in source METS (e.g. recorded as 16 mm when
+the original is actually 32 mm).
 
 This event is best-effort: when no METS files contain the required mix data
 (e.g. born-digital packages), no creation event is emitted.
@@ -106,7 +109,7 @@ outcomeDetail (result-only keys):
   "event": {
     "eventDateTime": "2023-09-21T14:28:44+02:00",
     "eventType": "creation",
-    "eventDetail": "Digitalisering av analog 35 mm film til DPX-bildesekvenser ved bruk av filmskanner Scanity V3.2.3 (Digital Film Technology GmbH, serienr. 124). imageProducer: Nasjonalbiblioteket; captureDevice: still from video.",
+    "eventDetail": "Digitalisering av analog film til DPX-bildesekvenser ved bruk av filmskanner Scanity V3.2.3 (Digital Film Technology GmbH, serienr. 124). imageProducer: Nasjonalbiblioteket; captureDevice: still from video.",
     "outcome": "success"
   }
 }

@@ -83,14 +83,14 @@ try {
         root.'**'.findAll { it.name() == localName }
     }
 
+    // mix:SourceXDimension (film gauge) is intentionally NOT read — the value
+    // is unreliable in source METS (e.g. recorded as 16 mm when actually 32 mm).
     String earliestDt          = null
     String scannerModelName    = null   // e.g. "Scanity V3.2.3"
     String scannerManufacturer = null
     String scannerModelSerialNo= null
     String imageProducer       = null
     String captureDevice       = null
-    String sourceXDimValue     = null
-    String sourceXDimUnit      = null
 
     metsFiles.each { Path mets ->
         try {
@@ -109,14 +109,6 @@ try {
                     scannerManufacturer  = textOrNull(firstByLocalName(sc, 'scannerManufacturer'))
                     scannerModelName     = textOrNull(firstByLocalName(sc, 'scannerModelName'))
                     scannerModelSerialNo = textOrNull(firstByLocalName(sc, 'scannerModelSerialNo'))
-                }
-            }
-
-            if (sourceXDimValue == null) {
-                def sxd = firstByLocalName(root, 'SourceXDimension')
-                if (sxd) {
-                    sourceXDimValue = textOrNull(firstByLocalName(sxd, 'sourceXDimensionValue'))
-                    sourceXDimUnit  = textOrNull(firstByLocalName(sxd, 'sourceXDimensionUnit'))
                 }
             }
         } catch (Exception ignore) {
@@ -157,17 +149,14 @@ try {
     // --------------------------------------------------------------
     // Build eventDetail (Norwegian)
     // --------------------------------------------------------------
-    String filmGauge = (sourceXDimValue && sourceXDimUnit) ? "${sourceXDimValue} ${sourceXDimUnit}".trim() : null
-
-    def detailParts = []
-    detailParts << "Digitalisering av analog${filmGauge ? ' ' + filmGauge : ''} film til DPX-bildesekvenser ved bruk av filmskanner ${scannerModelName}"
+    String detailHead = "Digitalisering av analog film til DPX-bildesekvenser ved bruk av filmskanner ${scannerModelName}"
     def scannerCtx = []
     if (!isBlank(scannerManufacturer))   scannerCtx << scannerManufacturer
     if (!isBlank(scannerModelSerialNo))  scannerCtx << "serienr. ${scannerModelSerialNo}"
     if (!scannerCtx.isEmpty()) {
-        detailParts[0] = detailParts[0] + " (${scannerCtx.join(', ')})"
+        detailHead = "${detailHead} (${scannerCtx.join(', ')})"
     }
-    String detailHead = detailParts[0] + "."
+    detailHead = "${detailHead}."
 
     def tail = []
     if (!isBlank(imageProducer)) tail << "imageProducer: ${imageProducer}"
