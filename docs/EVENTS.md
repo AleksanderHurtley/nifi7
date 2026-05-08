@@ -41,7 +41,7 @@ Exceptions:
 eventType: `transfer`
 agent: default (Apache NiFi)
 eventDetail:
-- “Overført pakke fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; DPX-sjekksummer verifisert mot SAM-FS-metadata med md5sum (GNU coreutils); Opprettet E-ARK SIP med commons-ip2 \<version>.”
+- “Overført pakke fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; DPX-sjekksummer verifisert mot SAM-FS-metadata med md5sum (GNU coreutils); Opprettet E-ARK SIP med commons-ip2.”
 
 ### Creation (digitization, parsed from deprecated METS)
 eventType: `creation`

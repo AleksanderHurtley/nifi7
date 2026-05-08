@@ -39,7 +39,7 @@ Scripts (by content type):
 
 Events (recommended):
 - `eventType=creation` (best-effort, when METS contains mix data) — agent is the scanner hardware (e.g. Scanity), set by `04_Extract creation event from METS.groovy`.
-- `eventType=transfer` — agent is Apache NiFi (default), set via NiFi UpdateAttribute. Detail in Norwegian: "Overført pakke fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; DPX-sjekksummer verifisert mot SAM-FS-metadata med md5sum (GNU coreutils); Opprettet E-ARK SIP med commons-ip2 \<version>."
+- `eventType=transfer` — agent is Apache NiFi (default), set via NiFi UpdateAttribute. Detail in Norwegian: "Overført pakke fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; DPX-sjekksummer verifisert mot SAM-FS-metadata med md5sum (GNU coreutils); Opprettet E-ARK SIP med commons-ip2."
 
 Notes:
 - Avoid commands like `tree/du/find` on SAM-FS if it can trigger recall/staging.
