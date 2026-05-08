@@ -27,23 +27,34 @@ Names are case-sensitive.
   - ISO-8601 timestamp (prefer UTC, seconds)
   - Example: `2026-02-11T14:01:41Z`
 - `event.type` (required)
-  - Values: `transfer`, `fixity check`, `migration`, …
+  - Values: `transfer`, `creation`, `migration`, …
 - `event.outcome`
-  - Values: `success` / `failure` (preferred)
+  - Values: `success` / `failure` / `warning`
 - `event.detail`
-  - Human-readable explanation designed to be understood years later
+  - Norwegian, human-readable explanation of *what was done* (operation + parameters/method)
 - `event.outcomeDetail` (optional)
-  - Semi-structured key/value string (e.g. `k=v;k=v`), used for technical provenance
+  - *What was achieved* — semi-structured key/value string (e.g. `k=v;k=v`)
+  - Omit if `outcome` alone is sufficient.
 
-## Agent overrides (optional; default is “NiFi preservation ingest flow”)
+## Agent overrides (optional; default is “Apache NiFi”)
 - `agent.name`
-- `agent.type`
+- `agent.type` (`software` / `hardware` / `organization` / `person`)
 - `agent.version` (optional; omit if blank)
+- `agent.notes` (optional; defaults to a standard description of Apache NiFi when blank)
 
 Conventions:
-- Most events: agent defaults to the flow identity.
-- RAWcooked migration event: set agent explicitly:
-  - `agent.name=RAWcooked`, `agent.type=software`, `agent.version=<rawcookedVersion>`
+- Most events: agent defaults to Apache NiFi (`software`, version `2.2.0`, with standard agentNotes).
+- RAWcooked migration event: agent set in `05_RAWcooked/02_RAWcooked.groovy`
+  (`agent.name=RAWcooked`, `agent.type=software`, `agent.version=<rawcookedVersion>`, `agent.notes=<RAWcooked description>`).
+- Creation event: agent set in `02_Fetch files from SAM-FS/03_Metadata files/04_Extract creation event from METS.groovy`
+  (`agent.name=<scanner>`, `agent.type=hardware`, `agent.version=<firmware>`, `agent.notes=<scanner description>`).
+
+## Creation event extraction
+- `metadata.other.depr_mets.dir` (required by the creation extractor)
+- `creation.event.emit` — `true` when METS data found and event attrs were staged
+- `creation.event.status` — `OK` / `SKIPPED`
+- `creation.event.reason` — text reason when skipped (no METS, missing mix data, etc.)
+- `creation.event.mets.count` — number of METS files inspected (when emit=true)
 
 ## Timing / stats (used for DB updates)
 - `fetch.start`, `fetch.end`, `fetch.duration`

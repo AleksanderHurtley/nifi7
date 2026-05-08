@@ -64,11 +64,23 @@ def eventDt = (!isBlank(providedDt))
             .format(DateTimeFormatter.ISO_OFFSET_DATE_TIME)
 
 // ----------------------------------------------------------------------
-// Agent defaults (flow identity) + optional agentVersion
+// Agent fields. Defaults apply only when agent.name is unset (the common
+// "Apache NiFi" case) — when a step provides its own agent.name (RAWcooked,
+// Scanity, …), only the attributes it explicitly sets are used.
 // ----------------------------------------------------------------------
-def agentName    = ff.getAttribute('agent.name') ?: "NiFi preservation ingest flow"
-def agentType    = ff.getAttribute('agent.type') ?: "software"
-def agentVersion = ff.getAttribute('agent.version') ?: "2.2.0"
+def rawAgentName = ff.getAttribute('agent.name')
+def agentName, agentType, agentVersion, agentNotes
+if (rawAgentName == null || rawAgentName.toString().trim().isEmpty()) {
+    agentName    = "Apache NiFi"
+    agentType    = ff.getAttribute('agent.type')    ?: "software"
+    agentVersion = ff.getAttribute('agent.version') ?: "2.2.0"
+    agentNotes   = ff.getAttribute('agent.notes')   ?: "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
+} else {
+    agentName    = rawAgentName
+    agentType    = ff.getAttribute('agent.type')
+    agentVersion = ff.getAttribute('agent.version')
+    agentNotes   = ff.getAttribute('agent.notes')
+}
 
 // ----------------------------------------------------------------------
 // Validate inputs
@@ -139,11 +151,12 @@ try {
         ch = FileChannel.open(eventsPath, StandardOpenOption.READ, StandardOpenOption.WRITE)
         lock = ch.lock()
 
-        // Build agent JSON and OMIT agentVersion when blank
+        // Build agent JSON; OMIT agentVersion / agentNotes when blank
         def agentParts = []
         agentParts << jsonField("agentName", agentName)
         agentParts << jsonField("agentType", agentType)
         if (!isBlank(agentVersion)) agentParts << jsonField("agentVersion", agentVersion.trim())
+        if (!isBlank(agentNotes))   agentParts << jsonField("agentNotes",   agentNotes.trim())
         def agentJson = "{${agentParts.join(",")}}"
 
         def eventJsonParts = []

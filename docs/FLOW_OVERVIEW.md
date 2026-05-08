@@ -30,15 +30,16 @@ Scripts (by content type):
   - `02_Fetch files from SAM-FS/03_Metadata files/01_Fetch and Organize metadata files.groovy`
   - `02_Fetch files from SAM-FS/03_Metadata files/02_Extract checksums + batch map.groovy`
   - `02_Fetch files from SAM-FS/03_Metadata files/03_Cleanup extracted metadata.groovy`
+  - `02_Fetch files from SAM-FS/03_Metadata files/04_Extract creation event from METS.groovy` (parses `mix:GeneralCaptureInformation` + `mix:ScannerCapture` from deprecated METS, stages a `creation` event when found; best-effort)
 - Tar:
   - `02_Fetch files from SAM-FS/01_Tar files/01_Tar fragments.groovy`
   - `02_Fetch files from SAM-FS/01_Tar files/02_Fetch and Untar.groovy`
 - Timing/stat updates:
   - `02_Fetch files from SAM-FS/04_Set fetch.end, fetch.duration, package.size.start.groovy`
 
-Event (recommended):
-- `eventType=transfer`
-- Detail: "Package transferred from SAM-FS archival storage to local staging storage for preservation processing."
+Events (recommended):
+- `eventType=creation` (best-effort, when METS contains mix data) — agent is the scanner hardware (e.g. Scanity), set by `04_Extract creation event from METS.groovy`.
+- `eventType=transfer` — agent is Apache NiFi (default), set via NiFi UpdateAttribute. Detail in Norwegian: "Overført pakke fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; DPX-sjekksummer verifisert mot SAM-FS-metadata med md5sum (GNU coreutils); Opprettet E-ARK SIP med commons-ip2 \<version>."
 
 Notes:
 - Avoid commands like `tree/du/find` on SAM-FS if it can trigger recall/staging.
@@ -57,16 +58,13 @@ Script:
 Input metadata source:
 - `dpxmeta.manifest.path` (or fallback path under `metadata.preservation.dpx.dir`)
 
-Event detail (selected):
-- "Fixity check after transfer: computed MD5 checksums for DPX files in the staging area and compared them to MD5 values recorded in SAM-FS archival storage metadata to confirm bit-level integrity."
+Note: the fixity check is recorded as part of the lumped `transfer` event
+(see `docs/EVENTS.md`); this stage does not emit its own event by default.
+On failure, set `event.outcome=failure` on the transfer event and include
+mismatch context in `error.message` (and optionally append to `event.detail`).
 
 Outputs (typical):
 - `checksum.start`, `checksum.end`, `checksum.durationMs`
-- set event fields for the add-event appender
-
-Failure:
-- set `event.outcome=failure` and include mismatch context in `error.message` (and/or `event.detail`)
-- route failure
 
 ---
 
@@ -95,11 +93,12 @@ Scripts:
 
 Event:
 - `eventType=migration`
-- Agent: RAWcooked (with version)
-- Detail: "DPX image sequences converted to FFV1 video wrapped in a Matroska (MKV) container for preservation storage."
+- Agent: RAWcooked (with version + agentNotes)
+- Detail (Norwegian, parameters included per DPS guidance):
+  "Konvertering av DPX-bildesekvenser til FFV1-video i Matroska (MKV) container for langtidsbevaring. Brukte parametere: command=rawcooked --all --check -y; tool.ffmpeg=\<version>; tool.ffprobe=\<version>."
 
-Outcome detail:
-- command + ffmpeg/ffprobe versions + container/codec/profile (probe results)
+Outcome detail (result-only):
+- container + videoCodec + videoProfile (from ffprobe)
 
 Outputs (typical):
 - `rawcooked.start`, `rawcooked.end`, `rawcooked.durationMs`

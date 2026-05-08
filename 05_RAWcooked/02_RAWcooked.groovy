@@ -274,15 +274,21 @@ try {
     ff = session.putAttribute(ff, "agent.name", "RAWcooked")
     ff = session.putAttribute(ff, "agent.type", "software")
     ff = session.putAttribute(ff, "agent.version", rawcookedVersion ?: "")
+    ff = session.putAttribute(ff, "agent.notes",
+        "Verktøy for tapsfri konvertering av DPX-bildesekvenser til FFV1-video i Matroska-container, med bit-eksakt rekonstruksjon."
+    )
+
+    def detailParams = []
+    detailParams << "command=rawcooked --all --check -y"
+    if (ffmpegVersion?.trim())  detailParams << "tool.ffmpeg=${ffmpegVersion.trim()}"
+    if (ffprobeVersion?.trim()) detailParams << "tool.ffprobe=${ffprobeVersion.trim()}"
 
     ff = session.putAttribute(ff, "event.detail",
-        "DPX image sequences converted to FFV1 video wrapped in a Matroska (MKV) container for preservation storage."
+        "Konvertering av DPX-bildesekvenser til FFV1-video i Matroska (MKV) container for langtidsbevaring. " +
+        "Brukte parametere: ${detailParams.join('; ')}."
     )
 
     ff = session.putAttribute(ff, "event.outcomeDetail", buildOutcomeDetail { addPair ->
-        addPair("command", "rawcooked --all --check -y")
-        addPair("tool.ffmpeg", ffmpegVersion)
-        addPair("tool.ffprobe", ffprobeVersion)
         addPair("container", overallProbe?.format_long ?: overallProbe?.format_name)
         addPair("videoCodec", overallProbe?.codec_name)
         addPair("videoProfile", overallProbe?.profile)
