@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jhove xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hul.harvard.edu/ois/xml/ns/jhove" xsi:schemaLocation="http://hul.harvard.edu/ois/xml/ns/jhove http://hul.harvard.edu/ois/xml/xsd/jhove/1.6/jhove.xsd" name="Jhove" release="1.5" date="2009-12-23">
+ <date>2023-09-21T16:15:04+02:00</date>
+ <repInfo uri="/stornext/SNFS01/Filmskanning/digifilm_22433263_20230908/digifilm_22433263_20230908_FYAL00000247/meta/digifilm_22433263_20230908_FYAL00000247_ScanityTransfer.xml">
+  <reportingModule release="1.4" date="2007-01-08">XML-hul</reportingModule>
+  <lastModified>2023-09-21T14:03:22+02:00</lastModified>
+  <size>5537</size>
+  <format>XML</format>
+  <version>1.0</version>
+  <status>Well-Formed</status>
+  <sigMatch>
+  <module>XML-hul</module>
+  </sigMatch>
+  <mimeType>text/xml</mimeType>
+  <properties>
+   <property>
+    <name>XMLMetadata</name>
+    <values arity="List" type="Property">
+    <property>
+     <name>Parser</name>
+     <values arity="Scalar" type="String">
+      <value>com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser</value>
+     </values>
+    </property>
+    <property>
+     <name>Encoding</name>
+     <values arity="Scalar" type="String">
+      <value>UTF-8</value>
+     </values>
+    </property>
+    <property>
+     <name>Root</name>
+     <values arity="Scalar" type="String">
+      <value>WorkList</value>
+     </values>
+    </property>
+    </values>
+   </property>
+  </properties>
+  <checksums>
+   <checksum type="CRC32">57fb88cb</checksum>
+   <checksum type="MD5">947183f00e47c8813130acdce026e1b6</checksum>
+   <checksum type="SHA-1">28354fd18866e58528c883af897b61ac442f2ab2</checksum>
+  </checksums>
+ </repInfo>
+</jhove>

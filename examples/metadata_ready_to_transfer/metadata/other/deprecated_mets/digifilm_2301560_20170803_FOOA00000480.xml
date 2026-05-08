@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mets:mets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:mavis="http://www.wizardis.com.au/2005/12/MAVIS"
+           xmlns:fn="http://www.w3.org/2005/xpath-functions"
+           xmlns:jhove="http://hul.harvard.edu/ois/xml/ns/jhove"
+           xmlns:range="http://www.nb.no/xmlschema/preservation/elementrange/1.0"
+           xmlns:mods="http://www.loc.gov/mods/v3"
+           xmlns:mets="http://www.loc.gov/METS/"
+           xmlns:premis="http://www.loc.gov/standards/premis/v1"
+           xmlns:aes="http://www.aes.org/audioObject"
+           xmlns:tcf="http://www.aes.org/tcf"
+           xmlns:xmp="http://ns.adobe.com/xap/1.0/"
+           xmlns:bext="http://ns.adobe.com/bwf/bext/1.0/"
+           xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+           xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd">
+   <mets:metsHdr CREATEDATE="2017-08-04T16:49:07.678+02:00"/>
+   <mets:dmdSec ID="MODS">
+      <mets:mdWrap MDTYPE="MODS" MIMETYPE="text/xml">
+         <mets:xmlData>
+            <mods:mods ID="MODS_01">
+               <mods:titleInfo>
+                  <mods:title>[Litt fjøs og litt hesjing]</mods:title>
+               </mods:titleInfo>
+               <mods:typeOfResource>moving image</mods:typeOfResource>
+               <mods:genre>Dokumentasjonsopptak</mods:genre>
+               <mods:originInfo>
+                  <mods:place>
+                     <mods:placeTerm type="text">Norge</mods:placeTerm>
+                  </mods:place>
+                  <mods:dateCreated encoding="w3cdtf" qualifier="approximate" keyDate="yes">1965</mods:dateCreated>
+                  <mods:issuance>monographic</mods:issuance>
+               </mods:originInfo>
+               <mods:identifier type="urn">URN:NBN:no-nb_digifilm_2301560_20170803_FOOA00000480</mods:identifier>
+               <mods:location>
+                  <mods:url>http://urn.nb.no/URN:NBN:no-nb_digifilm_2301560_20170803_FOOA00000480</mods:url>
+               </mods:location>
+               <mods:physicalDescription>
+                  <mods:digitalOrigin>reformatted digital</mods:digitalOrigin>
+               </mods:physicalDescription>
+            </mods:mods>
+         </mets:xmlData>
+      </mets:mdWrap>
+   </mets:dmdSec>
+   <mets:amdSec>
+      <mets:techMD ID="OBJ_001">
+         <mets:mdWrap MDTYPE="PREMIS:OBJECT">
+            <mets:xmlData>
+               <premis:object>
+                  <premis:objectIdentifier>
+                     <premis:objectIdentifierType>URN</premis:objectIdentifierType>
+                     <premis:objectIdentifierValue>URN:NBN:no-nb_digifilm_2301560_20170803_FOOA00000480#0001</premis:objectIdentifierValue>
+                  </premis:objectIdentifier>
+                  <premis:preservationLevel>preservation</premis:preservationLevel>
+                  <premis:objectCategory>file</premis:objectCategory>
+                  <premis:objectCharacteristics>
+                     <premis:compositionLevel>0</premis:compositionLevel>
+                     <premis:fixity>
+                        <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                        <premis:messageDigest>45820b0760dfee302dde9a7b0afda854</premis:messageDigest>
+                        <premis:messageDigestOriginator>jhove</premis:messageDigestOriginator>
+                     </premis:fixity>
+                     <premis:fixity>
+                        <premis:messageDigestAlgorithm>SHA-1</premis:messageDigestAlgorithm>
+                        <premis:messageDigest>80a8fee6d6ae9256a7d70a56d3635927e154e6b1</premis:messageDigest>
+                        <premis:messageDigestOriginator>jhove</premis:messageDigestOriginator>
+                     </premis:fixity>
+                     <premis:size>5208</premis:size>
+                     <premis:format>
+                        <premis:formatDesignation>
+                           <premis:formatName>Scanity Transfer XML (Transfer List for Scanity)</premis:formatName>
+                           <premis:formatVersion>1</premis:formatVersion>
+                        </premis:formatDesignation>
+                     </premis:format>
+                  </premis:objectCharacteristics>
+                  <premis:creatingApplication>
+                     <premis:creatingApplicationName>scanityWS201</premis:creatingApplicationName>
+                     <premis:creatingApplicationVersion>Scanity V3.0.3</premis:creatingApplicationVersion>
+                     <premis:dateCreatedByApplication>2017-08-04T09:17:24+02:00</premis:dateCreatedByApplication>
+                  </premis:creatingApplication>
+                  <premis:originalName>digifilm_2301560_20170803_FOOA00000480_ScanityTransfer.xml</premis:originalName>
+                  <premis:storage>
+                     <premis:storageMedium>SAM-FS</premis:storageMedium>
+                  </premis:storage>
+                  <premis:linkingEventIdentifier>
+                     <premis:linkingEventIdentifierType>no.nb.evt</premis:linkingEventIdentifierType>
+                     <premis:linkingEventIdentifierValue>URN:NBN:no-nb_digifilm_2301560_20170803_FOOA00000480#EVT_001</premis:linkingEventIdentifierValue>
+                  </premis:linkingEventIdentifier>
+               </premis:object>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:techMD>
+      <mets:digiprovMD ID="EVT_001">
+         <mets:mdWrap MDTYPE="PREMIS:EVENT">
+            <mets:xmlData>
+               <premis:event>
+                  <premis:eventIdentifier>
+                     <premis:eventIdentifierType>no.nb.evt</premis:eventIdentifierType>
+                     <premis:eventIdentifierValue>URN:NBN:no-nb_digifilm_2301560_20170803_FOOA00000480#EVT_001</premis:eventIdentifierValue>
+                  </premis:eventIdentifier>
+                  <premis:eventType>capture</premis:eventType>
+                  <premis:eventDateTime>2017-08-04T05:08:15+02:00</premis:eventDateTime>
+                  <premis:eventOutcomeInformation>
+                     <premis:eventOutcome>successful</premis:eventOutcome>
+                  </premis:eventOutcomeInformation>
+                  <premis:linkingObjectIdentifier>
+                     <premis:linkingObjectIdentifierType>URN</premis:linkingObjectIdentifierType>
+                     <premis:linkingObjectIdentifierValue>URN:NBN:no-nb_digifilm_2301560_20170803_FOOA00000480#0001</premis:linkingObjectIdentifierValue>
+                  </premis:linkingObjectIdentifier>
+               </premis:event>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:digiprovMD>
+   </mets:amdSec>
+   <mets:amdSec>
+      <mets:techMD ID="ER_0001">
+         <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="ELEMENTRANGE" MDTYPEVERSION="1.0">
+            <mets:xmlData>
+               <range:elementRange>
+                  <range:elementCount>1440</range:elementCount>
+                  <range:firstElement>
+                     <range:name>digifilm_2301560_20170803_FOOA00000480_100000.dpx</range:name>
+                     <range:logicalSequenceNumber>1</range:logicalSequenceNumber>
+                     <range:absoluteSequenceNumber>1</range:absoluteSequenceNumber>
+                  </range:firstElement>
+                  <range:lastElement>
+                     <range:name>digifilm_2301560_20170803_FOOA00000480_101439.dpx</range:name>
+                     <range:logicalSequenceNumber>1440</range:logicalSequenceNumber>
+                     <range:absoluteSequenceNumber>1440</range:absoluteSequenceNumber>
+                  </range:lastElement>
+               </range:elementRange>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:techMD>
+   </mets:amdSec>
+   <mets:amdSec>
+      <mets:techMD ID="ER_0002">
+         <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="ELEMENTRANGE" MDTYPEVERSION="1.0">
+            <mets:xmlData>
+               <range:elementRange>
+                  <range:elementCount>1440</range:elementCount>
+                  <range:firstElement>
+                     <range:name>digifilm_2301560_20170803_FOOA00000480_101440.dpx</range:name>
+                     <range:logicalSequenceNumber>1441</range:logicalSequenceNumber>
+                     <range:absoluteSequenceNumber>1441</range:absoluteSequenceNumber>
+                  </range:firstElement>
+                  <range:lastElement>
+                     <range:name>digifilm_2301560_20170803_FOOA00000480_102879.dpx</range:name>
+                     <range:logicalSequenceNumber>2880</range:logicalSequenceNumber>
+                     <range:absoluteSequenceNumber>2880</range:absoluteSequenceNumber>
+                  </range:lastElement>
+               </range:elementRange>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:techMD>
+   </mets:amdSec>
+   <mets:amdSec>
+      <mets:techMD ID="ER_0003">
+         <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="ELEMENTRANGE" MDTYPEVERSION="1.0">
+            <mets:xmlData>
+               <range:elementRange>
+                  <range:elementCount>334</range:elementCount>
+                  <range:firstElement>
+                     <range:name>digifilm_2301560_20170803_FOOA00000480_102880.dpx</range:name>
+                     <range:logicalSequenceNumber>2881</range:logicalSequenceNumber>
+                     <range:absoluteSequenceNumber>2881</range:absoluteSequenceNumber>
+                  </range:firstElement>
+                  <range:lastElement>
+                     <range:name>digifilm_2301560_20170803_FOOA00000480_103213.dpx</range:name>
+                     <range:logicalSequenceNumber>3214</range:logicalSequenceNumber>
+                     <range:absoluteSequenceNumber>3214</range:absoluteSequenceNumber>
+                  </range:lastElement>
+               </range:elementRange>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:techMD>
+   </mets:amdSec>
+   <mets:fileSec>
+      <mets:fileGrp ID="FILMGROUP">
+         <mets:file SEQ="1"
+                    MIMETYPE="application/tar"
+                    USE="container"
+                    SIZE="36257228800"
+                    CHECKSUM="bb4def1ee0233e2fbbb65d90f2fcc065"
+                    CHECKSUMTYPE="MD5"
+                    ID="DO_0001"
+                    ADMID="ER_0001">
+            <mets:FLocat LOCTYPE="URN"
+                         xlink:href="URN:NBN:no-nb_digifilm_2301560_20170803_FOOA00000480_0001"
+                         xlink:type="simple"/>
+         </mets:file>
+         <mets:file SEQ="2"
+                    MIMETYPE="application/tar"
+                    USE="container"
+                    SIZE="36257228800"
+                    CHECKSUM="bd4dd2dcf801c47356c18ff7f22d9165"
+                    CHECKSUMTYPE="MD5"
+                    ID="DO_0002"
+                    ADMID="ER_0002">
+            <mets:FLocat LOCTYPE="URN"
+                         xlink:href="URN:NBN:no-nb_digifilm_2301560_20170803_FOOA00000480_0002"
+                         xlink:type="simple"/>
+         </mets:file>
+         <mets:file SEQ="3"
+                    MIMETYPE="application/tar"
+                    USE="container"
+                    SIZE="8409661440"
+                    CHECKSUM="c8764e2e790bf2d7da1e22445dc8e655"
+                    CHECKSUMTYPE="MD5"
+                    ID="DO_0003"
+                    ADMID="ER_0003">
+            <mets:FLocat LOCTYPE="URN"
+                         xlink:href="URN:NBN:no-nb_digifilm_2301560_20170803_FOOA00000480_0003"
+                         xlink:type="simple"/>
+         </mets:file>
+      </mets:fileGrp>
+      <mets:fileGrp ID="METAGROUP">
+         <mets:file ID="TRANSFER_0001"
+                    USE="preservation"
+                    MIMETYPE="text/xml"
+                    ADMID="OBJ_001 EVT_001"
+                    SIZE="5208"
+                    CHECKSUM="45820b0760dfee302dde9a7b0afda854"
+                    CHECKSUMTYPE="MD5">
+            <mets:FLocat LOCTYPE="URN"
+                         xlink:href="URN:NBN:no-nb_digifilm_2301560_20170803_FOOA00000480"/>
+         </mets:file>
+      </mets:fileGrp>
+   </mets:fileSec>
+   <mets:structMap TYPE="physical">
+      <mets:div ID="DIV_P1" TYPE="moving image">
+         <mets:fptr>
+            <mets:par>
+               <mets:seq>
+                  <mets:area FILEID="DO_0001"/>
+                  <mets:area FILEID="DO_0002"/>
+                  <mets:area FILEID="DO_0003"/>
+               </mets:seq>
+            </mets:par>
+         </mets:fptr>
+      </mets:div>
+   </mets:structMap>
+</mets:mets>

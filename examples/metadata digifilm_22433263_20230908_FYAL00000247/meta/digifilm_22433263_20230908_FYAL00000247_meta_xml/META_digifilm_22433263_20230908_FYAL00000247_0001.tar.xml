@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tarFile>
+    <contentFormatName>Digital Picture Exchange</contentFormatName>
+    <contentFormatVersion>V2.0</contentFormatVersion>
+    <descriptor>RGBA</descriptor>
+    <dpxFiles>
+        <dpxMetadata>
+            <absoluteSequenceNumber>21</absoluteSequenceNumber>
+            <fileDate>2023-09-08T10:05:38+02:00</fileDate>
+            <fileName>digifilm_22433263_20230908_FYAL00000247_100000.dpx</fileName>
+            <fileSize>136155136</fileSize>
+            <logicalSequenceNumber>1</logicalSequenceNumber>
+            <md5Checksum>f668d2258296ab0381e395f06ce7a60c</md5Checksum>
+            <sha1Checksum>1f7281e392f433dd49a9ccbc2e08d2e591a279ac</sha1Checksum>
+        </dpxMetadata>
+        ...
+        <dpxMetadata>
+            <absoluteSequenceNumber>1443</absoluteSequenceNumber>
+            <fileDate>2023-09-08T10:11:29+02:00</fileDate>
+            <fileName>digifilm_22433263_20230908_FYAL00000247_101422.dpx</fileName>
+            <fileSize>136155136</fileSize>
+            <logicalSequenceNumber>1423</logicalSequenceNumber>
+            <md5Checksum>311e2616e13e5068856995eaa532e703</md5Checksum>
+            <sha1Checksum>c0c73bc721769b6d7d521754d1a3d04a0ed68d39</sha1Checksum>
+        </dpxMetadata>
+    </dpxFiles>
+    <fileDate>2023-09-21T14:28:44+02:00</fileDate>
+    <fileName>digifilm_22433263_20230908_FYAL00000247_0001.tar</fileName>
+    <fileSize>193749493760</fileSize>
+    <imageHeight>3956</imageHeight>
+    <imageWidth>4300</imageWidth>
+    <inputDevice>Scanity V3.2.3</inputDevice>
+    <inputDeviceSerialNumber>124
+</inputDeviceSerialNumber>
+    <md5Checksum>2caec87c370dec5b7f0bdbefa725ee1a</md5Checksum>
+    <sha1Checksum>acd65224231b30e79fcb001c73bb5fc3da10048d</sha1Checksum>
+</tarFile>

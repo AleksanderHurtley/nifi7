@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mets:mets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:mavis="http://www.wizardis.com.au/2005/12/MAVIS"
+           xmlns:jhove="http://hul.harvard.edu/ois/xml/ns/jhove"
+           xmlns:range="https://schema.nb.no/preservation/elementrange/1.0"
+           xmlns:mods="http://www.loc.gov/mods/v3"
+           xmlns:mets="http://www.loc.gov/METS/"
+           xmlns:premis="http://www.loc.gov/standards/premis/v1"
+           xmlns:aes="http://www.aes.org/audioObject"
+           xmlns:tcf="http://www.aes.org/tcf"
+           xmlns:xmp="http://ns.adobe.com/xap/1.0/"
+           xmlns:bext="http://ns.adobe.com/bwf/bext/1.0/"
+           xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+           xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd">
+   <mets:metsHdr CREATEDATE="2023-09-21T16:28:45.225+02:00"/>
+   <mets:dmdSec ID="MODS">
+      <mets:mdWrap MDTYPE="MODS" MIMETYPE="text/xml">
+         <mets:xmlData>
+            <mods:mods ID="MODS_01">
+               <mods:titleInfo>
+                  <mods:title>[På ski mot skogkanten : fragment] ; [Tømmerhus og nissefigur med tømmerstokk : animasjon fragment]</mods:title>
+               </mods:titleInfo>
+               <mods:typeOfResource>moving image</mods:typeOfResource>
+               <mods:genre>Animasjon, tegnefilm Dokumentasjonsopptak</mods:genre>
+               <mods:originInfo>
+                  <mods:place>
+                     <mods:placeTerm type="text"/>
+                  </mods:place>
+                  <mods:dateCreated encoding="w3cdtf" qualifier="approximate" keyDate="yes">1929</mods:dateCreated>
+                  <mods:issuance>monographic</mods:issuance>
+               </mods:originInfo>
+               <mods:identifier type="urn">URN:NBN:no-nb_digifilm_22433263_20230908_FYAL00000247</mods:identifier>
+               <mods:location>
+                  <mods:url>http://urn.nb.no/URN:NBN:no-nb_digifilm_22433263_20230908_FYAL00000247</mods:url>
+               </mods:location>
+               <mods:physicalDescription>
+                  <mods:digitalOrigin>reformatted digital</mods:digitalOrigin>
+               </mods:physicalDescription>
+            </mods:mods>
+         </mets:xmlData>
+      </mets:mdWrap>
+   </mets:dmdSec>
+   <mets:amdSec>
+      <mets:techMD ID="OBJ_001">
+         <mets:mdWrap MDTYPE="PREMIS:OBJECT">
+            <mets:xmlData>
+               <premis:object>
+                  <premis:objectIdentifier>
+                     <premis:objectIdentifierType>URN</premis:objectIdentifierType>
+                     <premis:objectIdentifierValue>URN:NBN:no-nb_digifilm_22433263_20230908_FYAL00000247#0001</premis:objectIdentifierValue>
+                  </premis:objectIdentifier>
+                  <premis:preservationLevel>preservation</premis:preservationLevel>
+                  <premis:objectCategory>file</premis:objectCategory>
+                  <premis:objectCharacteristics>
+                     <premis:compositionLevel>0</premis:compositionLevel>
+                     <premis:fixity>
+                        <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                        <premis:messageDigest>947183f00e47c8813130acdce026e1b6</premis:messageDigest>
+                        <premis:messageDigestOriginator>jhove</premis:messageDigestOriginator>
+                     </premis:fixity>
+                     <premis:fixity>
+                        <premis:messageDigestAlgorithm>SHA-1</premis:messageDigestAlgorithm>
+                        <premis:messageDigest>28354fd18866e58528c883af897b61ac442f2ab2</premis:messageDigest>
+                        <premis:messageDigestOriginator>jhove</premis:messageDigestOriginator>
+                     </premis:fixity>
+                     <premis:size>5537</premis:size>
+                     <premis:format>
+                        <premis:formatDesignation>
+                           <premis:formatName>Scanity Transfer XML (Transfer List for Scanity)
+                                </premis:formatName>
+                           <premis:formatVersion>1</premis:formatVersion>
+                        </premis:formatDesignation>
+                     </premis:format>
+                  </premis:objectCharacteristics>
+                  <premis:creatingApplication>
+                     <premis:creatingApplicationName>ScanityWS124</premis:creatingApplicationName>
+                     <premis:creatingApplicationVersion>Scanity V3.2.3</premis:creatingApplicationVersion>
+                     <premis:dateCreatedByApplication>2023-09-21T14:03:22+02:00</premis:dateCreatedByApplication>
+                  </premis:creatingApplication>
+                  <premis:originalName>digifilm_22433263_20230908_FYAL00000247_ScanityTransfer.xml</premis:originalName>
+                  <premis:storage>
+                     <premis:storageMedium>SAM-FS</premis:storageMedium>
+                  </premis:storage>
+                  <premis:linkingEventIdentifier>
+                     <premis:linkingEventIdentifierType>no.nb.evt</premis:linkingEventIdentifierType>
+                     <premis:linkingEventIdentifierValue>URN:NBN:no-nb_digifilm_22433263_20230908_FYAL00000247#EVT_001</premis:linkingEventIdentifierValue>
+                  </premis:linkingEventIdentifier>
+               </premis:object>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:techMD>
+      <mets:digiprovMD ID="EVT_001">
+         <mets:mdWrap MDTYPE="PREMIS:EVENT">
+            <mets:xmlData>
+               <premis:event>
+                  <premis:eventIdentifier>
+                     <premis:eventIdentifierType>no.nb.evt</premis:eventIdentifierType>
+                     <premis:eventIdentifierValue>URN:NBN:no-nb_digifilm_22433263_20230908_FYAL00000247#EVT_001</premis:eventIdentifierValue>
+                  </premis:eventIdentifier>
+                  <premis:eventType>capture</premis:eventType>
+                  <premis:eventDateTime>2023-09-08T10:05:38+02:00</premis:eventDateTime>
+                  <premis:eventOutcomeInformation>
+                     <premis:eventOutcome>successful</premis:eventOutcome>
+                  </premis:eventOutcomeInformation>
+                  <premis:linkingObjectIdentifier>
+                     <premis:linkingObjectIdentifierType>URN</premis:linkingObjectIdentifierType>
+                     <premis:linkingObjectIdentifierValue>URN:NBN:no-nb_digifilm_22433263_20230908_FYAL00000247#0001</premis:linkingObjectIdentifierValue>
+                  </premis:linkingObjectIdentifier>
+               </premis:event>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:digiprovMD>
+   </mets:amdSec>
+   <mets:amdSec>
+      <mets:techMD ID="ER_0001">
+         <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="ELEMENTRANGE" MDTYPEVERSION="1.0">
+            <mets:xmlData>
+               <range:elementRange>
+                  <range:elementCount>20</range:elementCount>
+                  <range:firstElement>
+                     <range:name>digifilm_22433263_20230908_FYAL00000247_099980.dpx</range:name>
+                     <range:logicalSequenceNumber>-19</range:logicalSequenceNumber>
+                     <range:absoluteSequenceNumber>1</range:absoluteSequenceNumber>
+                  </range:firstElement>
+                  <range:lastElement>
+                     <range:name>digifilm_22433263_20230908_FYAL00000247_099999.dpx</range:name>
+                     <range:logicalSequenceNumber>0</range:logicalSequenceNumber>
+                     <range:absoluteSequenceNumber>20</range:absoluteSequenceNumber>
+                  </range:lastElement>
+               </range:elementRange>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:techMD>
+   </mets:amdSec>
+   <mets:amdSec>
+      <mets:techMD ID="ER_0002">
+         <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="ELEMENTRANGE" MDTYPEVERSION="1.0">
+            <mets:xmlData>
+               <range:elementRange>
+                  <range:elementCount>1423</range:elementCount>
+                  <range:firstElement>
+                     <range:name>digifilm_22433263_20230908_FYAL00000247_100000.dpx</range:name>
+                     <range:logicalSequenceNumber>1</range:logicalSequenceNumber>
+                     <range:absoluteSequenceNumber>21</range:absoluteSequenceNumber>
+                  </range:firstElement>
+                  <range:lastElement>
+                     <range:name>digifilm_22433263_20230908_FYAL00000247_101422.dpx</range:name>
+                     <range:logicalSequenceNumber>1423</range:logicalSequenceNumber>
+                     <range:absoluteSequenceNumber>1443</range:absoluteSequenceNumber>
+                  </range:lastElement>
+               </range:elementRange>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:techMD>
+   </mets:amdSec>
+   <mets:fileSec>
+      <mets:fileGrp ID="FILMGROUP">
+         <mets:file SEQ="1"
+                    MIMETYPE="application/tar"
+                    USE="container"
+                    SIZE="2723123200"
+                    CHECKSUM="aafdb9d857a3dc1536f3cd7e68a386e2"
+                    CHECKSUMTYPE="MD5"
+                    ID="DO_0001"
+                    ADMID="ER_0001">
+            <mets:FLocat LOCTYPE="URN"
+                         xlink:href="URN:NBN:no-nb_digifilm_22433263_20230908_FYAL00000247_pre"
+                         xlink:type="simple"/>
+         </mets:file>
+         <mets:file SEQ="2"
+                    MIMETYPE="application/tar"
+                    USE="container"
+                    SIZE="193749493760"
+                    CHECKSUM="2caec87c370dec5b7f0bdbefa725ee1a"
+                    CHECKSUMTYPE="MD5"
+                    ID="DO_0002"
+                    ADMID="ER_0002">
+            <mets:FLocat LOCTYPE="URN"
+                         xlink:href="URN:NBN:no-nb_digifilm_22433263_20230908_FYAL00000247_0001"
+                         xlink:type="simple"/>
+         </mets:file>
+      </mets:fileGrp>
+      <mets:fileGrp ID="METAGROUP">
+         <mets:file ID="TRANSFER_0001"
+                    USE="preservation"
+                    MIMETYPE="text/xml"
+                    ADMID="OBJ_001 EVT_001"
+                    SIZE="5537"
+                    CHECKSUM="947183f00e47c8813130acdce026e1b6"
+                    CHECKSUMTYPE="MD5">
+            <mets:FLocat LOCTYPE="URN"
+                         xlink:href="URN:NBN:no-nb_digifilm_22433263_20230908_FYAL00000247"/>
+         </mets:file>
+      </mets:fileGrp>
+   </mets:fileSec>
+   <mets:structMap TYPE="physical">
+      <mets:div ID="DIV_P1" TYPE="moving image">
+         <mets:fptr>
+            <mets:par>
+               <mets:seq>
+                  <mets:area FILEID="DO_0001"/>
+                  <mets:area FILEID="DO_0002"/>
+               </mets:seq>
+            </mets:par>
+         </mets:fptr>
+      </mets:div>
+   </mets:structMap>
+</mets:mets>

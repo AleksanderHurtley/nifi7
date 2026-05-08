@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mets:mets xmlns:mets="http://www.loc.gov/METS/"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:mix="http://www.loc.gov/mix/v10"
+           xmlns:premis="http://www.loc.gov/standards/premis/v1"
+           xmlns:m="http://www.wizardis.com.au/2005/12/MAVIS"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xl="http://www.w3.org/1999/xlink"
+           xmlns:fn="http://www.w3.org/2005/xpath-functions"
+           xmlns:jhove="http://hul.harvard.edu/ois/xml/ns/jhove"
+           xmlns:er="http://www.nb.no/xmlschema/preservation/elementrange/1.0"
+           xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd                                http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd                                http://www.loc.gov/mix/v10 http://www.loc.gov/standards/mix/mix10/mix10.xsd                                http://www.nb.no/xmlschema/preservation/elementrange/1.0 http://www.nb.no/xmlschema/preservation/elementrange/1.0/elementrange.xsd">
+   <mets:amdSec>
+      <mets:techMD ID="OBJ_001">
+         <mets:mdWrap MDTYPE="PREMIS">
+            <mets:xmlData>
+               <premis:object>
+                  <premis:objectIdentifier>
+                     <premis:objectIdentifierType>URN</premis:objectIdentifierType>
+                     <premis:objectIdentifierValue>URN:NBN:no-nb_digifilm_22433263_20230908_FYAL00000247_pre#0001</premis:objectIdentifierValue>
+                  </premis:objectIdentifier>
+                  <premis:preservationLevel>preservation</premis:preservationLevel>
+                  <premis:objectCategory>file</premis:objectCategory>
+                  <premis:objectCharacteristics>
+                     <premis:compositionLevel>0</premis:compositionLevel>
+                     <premis:fixity>
+                        <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                        <premis:messageDigest>aafdb9d857a3dc1536f3cd7e68a386e2</premis:messageDigest>
+                        <premis:messageDigestOriginator>productionController</premis:messageDigestOriginator>
+                     </premis:fixity>
+                     <premis:fixity>
+                        <premis:messageDigestAlgorithm>SHA-1</premis:messageDigestAlgorithm>
+                        <premis:messageDigest>777b63258aff568adca4a0e5558ad6845f74f126</premis:messageDigest>
+                        <premis:messageDigestOriginator>productionController</premis:messageDigestOriginator>
+                     </premis:fixity>
+                     <premis:size>2723123200</premis:size>
+                     <premis:format>
+                        <premis:formatDesignation>
+                           <premis:formatName>UStar (Uniform Standard Tape ARchive)</premis:formatName>
+                           <premis:formatVersion>2.0</premis:formatVersion>
+                        </premis:formatDesignation>
+                     </premis:format>
+                  </premis:objectCharacteristics>
+                  <premis:creatingApplication>
+                     <premis:creatingApplicationName>org.apache.commons.commons-compress</premis:creatingApplicationName>
+                     <premis:creatingApplicationVersion>1.4.1</premis:creatingApplicationVersion>
+                     <premis:dateCreatedByApplication>2023-09-21T16:28:45.117+02:00</premis:dateCreatedByApplication>
+                  </premis:creatingApplication>
+                  <premis:originalName>digifilm_22433263_20230908_FYAL00000247_pre.tar</premis:originalName>
+                  <premis:storage>
+                     <premis:storageMedium>SAM-FS</premis:storageMedium>
+                  </premis:storage>
+                  <premis:linkingEventIdentifier>
+                     <premis:linkingEventIdentifierType>no.nb.evt</premis:linkingEventIdentifierType>
+                     <premis:linkingEventIdentifierValue>URN:NBN:no-nb_digifilm_22433263_20230908_FYAL00000247_pre#EVT_002</premis:linkingEventIdentifierValue>
+                  </premis:linkingEventIdentifier>
+               </premis:object>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:techMD>
+      <mets:techMD ID="MIX_001">
+         <mets:mdWrap MDTYPE="NISOIMG">
+            <mets:xmlData>
+               <mix:mix>
+                  <mix:BasicDigitalObjectInformation>
+                     <mix:FormatDesignation>
+                        <mix:formatName>Digital Picture Exchange</mix:formatName>
+                        <mix:formatVersion>V2.0</mix:formatVersion>
+                     </mix:FormatDesignation>
+                  </mix:BasicDigitalObjectInformation>
+                  <mix:BasicImageInformation>
+                     <mix:BasicImageCharacteristics>
+                        <mix:imageWidth>4300</mix:imageWidth>
+                        <mix:imageHeight>3956</mix:imageHeight>
+                     </mix:BasicImageCharacteristics>
+                  </mix:BasicImageInformation>
+                  <mix:ImageCaptureMetadata>
+                     <mix:SourceInformation>
+                        <mix:sourceType>analog movie</mix:sourceType>
+                        <mix:SourceID>
+                           <mix:sourceIDType>Hyllesignatur</mix:sourceIDType>
+                           <mix:sourceIDValue>FYAL00000247</mix:sourceIDValue>
+                        </mix:SourceID>
+                        <mix:SourceSize>
+                           <mix:SourceXDimension>
+                              <mix:sourceXDimensionValue>35</mix:sourceXDimensionValue>
+                              <mix:sourceXDimensionUnit>mm</mix:sourceXDimensionUnit>
+                           </mix:SourceXDimension>
+                        </mix:SourceSize>
+                     </mix:SourceInformation>
+                     <mix:GeneralCaptureInformation>
+                        <mix:dateTimeCreated>2023-09-21T14:15:17+02:00</mix:dateTimeCreated>
+                        <mix:imageProducer>Nasjonalbiblioteket</mix:imageProducer>
+                        <mix:captureDevice>still from video</mix:captureDevice>
+                     </mix:GeneralCaptureInformation>
+                     <mix:ScannerCapture>
+                        <mix:scannerManufacturer>Digital Film Technology GmbH</mix:scannerManufacturer>
+                        <mix:ScannerModel>
+                           <mix:scannerModelName>Scanity V3.2.3</mix:scannerModelName>
+                           <mix:scannerModelSerialNo>124</mix:scannerModelSerialNo>
+                        </mix:ScannerModel>
+                     </mix:ScannerCapture>
+                  </mix:ImageCaptureMetadata>
+                  <mix:ImageAssessmentMetadata>
+                     <mix:ImageColorEncoding>
+                        <mix:bitsPerSample>
+                           <mix:bitsPerSampleValue>16,16,16</mix:bitsPerSampleValue>
+                           <mix:bitsPerSampleUnit>integer</mix:bitsPerSampleUnit>
+                        </mix:bitsPerSample>
+                        <mix:samplesPerPixel>3</mix:samplesPerPixel>
+                     </mix:ImageColorEncoding>
+                  </mix:ImageAssessmentMetadata>
+               </mix:mix>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:techMD>
+      <mets:digiprovMD ID="EVT_001">
+         <mets:mdWrap MDTYPE="PREMIS">
+            <mets:xmlData>
+               <premis:event>
+                  <premis:eventIdentifier>
+                     <premis:eventIdentifierType>no.nb.evt</premis:eventIdentifierType>
+                     <premis:eventIdentifierValue>URN:NBN:no-nb_digifilm_22433263_20230908_FYAL00000247_pre#EVT_001</premis:eventIdentifierValue>
+                  </premis:eventIdentifier>
+                  <premis:eventType>capture</premis:eventType>
+                  <premis:eventDateTime>2023-09-21T14:15:17+02:00</premis:eventDateTime>
+                  <premis:eventOutcomeInformation>
+                     <premis:eventOutcome>success</premis:eventOutcome>
+                  </premis:eventOutcomeInformation>
+               </premis:event>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:digiprovMD>
+      <mets:digiprovMD ID="EVT_002">
+         <mets:mdWrap MDTYPE="PREMIS">
+            <mets:xmlData>
+               <premis:event>
+                  <premis:eventIdentifier>
+                     <premis:eventIdentifierType>no.nb.evt</premis:eventIdentifierType>
+                     <premis:eventIdentifierValue>URN:NBN:no-nb_digifilm_22433263_20230908_FYAL00000247_pre#EVT_002</premis:eventIdentifierValue>
+                  </premis:eventIdentifier>
+                  <premis:eventType>packaging</premis:eventType>
+                  <premis:eventDateTime>2023-09-21T14:15:17+02:00</premis:eventDateTime>
+                  <premis:eventOutcomeInformation>
+                     <premis:eventOutcome>success</premis:eventOutcome>
+                  </premis:eventOutcomeInformation>
+                  <premis:linkingObjectIdentifier>
+                     <premis:linkingObjectIdentifierType>URN</premis:linkingObjectIdentifierType>
+                     <premis:linkingObjectIdentifierValue>URN:NBN:no-nb_digifilm_22433263_20230908_FYAL00000247_pre#0001</premis:linkingObjectIdentifierValue>
+                  </premis:linkingObjectIdentifier>
+               </premis:event>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:digiprovMD>
+   </mets:amdSec>
+   <mets:amdSec>
+      <mets:techMD ID="ELEMENTRANGE">
+         <mets:mdWrap OTHERMDTYPE="ELEMENTRANGE" MDTYPEVERSION="1.0" MDTYPE="OTHER">
+            <mets:xmlData>
+               <er:elementRange>
+                  <er:elementCount>20</er:elementCount>
+                  <er:firstElement>
+                     <er:name>digifilm_22433263_20230908_FYAL00000247_099980.dpx</er:name>
+                     <er:logicalSequenceNumber>-19</er:logicalSequenceNumber>
+                     <er:absoluteSequenceNumber>1</er:absoluteSequenceNumber>
+                  </er:firstElement>
+                  <er:lastElement>
+                     <er:name>digifilm_22433263_20230908_FYAL00000247_099999.dpx</er:name>
+                     <er:logicalSequenceNumber>0</er:logicalSequenceNumber>
+                     <er:absoluteSequenceNumber>20</er:absoluteSequenceNumber>
+                  </er:lastElement>
+               </er:elementRange>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:techMD>
+   </mets:amdSec>
+   <mets:fileSec>
+      <mets:fileGrp ID="MOVIE_PART">
+         <mets:file ID="TAR_0001"
+                    ADMID="OBJ_001 EVT_002"
+                    MIMETYPE="application/tar"
+                    USE="Container"
+                    CHECKSUM="aafdb9d857a3dc1536f3cd7e68a386e2"
+                    CHECKSUMTYPE="MD5">
+            <mets:FLocat LOCTYPE="URN"
+                         xlink:href="URN:NBN:no-nb_digifilm_22433263_20230908_FYAL00000247_pre"
+                         xlink:type="simple"/>
+            <mets:transformFile TRANSFORMORDER="1"
+                                TRANSFORMTYPE="decompression"
+                                TRANSFORMALGORITHM="tar"/>
+            <mets:file SEQ="1"
+                       ID="DPX00001"
+                       ADMID="EVT_001 EVT_002 MIX_001"
+                       USE="preservation"
+                       MIMETYPE="image/x-dpx"
+                       SIZE="136155136"
+                       CHECKSUM="578047b35dc3dac86b9ff94f879d7dc0"
+                       CHECKSUMTYPE="MD5">
+               <mets:FLocat LOCTYPE="URL"
+                            xlink:href="file:digifilm_22433263_20230908_FYAL00000247_099980.dpx"/>
+            </mets:file>
+            ...
+            <mets:file SEQ="20"
+                       ID="DPX00020"
+                       ADMID="EVT_001 EVT_002 MIX_001"
+                       USE="preservation"
+                       MIMETYPE="image/x-dpx"
+                       SIZE="136155136"
+                       CHECKSUM="02d2338d8ceba604a757e4d48ef680e2"
+                       CHECKSUMTYPE="MD5">
+               <mets:FLocat LOCTYPE="URL"
+                            xlink:href="file:digifilm_22433263_20230908_FYAL00000247_099999.dpx"/>
+            </mets:file>
+         </mets:file>
+      </mets:fileGrp>
+   </mets:fileSec>
+   <mets:structMap TYPE="physical">
+      <mets:div TYPE="MOVIE:PART" LABEL="Movie in DPX">
+         <mets:div ID="DIV1" ORDER="1" TYPE="FRAME">
+            <mets:fptr FILEID="DPX00001"/>
+         </mets:div>
+         ...
+         <mets:div ID="DIV20" ORDER="20" TYPE="FRAME">
+            <mets:fptr FILEID="DPX00020"/>
+         </mets:div>
+      </mets:div>
+   </mets:structMap>
+</mets:mets>

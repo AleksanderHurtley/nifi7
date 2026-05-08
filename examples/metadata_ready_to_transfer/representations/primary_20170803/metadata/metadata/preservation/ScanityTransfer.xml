@@ -1,0 +1,212 @@
+<WorkList iversion="1">
+	<WorkItem oid="0">
+		<Oid>0</Oid>
+		<ReelView>0</ReelView>
+		<Command>
+			<PullCmd overwrite="true">
+				<Overwrite>true</Overwrite>
+				<Path>/stornext/SNFS01/Filmskanning/digifilm_2301560_20170803/digifilm_2301560_20170803_FOOA00000480/images</Path>
+				<Device type="XFS">
+					<Type>XFS</Type>
+					<Path></Path>
+					<Host>scanityWS201</Host>
+				</Device>
+				<ImageFileName>-1</ImageFileName>
+				<IngestComponents>0</IngestComponents>
+				<TaskType>0</TaskType>
+				<Creator>-1</Creator>
+				<ProjectName>-1</ProjectName>
+				<CopyrightInfo>-1</CopyrightInfo>
+				<TransferCharacteristic>-1</TransferCharacteristic>
+				<ColorMetric>-1</ColorMetric>
+				<XYOrigSize>-1</XYOrigSize>
+				<SourceImageName>-1</SourceImageName>
+				<CreationTime>-1</CreationTime>
+				<InputDeviceName>-1</InputDeviceName>
+				<InputDeviceSerial>-1</InputDeviceSerial>
+				<FilmFormat>-1</FilmFormat>
+				<FrameRate>-1</FrameRate>
+				<SlateInfo>-1</SlateInfo>
+				<TkMem>
+					<Name></Name>
+					<Path></Path>
+					<Filter>
+						<Filmdeck>true</Filmdeck>
+						<Matching>true</Matching>
+						<Color>true</Color>
+						<Sizing>true</Sizing>
+						<Audio>true</Audio>
+						<Special>true</Special>
+					</Filter>
+					<ScannerSettings><![CDATA[<tkBlizz>
+.memVersion 3.0.3
+ApertureYLut 0
+AudioActive 0
+AudioAnalogGain 0
+AudioDelay 1
+AudioHeadType 0
+AudioInputLevelLeft 0
+AudioInputLevelRight 0
+AudioMode 1
+AudioMonitoringBypass 0
+AudioMonitoringLevelLeft 0
+AudioMonitoringLevelRight 0
+AudioPreroll 0
+AudioServoLocked 0
+AutoDMinStatus 0
+AutoFocusStatus 0
+AutomaticVBlanking 0
+BandwidthDirtMatte 0
+BandwidthHighResImage 538.583
+BlankingInputBottom 0
+CalibrationInfo 5 1 99
+Characteristic CRT
+ColorSpaceDelog 1:1
+ColorSpaceLog 1:1
+ColorSpaceMatrix 1:1
+ColorSpaceValueRange 1168 1168 1168 65535 65535 65535
+CoreDiameter 75 75
+DirtConcealActive 0
+DirtConcealBypass 1
+DirtConcealDirtSize 0
+DirtConcealFilterEffect 0
+DirtConcealHighlightFineScratches 0
+DirtConcealMatteContent 0
+DirtConcealScratchSize 0
+DirtConcealSplitAlphaImage 0
+DirtConcealSplitImage 0
+DirtConcealThreshold 255
+DirtGrainSuppression 0
+DoorOpen 0
+ExcessiveShrinkage 0
+FileType 2
+FilmAcceleration 80
+FilmAnalysed 1
+FilmDensityBlue 3.5
+FilmDensityGreen 3.5
+FilmDensityRed 3.5
+FilmDetection 2
+FilmEndDetection 0
+FilmFormatType -1
+FilmNegative 0
+FilmSpeed 171
+FilmSpoolRanges 99542 128396 31552 103209
+FilmStock "Print"
+FilmStockAutomatic 0
+FilmTension 0
+FilmType "Normal (140 um)"
+FilmdeckLightMode 0
+FilmdeckProcessStatus 0
+FilmdeckServoLocked 1
+FilmdeckStatus 2
+FlipHV 1
+FocusAid 0
+FocusPosition -3
+Framecount 103217
+FramingH 0
+FramingP 0
+FramingV -113
+GateCheckActive 0
+HRegistrationActive 0
+HardwareReady 1
+HardwareServoLocked 0
+HdrModeEnabled 0
+IgnoreFilmDetection 0
+ImageFileSize 24 0
+ImagesizeInternalMode 0
+IngestAudio 0
+IrGainCurve 1
+IrThreshold 0
+Keycode 0 0 0 6737 5 0 1
+KeycodeOffsetMode 0
+KeycodeQuality 0
+KeycodeReaderMode 2
+LgaType 1
+LightDrop 0
+LightLevels 0.197917 0.0720249 0.0349873
+LightLevelsMax 0.0404226 0.0147103 0.00714579 0.444444 0.444444 0.444444
+MatteFileMode 1
+MaxTransportSpeed 800
+McuBallisticModeFwd 1
+McuBallisticModeRev 0
+McuBusy 0
+MeasuredFilmShrinkage 0.0058
+Monochrome 0
+OutputFormat1 2150 1460 1 0 1 1 0 0
+OverscanFactor 1.15
+PackingMode 2
+PanScrollData 0 0
+PerfHoleFilterH 1
+PerfHoleReferenceEdgeH 0
+PerfHoleReferenceEdgeV 0
+Perforation 1
+PlayFromToStatus 6
+PrinterLightsBlue 27.5
+PrinterLightsGreen 27.5
+PrinterLightsMax 41.5 59 71.5
+PrinterLightsRed 27.5
+ReadyOnRejected 0
+ReelDiameter 200.72 103.66 24985 3691 1
+ReproFormat S16OvSc 1 5 0 0 12900 8763 9030 0
+Resolution 2048
+ScratchConcealThreshold 255
+SegmentDriftMode 0
+ShowGlobalDirtConcealment 0
+SolSource 1
+SuppressStopAtFilmEnd 0
+TargetSearchStatus 2
+TdiLineMode 1
+TimecodeFormat 24
+TransferSpeed 15
+TransferSpeedOption 0
+TransportSpeed 171
+ZoomH 1
+ZoomV 1
+</tkBlizz>
+
+]]></ScannerSettings>
+					<ApplyScannerSettings>true</ApplyScannerSettings>
+				</TkMem>
+			</PullCmd>
+		</Command>
+		<Material>
+			<Device type="SCANNER">
+				<Type>SCANNER</Type>
+				<Path>PCI Express</Path>
+				<Host>scanityWS201</Host>
+			</Device>
+			<Element>
+				<PullClip fps="24">
+					<Path>/stornext/SNFS01/Filmskanning/digifilm_2301560_20170803/digifilm_2301560_20170803_FOOA00000480/images</Path>
+					<Size>25178112</Size>
+					<ClassId>dpx</ClassId>
+					<Fps>24</Fps>
+					<ResX>2150</ResX>
+					<ResY>1460</ResY>
+					<BitsPerPixel>-1</BitsPerPixel>
+					<NumChannels>-1</NumChannels>
+					<FilmPerf>1</FilmPerf>
+					<FrameFileName padding="6">
+						<Padding>6</Padding>
+						<Prefix>digifilm_2301560_20170803_FOOA00000480_</Prefix>
+						<Suffix>.dpx</Suffix>
+					</FrameFileName>
+					<FirstFrame>100000</FirstFrame>
+					<LastFrame>103213</LastFrame>
+					<StartPosExtern>-1</StartPosExtern>
+					<Range first="100000" last="103213">
+						<First>100000</First>
+						<Last>103213</Last>
+					</Range>
+					<ScanResX>2150</ScanResX>
+					<ScanResY>1460</ScanResY>
+				</PullClip>
+			</Element>
+		</Material>
+		<Progress framesCompleted="3214" percentComplete="100" remainingSeconds="-1" done="true">
+			<FramesCompleted>3214</FramesCompleted>
+			<PercentComplete>100</PercentComplete>
+			<Done>true</Done>
+		</Progress>
+	</WorkItem>
+</WorkList>

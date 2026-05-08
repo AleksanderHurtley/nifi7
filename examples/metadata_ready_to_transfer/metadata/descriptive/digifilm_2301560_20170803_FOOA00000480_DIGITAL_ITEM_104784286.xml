@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?><adlibXML>
+  <recordList>
+    <record deleted="false" created="2025-04-27T12:20:13" priref="104784286" modification="2025-05-15T01:26:59" selected="false">
+      <acquisition.method>Kopiert ved NB</acquisition.method>
+      <acquisition.method.lref>5621</acquisition.method.lref>
+      <check_record>
+        <value lang="neutral">U</value>
+        <value lang="0">Unverified</value>
+      </check_record>
+      <colour_type>Svart/hvitt</colour_type>
+      <colour_type.lref>5938</colour_type.lref>
+      <dataset_name>
+        <value lang="neutral">catalogue</value>
+        <value lang="0">Audio-Visual Catalogue</value>
+        <value lang="12">AV-katalogen</value>
+      </dataset_name>
+      <file.format>Image/x-dpx</file.format>
+      <file.format.lref>7744</file.format.lref>
+      <file.size>80922451968</file.size>
+      <format>
+        <value lang="neutral">G</value>
+        <value lang="0">Digital</value>
+        <value lang="12">Digital</value>
+      </format>
+      <Acquisition_source>
+        <acquisition.source>Nasjonalbiblioteket. Avdeling Rana</acquisition.source>
+        <acquisition.source.lref>4101</acquisition.source.lref>
+      </Acquisition_source>
+      <Alternative_number>
+        <alternative_number>54784286</alternative_number>
+        <alternative_number.date>2025-04-23</alternative_number.date>
+        <alternative_number.type>Mavis ITEM_ID</alternative_number.type>
+        <alternative_number.type.lref>6388</alternative_number.type.lref>
+      </Alternative_number>
+      <Alternative_number>
+        <alternative_number>2301560-1</alternative_number>
+        <alternative_number.date>2025-04-23</alternative_number.date>
+        <alternative_number.type>Mavis-nummer</alternative_number.type>
+        <alternative_number.type.lref>6389</alternative_number.type.lref>
+      </Alternative_number>
+      <Alternative_number>
+        <alternative_number>URN:NBN:no-nb_digifilm_2301560_20170803</alternative_number>
+        <alternative_number.type>URN</alternative_number.type>
+        <alternative_number.type.lref>6005</alternative_number.type.lref>
+      </Alternative_number>
+      <Carrier_type>
+        <carrier_type_general>Levende bilder</carrier_type_general>
+        <carrier_type_general.lref>6690</carrier_type_general.lref>
+      </Carrier_type>
+      <CopiedFrom>
+        <copied_from>AV-82549770</copied_from>
+        <copied_from.lref>82549770</copied_from.lref>
+        <copied_from.title>[Samlerull fra Norges landbrukshøgskole på Ås : rull 1]</copied_from.title>
+        <metadata_copiedfrom_date>2017-08-03</metadata_copiedfrom_date>
+        <metadata_copiedfrom_end_hour/>
+        <metadata_copiedfrom_end_min/>
+        <metadata_copiedfrom_end_sec/>
+        <metadata_copiedfrom_end_tics/>
+        <metadata_copiedfrom_reference>646551</metadata_copiedfrom_reference>
+        <metadata_copiedfrom_start_hour/>
+        <metadata_copiedfrom_start_min/>
+        <metadata_copiedfrom_start_sec/>
+        <metadata_copiedfrom_start_tics/>
+      </CopiedFrom>
+      <CopiedTo>
+        <copied_to>AV-110145243</copied_to>
+        <copied_to.lref>110145243</copied_to.lref>
+        <copied_to.title>[Litt fjøs og litt hesjing]</copied_to.title>
+        <metadata_copiedto_date>2017-08-10</metadata_copiedto_date>
+        <metadata_copiedto_end_hour/>
+        <metadata_copiedto_end_min/>
+        <metadata_copiedto_end_sec/>
+        <metadata_copiedto_end_tics/>
+        <metadata_copiedto_reference>671732</metadata_copiedto_reference>
+        <metadata_copiedto_start_hour/>
+        <metadata_copiedto_start_min/>
+        <metadata_copiedto_start_sec/>
+        <metadata_copiedto_start_tics/>
+      </CopiedTo>
+      <edit_history>
+        <edit.history.date>2017-08-10</edit.history.date>
+        <edit.history.name>NB. IKT utvikling</edit.history.name>
+      </edit_history>
+      <Medium>
+        <medium>Levende bilder</medium>
+        <medium.lref>6078</medium.lref>
+        <medium.principal>x</medium.principal>
+      </Medium>
+      <Part_of>
+        <part_of.availability/>
+        <part_of.dating.date.start/>
+        <part_of.format>
+          <value lang="neutral"/>
+        </part_of.format>
+        <part_of.item_description/>
+        <part_of.lead_word/>
+        <part_of.manifestation_title/>
+        <part_of.manifestation_type>Ukjent</part_of.manifestation_type>
+        <part_of.record_type>
+          <value lang="neutral">MANIFESTATION</value>
+          <value lang="0">Manifestation</value>
+          <value lang="1">Manifestatie</value>
+          <value lang="3">Manifestation</value>
+          <value lang="9">Manifestation</value>
+          <value lang="12">Manifestasjon</value>
+        </part_of.record_type>
+        <part_of.submedium>Film</part_of.submedium>
+        <part_of.title>[Litt fjøs og litt hesjing]</part_of.title>
+        <part_of_reference>
+          <Part_of>
+            <part_of_reference>
+              <Dating>
+                <dating.notes>Fra årskode på kantmerkingen</dating.notes>
+              </Dating>
+              <Title>
+                <title>[Litt fjøs og litt hesjing]</title>
+              </Title>
+              <object_number>AV-2301560</object_number>
+              <priref>2301560</priref>
+              <record_type>
+                <value lang="neutral">WORK</value>
+                <value lang="0">Work</value>
+                <value lang="1">Werk</value>
+                <value lang="3">Werk</value>
+                <value lang="9">Verk</value>
+                <value lang="12">Verk/uttrykk</value>
+              </record_type>
+            </part_of_reference>
+          </Part_of>
+          <Title>
+            <title>[Litt fjøs og litt hesjing]</title>
+          </Title>
+          <object_number>AV-27301560</object_number>
+          <priref>27301560</priref>
+          <record_type>
+            <value lang="neutral">MANIFESTATION</value>
+            <value lang="0">Manifestation</value>
+            <value lang="1">Manifestatie</value>
+            <value lang="3">Manifestation</value>
+            <value lang="9">Manifestation</value>
+            <value lang="12">Manifestasjon</value>
+          </record_type>
+        </part_of_reference>
+        <part_of_reference.lref>27301560</part_of_reference.lref>
+        <part_of_total_parts>2</part_of_total_parts>
+      </Part_of>
+      <Parts>
+        <parts.carrier_type.specific/>
+        <parts.collection.name/>
+        <parts.condition/>
+        <parts.condition.date/>
+        <parts.current_location.context/>
+        <parts.current_location.name/>
+        <parts.dating.date.start/>
+        <parts.default_location.name/>
+        <parts.dimension.type/>
+        <parts.dimension.unit/>
+        <parts.dimension.value/>
+        <parts.file.size>80922451968</parts.file.size>
+        <parts.fileformat>Image/x-dpx</parts.fileformat>
+        <parts.format>
+          <value lang="neutral">G</value>
+          <value lang="0">Digital</value>
+          <value lang="12">Digital</value>
+        </parts.format>
+        <parts.item_description/>
+        <parts.item_status>Sikringseksemplar</parts.item_status>
+        <parts.lead_word/>
+        <parts.linked_acquisition.number/>
+        <parts.manifestation_title/>
+        <parts.manifestation_type/>
+        <parts.material/>
+        <parts.part/>
+        <parts.record_type>
+          <value lang="neutral">ITEM_PART</value>
+          <value lang="0">Item part</value>
+          <value lang="1">Item deel</value>
+          <value lang="3">Exemplar Teil</value>
+          <value lang="9">Objektsdel</value>
+          <value lang="12">Bærer</value>
+        </parts.record_type>
+        <parts.reel.number>1</parts.reel.number>
+        <parts.reference.lref>104784287</parts.reference.lref>
+        <parts.runtime_combined/>
+        <parts.sequence_no>1</parts.sequence_no>
+        <parts.title>[Litt fjøs og litt hesjing]</parts.title>
+        <parts_reference>
+          <Title>
+            <title>[Litt fjøs og litt hesjing]</title>
+          </Title>
+          <object_number>AV-104784287</object_number>
+          <priref>104784287</priref>
+          <record_type>
+            <value lang="neutral">ITEM_PART</value>
+            <value lang="0">Item part</value>
+            <value lang="1">Item deel</value>
+            <value lang="3">Exemplar Teil</value>
+            <value lang="9">Objektsdel</value>
+            <value lang="12">Bærer</value>
+          </record_type>
+        </parts_reference>
+      </Parts>
+      <Runtime_main>
+        <runtime.hours>0</runtime.hours>
+        <runtime.minutes>0</runtime.minutes>
+        <runtime.seconds>0</runtime.seconds>
+      </Runtime_main>
+      <Submedium>
+        <submedium>Film</submedium>
+        <submedium.lref>6077</submedium.lref>
+        <submedium.principal>x</submedium.principal>
+      </Submedium>
+      <Title>
+        <title>[Litt fjøs og litt hesjing]</title>
+        <title.main>x</title.main>
+        <title.type>Konstruert tittel</title.type>
+        <title.type.lref>5943</title.type.lref>
+      </Title>
+      <guid>d850fcf6-cb31-4529-8b10-6ed0db586208</guid>
+      <input.date>2017-08-03</input.date>
+      <input.name>FILM</input.name>
+      <item_status>Sikringseksemplar</item_status>
+      <item_status.lref>6602</item_status.lref>
+      <management_status>
+        <value lang="neutral">INTERNAL</value>
+        <value lang="0">internal</value>
+        <value lang="1">eigen beheer</value>
+        <value lang="3">Intern</value>
+      </management_status>
+      <object_number>AV-104784286</object_number>
+      <playback_sequence>Sekvensielt</playback_sequence>
+      <playback_sequence.lref>7636</playback_sequence.lref>
+      <priref>104784286</priref>
+      <record_access.owner>NLNadmin</record_access.owner>
+      <record_type>
+        <value lang="neutral">ITEM</value>
+        <value lang="0">Item</value>
+        <value lang="1">Item</value>
+        <value lang="3">Einzelstück</value>
+        <value lang="9">Objekt</value>
+        <value lang="12">Komponent</value>
+      </record_type>
+      <sequence_no>1</sequence_no>
+      <total_parts>1</total_parts>
+    </record>
+  </recordList>
+  <diagnostic>
+    <hits>1</hits>
+    <xmltype>Grouped</xmltype>
+    <hits_on_display>1</hits_on_display>
+    <search>priref = 104784286</search>
+    <first_item>1</first_item>
+    <forward>0</forward>
+    <backward>0</backward>
+    <limit>1</limit>
+    <dbname>collect</dbname>
+    <dsname>catalogue</dsname>
+    <cgistring>
+      <param name="database">catalogue</param>
+    </cgistring>
+    <link_resolve_time unit="mS" culture="en-US">125,6189</link_resolve_time>
+    <response_time unit="mS" culture="en-US">200</response_time>
+  </diagnostic>
+</adlibXML>

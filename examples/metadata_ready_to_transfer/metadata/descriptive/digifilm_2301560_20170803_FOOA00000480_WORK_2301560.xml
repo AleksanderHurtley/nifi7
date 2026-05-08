@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?><adlibXML>
+  <recordList>
+    <record deleted="false" created="2025-07-01T16:31:56" priref="2301560" modification="2025-07-28T13:28:12" selected="false">
+      <audit_notes>Clone object, Kristin Michalsen, 22-FEB-16 / 2301560 Copy of 2301553: [Småruller fra Vitenparken på Ås] : [rull 1] has been cloned from 2301553 [Småruller fra Vitenparken på Ås] : [rull 1]</audit_notes>
+      <check_record>
+        <value lang="neutral">U</value>
+        <value lang="0">Unverified</value>
+      </check_record>
+      <colour_type>Svart/hvitt</colour_type>
+      <colour_type.lref>5938</colour_type.lref>
+      <content.genre>Dokumentasjonsopptak</content.genre>
+      <content.genre.lref>6050</content.genre.lref>
+      <dataset_name>
+        <value lang="neutral">catalogue</value>
+        <value lang="0">Audio-Visual Catalogue</value>
+        <value lang="12">AV-katalogen</value>
+      </dataset_name>
+      <duplicate_status>
+        <value lang="neutral">U</value>
+        <value lang="0">Unknown</value>
+      </duplicate_status>
+      <edit.date>2025-07-28</edit.date>
+      <edit.name>torbjorn.pedersen@nb.no</edit.name>
+      <edit.source>collect&gt;catalogue</edit.source>
+      <edit.time>13:28:12</edit.time>
+      <Dating>
+        <dating.date.end>1965</dating.date.end>
+        <dating.date.end.prec>circa</dating.date.end.prec>
+        <dating.date.start>1965</dating.date.start>
+        <dating.date.start.prec>circa</dating.date.start.prec>
+        <dating.notes>Fra årskode på kantmerkingen</dating.notes>
+        <dating.type>Innspilt</dating.type>
+        <dating.type.lref>6374</dating.type.lref>
+      </Dating>
+      <Description>
+        <description>Fjøsarbeid og hesjing.</description>
+        <description.type>Beskrivelse</description.type>
+        <description.type.lref>5963</description.type.lref>
+      </Description>
+      <Description>
+        <description>Nr. 1 av 7 småruller med film satt sammen til en samlerull, med hvit sladd mellom hver film.</description>
+        <description.type>Interne merknader</description.type>
+        <description.type.lref>7992</description.type.lref>
+      </Description>
+      <edit_history>
+        <edit.history.date>2017-08-10</edit.history.date>
+        <edit.history.name>NB. IKT utvikling</edit.history.name>
+        <edit.history.notes/>
+        <edit.history.source/>
+        <edit.history.time/>
+      </edit_history>
+      <edit_history>
+        <edit.history.date>2025-07-01</edit.history.date>
+        <edit.history.name>axiell-bilder</edit.history.name>
+        <edit.history.notes>Migrere description.type fra Mavis</edit.history.notes>
+        <edit.history.source>bilder-collections-api</edit.history.source>
+        <edit.history.time>14:31:56</edit.history.time>
+      </edit_history>
+      <Medium>
+        <medium>Levende bilder</medium>
+        <medium.lref>6078</medium.lref>
+        <medium.principal>x</medium.principal>
+      </Medium>
+      <Notes>
+        <notes>Tittel konstruert fra innholdet i filmen og merknader fra originalemballasjen.</notes>
+        <notes.type>NFSA_NOTE_MAVIS</notes.type>
+        <notes.type.lref>6011</notes.type.lref>
+      </Notes>
+      <Object_name>
+        <object_name>Film</object_name>
+        <object_name.lref>6029</object_name.lref>
+      </Object_name>
+      <Parts>
+        <parts.carrier_type.specific/>
+        <parts.collection.name/>
+        <parts.condition/>
+        <parts.condition.date/>
+        <parts.current_location.context/>
+        <parts.current_location.name/>
+        <parts.dating.date.start/>
+        <parts.default_location.name/>
+        <parts.dimension.type/>
+        <parts.dimension.unit/>
+        <parts.dimension.value/>
+        <parts.file.size/>
+        <parts.fileformat/>
+        <parts.format>
+          <value lang="neutral"/>
+        </parts.format>
+        <parts.item_description/>
+        <parts.item_status/>
+        <parts.lead_word/>
+        <parts.linked_acquisition.number/>
+        <parts.manifestation_title/>
+        <parts.manifestation_type>Ukjent</parts.manifestation_type>
+        <parts.material/>
+        <parts.part/>
+        <parts.record_type>
+          <value lang="neutral">MANIFESTATION</value>
+          <value lang="0">Manifestation</value>
+          <value lang="1">Manifestatie</value>
+          <value lang="3">Manifestation</value>
+          <value lang="9">Manifestation</value>
+          <value lang="12">Manifestasjon</value>
+        </parts.record_type>
+        <parts.reel.number/>
+        <parts.reference.lref>27301560</parts.reference.lref>
+        <parts.runtime_combined/>
+        <parts.sequence_no/>
+        <parts.title>[Litt fjøs og litt hesjing]</parts.title>
+        <parts_reference>
+          <Title>
+            <title>[Litt fjøs og litt hesjing]</title>
+          </Title>
+          <object_number>AV-27301560</object_number>
+          <priref>27301560</priref>
+          <record_type>
+            <value lang="neutral">MANIFESTATION</value>
+            <value lang="0">Manifestation</value>
+            <value lang="1">Manifestatie</value>
+            <value lang="3">Manifestation</value>
+            <value lang="9">Manifestation</value>
+            <value lang="12">Manifestasjon</value>
+          </record_type>
+        </parts_reference>
+      </Parts>
+      <Segment_of>
+        <segment_of>AV-2301553</segment_of>
+        <segment_of.lref>2301553</segment_of.lref>
+        <segment_of.title>[Samlerull fra Norges landbrukshøgskole på Ås : rull 1]</segment_of.title>
+        <segment_of.type>
+          <value lang="neutral">WORK</value>
+        </segment_of.type>
+      </Segment_of>
+      <Submedium>
+        <submedium>Film</submedium>
+        <submedium.lref>6077</submedium.lref>
+        <submedium.principal>x</submedium.principal>
+      </Submedium>
+      <Title>
+        <title>[Litt fjøs og litt hesjing]</title>
+        <title.main>x</title.main>
+        <title.type>Konstruert tittel</title.type>
+        <title.type.lref>5943</title.type.lref>
+      </Title>
+      <guid>99463930-c3a0-4e57-87d8-46efbe087b40</guid>
+      <input.date>2016-02-22</input.date>
+      <input.name>Kristin Michalsen</input.name>
+      <management_status>
+        <value lang="neutral">INTERNAL</value>
+        <value lang="0">internal</value>
+        <value lang="1">eigen beheer</value>
+        <value lang="3">Intern</value>
+      </management_status>
+      <object_name.domain>
+        <value lang="neutral">FILM_FORM</value>
+        <value lang="0">form (Film)</value>
+        <value lang="1">vorm (Film)</value>
+        <value lang="3">Form (Film)</value>
+        <value lang="12">Koder</value>
+      </object_name.domain>
+      <object_number>AV-2301560</object_number>
+      <priref>2301560</priref>
+      <production_country>Norge</production_country>
+      <production_country.lref>5</production_country.lref>
+      <publish_on_web>x</publish_on_web>
+      <record_access.owner>NLNadmin</record_access.owner>
+      <record_type>
+        <value lang="neutral">WORK</value>
+        <value lang="0">Work</value>
+        <value lang="1">Werk</value>
+        <value lang="3">Werk</value>
+        <value lang="9">Verk</value>
+        <value lang="12">Verk/uttrykk</value>
+      </record_type>
+      <relevance>x</relevance>
+      <total_parts>1</total_parts>
+      <total_segments>0</total_segments>
+      <total_series>0</total_series>
+      <work.description_type>
+        <value lang="neutral">WORK</value>
+        <value lang="0">Work</value>
+        <value lang="9">Självständigt verk</value>
+        <value lang="12">Verkstittel</value>
+      </work.description_type>
+    </record>
+  </recordList>
+  <diagnostic>
+    <hits>1</hits>
+    <xmltype>Grouped</xmltype>
+    <hits_on_display>1</hits_on_display>
+    <search>priref = 2301560</search>
+    <first_item>1</first_item>
+    <forward>0</forward>
+    <backward>0</backward>
+    <limit>1</limit>
+    <dbname>collect</dbname>
+    <dsname>catalogue</dsname>
+    <cgistring>
+      <param name="database">catalogue</param>
+    </cgistring>
+    <link_resolve_time unit="mS" culture="en-US">46,8727</link_resolve_time>
+    <response_time unit="mS" culture="en-US">91</response_time>
+  </diagnostic>
+</adlibXML>

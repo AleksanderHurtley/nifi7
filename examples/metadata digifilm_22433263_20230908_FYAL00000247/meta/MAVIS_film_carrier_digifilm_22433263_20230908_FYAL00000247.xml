@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mavis xmlns="http://www.wizardis.com.au/2005/12/MAVIS"
+       xmlns:xl="http://www.w3.org/1999/xlink"
+       version="05.03.04.06">
+   <DigitalCarrier xl:href="/DigitalCarrier/key/22433263-2-1"
+                   xl:title="22433263-2-1 [På ski mot skogkanten : fragment] ; [Tømmerhus og nissefigur med tømmerstokk : animasjon fragment]">
+      <captureDeviceMake xl:href="/Code/key/CAPTURE_DEVICE_MAKE//SC" xl:title="Scanity v 2.xx">SC</captureDeviceMake>
+      <captureDeviceSettings>AudioInputLevelLeft 0
+AudioInputLevelRight 0
+FilmDensityBlue 3.5
+FilmDensityGreen 3.5
+FilmDensityRed 3.5
+FocusPosition 1
+Framecount 101424
+ImageFileSize 130 0
+MeasuredFilmShrinkage 0.0039
+OverscanFactor 1.25
+PackingMode 3
+PrinterLightsBlue 27.5
+PrinterLightsGreen 27.5
+PrinterLightsMax 64 91 99
+PrinterLightsRed 27.5
+TransferSpeed 21
+</captureDeviceSettings>
+      <captureDeviceType xl:href="/Code/key/CAPTURE_DEVICE_TYPE//SF" xl:title="Skanner film">SF</captureDeviceType>
+      <colourSpace xl:href="/Code/key/COLOUR_SPACE//RGB" xl:title="Red, Green, Blue">RGB</colourSpace>
+      <dateTimeCaptured>2023-09-08T10:05:38+02:00</dateTimeCaptured>
+      <dateTimeCreated>2023-09-08T09:54:49</dateTimeCreated>
+      <fileFormat xl:href="/Code/key/FILE_FORMAT//IX" xl:title="Image/x-dpx">IX</fileFormat>
+      <fileFormatVariant xl:href="/Code/key/FILE_FORMAT_VARIANT//DPX2"
+                         xl:title="DPX Version 2.0">DPX2</fileFormatVariant>
+      <fileSize>196471861248</fileSize>
+      <imageBitDepth xl:href="/Code/key/IMAGE_BIT_DEPTH//10" xl:title="10bit log">10</imageBitDepth>
+      <imageCompression xl:href="/Code/key/COMPRESSION//UK" xl:title="Ukomprimert">UK</imageCompression>
+      <inputFile>digifilm_22433263_20230908_FYAL00000247_ScanityTransfer.xml</inputFile>
+      <notes>Innholdet er en serie med bilder
+Første bilde: 099980
+Siste bilde: 101422
+Totalt antall bilder: 1443
+</notes>
+      <objectReferenceMaterials>
+         <ObjectReferenceMaterial xl:title="Produksjonsparametere http://urn.nb.no/digifilm_22433263_20230908_FYAL00000247">
+            <dateTimeCreated>2023-09-21T14:03:22+02:00</dateTimeCreated>
+            <fileFormat xl:href="/Code/key/FILE_FORMAT//TX" xl:title="Text/xml">TX</fileFormat>
+            <fileSize>5537</fileSize>
+            <inputFile>digifilm_22433263_20230908_FYAL00000247_ScanityTransfer.xml</inputFile>
+            <isOlcDisplay>N</isOlcDisplay>
+            <isThumbnail>N</isThumbnail>
+            <objectResourceIdentifiers>
+               <ResourceIdentifier>
+                  <creationMethod xl:href="/Code/key/IDENTIFIER_CREATION_METHOD//M"
+                                  xl:title="Manually created">M</creationMethod>
+                  <getResourceIdentifier>http://urn.nb.no/digifilm_22433263_20230908_FYAL00000247</getResourceIdentifier>
+                  <resourceIdentifier>digifilm_22433263_20230908_FYAL00000247</resourceIdentifier>
+                  <resourceIdentifierType xl:href="/Code/key/RESOURCE_IDENTIFIER_TYPE//URN" xl:title="URN">URN</resourceIdentifierType>
+                  <runResourceIdentifier>http://urn.nb.no/digifilm_22433263_20230908_FYAL00000247</runResourceIdentifier>
+               </ResourceIdentifier>
+            </objectResourceIdentifiers>
+            <referenceMaterialType xl:href="/Code/key/REFERENCE_MATERIAL_TYPE//PM"
+                                   xl:title="Produksjonsparametere">PM</referenceMaterialType>
+            <sequenceNo>1</sequenceNo>
+         </ObjectReferenceMaterial>
+      </objectReferenceMaterials>
+      <operatingSystem xl:href="/Code/key/OS_TYPE//SUSE" xl:title="Linux SUSE">SUSE</operatingSystem>
+      <orientation xl:href="/Code/key/ORIENTATION//OS" xl:title="Overskann">OS</orientation>
+      <resolutionUnit xl:href="/Code/key/IMAGE_RESOLUTION//4" xl:title="Pixler">4</resolutionUnit>
+      <xResolution>4300</xResolution>
+      <yResolution>3956</yResolution>
+   </DigitalCarrier>
+</mavis>

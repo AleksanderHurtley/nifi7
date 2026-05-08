@@ -1,0 +1,31 @@
+│   └── digifilm_2301560_20170803_FOOA00000480
+│       ├── metadata
+│       │   ├── descriptive
+│       │   │   ├── digifilm_2301560_20170803_FOOA00000480_DIGITAL_ITEM_104784286.xml
+│       │   │   ├── digifilm_2301560_20170803_FOOA00000480_DIGITAL_ITEM_PART_104784287.xml
+│       │   │   ├── digifilm_2301560_20170803_FOOA00000480_MANIFESTATION_27301560.xml
+│       │   │   └── digifilm_2301560_20170803_FOOA00000480_WORK_2301560.xml
+│       │   └── other
+│       │       └── deprecated_mets
+│       │           ├── digifilm_2301560_20170803_FOOA00000480.xml
+│       │           ├── METS_digifilm_2301560_20170803_FOOA00000480_0001.xml
+│       │           ├── METS_digifilm_2301560_20170803_FOOA00000480_0002.xml
+│       │           └── METS_digifilm_2301560_20170803_FOOA00000480_0003.xml
+│       ├── METS.xml
+│       ├── representations
+│       │   └── primary_20170803
+│       │       ├── data
+│       │       │   ├── digifilm_2301560_20170803_FOOA00000480_batch0001.mkv
+│       │       │   ├── digifilm_2301560_20170803_FOOA00000480_batch0002.mkv
+│       │       │   └── digifilm_2301560_20170803_FOOA00000480_batch0003.mkv
+│       │       ├── metadata
+│       │       │   └── preservation
+│       │       │       ├── dpx
+│       │       │       │   └── digifilm_2301560_20170803_FOOA00000480_dpx_manifest.xml
+│       │       │       └── ScanityTransfer.xml
+│       │       └── METS.xml
+│       └── schemas
+│           ├── DILCISExtensionMETS.xsd
+│           ├── DILCISExtensionSIPMETS.xsd
+│           ├── mets1_12.xsd
+│           └── xlink.xsd
