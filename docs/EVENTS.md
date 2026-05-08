@@ -54,13 +54,17 @@ eventDateTime: earliest `mix:GeneralCaptureInformation/mix:dateTimeCreated` acro
 eventDetail (template):
 - “Digitalisering av analog film til DPX-bildesekvenser ved bruk av filmskanner \<scannerModelName> (\<scannerManufacturer>, serienr. \<scannerModelSerialNo>). imageProducer: \<imageProducer>; captureDevice: \<captureDevice>.”
 
-Source XML elements (in `metadata/other/deprecated_mets/METS_*.xml`):
+Source XML elements (in `metadata/other/deprecated_mets/METS_*_NNNN.xml`):
 - `mix:GeneralCaptureInformation` (`dateTimeCreated`, `imageProducer`, `captureDevice`)
 - `mix:ScannerCapture` (`scannerManufacturer`, `ScannerModel/scannerModelName`, `ScannerModel/scannerModelSerialNo`)
 
-Note: `mix:SourceXDimension` (film gauge) is intentionally not used — the
-recorded value is unreliable in source METS (e.g. recorded as 16 mm when
-the original is actually 32 mm).
+Notes:
+- Only final-reel METS (`METS_*_NNNN.xml`, e.g. `_0001`, `_0002`, …) are
+  considered. The pre-production `METS_*_pre.xml` is excluded — its
+  `dateTimeCreated` reflects a pre-conformance pass, not the final digitization.
+- `mix:SourceXDimension` (film gauge) is intentionally not used — the
+  recorded value is unreliable in source METS (e.g. recorded as 16 mm when
+  the original is actually 32 mm).
 
 This event is best-effort: when no METS files contain the required mix data
 (e.g. born-digital packages), no creation event is emitted.

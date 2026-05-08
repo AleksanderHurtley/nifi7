@@ -49,17 +49,19 @@ if (!Files.isDirectory(deprDir)) {
 
 try {
     // --------------------------------------------------------------
-    // Collect METS_*.xml files
+    // Collect final-reel METS files only (METS_*_NNNN.xml). The pre-production
+    // "METS_*_pre.xml" is intentionally excluded — its dateTimeCreated reflects
+    // a pre-conformance pass, not the final digitization.
     // --------------------------------------------------------------
     def metsFiles = []
-    Files.newDirectoryStream(deprDir, "METS_*.xml").each { Path p ->
+    Files.newDirectoryStream(deprDir, "METS_*_[0-9][0-9][0-9][0-9].xml").each { Path p ->
         if (Files.isRegularFile(p)) metsFiles << p
     }
 
     if (metsFiles.isEmpty()) {
         ff = session.putAttribute(ff, 'creation.event.emit', 'false')
         ff = session.putAttribute(ff, 'creation.event.status', 'SKIPPED')
-        ff = session.putAttribute(ff, 'creation.event.reason', "No METS_*.xml found in ${deprDir}")
+        ff = session.putAttribute(ff, 'creation.event.reason', "No METS_*_NNNN.xml (final-reel) found in ${deprDir}")
         session.transfer(ff, REL_SUCCESS)
         return
     }
