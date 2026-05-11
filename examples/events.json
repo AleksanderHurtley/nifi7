@@ -5,14 +5,15 @@
       "agent": {
         "agentName": "Scanity",
         "agentType": "hardware",
-        "agentVersion": "V3.2.3",
+        "agentVersion": "V3.2.3 (serienr. 124)",
         "agentNotes": "Filmskanner produsert av Digital Film Technology GmbH. Brukes til digitalisering av analog film til DPX-bildesekvenser."
       },
       "event": {
-        "eventDateTime": "2023-09-21T14:15:17+02:00",
+        "eventDateTime": "2023-09-21T14:28:44+02:00",
         "eventType": "creation",
-        "eventDetail": "Digitalisering av analog film til DPX-bildesekvenser ved bruk av filmskanner Scanity V3.2.3 (Digital Film Technology GmbH, serienr. 124). imageProducer: Nasjonalbiblioteket; captureDevice: still from video.",
-        "outcome": "success"
+        "eventDetail": "Digitalisering av analog film til DPX-bildesekvenser. Produsent: Nasjonalbiblioteket.",
+        "outcome": "success",
+        "outcomeDetail": "Resulterte i 1423 DPX-filer."
       }
     },
     {
@@ -26,9 +27,9 @@
       "event": {
         "eventDateTime": "2026-05-08T11:52:43Z",
         "eventType": "migration",
-        "eventDetail": "Konvertering av DPX-bildesekvenser til FFV1-video i Matroska (MKV) container for langtidsbevaring. Brukte parametere: command=rawcooked --all --check -y; tool.ffmpeg=ffmpeg version N-113331-g202a35ecdb Copyright (c) 2000-2024 the FFmpeg developers; tool.ffprobe=ffprobe version N-113331-g202a35ecdb Copyright (c) 2007-2024 the FFmpeg developers.",
+        "eventDetail": "Konvertering av alle DPX-bildesekvenser i pakken til FFV1-video i Matroska (MKV) container for langtidsbevaring. Kommando kjørt: rawcooked --all --check -y. Verktøy: ffmpeg=N-113331-g202a35ecdb; ffprobe=N-113331-g202a35ecdb.",
         "outcome": "success",
-        "outcomeDetail": "container=Matroska / WebM;videoCodec=ffv1"
+        "outcomeDetail": "container=Matroska / WebM;videoCodec=ffv1;mkvCount=1"
       }
     },
     {

@@ -48,15 +48,20 @@ eventType: `creation`
 agent override:
 - agentName: scanner model (e.g. `Scanity`), parsed from `mix:scannerModelName`
 - agentType: `hardware`
-- agentVersion: parsed from `mix:scannerModelName` (e.g. `V3.2.3`)
+- agentVersion: firmware version + physical-unit serial, e.g. `V3.2.3 (serienr. 124)`
+  (combines `mix:scannerModelName` revision with `mix:scannerModelSerialNo` so the
+  agent block uniquely identifies the specific physical scanner)
 - agentNotes: `Filmskanner produsert av <scannerManufacturer>. Brukes til digitalisering av analog film til DPX-bildesekvenser.`
 eventDateTime: earliest `mix:GeneralCaptureInformation/mix:dateTimeCreated` across all reels
-eventDetail (template):
-- “Digitalisering av analog film til DPX-bildesekvenser ved bruk av filmskanner \<scannerModelName> (\<scannerManufacturer>, serienr. \<scannerModelSerialNo>). imageProducer: \<imageProducer>; captureDevice: \<captureDevice>.”
+eventDetail (template — scanner identity lives entirely in `agent`):
+- “Digitalisering av analog film til DPX-bildesekvenser. Produsent: \<imageProducer>.”
+outcomeDetail (template):
+- “Resulterte i \<total> DPX-filer.” (sum of `er:elementCount` across all reels)
 
 Source XML elements (in `metadata/other/deprecated_mets/METS_*_NNNN.xml`):
-- `mix:GeneralCaptureInformation` (`dateTimeCreated`, `imageProducer`, `captureDevice`)
+- `mix:GeneralCaptureInformation` (`dateTimeCreated`, `imageProducer`)
 - `mix:ScannerCapture` (`scannerManufacturer`, `ScannerModel/scannerModelName`, `ScannerModel/scannerModelSerialNo`)
+- `er:elementRange/er:elementCount` (per-reel DPX count; summed for the package)
 
 Notes:
 - Only final-reel METS (`METS_*_NNNN.xml`, e.g. `_0001`, `_0002`, …) are
@@ -65,6 +70,9 @@ Notes:
 - `mix:SourceXDimension` (film gauge) is intentionally not used — the
   recorded value is unreliable in source METS (e.g. recorded as 16 mm when
   the original is actually 32 mm).
+- `mix:captureDevice` is intentionally not used — its MIX value
+  ("still from video") is not meaningful to Norwegian readers and duplicates
+  what the scanner agent already implies.
 
 This event is best-effort: when no METS files contain the required mix data
 (e.g. born-digital packages), no creation event is emitted.
@@ -77,11 +85,13 @@ agent override:
 - agentVersion: e.g. `24.11`
 - agentNotes: `Verktøy for tapsfri konvertering av DPX-bildesekvenser til FFV1-video i Matroska-container, med bit-eksakt rekonstruksjon.`
 eventDetail (parameters belong here, per DPS guidance):
-- “Konvertering av DPX-bildesekvenser til FFV1-video i Matroska (MKV) container for langtidsbevaring. Brukte parametere: command=rawcooked --all --check -y; tool.ffmpeg=\<version>; tool.ffprobe=\<version>.”
+- “Konvertering av alle DPX-bildesekvenser i pakken til FFV1-video i Matroska (MKV) container for langtidsbevaring. Kommando kjørt: rawcooked --all --check -y. Verktøy: ffmpeg=\<token>; ffprobe=\<token>.”
+  Tool versions are trimmed to the build identifier (e.g. `N-113331-g202a35ecdb`), not the full first line of `--version`.
 outcomeDetail (result-only keys):
 - `container`
 - `videoCodec`
 - `videoProfile`
+- `mkvCount` (number of MKV outputs produced)
 
 ## Example RAWcooked event
 {
@@ -95,9 +105,9 @@ outcomeDetail (result-only keys):
   "event": {
     "eventDateTime": "2026-02-11T14:01:41Z",
     "eventType": "migration",
-    "eventDetail": "Konvertering av DPX-bildesekvenser til FFV1-video i Matroska (MKV) container for langtidsbevaring. Brukte parametere: command=rawcooked --all --check -y; tool.ffmpeg=ffmpeg version N-113331-...; tool.ffprobe=ffprobe version N-113331-....",
+    "eventDetail": "Konvertering av alle DPX-bildesekvenser i pakken til FFV1-video i Matroska (MKV) container for langtidsbevaring. Kommando kjørt: rawcooked --all --check -y. Verktøy: ffmpeg=N-113331-g202a35ecdb; ffprobe=N-113331-g202a35ecdb.",
     "outcome": "success",
-    "outcomeDetail": "container=Matroska / WebM;videoCodec=ffv1;videoProfile=FFV1 version 3"
+    "outcomeDetail": "container=Matroska / WebM;videoCodec=ffv1;videoProfile=FFV1 version 3;mkvCount=3"
   }
 }
 
@@ -107,13 +117,14 @@ outcomeDetail (result-only keys):
   "agent": {
     "agentName": "Scanity",
     "agentType": "hardware",
-    "agentVersion": "V3.2.3",
+    "agentVersion": "V3.2.3 (serienr. 124)",
     "agentNotes": "Filmskanner produsert av Digital Film Technology GmbH. Brukes til digitalisering av analog film til DPX-bildesekvenser."
   },
   "event": {
     "eventDateTime": "2023-09-21T14:28:44+02:00",
     "eventType": "creation",
-    "eventDetail": "Digitalisering av analog film til DPX-bildesekvenser ved bruk av filmskanner Scanity V3.2.3 (Digital Film Technology GmbH, serienr. 124). imageProducer: Nasjonalbiblioteket; captureDevice: still from video.",
-    "outcome": "success"
+    "eventDetail": "Digitalisering av analog film til DPX-bildesekvenser. Produsent: Nasjonalbiblioteket.",
+    "outcome": "success",
+    "outcomeDetail": "Resulterte i 1423 DPX-filer."
   }
 }

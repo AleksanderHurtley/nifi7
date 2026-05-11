@@ -278,20 +278,30 @@ try {
         "Verktøy for tapsfri konvertering av DPX-bildesekvenser til FFV1-video i Matroska-container, med bit-eksakt rekonstruksjon."
     )
 
-    def detailParams = []
-    detailParams << "command=rawcooked --all --check -y"
-    if (ffmpegVersion?.trim())  detailParams << "tool.ffmpeg=${ffmpegVersion.trim()}"
-    if (ffprobeVersion?.trim()) detailParams << "tool.ffprobe=${ffprobeVersion.trim()}"
+    // Extract just the build identifier from "<tool> version <token> Copyright..."
+    def versionToken = { String full ->
+        if (!full?.trim()) return null
+        def m = full.trim() =~ /\bversion\s+(\S+)/
+        return m.find() ? m.group(1) : full.trim()
+    }
+
+    def ffmpegTok  = versionToken(ffmpegVersion)
+    def ffprobeTok = versionToken(ffprobeVersion)
+    def toolParts = []
+    if (ffmpegTok)  toolParts << "ffmpeg=${ffmpegTok}"
+    if (ffprobeTok) toolParts << "ffprobe=${ffprobeTok}"
+    def toolSuffix = toolParts.isEmpty() ? "" : " Verktøy: ${toolParts.join('; ')}."
 
     ff = session.putAttribute(ff, "event.detail",
-        "Konvertering av DPX-bildesekvenser til FFV1-video i Matroska (MKV) container for langtidsbevaring. " +
-        "Brukte parametere: ${detailParams.join('; ')}."
+        "Konvertering av alle DPX-bildesekvenser i pakken til FFV1-video i Matroska (MKV) container for langtidsbevaring. " +
+        "Kommando kjørt: rawcooked --all --check -y.${toolSuffix}"
     )
 
     ff = session.putAttribute(ff, "event.outcomeDetail", buildOutcomeDetail { addPair ->
         addPair("container", overallProbe?.format_long ?: overallProbe?.format_name)
         addPair("videoCodec", overallProbe?.codec_name)
         addPair("videoProfile", overallProbe?.profile)
+        addPair("mkvCount", results.size().toString())
     })
 
     session.transfer(ff, REL_SUCCESS)

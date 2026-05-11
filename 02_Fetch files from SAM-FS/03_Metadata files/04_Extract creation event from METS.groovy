@@ -87,12 +87,14 @@ try {
 
     // mix:SourceXDimension (film gauge) is intentionally NOT read — the value
     // is unreliable in source METS (e.g. recorded as 16 mm when actually 32 mm).
+    // mix:captureDevice is also NOT read — the value "still from video" is a
+    // MIX vocabulary phrase that confuses Norwegian readers.
     String earliestDt          = null
     String scannerModelName    = null   // e.g. "Scanity V3.2.3"
     String scannerManufacturer = null
     String scannerModelSerialNo= null
     String imageProducer       = null
-    String captureDevice       = null
+    long   dpxTotal            = 0L     // sum of er:elementCount across all reels
 
     metsFiles.each { Path mets ->
         try {
@@ -102,7 +104,6 @@ try {
                 def dt = textOrNull(firstByLocalName(gci, 'dateTimeCreated'))
                 if (dt && (earliestDt == null || dt < earliestDt)) earliestDt = dt
                 if (imageProducer == null) imageProducer = textOrNull(firstByLocalName(gci, 'imageProducer'))
-                if (captureDevice == null) captureDevice = textOrNull(firstByLocalName(gci, 'captureDevice'))
             }
 
             if (scannerModelName == null) {
@@ -112,6 +113,12 @@ try {
                     scannerModelName     = textOrNull(firstByLocalName(sc, 'scannerModelName'))
                     scannerModelSerialNo = textOrNull(firstByLocalName(sc, 'scannerModelSerialNo'))
                 }
+            }
+
+            // er:elementCount inside er:elementRange — one count per reel.
+            def ec = textOrNull(firstByLocalName(root, 'elementCount'))
+            if (ec) {
+                try { dpxTotal += Long.parseLong(ec) } catch (Exception ignore) {}
             }
         } catch (Exception ignore) {
             // Tolerate per-file parse failures; keep scanning the rest.
@@ -142,28 +149,37 @@ try {
     }
 
     // --------------------------------------------------------------
-    // Parse "Scanity V3.2.3" -> agentName="Scanity", agentVersion="V3.2.3"
+    // Parse "Scanity V3.2.3" -> agentName="Scanity", agentVersion="V3.2.3".
+    // The physical-unit serial is appended to agentVersion so the agent block
+    // uniquely identifies which specific scanner did the work:
+    //   "V3.2.3 (serienr. 124)"
     // --------------------------------------------------------------
     def parts = scannerModelName.trim().split(/\s+/, 2)
-    String agentName    = parts[0]
-    String agentVersion = (parts.length > 1) ? parts[1] : ""
+    String agentName       = parts[0]
+    String firmwareVersion = (parts.length > 1) ? parts[1] : ""
 
-    // --------------------------------------------------------------
-    // Build eventDetail (Norwegian)
-    // --------------------------------------------------------------
-    String detailHead = "Digitalisering av analog film til DPX-bildesekvenser ved bruk av filmskanner ${scannerModelName}"
-    def scannerCtx = []
-    if (!isBlank(scannerManufacturer))   scannerCtx << scannerManufacturer
-    if (!isBlank(scannerModelSerialNo))  scannerCtx << "serienr. ${scannerModelSerialNo}"
-    if (!scannerCtx.isEmpty()) {
-        detailHead = "${detailHead} (${scannerCtx.join(', ')})"
+    String agentVersion
+    if (!isBlank(firmwareVersion) && !isBlank(scannerModelSerialNo)) {
+        agentVersion = "${firmwareVersion} (serienr. ${scannerModelSerialNo})"
+    } else if (!isBlank(firmwareVersion)) {
+        agentVersion = firmwareVersion
+    } else if (!isBlank(scannerModelSerialNo)) {
+        agentVersion = "serienr. ${scannerModelSerialNo}"
+    } else {
+        agentVersion = ""
     }
-    detailHead = "${detailHead}."
 
-    def tail = []
-    if (!isBlank(imageProducer)) tail << "imageProducer: ${imageProducer}"
-    if (!isBlank(captureDevice)) tail << "captureDevice: ${captureDevice}"
-    String eventDetail = tail.isEmpty() ? detailHead : "${detailHead} " + tail.join('; ') + "."
+    // --------------------------------------------------------------
+    // Build eventDetail (Norwegian). Scanner identity (model + version + serial)
+    // is fully captured in the agent block, so eventDetail carries only the
+    // per-event facts: operation and producer.
+    // --------------------------------------------------------------
+    def detailParts = ["Digitalisering av analog film til DPX-bildesekvenser."]
+    if (!isBlank(imageProducer)) detailParts << "Produsent: ${imageProducer}."
+    String eventDetail = detailParts.join(" ")
+
+    // outcomeDetail: total DPX file count summed across all reels' METS files.
+    String outcomeDetail = (dpxTotal > 0) ? "Resulterte i ${dpxTotal} DPX-filer." : null
 
     // --------------------------------------------------------------
     // Stage attributes for Add event.groovy
@@ -172,7 +188,7 @@ try {
     ff = session.putAttribute(ff, 'event.outcome',  'success')
     ff = session.putAttribute(ff, 'event.datetime', earliestDt)
     ff = session.putAttribute(ff, 'event.detail',   eventDetail)
-    // event.outcomeDetail intentionally omitted; outcome=success is sufficient.
+    if (outcomeDetail) ff = session.putAttribute(ff, 'event.outcomeDetail', outcomeDetail)
 
     ff = session.putAttribute(ff, 'agent.name',    agentName)
     ff = session.putAttribute(ff, 'agent.type',    'hardware')
