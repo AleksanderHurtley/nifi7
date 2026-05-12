@@ -193,10 +193,10 @@ try {
     ff = session.putAttribute(ff, 'agent.name',    agentName)
     ff = session.putAttribute(ff, 'agent.type',    'hardware')
     if (!isBlank(agentVersion)) ff = session.putAttribute(ff, 'agent.version', agentVersion)
-    String agentNotes = isBlank(scannerManufacturer) ?
+    String agentNote = isBlank(scannerManufacturer) ?
         "Filmskanner brukt til digitalisering av analog film til DPX-bildesekvenser." :
         "Filmskanner produsert av ${scannerManufacturer}. Brukes til digitalisering av analog film til DPX-bildesekvenser."
-    ff = session.putAttribute(ff, 'agent.notes', agentNotes)
+    ff = session.putAttribute(ff, 'agent.note', agentNote)
 
     ff = session.putAttribute(ff, 'creation.event.emit', 'true')
     ff = session.putAttribute(ff, 'creation.event.status', 'OK')

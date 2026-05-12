@@ -69,17 +69,17 @@ def eventDt = (!isBlank(providedDt))
 // Scanity, …), only the attributes it explicitly sets are used.
 // ----------------------------------------------------------------------
 def rawAgentName = ff.getAttribute('agent.name')
-def agentName, agentType, agentVersion, agentNotes
+def agentName, agentType, agentVersion, agentNote
 if (rawAgentName == null || rawAgentName.toString().trim().isEmpty()) {
     agentName    = "Apache NiFi"
     agentType    = ff.getAttribute('agent.type')    ?: "software"
     agentVersion = ff.getAttribute('agent.version') ?: "2.2.0"
-    agentNotes   = ff.getAttribute('agent.notes')   ?: "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
+    agentNote    = ff.getAttribute('agent.note')    ?: "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
 } else {
     agentName    = rawAgentName
     agentType    = ff.getAttribute('agent.type')
     agentVersion = ff.getAttribute('agent.version')
-    agentNotes   = ff.getAttribute('agent.notes')
+    agentNote    = ff.getAttribute('agent.note')
 }
 
 // ----------------------------------------------------------------------
@@ -151,15 +151,17 @@ try {
         ch = FileChannel.open(eventsPath, StandardOpenOption.READ, StandardOpenOption.WRITE)
         lock = ch.lock()
 
-        // Build agent JSON; OMIT agentVersion / agentNotes when blank
+        // Build agent JSON; OMIT agentVersion / agentNote when blank.
+        // Per DPS API: `agent` is nested inside `event`.
         def agentParts = []
         agentParts << jsonField("agentName", agentName)
         agentParts << jsonField("agentType", agentType)
         if (!isBlank(agentVersion)) agentParts << jsonField("agentVersion", agentVersion.trim())
-        if (!isBlank(agentNotes))   agentParts << jsonField("agentNotes",   agentNotes.trim())
+        if (!isBlank(agentNote))    agentParts << jsonField("agentNote",    agentNote.trim())
         def agentJson = "{${agentParts.join(",")}}"
 
         def eventJsonParts = []
+        eventJsonParts << "\"agent\":${agentJson}"
         eventJsonParts << jsonField("eventDateTime", eventDt)
         eventJsonParts << jsonField("eventType", eventType.trim())
         if (!isBlank(eventDetail))   eventJsonParts << jsonField("eventDetail", eventDetail.trim())
@@ -169,7 +171,6 @@ try {
 
         def record =
             "{${jsonField("packageId", pkg.trim())}," +
-              "\"agent\":${agentJson}," +
               "\"event\":${eventJson}}" +
               "\n"
 

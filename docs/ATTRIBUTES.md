@@ -40,14 +40,14 @@ Names are case-sensitive.
 - `agent.name`
 - `agent.type` (`software` / `hardware` / `organization` / `person`)
 - `agent.version` (optional; omit if blank)
-- `agent.notes` (optional; defaults to a standard description of Apache NiFi when blank)
+- `agent.note` (optional; defaults to a standard description of Apache NiFi when blank)
 
 Conventions:
-- Most events: agent defaults to Apache NiFi (`software`, version `2.2.0`, with standard agentNotes).
+- Most events: agent defaults to Apache NiFi (`software`, version `2.2.0`, with standard agentNote).
 - RAWcooked migration event: agent set in `05_RAWcooked/02_RAWcooked.groovy`
-  (`agent.name=RAWcooked`, `agent.type=software`, `agent.version=<rawcookedVersion>`, `agent.notes=<RAWcooked description>`).
+  (`agent.name=RAWcooked`, `agent.type=software`, `agent.version=<rawcookedVersion>`, `agent.note=<RAWcooked description>`).
 - Creation event: agent set in `02_Fetch files from SAM-FS/03_Metadata files/04_Extract creation event from METS.groovy`
-  (`agent.name=<scanner>`, `agent.type=hardware`, `agent.version=<firmware>`, `agent.notes=<scanner description>`).
+  (`agent.name=<scanner>`, `agent.type=hardware`, `agent.version=<firmware>`, `agent.note=<scanner description>`).
 
 ## Creation event extraction
 - `metadata.other.depr_mets.dir` (required by the creation extractor)

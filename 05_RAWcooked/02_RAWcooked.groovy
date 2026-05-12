@@ -274,7 +274,7 @@ try {
     ff = session.putAttribute(ff, "agent.name", "RAWcooked")
     ff = session.putAttribute(ff, "agent.type", "software")
     ff = session.putAttribute(ff, "agent.version", rawcookedVersion ?: "")
-    ff = session.putAttribute(ff, "agent.notes",
+    ff = session.putAttribute(ff, "agent.note",
         "Verktøy for tapsfri konvertering av DPX-bildesekvenser til FFV1-video i Matroska-container, med bit-eksakt rekonstruksjon."
     )
 

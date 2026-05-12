@@ -2,7 +2,8 @@
 
 Events are appended as NDJSON records:
 - one JSON object per line
-- fields: `packageId`, `agent`, `event`
+- top-level fields: `packageId`, `event`
+- `event.agent` is nested inside `event` (DPS API requirement)
 
 Reference: <https://digitalpreservation.no/nb/docs/dps/api/submission/events/>
 
@@ -25,13 +26,13 @@ Default agent fields (unless overridden):
 - agentName: `Apache NiFi`
 - agentType: `software`
 - agentVersion: `2.2.0`
-- agentNotes: `Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines.`
+- agentNote: `Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines.`
 
-`Add event.groovy` reads the optional flowfile attribute `agent.notes` and
+`Add event.groovy` reads the optional flowfile attribute `agent.note` and
 omits the field when blank.
 
 Exceptions:
-- **RAWcooked migration**: agent is RAWcooked (include version + agentNotes).
+- **RAWcooked migration**: agent is RAWcooked (include version + agentNote).
 - **Creation (digitization)**: agent is the scanner hardware (e.g. Scanity), parsed
   from the deprecated METS files; agentType is `hardware`.
 
@@ -51,7 +52,7 @@ agent override:
 - agentVersion: firmware version + physical-unit serial, e.g. `V3.2.3 (serienr. 124)`
   (combines `mix:scannerModelName` revision with `mix:scannerModelSerialNo` so the
   agent block uniquely identifies the specific physical scanner)
-- agentNotes: `Filmskanner produsert av <scannerManufacturer>. Brukes til digitalisering av analog film til DPX-bildesekvenser.`
+- agentNote: `Filmskanner produsert av <scannerManufacturer>. Brukes til digitalisering av analog film til DPX-bildesekvenser.`
 eventDateTime: earliest `mix:GeneralCaptureInformation/mix:dateTimeCreated` across all reels
 eventDetail (template — scanner identity lives entirely in `agent`):
 - “Digitalisering av analog film til DPX-bildesekvenser. Produsent: \<imageProducer>.”
@@ -83,7 +84,7 @@ agent override:
 - agentName: `RAWcooked`
 - agentType: `software`
 - agentVersion: e.g. `24.11`
-- agentNotes: `Verktøy for tapsfri konvertering av DPX-bildesekvenser til FFV1-video i Matroska-container, med bit-eksakt rekonstruksjon.`
+- agentNote: `Verktøy for tapsfri konvertering av DPX-bildesekvenser til FFV1-video i Matroska-container, med bit-eksakt rekonstruksjon.`
 eventDetail (parameters belong here, per DPS guidance):
 - “Konvertering av alle DPX-bildesekvenser i pakken til FFV1-video i Matroska (MKV) container for langtidsbevaring. Kommando kjørt: rawcooked --all --check -y. Verktøy: ffmpeg=\<token>; ffprobe=\<token>.”
   Tool versions are trimmed to the build identifier (e.g. `N-113331-g202a35ecdb`), not the full first line of `--version`.
@@ -96,13 +97,13 @@ outcomeDetail (result-only keys):
 ## Example RAWcooked event
 {
   "packageId": "<packageId>",
-  "agent": {
-    "agentName": "RAWcooked",
-    "agentType": "software",
-    "agentVersion": "24.11",
-    "agentNotes": "Verktøy for tapsfri konvertering av DPX-bildesekvenser til FFV1-video i Matroska-container, med bit-eksakt rekonstruksjon."
-  },
   "event": {
+    "agent": {
+      "agentName": "RAWcooked",
+      "agentType": "software",
+      "agentVersion": "24.11",
+      "agentNote": "Verktøy for tapsfri konvertering av DPX-bildesekvenser til FFV1-video i Matroska-container, med bit-eksakt rekonstruksjon."
+    },
     "eventDateTime": "2026-02-11T14:01:41Z",
     "eventType": "migration",
     "eventDetail": "Konvertering av alle DPX-bildesekvenser i pakken til FFV1-video i Matroska (MKV) container for langtidsbevaring. Kommando kjørt: rawcooked --all --check -y. Verktøy: ffmpeg=N-113331-g202a35ecdb; ffprobe=N-113331-g202a35ecdb.",
@@ -114,13 +115,13 @@ outcomeDetail (result-only keys):
 ## Example creation event
 {
   "packageId": "digifilm_22433263_20230908_FYAL00000247",
-  "agent": {
-    "agentName": "Scanity",
-    "agentType": "hardware",
-    "agentVersion": "V3.2.3 (serienr. 124)",
-    "agentNotes": "Filmskanner produsert av Digital Film Technology GmbH. Brukes til digitalisering av analog film til DPX-bildesekvenser."
-  },
   "event": {
+    "agent": {
+      "agentName": "Scanity",
+      "agentType": "hardware",
+      "agentVersion": "V3.2.3 (serienr. 124)",
+      "agentNote": "Filmskanner produsert av Digital Film Technology GmbH. Brukes til digitalisering av analog film til DPX-bildesekvenser."
+    },
     "eventDateTime": "2023-09-21T14:28:44+02:00",
     "eventType": "creation",
     "eventDetail": "Digitalisering av analog film til DPX-bildesekvenser. Produsent: Nasjonalbiblioteket.",

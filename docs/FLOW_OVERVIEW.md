@@ -93,7 +93,7 @@ Scripts:
 
 Event:
 - `eventType=migration`
-- Agent: RAWcooked (with version + agentNotes)
+- Agent: RAWcooked (with version + agentNote)
 - Detail (Norwegian, parameters included per DPS guidance):
   "Konvertering av DPX-bildesekvenser til FFV1-video i Matroska (MKV) container for langtidsbevaring. Brukte parametere: command=rawcooked --all --check -y; tool.ffmpeg=\<version>; tool.ffprobe=\<version>."
 

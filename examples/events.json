@@ -2,13 +2,13 @@
   "events": [
     {
       "packageId": "digifilm_22433263_20230908_FYAL00000247",
-      "agent": {
-        "agentName": "Scanity",
-        "agentType": "hardware",
-        "agentVersion": "V3.2.3 (serienr. 124)",
-        "agentNotes": "Filmskanner produsert av Digital Film Technology GmbH. Brukes til digitalisering av analog film til DPX-bildesekvenser."
-      },
       "event": {
+        "agent": {
+          "agentName": "Scanity",
+          "agentType": "hardware",
+          "agentVersion": "V3.2.3 (serienr. 124)",
+          "agentNote": "Filmskanner produsert av Digital Film Technology GmbH. Brukes til digitalisering av analog film til DPX-bildesekvenser."
+        },
         "eventDateTime": "2023-09-21T14:28:44+02:00",
         "eventType": "creation",
         "eventDetail": "Digitalisering av analog film til DPX-bildesekvenser. Produsent: Nasjonalbiblioteket.",
@@ -18,13 +18,13 @@
     },
     {
       "packageId": "digifilm_22433263_20230908_FYAL00000247",
-      "agent": {
-        "agentName": "RAWcooked",
-        "agentType": "software",
-        "agentVersion": "RAWcooked 24.11",
-        "agentNotes": "Verktøy for tapsfri konvertering av DPX-bildesekvenser til FFV1-video i Matroska-container, med bit-eksakt rekonstruksjon."
-      },
       "event": {
+        "agent": {
+          "agentName": "RAWcooked",
+          "agentType": "software",
+          "agentVersion": "RAWcooked 24.11",
+          "agentNote": "Verktøy for tapsfri konvertering av DPX-bildesekvenser til FFV1-video i Matroska-container, med bit-eksakt rekonstruksjon."
+        },
         "eventDateTime": "2026-05-08T11:52:43Z",
         "eventType": "migration",
         "eventDetail": "Konvertering av alle DPX-bildesekvenser i pakken til FFV1-video i Matroska (MKV) container for langtidsbevaring. Kommando kjørt: rawcooked --all --check -y. Verktøy: ffmpeg=N-113331-g202a35ecdb; ffprobe=N-113331-g202a35ecdb.",
@@ -34,13 +34,13 @@
     },
     {
       "packageId": "digifilm_22433263_20230908_FYAL00000247",
-      "agent": {
-        "agentName": "Apache NiFi",
-        "agentType": "software",
-        "agentVersion": "2.2.0",
-        "agentNotes": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
-      },
       "event": {
+        "agent": {
+          "agentName": "Apache NiFi",
+          "agentType": "software",
+          "agentVersion": "2.2.0",
+          "agentNote": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
+        },
         "eventDateTime": "2026-05-08T13:58:48.167+02:00",
         "eventType": "transfer",
         "eventDetail": "Overført pakke fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; DPX-sjekksummer verifisert mot SAM-FS-metadata med md5sum (GNU coreutils); Opprettet E-ARK SIP med commons-ip2.",
