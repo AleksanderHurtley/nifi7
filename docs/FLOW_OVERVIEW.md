@@ -39,7 +39,8 @@ Scripts (by content type):
 
 Events (recommended):
 - `eventType=creation` (best-effort, when METS contains mix data) — agent is the scanner hardware (e.g. Scanity), set by `04_Extract creation event from METS.groovy`.
-- `eventType=transfer` — agent is Apache NiFi (default), set via NiFi UpdateAttribute. Detail in Norwegian: "Overført pakke fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; DPX-sjekksummer verifisert mot SAM-FS-metadata med md5sum (GNU coreutils); Opprettet E-ARK SIP med commons-ip2."
+- `eventType=transfer` — agent is Apache NiFi, set via NiFi UpdateAttribute (see [examples/nifi-updateattribute-transfer.json](../examples/nifi-updateattribute-transfer.json) for the full property list). Detail in Norwegian: "Overført pakke fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; DPX-sjekksummer verifisert mot SAM-FS-metadata med md5sum (GNU coreutils)."
+- `eventType=information package creation` — agent is Commons IP (the library bundled in `nifi-nb-eark-nar`), set via NiFi UpdateAttribute placed right after `EarkSIPGenerator` (see [examples/nifi-updateattribute-information-package-creation.json](../examples/nifi-updateattribute-information-package-creation.json)). Detail in Norwegian: "Opprettelse av E-ARK SIP i henhold til E-ARK Common Specification (CSIP) V.2.2.0, E-ARK SIP V.2.2.0 og Nasjonalbibliotekets spesifikasjoner SIP 1.0 (E-ARK)."
 
 Notes:
 - Avoid commands like `tree/du/find` on SAM-FS if it can trigger recall/staging.

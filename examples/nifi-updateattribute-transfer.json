@@ -1,0 +1,19 @@
+{
+  "processor": "UpdateAttribute (transfer event)",
+  "placement": "After the information-package-creation UpdateAttribute; success relationship routes to Add event.groovy. This is the final event-emitting step in the flow.",
+  "purpose": "Stages event.* and agent.* attributes so Add event.groovy emits a 'transfer' NDJSON record covering SAM-FS → staging copy + DPX fixity verification. SIP creation is now its own event (information package creation) and is no longer mentioned here.",
+  "properties": {
+    "event.type": "transfer",
+    "event.outcome": "success",
+    "event.datetime": "#{timestamp}",
+    "event.detail": "Overført pakke fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; DPX-sjekksummer verifisert mot SAM-FS-metadata med md5sum (GNU coreutils).",
+    "agent.name": "Apache NiFi",
+    "agent.type": "software",
+    "agent.version": "2.2.0",
+    "agent.note": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
+  },
+  "notes": [
+    "All four agent.* properties are set explicitly even though they match the defaults in Add event.groovy. This makes the agent unambiguous from the NiFi UI alone and protects against agent attribute leakage from upstream processors (e.g. RAWcooked sets agent.name=RAWcooked on the flowfile; NiFi doesn't clear flowfile attributes between processors, so without an explicit override the appender would pick those up and produce a transfer event credited to RAWcooked).",
+    "If the default values in Add event.groovy ever drift (NiFi version bump, agentNote rewording), update this processor in lockstep — the defaults and these values describe the same agent and must stay aligned."
+  ]
+}

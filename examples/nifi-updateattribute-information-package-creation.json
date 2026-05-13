@@ -1,0 +1,20 @@
+{
+  "processor": "UpdateAttribute (information package creation event)",
+  "placement": "Immediately after EarkSIPGenerator; success relationship routes to Add event.groovy.",
+  "purpose": "Stages event.* and agent.* attributes so Add event.groovy emits an 'information package creation' NDJSON record describing the E-ARK SIP that EarkSIPGenerator just produced.",
+  "properties": {
+    "event.type": "information package creation",
+    "event.outcome": "success",
+    "event.datetime": "#{timestamp}",
+    "event.detail": "Opprettelse av E-ARK SIP i henhold til E-ARK Common Specification (CSIP) V.2.2.0, E-ARK SIP V.2.2.0 og Nasjonalbibliotekets spesifikasjoner SIP 1.0 (E-ARK).",
+    "agent.name": "Commons IP",
+    "agent.type": "software",
+    "agent.version": "2.3.0",
+    "agent.note": "Verktøy brukt for å opprette E-ARK SIP-pakker"
+  },
+  "notes": [
+    "All four agent.* properties are required because agent.name is set — the Apache NiFi defaults in Add event.groovy only apply when agent.name is unset.",
+    "agent.version: 2.3.0 is from the DPS team's example. Verify it matches the commons-ip2 jar bundled in your nifi-nb-eark-nar, e.g.: unzip -l <path-to-nar> | grep commons-ip2",
+    "event.datetime uses the same #{timestamp} parameter context reference as the transfer-event UpdateAttribute."
+  ]
+}

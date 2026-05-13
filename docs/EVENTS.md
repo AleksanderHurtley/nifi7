@@ -38,11 +38,34 @@ Exceptions:
 
 ## Canonical event texts
 
-### Transfer (SAM-FS → staging, fixity, E-ARK SIP)
+### Transfer (SAM-FS → staging, fixity)
 eventType: `transfer`
-agent: default (Apache NiFi)
+agent: `Apache NiFi` — set explicitly on the UpdateAttribute (values match the
+defaults in `Add event.groovy`; setting them explicitly is belt-and-suspenders
+against agent-attribute leakage from upstream processors like RAWcooked).
 eventDetail:
-- “Overført pakke fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; DPX-sjekksummer verifisert mot SAM-FS-metadata med md5sum (GNU coreutils); Opprettet E-ARK SIP med commons-ip2.”
+- “Overført pakke fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; DPX-sjekksummer verifisert mot SAM-FS-metadata med md5sum (GNU coreutils).”
+
+Wiring: see [examples/nifi-updateattribute-transfer.json](../examples/nifi-updateattribute-transfer.json)
+for the full property list of the NiFi `UpdateAttribute` processor that
+emits this event.
+
+### Information package creation (E-ARK SIP)
+eventType: `information package creation`
+agent override:
+- agentName: `Commons IP`
+- agentType: `software`
+- agentVersion: e.g. `2.3.0` (the bundled `commons-ip2` library version inside the `nifi-nb-eark-nar` NAR — verify against the NAR currently deployed)
+- agentNote: `Verktøy brukt for å opprette E-ARK SIP-pakker`
+eventDetail:
+- “Opprettelse av E-ARK SIP i henhold til E-ARK Common Specification (CSIP) V.2.2.0, E-ARK SIP V.2.2.0 og Nasjonalbibliotekets spesifikasjoner SIP 1.0 (E-ARK).”
+
+Wiring: a NiFi `UpdateAttribute` processor placed right after `EarkSIPGenerator`,
+routed to `Add event.groovy`. Because `agent.name` is set here, all four
+`agent.*` properties must be set on the same UpdateAttribute (the defaults in
+the appender only apply when `agent.name` is unset). See
+[examples/nifi-updateattribute-information-package-creation.json](../examples/nifi-updateattribute-information-package-creation.json)
+for the full property list.
 
 ### Creation (digitization, parsed from deprecated METS)
 eventType: `creation`

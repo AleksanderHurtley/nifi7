@@ -36,6 +36,21 @@
       "packageId": "digifilm_22433263_20230908_FYAL00000247",
       "event": {
         "agent": {
+          "agentName": "Commons IP",
+          "agentType": "software",
+          "agentVersion": "2.3.0",
+          "agentNote": "Verktøy brukt for å opprette E-ARK SIP-pakker"
+        },
+        "eventDateTime": "2026-05-08T13:58:30.012+02:00",
+        "eventType": "information package creation",
+        "eventDetail": "Opprettelse av E-ARK SIP i henhold til E-ARK Common Specification (CSIP) V.2.2.0, E-ARK SIP V.2.2.0 og Nasjonalbibliotekets spesifikasjoner SIP 1.0 (E-ARK).",
+        "outcome": "success"
+      }
+    },
+    {
+      "packageId": "digifilm_22433263_20230908_FYAL00000247",
+      "event": {
+        "agent": {
           "agentName": "Apache NiFi",
           "agentType": "software",
           "agentVersion": "2.2.0",
@@ -43,7 +58,7 @@
         },
         "eventDateTime": "2026-05-08T13:58:48.167+02:00",
         "eventType": "transfer",
-        "eventDetail": "Overført pakke fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; DPX-sjekksummer verifisert mot SAM-FS-metadata med md5sum (GNU coreutils); Opprettet E-ARK SIP med commons-ip2.",
+        "eventDetail": "Overført pakke fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; DPX-sjekksummer verifisert mot SAM-FS-metadata med md5sum (GNU coreutils).",
         "outcome": "success"
       }
     }
