@@ -1,9 +1,15 @@
 # Preservation events (NDJSON)
 
-Events are appended as NDJSON records:
-- one JSON object per line
-- top-level fields: `packageId`, `event`
-- `event.agent` is nested inside `event` (DPS API requirement)
+Events are appended as NDJSON records, one JSON object per line, with these top-level fields:
+- `packageId` — local-only; identifies which package the event belongs to
+- `agent` — nested object (`agentName`, `agentType`, `agentVersion`, optional `agentNote`)
+- `eventDateTime`, `eventType`, optional `eventDetail`, `outcome`, optional `outcomeDetail`
+
+The flat shape matches the DPS events API body when `packageId` is removed.
+Upload pipeline: `FetchFile` → `SplitText` (one event per FlowFile) →
+`JoltTransformJSON` with spec `[{"operation":"remove","spec":{"packageId":""}}]`
+→ `InvokeHTTP` POST to
+`#{submission_service_base_url}/v1/contracts/${contract.id}/submissions/${submission.id}/events`.
 
 Reference: <https://digitalpreservation.no/nb/docs/dps/api/submission/events/>
 
@@ -120,35 +126,31 @@ outcomeDetail (result-only keys):
 ## Example RAWcooked event
 {
   "packageId": "<packageId>",
-  "event": {
-    "agent": {
-      "agentName": "RAWcooked",
-      "agentType": "software",
-      "agentVersion": "24.11",
-      "agentNote": "Verktøy for tapsfri konvertering av DPX-bildesekvenser til FFV1-video i Matroska-container, med bit-eksakt rekonstruksjon."
-    },
-    "eventDateTime": "2026-02-11T14:01:41Z",
-    "eventType": "migration",
-    "eventDetail": "Konvertering av alle DPX-bildesekvenser i pakken til FFV1-video i Matroska (MKV) container for langtidsbevaring. Kommando kjørt: rawcooked --all --check -y. Verktøy: ffmpeg=N-113331-g202a35ecdb; ffprobe=N-113331-g202a35ecdb.",
-    "outcome": "success",
-    "outcomeDetail": "container=Matroska / WebM;videoCodec=ffv1;videoProfile=FFV1 version 3;mkvCount=3"
-  }
+  "agent": {
+    "agentName": "RAWcooked",
+    "agentType": "software",
+    "agentVersion": "24.11",
+    "agentNote": "Verktøy for tapsfri konvertering av DPX-bildesekvenser til FFV1-video i Matroska-container, med bit-eksakt rekonstruksjon."
+  },
+  "eventDateTime": "2026-02-11T14:01:41Z",
+  "eventType": "migration",
+  "eventDetail": "Konvertering av alle DPX-bildesekvenser i pakken til FFV1-video i Matroska (MKV) container for langtidsbevaring. Kommando kjørt: rawcooked --all --check -y. Verktøy: ffmpeg=N-113331-g202a35ecdb; ffprobe=N-113331-g202a35ecdb.",
+  "outcome": "success",
+  "outcomeDetail": "container=Matroska / WebM;videoCodec=ffv1;videoProfile=FFV1 version 3;mkvCount=3"
 }
 
 ## Example creation event
 {
   "packageId": "digifilm_22433263_20230908_FYAL00000247",
-  "event": {
-    "agent": {
-      "agentName": "Scanity",
-      "agentType": "hardware",
-      "agentVersion": "V3.2.3 (serienr. 124)",
-      "agentNote": "Filmskanner produsert av Digital Film Technology GmbH. Brukes til digitalisering av analog film til DPX-bildesekvenser."
-    },
-    "eventDateTime": "2023-09-21T14:28:44+02:00",
-    "eventType": "creation",
-    "eventDetail": "Digitalisering av analog film til DPX-bildesekvenser. Produsent: Nasjonalbiblioteket.",
-    "outcome": "success",
-    "outcomeDetail": "Resulterte i 1423 DPX-filer."
-  }
+  "agent": {
+    "agentName": "Scanity",
+    "agentType": "hardware",
+    "agentVersion": "V3.2.3 (serienr. 124)",
+    "agentNote": "Filmskanner produsert av Digital Film Technology GmbH. Brukes til digitalisering av analog film til DPX-bildesekvenser."
+  },
+  "eventDateTime": "2023-09-21T14:28:44+02:00",
+  "eventType": "creation",
+  "eventDetail": "Digitalisering av analog film til DPX-bildesekvenser. Produsent: Nasjonalbiblioteket.",
+  "outcome": "success",
+  "outcomeDetail": "Resulterte i 1423 DPX-filer."
 }

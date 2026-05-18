@@ -152,7 +152,6 @@ try {
         lock = ch.lock()
 
         // Build agent JSON; OMIT agentVersion / agentNote when blank.
-        // Per DPS API: `agent` is nested inside `event`.
         def agentParts = []
         agentParts << jsonField("agentName", agentName)
         agentParts << jsonField("agentType", agentType)
@@ -160,19 +159,19 @@ try {
         if (!isBlank(agentNote))    agentParts << jsonField("agentNote",    agentNote.trim())
         def agentJson = "{${agentParts.join(",")}}"
 
-        def eventJsonParts = []
-        eventJsonParts << "\"agent\":${agentJson}"
-        eventJsonParts << jsonField("eventDateTime", eventDt)
-        eventJsonParts << jsonField("eventType", eventType.trim())
-        if (!isBlank(eventDetail))   eventJsonParts << jsonField("eventDetail", eventDetail.trim())
-        eventJsonParts << jsonField("outcome", eventOutcome)
-        if (!isBlank(outcomeDetail)) eventJsonParts << jsonField("outcomeDetail", outcomeDetail.trim())
-        def eventJson = "{${eventJsonParts.join(",")}}"
+        // Flat record: packageId at the top is for local NDJSON identification;
+        // strip it before POSTing to the DPS events API (a JoltTransformJSON
+        // `remove` of `packageId` is enough — the remainder matches the API body).
+        def parts = []
+        parts << jsonField("packageId", pkg.trim())
+        parts << "\"agent\":${agentJson}"
+        parts << jsonField("eventDateTime", eventDt)
+        parts << jsonField("eventType", eventType.trim())
+        if (!isBlank(eventDetail))   parts << jsonField("eventDetail", eventDetail.trim())
+        parts << jsonField("outcome", eventOutcome)
+        if (!isBlank(outcomeDetail)) parts << jsonField("outcomeDetail", outcomeDetail.trim())
 
-        def record =
-            "{${jsonField("packageId", pkg.trim())}," +
-              "\"event\":${eventJson}}" +
-              "\n"
+        def record = "{${parts.join(",")}}\n"
 
         ch.position(ch.size())
         ch.write(ByteBuffer.wrap(record.getBytes(StandardCharsets.UTF_8)))

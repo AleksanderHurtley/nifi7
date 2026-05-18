@@ -1,66 +1,58 @@
 {
   "events": [
     {
-      "packageId": "digifilm_22433263_20230908_FYAL00000247",
-      "event": {
-        "agent": {
-          "agentName": "Scanity",
-          "agentType": "hardware",
-          "agentVersion": "V3.2.3 (serienr. 124)",
-          "agentNote": "Filmskanner produsert av Digital Film Technology GmbH. Brukes til digitalisering av analog film til DPX-bildesekvenser."
-        },
-        "eventDateTime": "2023-09-21T14:28:44+02:00",
-        "eventType": "creation",
-        "eventDetail": "Digitalisering av analog film til DPX-bildesekvenser. Produsent: Nasjonalbiblioteket.",
-        "outcome": "success",
-        "outcomeDetail": "Resulterte i 1423 DPX-filer."
-      }
+      "packageId": "digifilm_1300107_20130729_FOIA00001354",
+      "agent": {
+        "agentName": "Scanity",
+        "agentType": "hardware",
+        "agentVersion": "V2.5.250165 (serienr. 124)",
+        "agentNote": "Filmskanner produsert av Digital Film Technology GmbH. Brukes til digitalisering av analog film til DPX-bildesekvenser."
+      },
+      "eventDateTime": "2013-08-15T10:26:08+02:00",
+      "eventType": "creation",
+      "eventDetail": "Digitalisering av analog film til DPX-bildesekvenser. Produsent: Nasjonalbiblioteket.",
+      "outcome": "success",
+      "outcomeDetail": "Resulterte i 10131 DPX-filer."
     },
     {
-      "packageId": "digifilm_22433263_20230908_FYAL00000247",
-      "event": {
-        "agent": {
-          "agentName": "RAWcooked",
-          "agentType": "software",
-          "agentVersion": "RAWcooked 24.11",
-          "agentNote": "Verktøy for tapsfri konvertering av DPX-bildesekvenser til FFV1-video i Matroska-container, med bit-eksakt rekonstruksjon."
-        },
-        "eventDateTime": "2026-05-08T11:52:43Z",
-        "eventType": "migration",
-        "eventDetail": "Konvertering av alle DPX-bildesekvenser i pakken til FFV1-video i Matroska (MKV) container for langtidsbevaring. Kommando kjørt: rawcooked --all --check -y. Verktøy: ffmpeg=N-113331-g202a35ecdb; ffprobe=N-113331-g202a35ecdb.",
-        "outcome": "success",
-        "outcomeDetail": "container=Matroska / WebM;videoCodec=ffv1;mkvCount=1"
-      }
+      "packageId": "digifilm_1300107_20130729_FOIA00001354",
+      "agent": {
+        "agentName": "RAWcooked",
+        "agentType": "software",
+        "agentVersion": "RAWcooked 24.11",
+        "agentNote": "Verktøy for tapsfri konvertering av DPX-bildesekvenser til FFV1-video i Matroska-container, med bit-eksakt rekonstruksjon."
+      },
+      "eventDateTime": "2026-05-18T12:42:58Z",
+      "eventType": "migration",
+      "eventDetail": "Konvertering av alle DPX-bildesekvenser i pakken til FFV1-video i Matroska (MKV) container for langtidsbevaring. Kommando kjørt: rawcooked --all --check -y. Verktøy: ffmpeg=N-113331-g202a35ecdb; ffprobe=N-113331-g202a35ecdb.",
+      "outcome": "success",
+      "outcomeDetail": "container=Matroska / WebM;videoCodec=ffv1;mkvCount=9"
     },
     {
-      "packageId": "digifilm_22433263_20230908_FYAL00000247",
-      "event": {
-        "agent": {
-          "agentName": "Commons IP",
-          "agentType": "software",
-          "agentVersion": "2.3.0",
-          "agentNote": "Verktøy brukt for å opprette E-ARK SIP-pakker"
-        },
-        "eventDateTime": "2026-05-08T13:58:30.012+02:00",
-        "eventType": "information package creation",
-        "eventDetail": "Opprettelse av E-ARK SIP i henhold til E-ARK Common Specification (CSIP) V.2.2.0, E-ARK SIP V.2.2.0 og Nasjonalbibliotekets spesifikasjoner SIP 1.0 (E-ARK).",
-        "outcome": "success"
-      }
+      "packageId": "digifilm_1300107_20130729_FOIA00001354",
+      "agent": {
+        "agentName": "Commons IP",
+        "agentType": "software",
+        "agentVersion": "2.3.0",
+        "agentNote": "Verktøy brukt for å opprette E-ARK SIP-pakker"
+      },
+      "eventDateTime": "2026-05-18T14:51:06.940+02:00",
+      "eventType": "information package creation",
+      "eventDetail": "Opprettelse av E-ARK SIP i henhold til E-ARK Common Specification (CSIP) V.2.2.0, E-ARK SIP V.2.2.0 og Nasjonalbibliotekets spesifikasjoner SIP 1.0 (E-ARK).",
+      "outcome": "success"
     },
     {
-      "packageId": "digifilm_22433263_20230908_FYAL00000247",
-      "event": {
-        "agent": {
-          "agentName": "Apache NiFi",
-          "agentType": "software",
-          "agentVersion": "2.2.0",
-          "agentNote": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
-        },
-        "eventDateTime": "2026-05-08T13:58:48.167+02:00",
-        "eventType": "transfer",
-        "eventDetail": "Overført pakke fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; DPX-sjekksummer verifisert mot SAM-FS-metadata med md5sum (GNU coreutils).",
-        "outcome": "success"
-      }
+      "packageId": "digifilm_1300107_20130729_FOIA00001354",
+      "agent": {
+        "agentName": "Apache NiFi",
+        "agentType": "software",
+        "agentVersion": "2.2.0",
+        "agentNote": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
+      },
+      "eventDateTime": "2026-05-18T14:51:11.980+02:00",
+      "eventType": "transfer",
+      "eventDetail": "Overført pakke fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; DPX-sjekksummer verifisert mot SAM-FS-metadata med md5sum (GNU coreutils).",
+      "outcome": "success"
     }
   ]
 }
