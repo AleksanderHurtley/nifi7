@@ -29,7 +29,6 @@ def extractDirStr      = ff.getAttribute('metadata.extract.dir')
 def workDirStr         = ff.getAttribute('work.dir')
 
 def descriptiveDirStr  = ff.getAttribute('metadata.descriptive.dir')
-def deprMetsDirStr     = ff.getAttribute('metadata.other.depr_mets.dir')
 def preservationDirStr = ff.getAttribute('metadata.preservation.dir')
 def unclassifiedBaseStr= ff.getAttribute('metadata.other.unclassified.dir')
 
@@ -41,7 +40,6 @@ def missing = []
   ['metadata.extract.dir', extractDirStr],
   ['work.dir', workDirStr],
   ['metadata.descriptive.dir', descriptiveDirStr],
-  ['metadata.other.depr_mets.dir', deprMetsDirStr],
   ['metadata.preservation.dir', preservationDirStr],
   ['metadata.other.unclassified.dir', unclassifiedBaseStr]
 ].each { kv ->
@@ -72,7 +70,6 @@ Path repDir         = Paths.get(repDirStr)
 Path extractDir     = Paths.get(extractDirStr)
 Path workDir        = Paths.get(workDirStr)
 Path descriptiveDir = Paths.get(descriptiveDirStr)
-Path deprMetsDir    = Paths.get(deprMetsDirStr)
 Path preservationDir= Paths.get(preservationDirStr)
 
 Path unclassifiedBase         = Paths.get(unclassifiedBaseStr)
@@ -83,7 +80,7 @@ try {
   // ----------------------------------------------------------------
   // Create expected directories
   // ----------------------------------------------------------------
-  [descriptiveDir, deprMetsDir, preservationDir, extractDir].each { Files.createDirectories(it) }
+  [descriptiveDir, preservationDir, extractDir].each { Files.createDirectories(it) }
 
   // ----------------------------------------------------------------
   // Helpers
@@ -204,12 +201,12 @@ try {
   // ----------------------------------------------------------------
   Path topXml = sourceDir.resolve("${pkg}.xml")
   if (Files.isRegularFile(topXml)) {
-    safeCopy(topXml, deprMetsDir.resolve(topXml.fileName.toString()))
+    safeCopy(topXml, descriptiveDir.resolve(topXml.fileName.toString()))
   } else {
     Files.newDirectoryStream(sourceDir, "*.xml").each { Path p ->
       def n = p.fileName.toString()
       if (isJhove(n)) return
-      safeCopy(p, deprMetsDir.resolve(n))
+      safeCopy(p, descriptiveDir.resolve(n))
     }
   }
 
@@ -232,7 +229,7 @@ try {
       }
 
       if (n.startsWith("METS_") && n.toLowerCase().endsWith(".xml")) {
-        safeCopy(p, deprMetsDir.resolve(n))
+        safeCopy(p, descriptiveDir.resolve(n))
         return
       }
     }

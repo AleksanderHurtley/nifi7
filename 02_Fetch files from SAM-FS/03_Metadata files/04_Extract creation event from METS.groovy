@@ -28,12 +28,10 @@ def isBlank = { v -> v == null || v.toString().trim().isEmpty() }
 // ------------------------------------------------------------------
 // Inputs
 // ------------------------------------------------------------------
-def deprMetsDirStr = ff.getAttribute('metadata.other.depr_mets.dir')
 
 if (isBlank(deprMetsDirStr)) {
     ff = session.putAttribute(ff, 'creation.event.emit', 'false')
     ff = session.putAttribute(ff, 'creation.event.status', 'SKIPPED')
-    ff = session.putAttribute(ff, 'creation.event.reason', 'metadata.other.depr_mets.dir attribute not set')
     session.transfer(ff, REL_SUCCESS)
     return
 }

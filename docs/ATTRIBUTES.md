@@ -4,11 +4,13 @@ This document defines common FlowFile attributes used across the pipeline.
 Names are case-sensitive.
 
 ## Identity
+
 - `package.name` (required)
   - Meaning: package identifier used as `packageId` in events and database stats
   - Example: `digifilm_685019_20140516_FP--20080348`
 
 ## Paths
+
 - `events.payload.path` (required)
   - Meaning: absolute path to NDJSON file where events are appended
 - `workDirectoryRoot` (parameter context)
@@ -23,6 +25,7 @@ Names are case-sensitive.
 (Additional path attributes may exist in flow; list them here as you standardize.)
 
 ## Event fields (set by scripts before the Add Event step)
+
 - `event.datetime`
   - ISO-8601 timestamp (prefer UTC, seconds)
   - Example: `2026-02-11T14:01:41Z`
@@ -31,18 +34,20 @@ Names are case-sensitive.
 - `event.outcome`
   - Values: `success` / `failure` / `warning`
 - `event.detail`
-  - Norwegian, human-readable explanation of *what was done* (operation + parameters/method)
+  - Norwegian, human-readable explanation of _what was done_ (operation + parameters/method)
 - `event.outcomeDetail` (optional)
-  - *What was achieved* — semi-structured key/value string (e.g. `k=v;k=v`)
+  - _What was achieved_ — semi-structured key/value string (e.g. `k=v;k=v`)
   - Omit if `outcome` alone is sufficient.
 
 ## Agent overrides (optional; default is “Apache NiFi”)
+
 - `agent.name`
 - `agent.type` (`software` / `hardware` / `organization` / `person`)
 - `agent.version` (optional; omit if blank)
 - `agent.note` (optional; defaults to a standard description of Apache NiFi when blank)
 
 Conventions:
+
 - Most events: agent defaults to Apache NiFi (`software`, version `2.2.0`, with standard agentNote).
 - RAWcooked migration event: agent set in `05_RAWcooked/02_RAWcooked.groovy`
   (`agent.name=RAWcooked`, `agent.type=software`, `agent.version=<rawcookedVersion>`, `agent.note=<RAWcooked description>`).
@@ -50,13 +55,14 @@ Conventions:
   (`agent.name=<scanner>`, `agent.type=hardware`, `agent.version=<firmware>`, `agent.note=<scanner description>`).
 
 ## Creation event extraction
-- `metadata.other.depr_mets.dir` (required by the creation extractor)
+
 - `creation.event.emit` — `true` when METS data found and event attrs were staged
 - `creation.event.status` — `OK` / `SKIPPED`
 - `creation.event.reason` — text reason when skipped (no METS, missing mix data, etc.)
 - `creation.event.mets.count` — number of METS files inspected (when emit=true)
 
 ## Timing / stats (used for DB updates)
+
 - `fetch.start`, `fetch.end`, `fetch.duration`
 - `checksum.start`, `checksum.end`, `checksum.duration`
 - `rawcooked.start`, `rawcooked.end`, `rawcooked.duration`
@@ -66,6 +72,7 @@ Conventions:
 - `rawcooked.compression.bytes`, `rawcooked.compression.ratio` (if used)
 
 ## DPX Manifest XML contract
+
 - Location: `metadata/preservation/dpx/<package.name>_dpx_manifest.xml`
 - Root:
   - `<dpxManifest packageId=\"<package.name>\" checksumAlgorithm=\"MD5\" createdFrom=\"metadata.extract.dir\">`
@@ -75,6 +82,7 @@ Conventions:
 - File order is authoritative for downstream batch processing.
 
 ## Error reporting (recommended)
+
 - `error.message`
   - Short, user-readable cause (path missing, mismatch, command failed, etc.)
 - `error.details` (optional)
@@ -89,6 +97,7 @@ Conventions:
   - Error text if append fails
 
 ## Delivery margin / buffer control (DPS-2)
+
 - `error.buffer.capacity`
   - Maximum retained failures for manual review (default `2` if missing)
 - `error.buffer.op`
@@ -109,6 +118,7 @@ Conventions:
   - Comma-separated released slot ids (empty if none)
 
 ## Package cleanup attributes
+
 - `cleanup.package.status`
   - `OK` or `FAIL`
 - `cleanup.package.deleted.any`

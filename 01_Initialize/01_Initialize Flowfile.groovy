@@ -119,7 +119,6 @@ try {
     ff = session.putAttribute(ff, "metadata.extract.dir", metadataExtractDir)
     ff = session.putAttribute(ff, "metadata.other.dir", metadataOtherDir)
     ff = session.putAttribute(ff, "metadata.descriptive.dir", metadataDescriptiveDir)
-    ff = session.putAttribute(ff, "metadata.other.depr_mets.dir", metadataOtherDeprecatedMetsDir)
     ff = session.putAttribute(ff, "metadata.other.unclassified.dir", metadataOtherUnclassifiedDir)
 
     ff = session.putAttribute(ff, "metadata.preservation.dir", metadataPreservationDir)
