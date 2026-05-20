@@ -197,7 +197,7 @@ try {
   deleteJhoveUnder(extractDir)
 
   // ----------------------------------------------------------------
-  // 3) Copy deprecated mets digifilm_*.xml -> SIP metadata/other/deprecated_mets
+  // 3) Copy source descriptive XML files into metadata.descriptive.dir
   // ----------------------------------------------------------------
   Path topXml = sourceDir.resolve("${pkg}.xml")
   if (Files.isRegularFile(topXml)) {

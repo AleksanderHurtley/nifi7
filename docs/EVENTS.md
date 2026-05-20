@@ -88,7 +88,7 @@ eventDetail (template — scanner identity lives entirely in `agent`):
 outcomeDetail (template):
 - “Resulterte i \<total> DPX-filer.” (sum of `er:elementCount` across all reels)
 
-Source XML elements (in `metadata/other/deprecated_mets/METS_*_NNNN.xml`):
+Source XML elements (in `metadata.descriptive.dir`, usually `metadata/descriptive/METS_*_NNNN.xml`):
 - `mix:GeneralCaptureInformation` (`dateTimeCreated`, `imageProducer`)
 - `mix:ScannerCapture` (`scannerManufacturer`, `ScannerModel/scannerModelName`, `ScannerModel/scannerModelSerialNo`)
 - `er:elementRange/er:elementCount` (per-reel DPX count; summed for the package)

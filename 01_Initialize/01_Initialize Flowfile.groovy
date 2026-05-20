@@ -74,7 +74,6 @@ try {
     def metadataExtractDir              = "${workDir}/metadata_extract"
     def metadataOtherDir                = "${repDir}/metadata/other"
     def metadataDescriptiveDir          = "${workDir}/metadata/descriptive"
-    def metadataOtherDeprecatedMetsDir  = "${workDir}/metadata/other/deprecated_mets"
     def metadataOtherUnclassifiedDir    = "${workDir}/metadata/other/unclassified"
 
     // Preservation metadata

@@ -4,13 +4,11 @@
 │       │   │   ├── digifilm_2301560_20170803_FOOA00000480_DIGITAL_ITEM_104784286.xml
 │       │   │   ├── digifilm_2301560_20170803_FOOA00000480_DIGITAL_ITEM_PART_104784287.xml
 │       │   │   ├── digifilm_2301560_20170803_FOOA00000480_MANIFESTATION_27301560.xml
-│       │   │   └── digifilm_2301560_20170803_FOOA00000480_WORK_2301560.xml
-│       │   └── other
-│       │       └── deprecated_mets
-│       │           ├── digifilm_2301560_20170803_FOOA00000480.xml
-│       │           ├── METS_digifilm_2301560_20170803_FOOA00000480_0001.xml
-│       │           ├── METS_digifilm_2301560_20170803_FOOA00000480_0002.xml
-│       │           └── METS_digifilm_2301560_20170803_FOOA00000480_0003.xml
+│       │   │   ├── digifilm_2301560_20170803_FOOA00000480_WORK_2301560.xml
+│       │   │   ├── digifilm_2301560_20170803_FOOA00000480.xml
+│       │   │   ├── METS_digifilm_2301560_20170803_FOOA00000480_0001.xml
+│       │   │   ├── METS_digifilm_2301560_20170803_FOOA00000480_0002.xml
+│       │   │   └── METS_digifilm_2301560_20170803_FOOA00000480_0003.xml
 │       ├── METS.xml
 │       ├── representations
 │       │   └── primary_20170803

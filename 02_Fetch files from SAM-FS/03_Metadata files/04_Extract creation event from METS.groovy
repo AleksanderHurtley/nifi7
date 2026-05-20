@@ -28,19 +28,20 @@ def isBlank = { v -> v == null || v.toString().trim().isEmpty() }
 // ------------------------------------------------------------------
 // Inputs
 // ------------------------------------------------------------------
+def metadataDescriptiveDirStr = ff.getAttribute('metadata.descriptive.dir')
 
-if (isBlank(deprMetsDirStr)) {
+if (isBlank(metadataDescriptiveDirStr)) {
     ff = session.putAttribute(ff, 'creation.event.emit', 'false')
     ff = session.putAttribute(ff, 'creation.event.status', 'SKIPPED')
     session.transfer(ff, REL_SUCCESS)
     return
 }
 
-Path deprDir = Paths.get(deprMetsDirStr)
-if (!Files.isDirectory(deprDir)) {
+Path descriptiveDir = Paths.get(metadataDescriptiveDirStr)
+if (!Files.isDirectory(descriptiveDir)) {
     ff = session.putAttribute(ff, 'creation.event.emit', 'false')
     ff = session.putAttribute(ff, 'creation.event.status', 'SKIPPED')
-    ff = session.putAttribute(ff, 'creation.event.reason', "Deprecated METS dir not found: ${deprDir}")
+    ff = session.putAttribute(ff, 'creation.event.reason', "metadata.descriptive.dir not found: ${descriptiveDir}")
     session.transfer(ff, REL_SUCCESS)
     return
 }
@@ -52,14 +53,14 @@ try {
     // a pre-conformance pass, not the final digitization.
     // --------------------------------------------------------------
     def metsFiles = []
-    Files.newDirectoryStream(deprDir, "METS_*_[0-9][0-9][0-9][0-9].xml").each { Path p ->
+    Files.newDirectoryStream(descriptiveDir, "METS_*_[0-9][0-9][0-9][0-9].xml").each { Path p ->
         if (Files.isRegularFile(p)) metsFiles << p
     }
 
     if (metsFiles.isEmpty()) {
         ff = session.putAttribute(ff, 'creation.event.emit', 'false')
         ff = session.putAttribute(ff, 'creation.event.status', 'SKIPPED')
-        ff = session.putAttribute(ff, 'creation.event.reason', "No METS_*_NNNN.xml (final-reel) found in ${deprDir}")
+        ff = session.putAttribute(ff, 'creation.event.reason', "No METS_*_NNNN.xml (final-reel) found in ${descriptiveDir}")
         session.transfer(ff, REL_SUCCESS)
         return
     }
