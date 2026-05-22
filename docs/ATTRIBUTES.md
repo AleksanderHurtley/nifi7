@@ -56,6 +56,7 @@ Conventions:
 
 ## Creation event extraction
 
+- `metadata.descriptive.depr_mets.dir` — directory holding the deprecated reel METS files (usually `<work>/metadata/descriptive/deprecated_mets/`). Read by `04_Extract creation event from METS.groovy`.
 - `creation.event.emit` — `true` when METS data found and event attrs were staged
 - `creation.event.status` — `OK` / `SKIPPED`
 - `creation.event.reason` — text reason when skipped (no METS, missing mix data, etc.)

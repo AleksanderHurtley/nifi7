@@ -28,20 +28,20 @@ def isBlank = { v -> v == null || v.toString().trim().isEmpty() }
 // ------------------------------------------------------------------
 // Inputs
 // ------------------------------------------------------------------
-def metadataDescriptiveDirStr = ff.getAttribute('metadata.descriptive.dir')
+def deprMetsDirStr = ff.getAttribute('metadata.descriptive.depr_mets.dir')
 
-if (isBlank(metadataDescriptiveDirStr)) {
+if (isBlank(deprMetsDirStr)) {
     ff = session.putAttribute(ff, 'creation.event.emit', 'false')
     ff = session.putAttribute(ff, 'creation.event.status', 'SKIPPED')
     session.transfer(ff, REL_SUCCESS)
     return
 }
 
-Path descriptiveDir = Paths.get(metadataDescriptiveDirStr)
-if (!Files.isDirectory(descriptiveDir)) {
+Path deprMetsDir = Paths.get(deprMetsDirStr)
+if (!Files.isDirectory(deprMetsDir)) {
     ff = session.putAttribute(ff, 'creation.event.emit', 'false')
     ff = session.putAttribute(ff, 'creation.event.status', 'SKIPPED')
-    ff = session.putAttribute(ff, 'creation.event.reason', "metadata.descriptive.dir not found: ${descriptiveDir}")
+    ff = session.putAttribute(ff, 'creation.event.reason', "metadata.descriptive.depr_mets.dir not found: ${deprMetsDir}")
     session.transfer(ff, REL_SUCCESS)
     return
 }
@@ -53,14 +53,14 @@ try {
     // a pre-conformance pass, not the final digitization.
     // --------------------------------------------------------------
     def metsFiles = []
-    Files.newDirectoryStream(descriptiveDir, "METS_*_[0-9][0-9][0-9][0-9].xml").each { Path p ->
+    Files.newDirectoryStream(deprMetsDir, "METS_*_[0-9][0-9][0-9][0-9].xml").each { Path p ->
         if (Files.isRegularFile(p)) metsFiles << p
     }
 
     if (metsFiles.isEmpty()) {
         ff = session.putAttribute(ff, 'creation.event.emit', 'false')
         ff = session.putAttribute(ff, 'creation.event.status', 'SKIPPED')
-        ff = session.putAttribute(ff, 'creation.event.reason', "No METS_*_NNNN.xml (final-reel) found in ${descriptiveDir}")
+        ff = session.putAttribute(ff, 'creation.event.reason', "No METS_*_NNNN.xml (final-reel) found in ${deprMetsDir}")
         session.transfer(ff, REL_SUCCESS)
         return
     }

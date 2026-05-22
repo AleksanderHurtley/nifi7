@@ -74,6 +74,7 @@ try {
     def metadataExtractDir              = "${workDir}/metadata_extract"
     def metadataOtherDir                = "${repDir}/metadata/other"
     def metadataDescriptiveDir          = "${workDir}/metadata/descriptive"
+    def metadataDescriptiveDeprMetsDir  = "${metadataDescriptiveDir}/deprecated_mets"
     def metadataOtherUnclassifiedDir    = "${workDir}/metadata/other/unclassified"
 
     // Preservation metadata
@@ -118,6 +119,7 @@ try {
     ff = session.putAttribute(ff, "metadata.extract.dir", metadataExtractDir)
     ff = session.putAttribute(ff, "metadata.other.dir", metadataOtherDir)
     ff = session.putAttribute(ff, "metadata.descriptive.dir", metadataDescriptiveDir)
+    ff = session.putAttribute(ff, "metadata.descriptive.depr_mets.dir", metadataDescriptiveDeprMetsDir)
     ff = session.putAttribute(ff, "metadata.other.unclassified.dir", metadataOtherUnclassifiedDir)
 
     ff = session.putAttribute(ff, "metadata.preservation.dir", metadataPreservationDir)

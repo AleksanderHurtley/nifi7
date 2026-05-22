@@ -39,8 +39,9 @@ def workDir           = getAttr("work.dir")
 def dpxUnpackDir       = getAttr("dpx.unpack.dir")
 def repDir             = getAttr("rep.dir")
 def repDataDir         = getAttr("rep.data.dir")
-def metadataOtherDir   = getAttr("metadata.other.dir")
-def metadataDescDir    = getAttr("metadata.descriptive.dir")
+def metadataOtherDir         = getAttr("metadata.other.dir")
+def metadataDescDir          = getAttr("metadata.descriptive.dir")
+def metadataDescDeprMetsDir  = getAttr("metadata.descriptive.depr_mets.dir")
 
 // ------------------------------------------------------------
 // VALIDATE REQUIRED ATTRIBUTES
@@ -57,6 +58,7 @@ def missing = []
   ["rep.data.dir", repDataDir],
   ["metadata.other.dir", metadataOtherDir],
   ["metadata.descriptive.dir", metadataDescDir],
+  ["metadata.descriptive.depr_mets.dir", metadataDescDeprMetsDir],
 ].each { if (!it[1]) missing << it[0] }
 
 if (!missing.isEmpty()) {
@@ -79,6 +81,7 @@ try {
     repDataDir,
     metadataOtherDir,
     metadataDescDir,
+    metadataDescDeprMetsDir,
     payloadDirStr
   ].each { p -> Files.createDirectories(Paths.get(p)) }
 
