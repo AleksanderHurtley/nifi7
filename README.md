@@ -26,6 +26,7 @@ The NiFi flow is organized into logical process groups matching the folder struc
 - `06_Generate checksums/` – compute checksums for outputs if needed downstream
 - `07_dps-2/` – delivery-stage failure margin (single buffer manager script for acquire/release)
 - `08_Package cleanup/` – package-level cleanup of staging/output folders
+- `reporting/` – MySQL/MariaDB view, validation queries, and Grafana dashboard for completed package reporting
 
 ## Operating assumptions
 
@@ -40,3 +41,4 @@ Read:
 - `docs/ATTRIBUTES.md`
 - `docs/EVENTS.md`
 - `docs/OPERATIONS.md`
+- `reporting/README.md`

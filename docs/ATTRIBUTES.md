@@ -70,7 +70,8 @@ Conventions:
 - `eark.start`, `eark.end`, `eark.duration` (if used)
 - `total.pipeline.start`, `total.pipeline.end`, `total.pipeline.duration`
 - `package.size.start`, `package.size.end`
-- `rawcooked.compression.bytes`, `rawcooked.compression.ratio` (if used)
+- `rawcooked.total.input.bytes`, `rawcooked.total.output.bytes`
+- `rawcooked.total.compression_ratio`
 
 ## DPX Manifest XML contract
 

@@ -172,6 +172,16 @@ Stats written to `DI_PARAMETER`:
 | `pipeline.start/end/duration` | `total.pipeline.*` |
 | `package.size.start/end` | fetch stage / `checksums.md5.totalBytes` |
 
+Reporting:
+- `reporting/sql/01_create_transfer_package_metrics_view.sql` pivots
+  flow rows into `v_transfer_package_metrics`, using `DIGITIZED_ITEM`
+  (`Pline_id = 79`, `STATUS = 'Catalog.done'`) as the package source and
+  enriching each row from helper views over `DI_EVENT` and `DI_PARAMETER`.
+- `reporting/grafana/transfer-flow-dashboard.json` reads that view and filters
+  Catalog completion panels by `completed_time`, RAWcooked throughput/ETA
+  panels by `rawcooked_end_time`, and duration panels by
+  `processing_completed_time` (`eark.end` when available).
+
 ---
 
 ### 9) Package cleanup
