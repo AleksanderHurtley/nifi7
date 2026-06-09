@@ -1,14 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_TRANSFER_DB",
-      "label": "Transfer DB",
-      "description": "MySQL/MariaDB datasource with access to v_transfer_package_metrics",
-      "type": "datasource",
-      "pluginId": "mysql",
-      "pluginName": "MySQL"
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -34,391 +24,41 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": null,
+  "id": 564,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "datasource": {
         "type": "mysql",
-        "uid": "${DS_TRANSFER_DB}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "decimals": 0,
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 6,
-        "x": 0,
-        "y": 0
-      },
-      "id": 1,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.0.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "mysql",
-            "uid": "${DS_TRANSFER_DB}"
-          },
-          "editorMode": "code",
-          "format": "table",
-          "rawQuery": true,
-          "rawSql": "SELECT COUNT(DISTINCT di_id) AS completed_packages FROM v_transfer_package_metrics",
-          "refId": "A"
-        }
-      ],
-      "title": "Total Catalog.done packages",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "mysql",
-        "uid": "${DS_TRANSFER_DB}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "decimals": 2,
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 6,
-        "x": 6,
-        "y": 0
-      },
-      "id": 11,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.0.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "mysql",
-            "uid": "${DS_TRANSFER_DB}"
-          },
-          "editorMode": "code",
-          "format": "table",
-          "rawQuery": true,
-          "rawSql": "SELECT ROUND(COALESCE(SUM(rawcooked_input_bytes), 0) / POW(1024, 3), 2) AS processed_input_gib FROM v_transfer_package_metrics",
-          "refId": "A"
-        }
-      ],
-      "title": "Processed input GiB",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "mysql",
-        "uid": "${DS_TRANSFER_DB}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "decimals": 2,
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 6,
-        "x": 0,
-        "y": 4
-      },
-      "id": 2,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.0.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "mysql",
-            "uid": "${DS_TRANSFER_DB}"
-          },
-          "editorMode": "code",
-          "format": "table",
-          "rawQuery": true,
-          "rawSql": "SELECT ROUND(COALESCE(SUM(package_size_end_bytes), 0) / POW(1024, 3), 2) AS processed_output_gib FROM v_transfer_package_metrics",
-          "refId": "A"
-        }
-      ],
-      "title": "Processed output GiB",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "mysql",
-        "uid": "${DS_TRANSFER_DB}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "decimals": 2,
-          "unit": "percent"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 6,
-        "x": 12,
-        "y": 0
-      },
-      "id": 12,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.0.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "mysql",
-            "uid": "${DS_TRANSFER_DB}"
-          },
-          "editorMode": "code",
-          "format": "table",
-          "rawQuery": true,
-          "rawSql": "SELECT ROUND((COALESCE(SUM(rawcooked_input_bytes), 0) / POW(1024, 3)) / NULLIF(MAX(source_input_total_gib), 0) * 100, 2) AS input_progress_percent FROM v_transfer_package_metrics",
-          "refId": "A"
-        }
-      ],
-      "title": "Overall input progress",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "mysql",
-        "uid": "${DS_TRANSFER_DB}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "decimals": 2,
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 6,
-        "x": 6,
-        "y": 4
-      },
-      "id": 3,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.0.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "mysql",
-            "uid": "${DS_TRANSFER_DB}"
-          },
-          "editorMode": "code",
-          "format": "table",
-          "rawQuery": true,
-          "rawSql": "SELECT ROUND(COALESCE(SUM(rawcooked_saved_bytes), 0) / POW(1024, 3), 2) AS rawcooked_saved_gib FROM v_transfer_package_metrics",
-          "refId": "A"
-        }
-      ],
-      "title": "RAWcooked saved GiB",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "mysql",
-        "uid": "${DS_TRANSFER_DB}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "decimals": 2,
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 6,
-        "x": 12,
-        "y": 4
-      },
-      "id": 4,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.0.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "mysql",
-            "uid": "${DS_TRANSFER_DB}"
-          },
-          "editorMode": "code",
-          "format": "table",
-          "rawQuery": true,
-          "rawSql": "SELECT ROUND(SUM(rawcooked_input_bytes) / NULLIF(SUM(rawcooked_output_bytes), 0), 2) AS weighted_compression_ratio FROM v_transfer_package_metrics",
-          "refId": "A"
-        }
-      ],
-      "title": "Weighted compression ratio",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "mysql",
-        "uid": "${DS_TRANSFER_DB}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "decimals": 2,
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 6,
-        "x": 18,
-        "y": 0
-      },
-      "id": 13,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.0.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "mysql",
-            "uid": "${DS_TRANSFER_DB}"
-          },
-          "editorMode": "code",
-          "format": "table",
-          "rawQuery": true,
-          "rawSql": "SELECT ROUND(GREATEST(MAX(source_input_total_gib) - (COALESCE(SUM(rawcooked_input_bytes), 0) / POW(1024, 3)), 0), 2) AS remaining_input_gib FROM v_transfer_package_metrics",
-          "refId": "A"
-        }
-      ],
-      "title": "Remaining input GiB",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "mysql",
-        "uid": "${DS_TRANSFER_DB}"
+        "uid": "000000020"
       },
       "fieldConfig": {
         "defaults": {
           "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
           "unit": "d"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 4,
-        "w": 6,
-        "x": 18,
-        "y": 4
+        "w": 3,
+        "x": 0,
+        "y": 0
       },
       "id": 14,
       "options": {
@@ -427,9 +67,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -442,7 +80,7 @@
         {
           "datasource": {
             "type": "mysql",
-            "uid": "${DS_TRANSFER_DB}"
+            "uid": "000000020"
           },
           "editorMode": "code",
           "format": "table",
@@ -457,31 +95,43 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "${DS_TRANSFER_DB}"
+        "uid": "000000020"
       },
       "fieldConfig": {
         "defaults": {
           "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
           "unit": "short"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 4,
-        "w": 6,
-        "x": 0,
-        "y": 8
+        "w": 3,
+        "x": 3,
+        "y": 0
       },
-      "id": 15,
+      "id": 1,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -494,209 +144,433 @@
         {
           "datasource": {
             "type": "mysql",
-            "uid": "${DS_TRANSFER_DB}"
+            "uid": "000000020"
           },
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT COUNT(DISTINCT di_id) AS completed_packages_in_selected_range FROM v_transfer_package_metrics WHERE $__timeFilter(completed_time)",
+          "rawSql": "SELECT COUNT(DISTINCT di_id) AS completed_packages FROM v_transfer_package_metrics",
           "refId": "A"
         }
       ],
-      "title": "Catalog.done packages in selected range",
+      "title": "Total Catalog.done packages",
       "type": "stat"
     },
     {
       "datasource": {
         "type": "mysql",
-        "uid": "${DS_TRANSFER_DB}"
+        "uid": "000000020"
       },
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "drawStyle": "line",
-            "fillOpacity": 15,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "showPoints": "never"
-          },
           "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
           "unit": "short"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 12
+        "h": 4,
+        "w": 3,
+        "x": 6,
+        "y": 0
       },
-      "id": 5,
+      "id": 11,
       "options": {
-        "legend": {
-          "calcs": [
-            "sum"
-          ],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
         },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
       "pluginVersion": "11.0.0",
       "targets": [
         {
           "datasource": {
             "type": "mysql",
-            "uid": "${DS_TRANSFER_DB}"
+            "uid": "000000020"
           },
           "editorMode": "code",
-          "format": "time_series",
+          "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT $__timeGroupAlias(completed_time, '$__interval'), SUM(package_size_end_bytes) / POW(1024, 3) AS output_gib FROM v_transfer_package_metrics WHERE $__timeFilter(completed_time) GROUP BY time ORDER BY time",
+          "rawSql": "SELECT ROUND(COALESCE(SUM(rawcooked_input_bytes), 0) / POW(1000, 4), 2) AS processed_input_tb FROM v_transfer_package_metrics",
           "refId": "A"
         }
       ],
-      "title": "Output throughput over time",
-      "type": "timeseries"
+      "title": "Processed input TB",
+      "type": "stat"
     },
     {
       "datasource": {
         "type": "mysql",
-        "uid": "${DS_TRANSFER_DB}"
+        "uid": "000000020"
       },
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "drawStyle": "bars",
-            "fillOpacity": 60,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "showPoints": "never"
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
           },
-          "decimals": 0,
           "unit": "short"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 12,
+        "h": 4,
+        "w": 3,
+        "x": 9,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "000000020"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT ROUND(COALESCE(SUM(package_size_end_bytes), 0) / POW(1000, 4), 2) AS processed_output_tb FROM v_transfer_package_metrics",
+          "refId": "A"
+        }
+      ],
+      "title": "Processed output TB",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "000000020"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
         "x": 12,
-        "y": 12
+        "y": 0
       },
-      "id": 6,
+      "id": 3,
       "options": {
-        "legend": {
-          "calcs": [
-            "sum"
-          ],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
         },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
       "pluginVersion": "11.0.0",
       "targets": [
         {
           "datasource": {
             "type": "mysql",
-            "uid": "${DS_TRANSFER_DB}"
+            "uid": "000000020"
           },
           "editorMode": "code",
-          "format": "time_series",
+          "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT $__timeGroupAlias(completed_time, '$__interval'), COUNT(DISTINCT di_id) AS completed_packages FROM v_transfer_package_metrics WHERE $__timeFilter(completed_time) GROUP BY time ORDER BY time",
+          "rawSql": "SELECT ROUND(COALESCE(SUM(rawcooked_saved_bytes), 0) / POW(1000, 4), 2) AS rawcooked_saved_tb FROM v_transfer_package_metrics",
           "refId": "A"
         }
       ],
-      "title": "Packages completed over time",
-      "type": "timeseries"
+      "title": "RAWcooked saved TB",
+      "type": "stat"
     },
     {
       "datasource": {
         "type": "mysql",
-        "uid": "${DS_TRANSFER_DB}"
+        "uid": "000000020"
       },
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "showPoints": "never"
-          },
           "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 15,
+        "y": 0
+      },
+      "id": 18,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "000000020"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT ROUND(COALESCE(SUM(rawcooked_saved_bytes), 0) / NULLIF(SUM(rawcooked_input_bytes), 0) * 100, 2) AS reduction_percent FROM v_transfer_package_metrics",
+          "refId": "A"
+        }
+      ],
+      "title": "RAWcooked reduction %",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "000000020"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
           "unit": "short"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 20
+        "h": 4,
+        "w": 3,
+        "x": 18,
+        "y": 0
       },
-      "id": 7,
+      "id": 4,
       "options": {
-        "legend": {
-          "calcs": [
-            "sum"
-          ],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
         },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
       "pluginVersion": "11.0.0",
       "targets": [
         {
           "datasource": {
             "type": "mysql",
-            "uid": "${DS_TRANSFER_DB}"
+            "uid": "000000020"
           },
           "editorMode": "code",
-          "format": "time_series",
+          "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT $__timeGroupAlias(rawcooked_end_time, '$__interval'), SUM(rawcooked_input_bytes) / POW(1024, 3) AS rawcooked_input_gib, SUM(rawcooked_output_bytes) / POW(1024, 3) AS rawcooked_output_gib, SUM(rawcooked_saved_bytes) / POW(1024, 3) AS rawcooked_saved_gib FROM v_transfer_package_metrics WHERE $__timeFilter(rawcooked_end_time) GROUP BY time ORDER BY time",
+          "rawSql": "SELECT ROUND(SUM(rawcooked_input_bytes) / NULLIF(SUM(rawcooked_output_bytes), 0), 2) AS weighted_compression_ratio FROM v_transfer_package_metrics",
           "refId": "A"
         }
       ],
-      "title": "RAWcooked volume by RAWcooked end time",
-      "type": "timeseries"
+      "title": "Weighted compression ratio",
+      "type": "stat"
     },
     {
       "datasource": {
         "type": "mysql",
-        "uid": "${DS_TRANSFER_DB}"
+        "uid": "000000020"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 0,
+        "y": 4
+      },
+      "id": 12,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "000000020"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT ROUND((COALESCE(SUM(rawcooked_input_bytes), 0) / POW(1024, 3)) / NULLIF(MAX(source_input_total_gib), 0) * 100, 2) AS input_progress_percent FROM v_transfer_package_metrics",
+          "refId": "A"
+        }
+      ],
+      "title": "Overall input progress",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "000000020"
       },
       "fieldConfig": {
         "defaults": {
           "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
           "unit": "s"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 20
+        "w": 6,
+        "x": 3,
+        "y": 4
       },
       "id": 8,
       "options": {
@@ -705,9 +579,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -720,7 +592,7 @@
         {
           "datasource": {
             "type": "mysql",
-            "uid": "${DS_TRANSFER_DB}"
+            "uid": "000000020"
           },
           "editorMode": "code",
           "format": "table",
@@ -735,7 +607,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "${DS_TRANSFER_DB}"
+        "uid": "000000020"
       },
       "fieldConfig": {
         "defaults": {
@@ -747,6 +619,20 @@
             "inspect": false
           },
           "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
           "unit": "s"
         },
         "overrides": [
@@ -766,9 +652,9 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 28
+        "w": 6,
+        "x": 9,
+        "y": 4
       },
       "id": 9,
       "options": {
@@ -776,9 +662,7 @@
         "footer": {
           "countRows": false,
           "fields": "",
-          "reducer": [
-            "sum"
-          ],
+          "reducer": ["sum"],
           "show": false
         },
         "showHeader": true
@@ -788,7 +672,7 @@
         {
           "datasource": {
             "type": "mysql",
-            "uid": "${DS_TRANSFER_DB}"
+            "uid": "000000020"
           },
           "editorMode": "code",
           "format": "table",
@@ -799,20 +683,639 @@
       ],
       "title": "Average stage durations",
       "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "xYhFoJsIz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 15,
+        "y": 4
+      },
+      "id": 15,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "xYhFoJsIz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "100 - (\n  node_filesystem_free_bytes{instance=\"nifi7.lx.nb.no:9100\", mountpoint=\"/fc1\"}\n  /\n  node_filesystem_size_bytes{instance=\"nifi7.lx.nb.no:9100\", mountpoint=\"/fc1\"}\n) * 100",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Diskbruk /fc1",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "000000020"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 0,
+        "y": 8
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "000000020"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT ROUND(GREATEST(MAX(source_input_total_gib) * POW(1024, 3) / POW(1000, 4) - (COALESCE(SUM(rawcooked_input_bytes), 0) / POW(1000, 4)), 0), 2) AS remaining_input_tb FROM v_transfer_package_metrics",
+          "refId": "A"
+        }
+      ],
+      "title": "Remaining input TB",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "000000020"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 12
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": ["sum"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "00000020"
+          },
+          "editorMode": "code",
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT $__timeGroupAlias(completed_time, '$__interval'), SUM(package_size_end_bytes) / POW(1000, 4) AS output_tb FROM v_transfer_package_metrics WHERE $__timeFilter(completed_time) GROUP BY time ORDER BY time",
+          "refId": "A"
+        }
+      ],
+      "title": "Output throughput over time",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "000000020"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 60,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 12
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": ["sum"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "000000020"
+          },
+          "editorMode": "code",
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT $__timeGroupAlias(completed_time, '$__interval'), COUNT(DISTINCT di_id) AS completed_packages FROM v_transfer_package_metrics WHERE $__timeFilter(completed_time) GROUP BY time ORDER BY time",
+          "refId": "A"
+        }
+      ],
+      "title": "Packages completed over time",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "000000020"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 20
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": ["sum"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "000000020"
+          },
+          "editorMode": "code",
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT $__timeGroupAlias(rawcooked_end_time, '$__interval'), SUM(rawcooked_input_bytes) / POW(1000, 4) AS rawcooked_input_tb, SUM(rawcooked_output_bytes) / POW(1000, 4) AS rawcooked_output_tb, SUM(rawcooked_saved_bytes) / POW(1000, 4) AS rawcooked_saved_tb FROM v_transfer_package_metrics WHERE $__timeFilter(rawcooked_end_time) GROUP BY time ORDER BY time",
+          "refId": "A"
+        }
+      ],
+      "title": "RAWcooked volume by RAWcooked end time",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "xYhFoJsIz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 100,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 10
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 20
+      },
+      "id": 17,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "xYhFoJsIz"
+          },
+          "editorMode": "code",
+          "expr": "rate(node_disk_io_time_seconds_total{instance=\"nifi7.lx.nb.no:9100\", device=~\"dm-4|dm-5\"}[1m]) * 100",
+          "instant": false,
+          "legendFormat": "{{device}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Disk %util (dm-4 & dm-5)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "xYhFoJsIz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 100,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 85
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 28
+      },
+      "id": 16,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "xYhFoJsIz"
+          },
+          "editorMode": "code",
+          "expr": "100 * avg by (mode) (\n  rate(node_cpu_seconds_total{instance=\"nifi7.lx.nb.no:9100\", mode!=\"idle\"}[1m])\n)",
+          "instant": false,
+          "legendFormat": "{{mode}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "CPU bruk",
+      "type": "timeseries"
     }
   ],
-  "refresh": "5m",
+  "refresh": "5s",
   "schemaVersion": 39,
-  "tags": [
-    "nifi",
-    "transfer",
-    "rawcooked"
-  ],
+  "tags": [],
   "templating": {
     "list": [
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "7",
           "value": "7"
         },
@@ -839,18 +1342,21 @@
           }
         ],
         "query": "30,7,1",
+        "queryValue": "",
+        "skipUrlSync": false,
         "type": "custom"
       }
     ]
   },
   "time": {
-    "from": "now-30d",
+    "from": "now-24h",
     "to": "now"
   },
+  "timeRangeUpdatedDuringEditOrView": false,
   "timepicker": {},
   "timezone": "browser",
   "title": "Transfer Flow Progress - Pline 79",
-  "uid": "transfer-flow-progress",
-  "version": 7,
+  "uid": "dfnwkkf8x8v0gc",
+  "version": 2,
   "weekStart": ""
 }
