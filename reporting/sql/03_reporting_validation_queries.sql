@@ -62,6 +62,7 @@ SELECT
   SUM(CASE WHEN catalog_done_count IS NULL OR catalog_done_count = 0 THEN 1 ELSE 0 END) AS catalog_done_status_without_catalog_event_count,
   SUM(CASE WHEN eark_end_time IS NULL THEN 1 ELSE 0 END) AS missing_eark_end_time_count,
   SUM(CASE WHEN eark_duration_seconds IS NULL THEN 1 ELSE 0 END) AS missing_eark_duration_count,
+  SUM(CASE WHEN package_size_start_bytes IS NULL THEN 1 ELSE 0 END) AS missing_package_size_start_count,
   SUM(CASE WHEN rawcooked_output_bytes = 0 THEN 1 ELSE 0 END) AS zero_rawcooked_output_count,
   SUM(CASE WHEN rawcooked_saved_bytes < 0 THEN 1 ELSE 0 END) AS rawcooked_output_larger_than_input_count
 FROM v_transfer_package_metrics;
@@ -87,50 +88,54 @@ SELECT
 FROM v_transfer_package_metrics
 WHERE processing_completed_time >= NOW() - INTERVAL 30 DAY;
 
--- 6. Estimate completion using total processed input and recent RAWcooked rates.
+-- 6. Estimate completion the same way the dashboard ETA panel does: progress is
+--    measured in package start bytes against source_input_total_bytes, and the
+--    processing rate keys on E-ARK end time (the last active stage). The dashboard
+--    uses the selected time range via $__timeFilter; validation queries cannot, so
+--    this spot-checks fixed 30/7/1-day windows. Values are in decimal TB (POW(1000, 4)).
 SELECT
-  MAX(source_input_total_gib) AS source_input_total_gib,
-  ROUND(SUM(rawcooked_input_bytes) / POW(1024, 3), 2) AS processed_input_gib,
-  ROUND(GREATEST(MAX(source_input_total_gib) - (SUM(rawcooked_input_bytes) / POW(1024, 3)), 0), 2) AS remaining_input_gib,
+  MAX(source_input_total_bytes) / POW(1000, 4) AS source_input_total_tb,
+  ROUND(SUM(package_size_start_bytes) / POW(1000, 4), 2) AS processed_input_tb,
+  ROUND(GREATEST(MAX(source_input_total_bytes) - COALESCE(SUM(package_size_start_bytes), 0), 0) / POW(1000, 4), 2) AS remaining_input_tb,
   ROUND((
-    SELECT COALESCE(SUM(rawcooked_input_bytes), 0) / POW(1024, 3) / 30
+    SELECT COALESCE(SUM(package_size_start_bytes), 0) / POW(1000, 4) / 30
     FROM v_transfer_package_metrics
-    WHERE rawcooked_end_time >= NOW() - INTERVAL 30 DAY
-  ), 2) AS input_gib_per_day_30d,
+    WHERE eark_end_time >= NOW() - INTERVAL 30 DAY
+  ), 2) AS input_tb_per_day_30d,
   ROUND(
-    GREATEST(MAX(source_input_total_gib) - (SUM(rawcooked_input_bytes) / POW(1024, 3)), 0)
+    GREATEST(MAX(source_input_total_bytes) - COALESCE(SUM(package_size_start_bytes), 0), 0)
     / NULLIF((
-      SELECT COALESCE(SUM(rawcooked_input_bytes), 0) / POW(1024, 3) / 30
+      SELECT COALESCE(SUM(package_size_start_bytes), 0) / 30
       FROM v_transfer_package_metrics
-      WHERE rawcooked_end_time >= NOW() - INTERVAL 30 DAY
+      WHERE eark_end_time >= NOW() - INTERVAL 30 DAY
     ), 0),
     1
   ) AS eta_days_at_30d_rate,
   ROUND((
-    SELECT COALESCE(SUM(rawcooked_input_bytes), 0) / POW(1024, 3) / 7
+    SELECT COALESCE(SUM(package_size_start_bytes), 0) / POW(1000, 4) / 7
     FROM v_transfer_package_metrics
-    WHERE rawcooked_end_time >= NOW() - INTERVAL 7 DAY
-  ), 2) AS input_gib_per_day_7d,
+    WHERE eark_end_time >= NOW() - INTERVAL 7 DAY
+  ), 2) AS input_tb_per_day_7d,
   ROUND(
-    GREATEST(MAX(source_input_total_gib) - (SUM(rawcooked_input_bytes) / POW(1024, 3)), 0)
+    GREATEST(MAX(source_input_total_bytes) - COALESCE(SUM(package_size_start_bytes), 0), 0)
     / NULLIF((
-      SELECT COALESCE(SUM(rawcooked_input_bytes), 0) / POW(1024, 3) / 7
+      SELECT COALESCE(SUM(package_size_start_bytes), 0) / 7
       FROM v_transfer_package_metrics
-      WHERE rawcooked_end_time >= NOW() - INTERVAL 7 DAY
+      WHERE eark_end_time >= NOW() - INTERVAL 7 DAY
     ), 0),
     1
   ) AS eta_days_at_7d_rate,
   ROUND((
-    SELECT COALESCE(SUM(rawcooked_input_bytes), 0) / POW(1024, 3)
+    SELECT COALESCE(SUM(package_size_start_bytes), 0) / POW(1000, 4)
     FROM v_transfer_package_metrics
-    WHERE rawcooked_end_time >= NOW() - INTERVAL 1 DAY
-  ), 2) AS input_gib_per_day_1d,
+    WHERE eark_end_time >= NOW() - INTERVAL 1 DAY
+  ), 2) AS input_tb_per_day_1d,
   ROUND(
-    GREATEST(MAX(source_input_total_gib) - (SUM(rawcooked_input_bytes) / POW(1024, 3)), 0)
+    GREATEST(MAX(source_input_total_bytes) - COALESCE(SUM(package_size_start_bytes), 0), 0)
     / NULLIF((
-      SELECT COALESCE(SUM(rawcooked_input_bytes), 0) / POW(1024, 3)
+      SELECT COALESCE(SUM(package_size_start_bytes), 0)
       FROM v_transfer_package_metrics
-      WHERE rawcooked_end_time >= NOW() - INTERVAL 1 DAY
+      WHERE eark_end_time >= NOW() - INTERVAL 1 DAY
     ), 0),
     1
   ) AS eta_days_at_1d_rate

@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 564,
+  "id": 565,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -85,11 +85,11 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT ROUND(GREATEST(MAX(source_input_total_gib) - (COALESCE(SUM(rawcooked_input_bytes), 0) / POW(1024, 3)), 0) / NULLIF((SELECT COALESCE(SUM(rawcooked_input_bytes), 0) / POW(1024, 3) / CAST('${eta_rate_days}' AS DECIMAL(10, 2)) FROM v_transfer_package_metrics WHERE rawcooked_end_time >= NOW() - INTERVAL ${eta_rate_days} DAY), 0), 1) AS eta_days_at_selected_rawcooked_rate FROM v_transfer_package_metrics",
+          "rawSql": "SELECT ROUND(GREATEST(MAX(source_input_total_bytes) - COALESCE(SUM(package_size_start_bytes), 0), 0) / NULLIF((SELECT COALESCE(SUM(package_size_start_bytes), 0) FROM v_transfer_package_metrics WHERE $__timeFilter(eark_end_time)) / NULLIF(($__unixEpochTo() - $__unixEpochFrom()) / 86400.0, 0), 0), 1) AS eta_days_at_selected_range_rate FROM v_transfer_package_metrics",
           "refId": "A"
         }
       ],
-      "title": "ETA days at selected RAWcooked rate",
+      "title": "ETA at processing rate over selected range",
       "type": "stat"
     },
     {
@@ -213,7 +213,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT ROUND(COALESCE(SUM(rawcooked_input_bytes), 0) / POW(1000, 4), 2) AS processed_input_tb FROM v_transfer_package_metrics",
+          "rawSql": "SELECT ROUND(COALESCE(SUM(package_size_start_bytes), 0) / POW(1000, 4), 2) AS processed_input_tb FROM v_transfer_package_metrics",
           "refId": "A"
         }
       ],
@@ -533,7 +533,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT ROUND((COALESCE(SUM(rawcooked_input_bytes), 0) / POW(1024, 3)) / NULLIF(MAX(source_input_total_gib), 0) * 100, 2) AS input_progress_percent FROM v_transfer_package_metrics",
+          "rawSql": "SELECT ROUND(COALESCE(SUM(package_size_start_bytes), 0) / NULLIF(MAX(source_input_total_bytes), 0) * 100, 2) AS input_progress_percent FROM v_transfer_package_metrics",
           "refId": "A"
         }
       ],
@@ -812,7 +812,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT ROUND(GREATEST(MAX(source_input_total_gib) * POW(1024, 3) / POW(1000, 4) - (COALESCE(SUM(rawcooked_input_bytes), 0) / POW(1000, 4)), 0), 2) AS remaining_input_tb FROM v_transfer_package_metrics",
+          "rawSql": "SELECT ROUND(GREATEST(MAX(source_input_total_bytes) - COALESCE(SUM(package_size_start_bytes), 0), 0) / POW(1000, 4), 2) AS remaining_input_tb FROM v_transfer_package_metrics",
           "refId": "A"
         }
       ],
@@ -905,7 +905,7 @@
         {
           "datasource": {
             "type": "mysql",
-            "uid": "00000020"
+            "uid": "000000020"
           },
           "editorMode": "code",
           "format": "time_series",
@@ -919,8 +919,8 @@
     },
     {
       "datasource": {
-        "type": "mysql",
-        "uid": "000000020"
+        "type": "prometheus",
+        "uid": "xYhFoJsIz"
       },
       "fieldConfig": {
         "defaults": {
@@ -935,8 +935,8 @@
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "bars",
-            "fillOpacity": 60,
-            "gradientMode": "none",
+            "fillOpacity": 100,
+            "gradientMode": "hue",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -949,7 +949,7 @@
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "never",
+            "showPoints": "auto",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -959,10 +959,9 @@
               "mode": "off"
             }
           },
-          "decimals": 0,
           "mappings": [],
           "thresholds": {
-            "mode": "absolute",
+            "mode": "percentage",
             "steps": [
               {
                 "color": "green",
@@ -970,11 +969,11 @@
               },
               {
                 "color": "red",
-                "value": 80
+                "value": 10
               }
             ]
           },
-          "unit": "short"
+          "unit": "percent"
         },
         "overrides": []
       },
@@ -984,10 +983,10 @@
         "x": 12,
         "y": 12
       },
-      "id": 6,
+      "id": 17,
       "options": {
         "legend": {
-          "calcs": ["sum"],
+          "calcs": [],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -998,21 +997,21 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "11.0.0",
       "targets": [
         {
           "datasource": {
-            "type": "mysql",
-            "uid": "000000020"
+            "type": "prometheus",
+            "uid": "xYhFoJsIz"
           },
           "editorMode": "code",
-          "format": "time_series",
-          "rawQuery": true,
-          "rawSql": "SELECT $__timeGroupAlias(completed_time, '$__interval'), COUNT(DISTINCT di_id) AS completed_packages FROM v_transfer_package_metrics WHERE $__timeFilter(completed_time) GROUP BY time ORDER BY time",
+          "expr": "rate(node_disk_io_time_seconds_total{instance=\"nifi7.lx.nb.no:9100\", device=~\"dm-4|dm-5\"}[1m]) * 100",
+          "instant": false,
+          "legendFormat": "{{device}}",
+          "range": true,
           "refId": "A"
         }
       ],
-      "title": "Packages completed over time",
+      "title": "Disk %util (dm-4 & dm-5)",
       "type": "timeseries"
     },
     {
@@ -1157,103 +1156,6 @@
           },
           "mappings": [],
           "thresholds": {
-            "mode": "percentage",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 10
-              }
-            ]
-          },
-          "unit": "percent"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 20
-      },
-      "id": 17,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "maxHeight": 600,
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "xYhFoJsIz"
-          },
-          "editorMode": "code",
-          "expr": "rate(node_disk_io_time_seconds_total{instance=\"nifi7.lx.nb.no:9100\", device=~\"dm-4|dm-5\"}[1m]) * 100",
-          "instant": false,
-          "legendFormat": "{{device}}",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Disk %util (dm-4 & dm-5)",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "xYhFoJsIz"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "bars",
-            "fillOpacity": 100,
-            "gradientMode": "hue",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
             "mode": "absolute",
             "steps": [
               {
@@ -1273,8 +1175,8 @@
       "gridPos": {
         "h": 8,
         "w": 12,
-        "x": 0,
-        "y": 28
+        "x": 12,
+        "y": 20
       },
       "id": 16,
       "options": {
@@ -1306,47 +1208,111 @@
       ],
       "title": "CPU bruk",
       "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "000000020"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 60,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 28
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": ["sum"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "000000020"
+          },
+          "editorMode": "code",
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT $__timeGroupAlias(completed_time, '$__interval'), COUNT(DISTINCT di_id) AS completed_packages FROM v_transfer_package_metrics WHERE $__timeFilter(completed_time) GROUP BY time ORDER BY time",
+          "refId": "A"
+        }
+      ],
+      "title": "Packages completed over time",
+      "type": "timeseries"
     }
   ],
   "refresh": "5s",
   "schemaVersion": 39,
   "tags": [],
   "templating": {
-    "list": [
-      {
-        "current": {
-          "selected": false,
-          "text": "7",
-          "value": "7"
-        },
-        "hide": 0,
-        "includeAll": false,
-        "label": "ETA rate window days",
-        "multi": false,
-        "name": "eta_rate_days",
-        "options": [
-          {
-            "selected": false,
-            "text": "30",
-            "value": "30"
-          },
-          {
-            "selected": true,
-            "text": "7",
-            "value": "7"
-          },
-          {
-            "selected": false,
-            "text": "1",
-            "value": "1"
-          }
-        ],
-        "query": "30,7,1",
-        "queryValue": "",
-        "skipUrlSync": false,
-        "type": "custom"
-      }
-    ]
+    "list": []
   },
   "time": {
     "from": "now-24h",
@@ -1356,7 +1322,7 @@
   "timepicker": {},
   "timezone": "browser",
   "title": "Transfer Flow Progress - Pline 79",
-  "uid": "dfnwkkf8x8v0gc",
-  "version": 2,
+  "uid": "dfopdmkpudc00b",
+  "version": 1,
   "weekStart": ""
 }
