@@ -29,8 +29,21 @@ Names are case-sensitive.
 - `event.datetime`
   - ISO-8601 timestamp (prefer UTC, seconds)
   - Example: `2026-02-11T14:01:41Z`
+  - Per-event value: each emitting stage sets this to when that step actually
+    happened (creation = METS `dateTimeCreated`; migration = RAWcooked end;
+    information package creation = `now()` right after `EarkSIPGenerator`). The
+    value is overwritten as the flowfile moves through stages, so an event must
+    set/read it at its own emission point — never reuse a single shared parameter
+    for multiple events (that produces identical/out-of-order timestamps).
+- `transfer.event.datetime`
+  - Dedicated copy of the fetch-end timestamp for the **transfer** event.
+  - Set in `02_Fetch files from SAM-FS/04_Set fetch.end, fetch.duration, package.size.start.groovy`.
+  - Needed because the transfer event is emitted last in the flow, by which point
+    the generic `event.datetime` has been overwritten by the migration stage. The
+    transfer UpdateAttribute reads `${transfer.event.datetime}` so the event keeps
+    its true (earlier) time and stays in correct chronological order in the DPS.
 - `event.type` (required)
-  - Values: `transfer`, `creation`, `migration`, …
+  - Values: `transfer`, `creation`, `migration`, `information package creation`
 - `event.outcome`
   - Values: `success` / `failure` / `warning`
 - `event.detail`

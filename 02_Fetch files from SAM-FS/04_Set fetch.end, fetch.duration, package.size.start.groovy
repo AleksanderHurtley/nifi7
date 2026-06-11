@@ -54,6 +54,11 @@ try {
         .format(DateTimeFormatter.ISO_OFFSET_DATE_TIME)
 
     ff = session.putAttribute(ff, "event.datetime", eventDt)
+    // Dedicated copy for the transfer event: the generic event.datetime gets
+    // overwritten by later stages (e.g. RAWcooked migration), but the transfer
+    // event is emitted last and must carry the fetch-end time so events stay in
+    // correct chronological order in the DPS.
+    ff = session.putAttribute(ff, "transfer.event.datetime", eventDt)
 
     // ------------------------------------------------------------
     // PACKAGE SIZE START

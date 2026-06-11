@@ -21,11 +21,16 @@ The NiFi flow is organized into logical process groups matching the folder struc
 - `01_Initialize/` – create directories and initial flowfile attributes
 - `02_Fetch files from SAM-FS/` – gather metadata + content (tar, audio, etc.) into staging
 - `03_Checksum/` – verify DPX fixity after transfer using SAM-FS checksum metadata
-- `04_Catalog/` – log or catalog the package
+- `04_Catalog/` – build the DPS submission payload (objectId, metadata, title) from descriptive XML
 - `05_RAWcooked/` – batch conversion + cleanup, and emits migration event (RAWcooked as agent)
 - `06_Generate checksums/` – compute checksums for outputs if needed downstream
 - `07_dps-2/` – delivery-stage failure margin (single buffer manager script for acquire/release)
-- `08_Package cleanup/` – package-level cleanup of staging/output folders
+- `08_Finalize stats/` – compute end-of-pipeline timing/size totals and write stats to the database
+- `09_Package cleanup/` – package-level cleanup of staging/output folders
+
+Note: the `information package creation` and `transfer` events, E-ARK packaging
+(`EarkSIPGenerator`), and the events/submission upload to the DPS API happen in the
+NiFi flow itself (see `docs/EVENTS.md` and `docs/FLOW_OVERVIEW.md`), not as folders here.
 - `reporting/` – MySQL/MariaDB view, validation queries, and Grafana dashboard for completed package reporting
 
 ## Operating assumptions

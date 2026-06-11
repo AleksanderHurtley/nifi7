@@ -44,13 +44,24 @@ Exceptions:
 
 ## Canonical event texts
 
-### Transfer (SAM-FS → staging, fixity)
+### Transfer (extraction out of legacy SAM-FS archive + fixity)
 eventType: `transfer`
 agent: `Apache NiFi` — set explicitly on the UpdateAttribute (values match the
 defaults in `Add event.groovy`; setting them explicitly is belt-and-suspenders
 against agent-attribute leakage from upstream processors like RAWcooked).
 eventDetail:
-- “Overført pakke fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; DPX-sjekksummer verifisert mot SAM-FS-metadata med md5sum (GNU coreutils).”
+- “Pakke hentet ut av Nasjonalbibliotekets eldre arkivlager Oracle HSM (SAM-FS) for rearkivering; integritet bekreftet ved at DPX-sjekksummer ble verifisert mot SAM-FS-metadata med md5sum (GNU coreutils).”
+
+This event documents the package leaving the legacy SAM-FS archive (a real
+environment boundary) and the integrity verification performed during that
+extraction. The producer→DPS transfer is logged separately by the DPS itself
+(`dps-submission-service`) and is not emitted here.
+
+eventDateTime: the fetch-end time, carried in the dedicated `transfer.event.datetime`
+attribute (set in `02_Fetch files from SAM-FS/04_Set fetch.end, fetch.duration,
+package.size.start.groovy`). A dedicated attribute is required because the generic
+`event.datetime` is overwritten by later stages (e.g. migration), and this event is
+emitted last in the flow.
 
 Wiring: see [examples/nifi-updateattribute-transfer.json](../examples/nifi-updateattribute-transfer.json)
 for the full property list of the NiFi `UpdateAttribute` processor that
@@ -59,12 +70,21 @@ emits this event.
 ### Information package creation (E-ARK SIP)
 eventType: `information package creation`
 agent override:
-- agentName: `Commons IP`
+- agentName: `nifi-nb-eark-nar.EarkSIPGenerator`
 - agentType: `software`
-- agentVersion: e.g. `2.3.0` (the bundled `commons-ip2` library version inside the `nifi-nb-eark-nar` NAR — verify against the NAR currently deployed)
-- agentNote: `Verktøy brukt for å opprette E-ARK SIP-pakker`
+- agentVersion: the deployed `nifi-nb-eark-nar` NAR version (currently `1.0.11`). The
+  DPS team documents what this agent consists of, so we no longer track the bundled
+  commons-ip version separately. Bump when a new EarkSIPGenerator NAR is deployed
+  (e.g. the MDOTHERTYPE fix).
+- agentNote: `Apache NiFi-prosessor utviklet av Nasjonalbiblioteket for opprettelse av E-ARK SIP. Bruker commons-ip, et Java-bibliotek for opprettelse og håndtering av E-ARK-informasjonspakker.`
 eventDetail:
-- “Opprettelse av E-ARK SIP i henhold til E-ARK Common Specification (CSIP) V.2.2.0, E-ARK SIP V.2.2.0 og Nasjonalbibliotekets spesifikasjoner SIP 1.0 (E-ARK).”
+- “Opprettet SIP i henhold til Nasjonalbibliotekets profil SIP 1.0.”
+eventDateTime: captured with `now()` at this processor (runs immediately after
+`EarkSIPGenerator`, i.e. the actual SIP-creation time).
+
+This is a separate event from `creation` (the Scanity digitization). It runs much
+later in the flow — after `EarkSIPGenerator` — and is its own trip to
+`Add event.groovy`; it cannot be staged in the creation script.
 
 Wiring: a NiFi `UpdateAttribute` processor placed right after `EarkSIPGenerator`,
 routed to `Add event.groovy`. Because `agent.name` is set here, all four

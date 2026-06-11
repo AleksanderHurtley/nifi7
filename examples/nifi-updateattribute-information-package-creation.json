@@ -1,20 +1,20 @@
 {
   "processor": "UpdateAttribute (information package creation event)",
   "placement": "Immediately after EarkSIPGenerator; success relationship routes to Add event.groovy.",
-  "purpose": "Stages event.* and agent.* attributes so Add event.groovy emits an 'information package creation' NDJSON record describing the E-ARK SIP that EarkSIPGenerator just produced.",
+  "purpose": "Stages event.* and agent.* attributes so Add event.groovy emits an 'information package creation' NDJSON record describing the E-ARK SIP that EarkSIPGenerator just produced. This is a separate event from 'creation' (the Scanity digitization, staged earlier by 04_Extract creation event from METS.groovy) — it runs much later in the flow, after EarkSIPGenerator, and is its own trip to Add event.groovy.",
   "properties": {
     "event.type": "information package creation",
     "event.outcome": "success",
-    "event.datetime": "#{timestamp}",
-    "event.detail": "Opprettelse av E-ARK SIP i henhold til E-ARK Common Specification (CSIP) V.2.2.0, E-ARK SIP V.2.2.0 og Nasjonalbibliotekets spesifikasjoner SIP 1.0 (E-ARK).",
-    "agent.name": "Commons IP",
+    "event.datetime": "${now():format(\"yyyy-MM-dd'T'HH:mm:ss'Z'\", \"UTC\")}",
+    "event.detail": "Opprettet SIP i henhold til Nasjonalbibliotekets profil SIP 1.0.",
+    "agent.name": "nifi-nb-eark-nar.EarkSIPGenerator",
     "agent.type": "software",
-    "agent.version": "2.3.0",
-    "agent.note": "Verktøy brukt for å opprette E-ARK SIP-pakker"
+    "agent.version": "1.0.11",
+    "agent.note": "Apache NiFi-prosessor utviklet av Nasjonalbiblioteket for opprettelse av E-ARK SIP. Bruker commons-ip, et Java-bibliotek for opprettelse og håndtering av E-ARK-informasjonspakker."
   },
   "notes": [
     "All four agent.* properties are required because agent.name is set — the Apache NiFi defaults in Add event.groovy only apply when agent.name is unset.",
-    "agent.version: 2.3.0 is from the DPS team's example. Verify it matches the commons-ip2 jar bundled in your nifi-nb-eark-nar, e.g.: unzip -l <path-to-nar> | grep commons-ip2",
-    "event.datetime uses the same #{timestamp} parameter context reference as the transfer-event UpdateAttribute."
+    "agent.version (1.0.11) is the deployed nifi-nb-eark-nar NAR version. The DPS team documents what the EarkSIPGenerator agent consists of, so we no longer track the bundled commons-ip version separately. Bump this when a new EarkSIPGenerator NAR is deployed (e.g. the MDOTHERTYPE fix).",
+    "event.datetime is captured with now() at this processor, which runs immediately after EarkSIPGenerator — i.e. the actual SIP-creation time. Each event records its own real timestamp so the DPS shows them in correct chronological order; the previous shared #{timestamp} parameter gave transfer and this event identical/wrong times."
   ]
 }

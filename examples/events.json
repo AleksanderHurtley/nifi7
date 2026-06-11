@@ -3,6 +3,20 @@
     {
       "packageId": "digifilm_50559_20130723_FT--42220094",
       "agent": {
+        "agentName": "Scanity",
+        "agentType": "hardware",
+        "agentVersion": "V3.2.3 (serienr. 124)",
+        "agentNote": "Filmskanner produsert av Digital Film Technology GmbH. Brukes til digitalisering av analog film til DPX-bildesekvenser."
+      },
+      "eventDateTime": "2013-07-23T14:28:44+02:00",
+      "eventType": "creation",
+      "eventDetail": "Digitalisering av analog film til DPX-bildesekvenser. Produsent: Nasjonalbiblioteket.",
+      "outcome": "success",
+      "outcomeDetail": "Resulterte i 1423 DPX-filer."
+    },
+    {
+      "packageId": "digifilm_50559_20130723_FT--42220094",
+      "agent": {
         "agentName": "RAWcooked",
         "agentType": "software",
         "agentVersion": "RAWcooked 24.11",
@@ -17,14 +31,14 @@
     {
       "packageId": "digifilm_50559_20130723_FT--42220094",
       "agent": {
-        "agentName": "Commons IP",
+        "agentName": "nifi-nb-eark-nar.EarkSIPGenerator",
         "agentType": "software",
-        "agentVersion": "2.3.0",
-        "agentNote": "Verktøy brukt for å opprette E-ARK SIP-pakker"
+        "agentVersion": "1.0.11",
+        "agentNote": "Apache NiFi-prosessor utviklet av Nasjonalbiblioteket for opprettelse av E-ARK SIP. Bruker commons-ip, et Java-bibliotek for opprettelse og håndtering av E-ARK-informasjonspakker."
       },
-      "eventDateTime": "2026-05-19T12:45:08.648+02:00",
+      "eventDateTime": "2026-05-19T10:45:08Z",
       "eventType": "information package creation",
-      "eventDetail": "Opprettelse av E-ARK SIP i henhold til E-ARK Common Specification (CSIP) V.2.2.0, E-ARK SIP V.2.2.0 og Nasjonalbibliotekets spesifikasjoner SIP 1.0 (E-ARK).",
+      "eventDetail": "Opprettet SIP i henhold til Nasjonalbibliotekets profil SIP 1.0.",
       "outcome": "success"
     },
     {
@@ -35,9 +49,9 @@
         "agentVersion": "2.2.0",
         "agentNote": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
       },
-      "eventDateTime": "2026-05-19T12:45:15.703+02:00",
+      "eventDateTime": "2026-05-19T10:05:12Z",
       "eventType": "transfer",
-      "eventDetail": "Overført pakke fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; DPX-sjekksummer verifisert mot SAM-FS-metadata med md5sum (GNU coreutils).",
+      "eventDetail": "Pakke hentet ut av Nasjonalbibliotekets eldre arkivlager Oracle HSM (SAM-FS) for rearkivering; integritet bekreftet ved at DPX-sjekksummer ble verifisert mot SAM-FS-metadata med md5sum (GNU coreutils).",
       "outcome": "success"
     }
   ]
