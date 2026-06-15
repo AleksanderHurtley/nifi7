@@ -109,6 +109,7 @@ try {
     if (n == ".ds_store") return true
     if (n == "thumbs.db") return true
     if (n == "desktop.ini") return true
+    if (n == "renaming.txt") return true 
     return false
   }
 
