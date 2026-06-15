@@ -56,7 +56,7 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 6,
+        "w": 3,
         "x": 0,
         "y": 0
       },
@@ -90,6 +90,70 @@
         }
       ],
       "title": "ETA at processing rate over selected range",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "000000020"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 3,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "000000020"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT COUNT(DISTINCT di_id) AS completed_packages FROM v_transfer_package_metrics",
+          "refId": "A"
+        }
+      ],
+      "title": "Total Catalog.done packages",
       "type": "stat"
     },
     {
@@ -501,12 +565,14 @@
     },
     {
       "datasource": {
-        "type": "mysql",
-        "uid": "000000020"
+        "type": "prometheus",
+        "uid": "xYhFoJsIz"
       },
       "fieldConfig": {
         "defaults": {
-          "decimals": 0,
+          "color": {
+            "mode": "thresholds"
+          },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -520,8 +586,7 @@
                 "value": 80
               }
             ]
-          },
-          "unit": "short"
+          }
         },
         "overrides": []
       },
@@ -531,10 +596,10 @@
         "x": 3,
         "y": 4
       },
-      "id": 1,
+      "id": 20,
       "options": {
         "colorMode": "value",
-        "graphMode": "none",
+        "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -550,17 +615,19 @@
       "targets": [
         {
           "datasource": {
-            "type": "mysql",
-            "uid": "000000020"
+            "type": "prometheus",
+            "uid": "xYhFoJsIz"
           },
           "editorMode": "code",
-          "format": "table",
-          "rawQuery": true,
-          "rawSql": "SELECT COUNT(DISTINCT di_id) AS completed_packages FROM v_transfer_package_metrics",
+          "exemplar": false,
+          "expr": "nifi_amount_items_queued{\n  job=\"nifi-levende-bilder\",\n  instance=\"nifi7.lx.nb.no:9000\",\n  component_id=\"9d6f4bc9-019b-1000-b345-c4f49e6c1ab7\"\n}",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
           "refId": "A"
         }
       ],
-      "title": "Total Catalog.done packages",
+      "title": "NiFi 7 - Needs review",
       "type": "stat"
     },
     {
@@ -1326,6 +1393,6 @@
   "timezone": "browser",
   "title": "Transfer Flow Progress - Pline 79",
   "uid": "dfopdmkpudc00b",
-  "version": 12,
+  "version": 13,
   "weekStart": ""
 }
