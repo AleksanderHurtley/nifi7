@@ -129,6 +129,17 @@ try {
         throw new RuntimeException("Missing required attributes for RAWcooked batch processing.")
     }
 
+    // Per-batch timeout guard. RAWcooked 24.11 occasionally deadlocks (futex_wait,
+    // 0% CPU) and hangs indefinitely; without this a single batch can pin a NiFi
+    // thread for days. Tune via attribute; set to ~3x your largest legitimate batch.
+    int batchTimeoutMin
+    try {
+        batchTimeoutMin = Integer.parseInt(getAttr("rawcooked.batch.timeout.minutes") ?: "120")
+    } catch (Exception ex) {
+        batchTimeoutMin = 120
+    }
+    if (batchTimeoutMin <= 0) batchTimeoutMin = 120
+
     def batchesBase = new File(batchesDir)
     if (!batchesBase.isDirectory()) {
         throw new RuntimeException("Invalid batches.dir: ${batchesDir}")
@@ -202,16 +213,35 @@ try {
             batchFolder.absolutePath
         ]
 
+        // Remove any stale/partial output from a prior aborted run so the encode
+        // starts clean (and never trips an overwrite prompt).
+        def existingOut = new File(outputPath)
+        if (existingOut.exists()) existingOut.delete()
+
         def pb = new ProcessBuilder(cmd)
         pb.environment().put("PATH", "/opt/nb-ffmpeg/bin:" + System.getenv("PATH"))
 
+        // stdin from /dev/null: any unexpected prompt gets EOF instead of hanging.
+        pb.redirectInput(ProcessBuilder.Redirect.from(new File("/dev/null")))
         // Logfile
         pb.redirectErrorStream(true)
         pb.redirectOutput(ProcessBuilder.Redirect.appendTo(logFile))
 
         long batchStart = System.currentTimeMillis()
         def proc = pb.start()
-        int rc = proc.waitFor()
+
+        boolean finished = proc.waitFor(batchTimeoutMin, java.util.concurrent.TimeUnit.MINUTES)
+        if (!finished) {
+            // Hung (e.g. RAWcooked futex deadlock). Kill the whole process tree —
+            // rawcooked plus any ffmpeg/flac/mkvmerge children — then fail the package.
+            try { proc.descendants().forEach { it.destroyForcibly() } } catch (Exception ignore) {}
+            proc.destroyForcibly()
+            proc.waitFor(30, java.util.concurrent.TimeUnit.SECONDS)
+            ff = session.putAttribute(ff, "error.reason", "rawcooked-timeout")
+            throw new RuntimeException("RAWcooked hung on ${batchName}: no completion within ${batchTimeoutMin} min — process tree killed. Log=${logFile.absolutePath}")
+        }
+
+        int rc = proc.exitValue()
         long batchEnd = System.currentTimeMillis()
         long batchDurationMs = batchEnd - batchStart
 
