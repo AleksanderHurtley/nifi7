@@ -56,7 +56,7 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 3,
+        "w": 6,
         "x": 0,
         "y": 0
       },
@@ -99,70 +99,6 @@
       },
       "fieldConfig": {
         "defaults": {
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 3,
-        "y": 0
-      },
-      "id": 1,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": ["lastNotNull"],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.0.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "mysql",
-            "uid": "000000020"
-          },
-          "editorMode": "code",
-          "format": "table",
-          "rawQuery": true,
-          "rawSql": "SELECT COUNT(DISTINCT di_id) AS completed_packages FROM v_transfer_package_metrics",
-          "refId": "A"
-        }
-      ],
-      "title": "Total Catalog.done packages",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "mysql",
-        "uid": "000000020"
-      },
-      "fieldConfig": {
-        "defaults": {
           "decimals": 2,
           "mappings": [],
           "thresholds": {
@@ -186,70 +122,6 @@
         "h": 4,
         "w": 3,
         "x": 6,
-        "y": 0
-      },
-      "id": 11,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": ["lastNotNull"],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.0.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "mysql",
-            "uid": "000000020"
-          },
-          "editorMode": "code",
-          "format": "table",
-          "rawQuery": true,
-          "rawSql": "SELECT ROUND(COALESCE(SUM(package_size_start_bytes), 0) / POW(1000, 4), 2) AS processed_input_tb FROM v_transfer_package_metrics",
-          "refId": "A"
-        }
-      ],
-      "title": "Processed input TB",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "mysql",
-        "uid": "000000020"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "decimals": 2,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 9,
         "y": 0
       },
       "id": 2,
@@ -313,7 +185,7 @@
       "gridPos": {
         "h": 4,
         "w": 3,
-        "x": 12,
+        "x": 9,
         "y": 0
       },
       "id": 3,
@@ -377,7 +249,7 @@
       "gridPos": {
         "h": 4,
         "w": 3,
-        "x": 15,
+        "x": 12,
         "y": 0
       },
       "id": 18,
@@ -419,7 +291,14 @@
       },
       "fieldConfig": {
         "defaults": {
-          "decimals": 2,
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "decimals": 1,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -434,30 +313,39 @@
               }
             ]
           },
-          "unit": "short"
+          "unit": "s"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "stage"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "string"
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 18,
+        "h": 8,
+        "w": 6,
+        "x": 15,
         "y": 0
       },
-      "id": 4,
+      "id": 9,
       "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": ["lastNotNull"],
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
           "fields": "",
-          "values": false
+          "reducer": ["sum"],
+          "show": false
         },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
+        "showHeader": true
       },
       "pluginVersion": "11.0.0",
       "targets": [
@@ -469,12 +357,83 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT ROUND(SUM(rawcooked_input_bytes) / NULLIF(SUM(rawcooked_output_bytes), 0), 2) AS weighted_compression_ratio FROM v_transfer_package_metrics",
+          "rawSql": "SELECT 'Fetch' AS stage, ROUND(AVG(fetch_duration_seconds), 1) AS avg_seconds FROM v_transfer_package_metrics WHERE $__timeFilter(processing_completed_time) UNION ALL SELECT 'Checksum' AS stage, ROUND(AVG(checksum_duration_seconds), 1) AS avg_seconds FROM v_transfer_package_metrics WHERE $__timeFilter(processing_completed_time) UNION ALL SELECT 'RAWcooked' AS stage, ROUND(AVG(rawcooked_duration_seconds), 1) AS avg_seconds FROM v_transfer_package_metrics WHERE $__timeFilter(processing_completed_time) UNION ALL SELECT 'E-ARK' AS stage, ROUND(AVG(eark_duration_seconds), 1) AS avg_seconds FROM v_transfer_package_metrics WHERE $__timeFilter(processing_completed_time) UNION ALL SELECT 'Active stage total' AS stage, ROUND(AVG(active_stage_duration_seconds), 1) AS avg_seconds FROM v_transfer_package_metrics WHERE $__timeFilter(processing_completed_time)",
           "refId": "A"
         }
       ],
-      "title": "Weighted compression ratio",
-      "type": "stat"
+      "title": "Average stage durations",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "xYhFoJsIz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 3,
+        "x": 21,
+        "y": 0
+      },
+      "id": 15,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "xYhFoJsIz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "100 - (\n  node_filesystem_free_bytes{instance=\"nifi7.lx.nb.no:9100\", mountpoint=\"/fc1\"}\n  /\n  node_filesystem_size_bytes{instance=\"nifi7.lx.nb.no:9100\", mountpoint=\"/fc1\"}\n) * 100",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Diskbruk /fc1",
+      "type": "gauge"
     },
     {
       "datasource": {
@@ -547,7 +506,7 @@
       },
       "fieldConfig": {
         "defaults": {
-          "decimals": 1,
+          "decimals": 0,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -562,17 +521,17 @@
               }
             ]
           },
-          "unit": "s"
+          "unit": "short"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 6,
+        "h": 4,
+        "w": 3,
         "x": 3,
         "y": 4
       },
-      "id": 8,
+      "id": 1,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -597,163 +556,12 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "WITH filtered AS (SELECT active_stage_duration_seconds FROM v_transfer_package_metrics WHERE $__timeFilter(processing_completed_time) AND active_stage_duration_seconds IS NOT NULL), ordered AS (SELECT active_stage_duration_seconds, ROW_NUMBER() OVER (ORDER BY active_stage_duration_seconds) AS rn, COUNT(*) OVER () AS cnt FROM filtered) SELECT ROUND((SELECT AVG(active_stage_duration_seconds) FROM filtered), 1) AS avg_active_stage_seconds, ROUND((SELECT AVG(active_stage_duration_seconds) FROM ordered WHERE rn IN (FLOOR((cnt + 1) / 2), FLOOR((cnt + 2) / 2))), 1) AS median_active_stage_seconds",
+          "rawSql": "SELECT COUNT(DISTINCT di_id) AS completed_packages FROM v_transfer_package_metrics",
           "refId": "A"
         }
       ],
-      "title": "Active stage duration",
+      "title": "Total Catalog.done packages",
       "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "mysql",
-        "uid": "000000020"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "align": "auto",
-            "cellOptions": {
-              "type": "auto"
-            },
-            "inspect": false
-          },
-          "decimals": 1,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "s"
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "stage"
-            },
-            "properties": [
-              {
-                "id": "unit",
-                "value": "string"
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 6,
-        "x": 9,
-        "y": 4
-      },
-      "id": 9,
-      "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": ["sum"],
-          "show": false
-        },
-        "showHeader": true
-      },
-      "pluginVersion": "11.0.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "mysql",
-            "uid": "000000020"
-          },
-          "editorMode": "code",
-          "format": "table",
-          "rawQuery": true,
-          "rawSql": "SELECT 'Fetch' AS stage, ROUND(AVG(fetch_duration_seconds), 1) AS avg_seconds FROM v_transfer_package_metrics WHERE $__timeFilter(processing_completed_time) UNION ALL SELECT 'Checksum' AS stage, ROUND(AVG(checksum_duration_seconds), 1) AS avg_seconds FROM v_transfer_package_metrics WHERE $__timeFilter(processing_completed_time) UNION ALL SELECT 'RAWcooked' AS stage, ROUND(AVG(rawcooked_duration_seconds), 1) AS avg_seconds FROM v_transfer_package_metrics WHERE $__timeFilter(processing_completed_time) UNION ALL SELECT 'E-ARK' AS stage, ROUND(AVG(eark_duration_seconds), 1) AS avg_seconds FROM v_transfer_package_metrics WHERE $__timeFilter(processing_completed_time) UNION ALL SELECT 'Active stage total' AS stage, ROUND(AVG(active_stage_duration_seconds), 1) AS avg_seconds FROM v_transfer_package_metrics WHERE $__timeFilter(processing_completed_time)",
-          "refId": "A"
-        }
-      ],
-      "title": "Average stage durations",
-      "type": "table"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "xYhFoJsIz"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "#EAB839",
-                "value": 70
-              },
-              {
-                "color": "red",
-                "value": 90
-              }
-            ]
-          },
-          "unit": "percent"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 6,
-        "x": 15,
-        "y": 4
-      },
-      "id": 15,
-      "options": {
-        "minVizHeight": 75,
-        "minVizWidth": 75,
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": ["lastNotNull"],
-          "fields": "",
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "sizing": "auto"
-      },
-      "pluginVersion": "11.0.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "xYhFoJsIz"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "100 - (\n  node_filesystem_free_bytes{instance=\"nifi7.lx.nb.no:9100\", mountpoint=\"/fc1\"}\n  /\n  node_filesystem_size_bytes{instance=\"nifi7.lx.nb.no:9100\", mountpoint=\"/fc1\"}\n) * 100",
-          "instant": true,
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "Diskbruk /fc1",
-      "type": "gauge"
     },
     {
       "datasource": {
@@ -784,8 +592,72 @@
       "gridPos": {
         "h": 4,
         "w": 3,
-        "x": 0,
-        "y": 8
+        "x": 6,
+        "y": 4
+      },
+      "id": 11,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "000000020"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT ROUND(COALESCE(SUM(package_size_start_bytes), 0) / POW(1000, 4), 2) AS processed_input_tb FROM v_transfer_package_metrics",
+          "refId": "A"
+        }
+      ],
+      "title": "Processed input TB",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "000000020"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 9,
+        "y": 4
       },
       "id": 13,
       "options": {
@@ -817,6 +689,70 @@
         }
       ],
       "title": "Remaining input TB",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "000000020"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 12,
+        "y": 4
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "000000020"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT ROUND(SUM(rawcooked_input_bytes) / NULLIF(SUM(rawcooked_output_bytes), 0), 2) AS weighted_compression_ratio FROM v_transfer_package_metrics",
+          "refId": "A"
+        }
+      ],
+      "title": "Weighted compression ratio",
       "type": "stat"
     },
     {
@@ -884,7 +820,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 12
+        "y": 8
       },
       "id": 5,
       "options": {
@@ -981,7 +917,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 12
+        "y": 8
       },
       "id": 17,
       "options": {
@@ -1079,7 +1015,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 20
+        "y": 16
       },
       "id": 7,
       "options": {
@@ -1176,7 +1112,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 20
+        "y": 16
       },
       "id": 16,
       "options": {
@@ -1274,7 +1210,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 28
+        "y": 24
       },
       "id": 6,
       "options": {
@@ -1306,9 +1242,76 @@
       ],
       "title": "Packages completed over time",
       "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "xYhFoJsIz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 85
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 24
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "xYhFoJsIz"
+          },
+          "editorMode": "code",
+          "expr": "100 * (1 - node_memory_MemAvailable_bytes{instance=\"nifi7.lx.nb.no:9100\"}\n          / node_memory_MemTotal_bytes{instance=\"nifi7.lx.nb.no:9100\"})",
+          "instant": false,
+          "legendFormat": "{{mode}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Minne bruk",
+      "type": "stat"
     }
   ],
-  "refresh": "5s",
+  "refresh": "auto",
   "schemaVersion": 39,
   "tags": [],
   "templating": {
@@ -1323,6 +1326,6 @@
   "timezone": "browser",
   "title": "Transfer Flow Progress - Pline 79",
   "uid": "dfopdmkpudc00b",
-  "version": 1,
+  "version": 12,
   "weekStart": ""
 }
