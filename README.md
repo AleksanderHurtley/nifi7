@@ -24,9 +24,10 @@ The NiFi flow is organized into logical process groups matching the folder struc
 - `04_Catalog/` – build the DPS submission payload (objectId, metadata, title) from descriptive XML
 - `05_RAWcooked/` – batch conversion + cleanup, and emits migration event (RAWcooked as agent)
 - `06_Generate checksums/` – compute checksums for outputs if needed downstream
-- `07_dps-2/` – delivery-stage failure margin (single buffer manager script for acquire/release)
-- `08_Finalize stats/` – compute end-of-pipeline timing/size totals and write stats to the database
-- `09_Package cleanup/` – package-level cleanup of staging/output folders
+- `07_Submission body/` – parse descriptive catalog XML (`_WORK_`, `_DIGITAL_ITEM_`, `_ANALOG_ITEM_PART_`, `_DIGITAL_ITEM_PART_`) and assemble the DPS submission body JSON
+- `08_dps-2/` – delivery-stage failure margin (single buffer manager script for acquire/release)
+- `09_Finalize stats/` – compute end-of-pipeline timing/size totals and write stats to the database
+- `10_Package cleanup/` – package-level cleanup of staging/output folders
 
 Note: the `information package creation` and `transfer` events, E-ARK packaging
 (`EarkSIPGenerator`), and the events/submission upload to the DPS API happen in the

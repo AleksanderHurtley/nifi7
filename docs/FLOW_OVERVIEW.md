@@ -122,7 +122,35 @@ Note: `checksums.md5.totalBytes` is used downstream as `package.size.end`.
 
 ---
 
-### 6) EARK packaging + DPS delivery
+### 6) Submission body
+**Goal:** parse the descriptive catalog XML records and assemble the full DPS submission body (JSON) onto the flowfile content.
+Scripts (run in order; the first four enrich `metadata.*` attributes, the last renders the body):
+- `07_Submission body/01_Get Work.groovy` — parses `_WORK_*.xml`: main/alternative titles, credits (creators/contributors/publishers), dates, work relations (`segment_of`, `av_series`, `related_object`), production countries, descriptions
+- `07_Submission body/02_Get DIGITAL ITEM.groovy` — parses `_DIGITAL_ITEM_*.xml` (excluding `_DIGITAL_ITEM_PART_`): language usage
+- `07_Submission body/03_Get Analog item part bar_code.groovy` — parses `_ANALOG_ITEM_PART_*.xml`: shelf barcode(s)
+- `07_Submission body/04_Get digital item part.groovy` — parses `_DIGITAL_ITEM_PART_*.xml`: PID URNs, `CopiedFrom`/`CopiedTo` relations, provenance
+- `07_Submission body/05_Make submission body.groovy` — assembles all `metadata.*` attributes into the final submission JSON and writes it to the flowfile content
+
+Input metadata source:
+- `metadata.descriptive.dir` (with `transfer.dir/metadata/descriptive` as fallback)
+- Required attributes on each script: `package.name`, `submission.payload.path`, `metadata.descriptive.dir`
+
+Attributes set (consumed by `05_Make submission body.groovy`):
+- from `01`: `metadata.mainTitle`, `metadata.alternativeTitles`, `metadata.creators`, `metadata.contributors`, `metadata.publishers`, `metadata.dates`, `metadata.countries`, `metadata.descriptions`, `metadata.workRelations`
+- from `02`: `metadata.languages`
+- from `03`: `metadata.barcode`
+- from `04`: `metadata.pidDataUrns`, `metadata.digitalItemPartRelations`, `metadata.provenance`
+
+Outputs:
+- flowfile content = DPS submission body JSON (`objectId`, `priority`, `metadata { type, identifier, title, alternative, creator, contributor, publisher, spatial, date, relation, language, provenance, description }`)
+- on missing attributes or parse error: `submission.payload.status=FAIL` + `submission.payload.error`
+
+Note: this expands on the lightweight payload built in `04_Catalog/01_Create submission body.groovy`,
+producing the full descriptive metadata body delivered to the DPS.
+
+---
+
+### 7) EARK packaging + DPS delivery
 **Goal:** package the representation as an EARK-compliant AIP and deliver to DPS.
 (Implemented outside this repo in the NiFi flow.)
 
@@ -131,10 +159,10 @@ Outputs expected on the flowfile after this stage:
 
 ---
 
-### 7) DPS-2 delivery margin control
+### 8) DPS-2 delivery margin control
 **Goal:** avoid uncontrolled backpressure on large failures while preserving a small manual review buffer.
 Scripts:
-- `07_dps-2/01_Failure Buffer Gate.groovy`
+- `08_dps-2/01_Failure Buffer Gate.groovy`
 
 Behavior:
 - Delivery failures pass through a buffer gate that marks:
@@ -148,11 +176,11 @@ Behavior:
 
 ---
 
-### 8) Finalize stats
+### 9) Finalize stats
 **Goal:** compute end-of-pipeline timing totals and output size, then record all stats into the database.
 Scripts:
-- `08_Finalize stats/01_Finalize stats.groovy`
-- `08_Finalize stats/02_PutSQL.sql` (PutSQL processor configuration)
+- `09_Finalize stats/01_Finalize stats.groovy`
+- `09_Finalize stats/02_PutSQL.sql` (PutSQL processor configuration)
 
 Behavior:
 - Sets `total.pipeline.end` (epoch ms)
@@ -184,10 +212,10 @@ Reporting:
 
 ---
 
-### 9) Package cleanup
+### 10) Package cleanup
 **Goal:** remove large package directories from local disk when cleanup is required.
 Script:
-- `09_Package cleanup/01_Delete package directories.groovy`
+- `10_Package cleanup/01_Delete package directories.groovy`
 
 Behavior:
 - Removes `/fc1/payloads/<package.name>`, `/fc1/transfer/<package.name>`, `/fc1/work/<package.name>`
