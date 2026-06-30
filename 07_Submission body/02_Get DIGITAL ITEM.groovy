@@ -89,8 +89,10 @@ try {
                        languageName = "nob"
                     }
 
+                    // DPS requires a non-empty language type; fall back to
+                    // "Ukjent" when the catalog record has no language.usage.
                     languages << [
-                        type : languageType,
+                        type : languageType ?: "Ukjent",
                         value: languageName
                     ]
                 }

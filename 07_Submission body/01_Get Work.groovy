@@ -148,7 +148,9 @@ try {
 
                 if (!dateStart) return
 
-                dates << [type: dateType, value: dateStart]
+                // DPS requires a non-empty date type; fall back to "Ukjent"
+                // when the catalog record has no dating.type.
+                dates << [type: dateType ?: "Ukjent", value: dateStart]
             }
 
             // --- RELATION segment_of ---

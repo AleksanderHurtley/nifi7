@@ -225,8 +225,7 @@ try {
         // Build result
         // ----------------------
         def result = [
-            objectId: attrs["objectId"] ?: "",
-            objectId: pkg,
+            objectId: attrs["objectId"] ?: pkg,
             priority: 70,
             metadata: [
                 type       : "Film",
@@ -267,7 +266,7 @@ try {
     session.transfer(flowFile, REL_SUCCESS)
 
 } catch (Exception e) {
-    ff = session.putAttribute(ff, "submission.payload.status", "FAIL")
-    ff = session.putAttribute(ff, "submission.payload.error", e.toString())
-    session.transfer(ff, REL_FAILURE)
+    flowFile = session.putAttribute(flowFile, "submission.payload.status", "FAIL")
+    flowFile = session.putAttribute(flowFile, "submission.payload.error", e.toString())
+    session.transfer(flowFile, REL_FAILURE)
 }
