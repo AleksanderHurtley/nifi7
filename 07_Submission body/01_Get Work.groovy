@@ -96,7 +96,9 @@ try {
                 if (type?.equalsIgnoreCase("Originaltittel")) {
                     if (!mainTitle) mainTitle = [value: value]
                 } else {
-                    alternativeTitles << [type: type, value: value]             
+                    // DPS requires a non-empty alternative title type; fall back
+                    // to "Ukjent" when the catalog record has no title.type.
+                    alternativeTitles << [type: type ?: "Ukjent", value: value]
                 }
             }
 
