@@ -34,14 +34,57 @@ def getAttr = { String k ->
     (v && v.trim()) ? v.trim() : null
 }
 
-def runFirstLine = { List<String> cmd, Map<String,String> extraEnv = [:] ->
+def killProcessTree = { Process p, int waitSeconds = 30 ->
+    try { p.descendants().forEach { it.destroyForcibly() } } catch (Exception ignore) {}
+    p.destroyForcibly()
+    p.waitFor(waitSeconds, java.util.concurrent.TimeUnit.SECONDS)
+}
+
+def hasDescendants = { Process p ->
     try {
+        return p.descendants().findAny().isPresent()
+    } catch (Exception ignore) {
+        return false
+    }
+}
+
+def processCpuMillis = { Process p ->
+    try {
+        def d = p.toHandle().info().totalCpuDuration()
+        return d.isPresent() ? d.get().toMillis() : -1L
+    } catch (Exception ignore) {
+        return -1L
+    }
+}
+
+def runCaptured = { List<String> cmd, int timeoutSeconds, Map<String,String> extraEnv = [:] ->
+    Path tmp = null
+    try {
+        tmp = Files.createTempFile("nifi-rawcooked-cmd-", ".log")
         def pb = new ProcessBuilder(cmd)
         pb.redirectErrorStream(true)
         if (extraEnv) pb.environment().putAll(extraEnv)
+        pb.redirectOutput(ProcessBuilder.Redirect.appendTo(tmp.toFile()))
         def p = pb.start()
-        def out = p.inputStream.getText("UTF-8")
-        p.waitFor()
+        boolean finished = p.waitFor(timeoutSeconds, java.util.concurrent.TimeUnit.SECONDS)
+        if (!finished) {
+            killProcessTree(p, 10)
+            return null
+        }
+        def out = tmp.toFile().getText("UTF-8")
+        return out ?: null
+    } catch (Exception ignore) {
+        return null
+    } finally {
+        if (tmp != null) {
+            try { Files.deleteIfExists(tmp) } catch (Exception ignore) {}
+        }
+    }
+}
+
+def runFirstLine = { List<String> cmd, int timeoutSeconds = 30, Map<String,String> extraEnv = [:] ->
+    try {
+        def out = runCaptured(cmd, timeoutSeconds, extraEnv)
         def first = (out ?: "").readLines().find { it?.trim() }?.trim()
         return first ? (first.length() > 400 ? first.take(400) : first) : null
     } catch (Exception ignore) {
@@ -49,7 +92,7 @@ def runFirstLine = { List<String> cmd, Map<String,String> extraEnv = [:] ->
     }
 }
 
-def probeMkv = { String mkvPath ->
+def probeMkv = { String mkvPath, int timeoutSeconds = 60 ->
     try {
         def cmd = [
             FFPROBE,
@@ -59,11 +102,7 @@ def probeMkv = { String mkvPath ->
             "-of", "json",
             mkvPath
         ]
-        def pb = new ProcessBuilder(cmd)
-        pb.redirectErrorStream(true)
-        def p = pb.start()
-        def out = p.inputStream.getText("UTF-8")
-        p.waitFor()
+        def out = runCaptured(cmd, timeoutSeconds)
 
         def j = new JsonSlurper().parseText(out ?: "{}")
 
@@ -131,14 +170,24 @@ try {
 
     // Per-batch timeout guard. RAWcooked 24.11 occasionally deadlocks (futex_wait,
     // 0% CPU) and hangs indefinitely; without this a single batch can pin a NiFi
-    // thread for days. Tune via attribute; set to ~3x your largest legitimate batch.
+    // thread for days. Tune via attribute; default allows long legitimate runs.
     int batchTimeoutMin
     try {
-        batchTimeoutMin = Integer.parseInt(getAttr("rawcooked.batch.timeout.minutes") ?: "120")
+        batchTimeoutMin = Integer.parseInt(getAttr("rawcooked.batch.timeout.minutes") ?: "480")
     } catch (Exception ex) {
-        batchTimeoutMin = 120
+        batchTimeoutMin = 480
     }
-    if (batchTimeoutMin <= 0) batchTimeoutMin = 120
+    if (batchTimeoutMin <= 0) batchTimeoutMin = 480
+
+    // Separate startup guard for the observed failure mode where rawcooked starts
+    // but never launches ffmpeg, writes nothing to its log, and consumes no CPU.
+    int startupTimeoutMin
+    try {
+        startupTimeoutMin = Integer.parseInt(getAttr("rawcooked.startup.timeout.minutes") ?: "30")
+    } catch (Exception ex) {
+        startupTimeoutMin = 30
+    }
+    if (startupTimeoutMin <= 0) startupTimeoutMin = 30
 
     def batchesBase = new File(batchesDir)
     if (!batchesBase.isDirectory()) {
@@ -182,6 +231,7 @@ try {
         try { return (name.replace("batch", "") as Integer) } catch (Exception ignore) { return Integer.MAX_VALUE }
     }
     batchFolders = batchFolders.sort { a, b -> batchSortKey(a.name) <=> batchSortKey(b.name) }
+    log.info("RAWcooked starting package=${packageName}; batchCount=${batchFolders.size()}; timeoutMinutes=${batchTimeoutMin}; startupTimeoutMinutes=${startupTimeoutMin}; batchesDir=${batchesDir}; repDataDir=${repDataDir}; workDir=${workDir}")
 
     long totalInputBytes = 0
     long totalOutputBytes = 0
@@ -228,17 +278,37 @@ try {
         pb.redirectOutput(ProcessBuilder.Redirect.appendTo(logFile))
 
         long batchStart = System.currentTimeMillis()
+        log.info("RAWcooked batch start package=${packageName}; batch=${batchName}; inputBytes=${inputBytes}; output=${outputPath}; log=${logFile.absolutePath}")
         def proc = pb.start()
 
-        boolean finished = proc.waitFor(batchTimeoutMin, java.util.concurrent.TimeUnit.MINUTES)
-        if (!finished) {
-            // Hung (e.g. RAWcooked futex deadlock). Kill the whole process tree —
-            // rawcooked plus any ffmpeg/flac/mkvmerge children — then fail the package.
-            try { proc.descendants().forEach { it.destroyForcibly() } } catch (Exception ignore) {}
-            proc.destroyForcibly()
-            proc.waitFor(30, java.util.concurrent.TimeUnit.SECONDS)
-            ff = session.putAttribute(ff, "error.reason", "rawcooked-timeout")
-            throw new RuntimeException("RAWcooked hung on ${batchName}: no completion within ${batchTimeoutMin} min — process tree killed. Log=${logFile.absolutePath}")
+        long batchTimeoutMs = java.util.concurrent.TimeUnit.MINUTES.toMillis(batchTimeoutMin)
+        long startupTimeoutMs = java.util.concurrent.TimeUnit.MINUTES.toMillis(startupTimeoutMin)
+        long lastStartupProgress = batchStart
+        long lastCpuMs = processCpuMillis(proc)
+
+        while (!proc.waitFor(30, java.util.concurrent.TimeUnit.SECONDS)) {
+            long now = System.currentTimeMillis()
+            long logBytes = logFile.exists() ? logFile.length() : 0L
+            boolean childStarted = hasDescendants(proc)
+            long cpuMs = processCpuMillis(proc)
+            boolean cpuAdvanced = (cpuMs >= 0L && lastCpuMs >= 0L && cpuMs > lastCpuMs)
+
+            if (logBytes > 0L || childStarted || cpuAdvanced) {
+                lastStartupProgress = now
+            }
+            if (cpuMs >= 0L) lastCpuMs = cpuMs
+
+            if (logBytes == 0L && !childStarted && (now - lastStartupProgress) >= startupTimeoutMs) {
+                killProcessTree(proc, 30)
+                ff = session.putAttribute(ff, "error.reason", "rawcooked-startup-timeout")
+                throw new RuntimeException("RAWcooked made no startup progress on ${batchName}: no log output, no child process, and no CPU progress within ${startupTimeoutMin} min. Process tree killed. Log=${logFile.absolutePath}")
+            }
+
+            if ((now - batchStart) >= batchTimeoutMs) {
+                killProcessTree(proc, 30)
+                ff = session.putAttribute(ff, "error.reason", "rawcooked-timeout")
+                throw new RuntimeException("RAWcooked hung on ${batchName}: no completion within ${batchTimeoutMin} min - process tree killed. Log=${logFile.absolutePath}")
+            }
         }
 
         int rc = proc.exitValue()
@@ -266,6 +336,7 @@ try {
 
         totalInputBytes += inputBytes
         totalOutputBytes += outputBytes
+        log.info("RAWcooked batch finished package=${packageName}; batch=${batchName}; durationMs=${batchDurationMs}; outputBytes=${outputBytes}; ratio=${ratio}")
 
         results << [
             batch        : batchName,

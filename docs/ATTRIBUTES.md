@@ -86,6 +86,16 @@ Conventions:
 - `rawcooked.total.input.bytes`, `rawcooked.total.output.bytes`
 - `rawcooked.total.compression_ratio`
 
+## RAWcooked runtime controls
+
+- `rawcooked.batch.timeout.minutes`
+  - Optional per-batch absolute timeout for RAWcooked execution.
+  - Default: `480` minutes.
+- `rawcooked.startup.timeout.minutes`
+  - Optional startup-progress timeout for RAWcooked runs that produce no log output,
+    launch no child process, and consume no CPU.
+  - Default: `30` minutes.
+
 ## DPX Manifest XML contract
 
 - Location: `metadata/preservation/dpx/<package.name>_dpx_manifest.xml`
