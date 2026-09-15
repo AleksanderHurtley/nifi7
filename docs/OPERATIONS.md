@@ -25,6 +25,13 @@
 ## Runtime safety
 - Avoid recursive filesystem inspection commands on SAM-FS (`tree`, `du`, `find`) unless data is staged; they may trigger recall/staging and hang in D-state.
 - When deleting large directories, prefer controlled deletion via ExecuteStreamCommand with explicit path checks.
+- The audio copy ExecuteStreamCommand normalizes only staged WAV filenames:
+  one or more consecutive spaces become one hyphen. It leaves SAM-FS source
+  names unchanged and fails on a normalized-name collision. Keep this step
+  before checksum generation and E-ARK packaging.
+- In ExecuteStreamCommand Bash snippets, use `$name` for local shell variables.
+  NiFi treats `${name}` as Expression Language; reserve that form for actual
+  FlowFile attributes such as `${source.audio.dir}` and `${rep.data.dir}`.
 
 ## Database stats update
 At pipeline end, write DI_PARAMETER values using consistent keys:

@@ -34,6 +34,14 @@ Scripts (by content type):
 - Tar:
   - `02_Fetch files from SAM-FS/01_Tar files/01_Tar fragments.groovy`
   - `02_Fetch files from SAM-FS/01_Tar files/02_Fetch and Untar.groovy`
+- Audio:
+  - `02_Fetch files from SAM-FS/02_Audio files/01_Copy audio files.bash`
+  - Copies audio into the staged representation data directory.
+  - Renames staged WAV files by replacing each run of one or more spaces in
+    the filename with one hyphen (for example, `FN  20010621.wav` becomes
+    `FN-20010621.wav`). Source files in SAM-FS are not renamed.
+  - Fails rather than overwriting a file if normalization would create a
+    filename collision.
 - Timing/stat updates:
   - `02_Fetch files from SAM-FS/04_Set fetch.end, fetch.duration, package.size.start.groovy`
 
@@ -48,7 +56,9 @@ Notes:
   - `metadata/preservation/dpx/<package.name>_dpx_manifest.xml`
   - root: `dpxManifest`
   - key fields: batch id, DPX file name, MD5 checksum.
-- Audio files are fetched outside this repo (e.g. rsync/copy step in the NiFi flow).
+- WAV filename normalization happens during staging, before output checksums
+  and E-ARK METS files are generated, so downstream manifests and DPS file
+  registrations use the normalized path consistently.
 
 ---
 

@@ -27,5 +27,40 @@
      exit 1;
   fi
 
-  echo 'Audio copy completed successfully or nothing to copy.'
+  # Normalize staged WAV filenames for downstream DPS submission.
+  # One or more consecutive spaces are replaced with one hyphen.
+  # Bash variables deliberately use $name without braces, because NiFi
+  # interprets brace-style variables as NiFi Expression Language.
+  rename_failed=0
+
+  while IFS= read -r -d '' source_file; do
+     directory=$(dirname "$source_file")
+     filename=$(basename "$source_file")
+     new_filename=$(printf '%s' "$filename" | sed -E 's/ +/-/g')
+     target_file="$directory/$new_filename"
+
+     if [ "$source_file" = "$target_file" ]; then
+        continue;
+     fi
+
+     if [ -e "$target_file" ]; then
+        echo "Cannot rename because target already exists: $target_file" >&2
+        rename_failed=1
+        continue;
+     fi
+
+     mv "$source_file" "$target_file"
+     if [ $? != 0 ]; then
+        echo "Failed to rename: $source_file" >&2
+        rename_failed=1
+     else
+        echo "Renamed: $filename -> $new_filename"
+     fi
+  done < <(find ${rep.data.dir} -type f -iname '*.wav' -name '* *' -print0)
+
+  if [ "$rename_failed" != 0 ]; then
+     exit 1;
+  fi
+
+  echo 'Audio copy and filename normalization completed successfully or nothing to copy.'
 "
