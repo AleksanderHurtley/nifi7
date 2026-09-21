@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "generatedAtUtc": "2026-09-16T11:42:17+00:00",
+  "batchId": "catalog-delete-20260904-01",
+  "result": "PASS",
+  "expectedPathRoot": "/global/film/00/film/bevaring/",
+  "counts": {
+    "manifestPaths": 1130,
+    "uniqueManifestPaths": 1130,
+    "uniqueManifestObjectIds": 1130,
+    "dpsPages": 16,
+    "dpsSubmissions": 1519,
+    "uniqueDpsSubmissionIds": 1519,
+    "uniqueDpsObjectIds": 1519,
+    "manifestObjectsFoundInDps": 1130,
+    "manifestObjectsPreserved": 1130,
+    "dpsObjectsOutsideManifest": 389
+  },
+  "dpsStatusCounts": {
+    "PRESERVED": 1517,
+    "PROCESSING": 2
+  },
+  "dpsContractIds": [
+    "91c5"
+  ],
+  "pagination": {
+    "pageNumbers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "declaredTotalPages": [
+      16
+    ],
+    "declaredTotalElements": [
+      1519
+    ]
+  },
+  "issues": [],
+  "exceptions": {
+    "missingManifestObjectIds": [],
+    "manifestNonPreserved": [],
+    "outsideManifestNonPreserved": [
+      [
+        "digifilm_10415465_20171026_FP--20100019",
+        "PROCESSING",
+        "3KyiQPW7crGjqd4OYVelVD"
+      ],
+      [
+        "digifilm_803221_20170920_FSOF00002489",
+        "PROCESSING",
+        "6AlUrRd7CDr7PVFCoSz9rF"
+      ]
+    ],
+    "unsafePaths": [],
+    "duplicatePaths": [],
+    "duplicateManifestObjectIds": [],
+    "duplicateDpsSubmissionIds": [],
+    "duplicateDpsObjectIds": []
+  }
+}

@@ -1,6 +1,7 @@
 # Attributes reference
 
-This document defines common FlowFile attributes used across the pipeline.
+This document defines common FlowFile attributes used across the film → bevaring pipeline.
+Script paths below are relative to `film_bevaring/`.
 Names are case-sensitive.
 
 ## Identity

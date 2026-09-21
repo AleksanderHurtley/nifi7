@@ -1,0 +1,64 @@
+# film → bevaring (NiFi)
+
+This directory contains the Groovy and Bash scripts for the existing
+film → bevaring flow on `nifi7`. The flow:
+
+1) transfers packages out of SAM-FS archival storage into a local staging/work area,
+2) validates fixity using checksums recorded in a DPX metadata manifest XML generated from SAM-FS metadata,
+3) migrates DPX image sequences to FFV1-in-Matroska using RAWcooked,
+4) records preservation events (NDJSON) and pipeline timing stats for reporting.
+
+The numbered directories match the logical process groups within this flow's
+top-level NiFi process group. Paths in this README are relative to
+`film_bevaring/`.
+
+See the [repository overview](../README.md) for the other flows.
+
+## Key concepts
+
+- **Package**: a logical preservation unit identified by `package.name` / `packageId`.
+- **SAM-FS archival storage**: source storage for content and associated metadata/checksum files.
+- **Staging area**: local disk paths where packages are copied/extracted for processing.
+- **Events**: appended as NDJSON records to a file pointed to by `events.payload.path`.
+- **Stats**: timestamps/durations/size and tool stats written to a database at the end.
+
+## Flow structure
+
+- `01_Initialize/` – create directories and initial flowfile attributes
+- `02_Fetch files from SAM-FS/` – gather metadata + content (tar, audio, etc.) into staging
+- `03_Checksum/` – verify DPX fixity after transfer using SAM-FS checksum metadata
+- `04_Catalog/` – build the DPS submission payload (objectId, metadata, title) from descriptive XML
+- `05_RAWcooked/` – batch conversion + cleanup, and emits migration event (RAWcooked as agent)
+- `06_Generate checksums/` – compute checksums for outputs if needed downstream
+- `07_Submission body/` – parse descriptive catalog XML (`_WORK_`, `_DIGITAL_ITEM_`, `_ANALOG_ITEM_PART_`, `_DIGITAL_ITEM_PART_`) and assemble the DPS submission body JSON
+- `08_dps-2/` – delivery-stage failure margin (single buffer manager script for acquire/release)
+- `09_Finalize stats/` – compute end-of-pipeline timing/size totals and write stats to the database
+- `10_Package cleanup/` – package-level cleanup of staging/output folders
+- `Add event.groovy` – event appender used across stages in this flow
+- `docs/` – flow overview, attributes, events, error handling, and operations
+- `examples/` – sample metadata, events, and NiFi processor properties
+- `catalog_dump/` – sample descriptive catalog XML
+- `reporting/` – MySQL/MariaDB view, validation queries, and Grafana dashboard for completed package reporting
+- `deletion-batches/` – source-deletion manifests, DPS evidence, and preservation validator
+
+Note: the `information package creation` and `transfer` events, E-ARK packaging
+(`EarkSIPGenerator`), and the events/submission upload to the DPS API happen in the
+NiFi flow itself (see [events](docs/EVENTS.md) and the
+[flow overview](docs/FLOW_OVERVIEW.md)), not as folders here.
+
+## Operating assumptions
+
+- Servers are offline (no internet); deployment is done via SSH + file transfer.
+- RAWcooked/ffmpeg/ffprobe are installed and available on the NiFi host(s).
+- SAM-FS is mounted and accessible on the NiFi source host.
+
+## Where to start
+
+Read:
+
+- [Flow overview](docs/FLOW_OVERVIEW.md)
+- [Attributes](docs/ATTRIBUTES.md)
+- [Events](docs/EVENTS.md)
+- [Operations and deployment](docs/OPERATIONS.md)
+- [Reporting](reporting/README.md)
+- [Deletion batches](deletion-batches/README.md)

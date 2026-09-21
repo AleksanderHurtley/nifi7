@@ -1,0 +1,1010 @@
+{
+  "content": [
+    {
+      "contractId": "91c5",
+      "submissionId": "2fIgQEpYVKeHy444f6oNtY",
+      "objectId": "digifilm_727480_20130730_FE--13281071",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e495a-057e-76d3-b3c4-25af5855ac5b",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 491007182915
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "6NZgKw8X6uw7EY71JhyfmK",
+      "objectId": "digifilm_801190_20130711_FOIA00000611",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e4f28-be41-7545-9a5f-a6115eab0a3f",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 442473869837
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "5rYN0OI36ExVeo2ndhC5jk",
+      "objectId": "digifilm_808954_20130729_FOIA00001541",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e4fb5-ac20-7641-a54d-336e7979cb6c",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 474956966651
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "1Ae62KgA5mX3QiPwmqootZ",
+      "objectId": "digifilm_815655_20130726_FVIA00000044",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e4fd5-98ec-7cf8-8e87-0b3a83cf0d02",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 282964356132
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "34Z1sS9i81Jr3uzyPiohTV",
+      "objectId": "digifilm_1042305_20130807_FOIA00000684",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e5018-d876-7f23-b566-45df92c320de",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 266368165040
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "6N7mg57vcwz1FiUulOqnAB",
+      "objectId": "digifilm_1177710_20130830_FVIA00000045",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e5064-d42b-741b-ad36-19be88aa00db",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 308482008810
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "78UESSGOA34m3aaHYiP6yU",
+      "objectId": "digifilm_1379815_20130829_FOIB00000285",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e5072-2dae-7f29-b4a0-d941c5d857d8",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 86416953747
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "393VTUkmJUsBltAvKWqQsi",
+      "objectId": "digifilm_174330_20130828_FE--13260193",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e512f-502b-7fad-a401-bfdc564e245e",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 644203601713
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "05S40XBNw9XzAUafFkh8UP",
+      "objectId": "digifilm_174330_20130828_FE--13260194",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e5142-ee2e-7d8c-bb3d-2798a248711b",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 146564590180
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "4ywIO48APwrrGzFqN4oPWA",
+      "objectId": "digifilm_174434_20130830_FE--13280717",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e5172-138f-78e4-b4e4-4ffbd4af7fcf",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 170288557928
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "72JVRZnfTiE8ytosmpURwS",
+      "objectId": "digifilm_248053_20130815_FT--42220184",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e5202-4186-7555-90bc-9270ae271025",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 516945515123
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "3DSyxDJoRPEqugBvNWHDc8",
+      "objectId": "digifilm_248053_20130815_FT--42220185",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e5241-5bb6-71eb-9a94-5cc7367d4a53",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 289928562229
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "11TYHlRVCZ1vjpDACERjSu",
+      "objectId": "digifilm_600066_20130815_FE--13280807",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e52c7-0618-703c-b8ba-bc53d2e96906",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 496913273099
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "4M07ku6kTH6OcAXhbmEuLY",
+      "objectId": "digifilm_600555_20130815_FE--13280848",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e5343-9852-73c2-b026-e619e40262b4",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 478151990346
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "6QUwVOfxemUs6hfXAysjGu",
+      "objectId": "digifilm_666622_20130814_FT--42220497",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e5375-7143-7f9e-aa83-7f240bbc8f42",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 230869650325
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "6g8hVwMHqw4SZ8R2ksQzzP",
+      "objectId": "digifilm_681019_20130829_FE--13280981",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e53f0-7cf6-795d-b219-fdf7efd06fa2",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 460669184102
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "4OmFsZurcI7dc7LkOfKxOO",
+      "objectId": "digifilm_681722_20130815_FE--13281007",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e53f0-d3f9-7832-aadd-fb787be49542",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 25543996281
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "0pKzEbBD0D0hKqqpQB3LXJ",
+      "objectId": "digifilm_687654_20130829_FE--13260311",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e5497-b32e-7b3c-ac5b-f38c23b84420",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 656331114461
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "2s6u2LnMuXa4zQzRbIG4Ro",
+      "objectId": "digifilm_747375_20130815_FT--42220536",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e54c2-ae45-750d-81b4-567150e92ced",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 231676921158
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "56KhheusjL8Xa9mn0avpgn",
+      "objectId": "digifilm_747406_20130815_FYED00000037",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e550a-8059-7719-bb06-b414e584d597",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 274432260723
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "5axK0G5U8blGD6uknEZMX6",
+      "objectId": "digifilm_795915_20130807_FBOB00000139",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e556b-6b2a-708c-b8dc-03e1523f4714",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 369167468882
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "4cT8FMaKDFzFrDLjRicRSk",
+      "objectId": "digifilm_796689_20130806_FOIC00000097",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e5672-009c-7ccc-acfc-d8a78f138ba6",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 1018667049845
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "3vP4hUOGZOjkude2AK0ios",
+      "objectId": "digifilm_796689_20130806_FOIC00000098",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e576c-58e4-7299-b38a-daf29f18771d",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 989717456767
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "1NivROOIcwFgZ4OGCwWyY2",
+      "objectId": "digifilm_797233_20130823_FBOG00000235",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e58b2-573f-756b-8416-4cb68e4e49ae",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 1204637498245
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "65C9t7hoM7MeMbVwpGVZC9",
+      "objectId": "digifilm_797233_20130823_FBOG00000236",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e5b6c-9d64-7b6b-9647-022094c52a3b",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 2455202647620
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "77LVqLnbAWqxSrP8eTLFMN",
+      "objectId": "digifilm_799482_20130805_FABC00000176",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e5bec-f4d1-7c88-856c-1d46da39d3d9",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 787622954313
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "3zlTGx3J35E9Ye9G2PSTUa",
+      "objectId": "digifilm_803313_20130819_FBOF00000759",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e5d31-0b65-7cf2-8029-d00497938126",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 1164323342474
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "5IoB5YwWekms7WrP51rNiI",
+      "objectId": "digifilm_804396_20130819_FBOF00001689",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e5ee0-c132-73a7-a43a-92683203f3a6",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 1565086662199
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "1n7DcIbn0jreqRyb8zNhkg",
+      "objectId": "digifilm_817445_20130822_FABG00001023",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e6100-1a8f-799c-8950-8dea365f8760",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 2024339912159
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "4cqP86VLYEpzXdk7f5xiJt",
+      "objectId": "digifilm_90236_20130827_FOIF00000006",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e624b-a392-75e8-8b1b-64031ad5b973",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 1361989524823
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "3076g50FWhROL1HLCRt1PG",
+      "objectId": "digifilm_90237_20130830_FE--13280466",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e62b0-d6fc-7856-b014-df75d497d269",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 540684813766
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "3q5V8OKlrTI7k6SxEUKDYE",
+      "objectId": "digifilm_1118739_20130911_FOIB00000292",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e6381-6b0d-7081-8082-6cad3a7ffe77",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 806837009145
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "0CzJ83eFIb7bwMYSElJomn",
+      "objectId": "digifilm_1166884_20130912_FOOA00000095",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e6382-7647-768f-9b36-0cf79046527f",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 58377314841
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "3pNrfe2ozfllTTNYrV4r8e",
+      "objectId": "digifilm_1172549_20130927_FVOF00000026",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e651f-add6-7e3b-b7ab-69c9b80833a4",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 1499929295480
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "1Xop4ENL9ICXoCG2jN7e71",
+      "objectId": "digifilm_12013_20130923_FBOF00000466",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e6549-6942-76d1-83e1-f516ef2f9ed7",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 353528791892
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "549d6R75HOYZV326eHnwH2",
+      "objectId": "digifilm_1232161_20130904_FOOF00000635",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e655c-ac37-7d5e-95a5-25246967f36f",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 112076297110
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "0uwHvqPu3ONlPEcb1lJVZ2",
+      "objectId": "digifilm_1270037_20130927_FKOF00002152",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e65d1-9791-71ba-9d8f-51756f8e7c65",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 395066047977
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "5NUTIBMYRL8DmZTHEtx4am",
+      "objectId": "digifilm_1288378_20130927_FSOF00001505",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e664e-d599-70d4-8131-7e43b9586f3e",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 460662796656
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "2uDTRgZKwaliEKL1HrjRMu",
+      "objectId": "digifilm_254518_20130925_FT--42200161",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e667b-7775-7821-aa51-887a023e6ae4",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 212973379641
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "5CSR5n3UpKlc7xmKR0CHv1",
+      "objectId": "digifilm_636396_20130927_FT--42200215",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e6bb5-cf14-7327-9e42-5cf975a5d33b",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 450744489871
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "1diqnGYPEHvqB8NPKlCexk",
+      "objectId": "digifilm_673822_20130927_FKOF00000456",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e6cb4-d78f-74dc-a5d5-15b0a4ee531d",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 918577882260
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "7eB2aPf9TsjssUxBsZXGM6",
+      "objectId": "digifilm_687485_20130930_FOIF00001576",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e6d30-cfbd-715b-be9f-22777de17d09",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 528578261403
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "5KXsNnYTjCIbOyehyCbe7e",
+      "objectId": "digifilm_797119_20130903_FKIF00000420",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e6daf-406c-7924-b574-992280d0745d",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 466583474953
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "28VHaTisqbv4C4zOiYuHcj",
+      "objectId": "digifilm_797125_20130923_FBIF00001080",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e6ef9-1d0c-7334-a121-566932e72471",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 1202235947604
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "4VucR7FHpJ3UywJjQqtAmQ",
+      "objectId": "digifilm_797200_20130920_FOIA00000779",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e6f00-2d8f-7119-a251-2d34edf27e0b",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 205694519445
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "0HCH4q5o1ULkjmy0zgZE8p",
+      "objectId": "digifilm_797275_20130923_FABF00003061",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e702e-2df5-7476-bcba-7ea58b715579",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 1036702768938
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "6VoM1vm2oprszRVPcTyw9A",
+      "objectId": "digifilm_797629_20130920_FBIB00000979",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e7030-ca97-7062-a60e-28d73229b69a",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 147835281019
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "1uD6DzQmm6CUdRTEp6lAv9",
+      "objectId": "digifilm_798298_20130923_FBIF00000777",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e71b3-8ca3-7596-857f-120e891a94c8",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 1358513157959
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "7gnqrMgcrCLqrPs4Hps6Wh",
+      "objectId": "digifilm_798298_20130923_FBIF00000778",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e71c6-b835-75e1-bebb-19a59dd72164",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 258105993558
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "6fByHCKC9RzUwO4VaxxSQ5",
+      "objectId": "digifilm_798430_20130919_FOIA00000513",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e71fc-34f5-7117-bd74-0b4249b415a3",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 202548843276
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "2fPfYtbV4bkH47wy9A62Y6",
+      "objectId": "digifilm_799184_20130919_FBIB00001001",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e7200-791f-77d5-8780-b485030c88bd",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 46467527578
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "1gpoMxu9tfglGvCxKvvn7h",
+      "objectId": "digifilm_801827_20130904_FKOF00002150",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e7302-ccd4-7443-8be8-1d73639be6d3",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 855402844044
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "5klkGrPtaeIpPdEAYArcgZ",
+      "objectId": "digifilm_802010_20130904_FKOF00000493",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e740c-11a9-7678-91b7-5a8527851df6",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 994766090241
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "4OS3hXQ6lw3ZUzwKfHnXfR",
+      "objectId": "digifilm_802987_20130904_FABF00001188",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e7452-f120-742d-98c7-f7ecb7ccc057",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 369900018632
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "2YWDzBoY1XgR4b8W1OIemT",
+      "objectId": "digifilm_803330_20130930_FBIF00000870",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e74d2-440d-7bb8-8431-a6f93ea40a71",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 471107246342
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "4sKgOpzIrKvJGinOxNRIyJ",
+      "objectId": "digifilm_804267_20130904_FBIF00000869",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e752a-4c06-752a-9488-344d928ae97a",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 356700388697
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "60FeXpCBYnktKTaMA1oOta",
+      "objectId": "digifilm_804267_20130923_FOOF00000231",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e7588-52b2-7b64-843d-e613fd250a79",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 357709536019
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "7CVHbaCUYdhaI7tBLokZG2",
+      "objectId": "digifilm_1300107_20130729_FOIA00001354",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e75ae-76b1-7b17-923d-673c4119f831",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 179115902446
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "0urVBlb2YoEajKPGzovoeQ",
+      "objectId": "digifilm_804728_20130927_FABB00000683",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e75bc-f9a5-7dfb-8fa3-7e5db6cb96d8",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 70220198544
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "4wQkdmjlXGldZJY8g3NBO2",
+      "objectId": "digifilm_805348_20130927_FCEF00000551",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e7694-a5b4-790b-82ec-57cf6f4407d7",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 738138025090
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "2tXqP7bBOAVXMaqvPe0Y62",
+      "objectId": "digifilm_805836_20130904_FSIF00000120",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e76ee-d0e8-702e-8151-c81ee0e10793",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 394660484046
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "3pSTWBH9The33qu0YmSjgh",
+      "objectId": "digifilm_808734_20130930_FBOF00001252",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e78c3-0adb-7749-881c-f12a06d09d58",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 1575848060187
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "2wHEEDvBMqPlKz33Dn57OT",
+      "objectId": "digifilm_811633_20130904_FBIF00000643",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e78c5-5f13-7ad1-ac6e-ffe823ffbe7f",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 146395853470
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "0BCqO0FbEfTp9fYbCCFYXl",
+      "objectId": "digifilm_812195_20130927_FBOF00001249",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e79f1-9178-74ff-8a8b-b0bb3dc7360b",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 1102790764967
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "7jwj95FgRBPo42YTdblL0Z",
+      "objectId": "digifilm_99911_20130930_FBOF00001250",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e7a68-af4d-734e-870a-ef7e7bfaaff8",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 520696934326
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "09ciCAVmYxt5iRhVylOgjY",
+      "objectId": "digifilm_1344403_20131018_FBOB00000268",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e7b0f-95a9-71d3-a1a2-acef5de50206",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 661757725550
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "0bRcNTu7dldgg0nSiEU8uz",
+      "objectId": "digifilm_1379812_20131018_FOOB00000051",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e7b61-d397-7746-96c3-3c3b1206fa3d",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 381996489233
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "0sCgKs3eiiJaaNbMdy5ZT2",
+      "objectId": "digifilm_1537314_20131029_FOIA00001361",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e7b79-53ef-72ab-a06b-e1ed185fdee6",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 129378569513
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "0NAW1OcHl2th6n1sSsZsD5",
+      "objectId": "digifilm_1537314_20131029_FOOA00000116",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e7bdf-0671-7026-8d2a-0ad22d630686",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 358253458017
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "1D4EEPZfm16nOGhBnPtWMI",
+      "objectId": "digifilm_1537314_20131029_FOOA00000117",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e7c3c-5f45-7d47-82f0-13a5320c51c3",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 378615426911
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "3mQv6Mj90ZGUPBowuodRZN",
+      "objectId": "digifilm_541125_20131029_FOOA00000094",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e7cd9-8cb3-7606-bf1c-ebedf7a7ff23",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 614304770997
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "3VBZUYrKXnA60upAzodBjF",
+      "objectId": "digifilm_541125_20131029_FOOB00000052",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e7d99-bf08-7a36-a79a-9e02edb97678",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 758816655702
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "5WNKEcoOyOTQDHUm7aCi8m",
+      "objectId": "digifilm_678738_20131018_FE--13260282",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e7e39-9dc7-7d28-a540-13acd24e6d83",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 666656070921
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "0Do8AMvP2upufFGosSQVZR",
+      "objectId": "digifilm_681084_20131018_FE--13260287",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e7edc-c5fd-7f08-87e0-a3042efcb373",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 654044252513
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "6h3A76TFYQ2PPNsFhi0R5C",
+      "objectId": "digifilm_681254_20131018_FE--13260290",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e7f67-014e-7378-9fc4-609b6e2e6601",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 591823088301
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "4BeTIGBWg4k985Epm46E8n",
+      "objectId": "digifilm_681719_20131018_FE--13260297",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e800b-d862-7352-b3dc-f80bea10924b",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 654414139453
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "4Ts6ooKRv8UiJJv4tQ27eJ",
+      "objectId": "digifilm_681803_20131018_FE--13260298",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e80ac-3002-751b-ab25-27f81c38b0d6",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 686147593952
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "5RR4wgDfYu7ItJ37YALSMg",
+      "objectId": "digifilm_681815_20131018_FE--13260303",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e814e-3aba-7a4e-a586-86b3d4236356",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 671347893969
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "3vCawsdSDRgc051WMHtN1f",
+      "objectId": "digifilm_681818_20131018_FE--13260306",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e81ee-253e-77a3-bba1-cac44c409198",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 678942997468
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "3wK7Q18QpaKOu7SuDfUV3s",
+      "objectId": "digifilm_684561_20131018_FE--13260309",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e827d-9440-7d19-a96f-914e45fe5e1d",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 611899356092
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "399eBnyoqKmC8TCatitOjI",
+      "objectId": "digifilm_687428_20131018_FE--13281015",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e8319-c461-724a-9192-0343d401935b",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 634180517496
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "6HU21gK3PcAYlhAo83hUUP",
+      "objectId": "digifilm_747398_20131018_FT--42220538",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e834b-0155-73e5-8cc0-b32cf9725edd",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 254153075387
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "1AL5qRzT5aVXB6trwQS6FS",
+      "objectId": "digifilm_747412_20131018_FT--42220540",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e83a2-7b0c-7529-b389-cfe2d981fd78",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 356864188948
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "3ZY5nb9qqAU2bZzkJyB0Ps",
+      "objectId": "digifilm_791571_20131003_FSOF00000111",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e84b6-15c1-7cee-95ec-f9b65554ee80",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 960096445057
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "3BIAzZ5BoRWNzhwF9WWmsP",
+      "objectId": "digifilm_791571_20131003_FSOF00000112",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e85a2-37be-7467-b250-9338267f1f59",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 898909637891
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "6Cvlc7pcVsg51rDY21Wq3T",
+      "objectId": "digifilm_791571_20131003_FSOF00000113",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e868a-ac35-74c7-b5f8-e4dcbc4af3b1",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 891186084760
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "16m9wIVgkVrJwHvUYVNhl5",
+      "objectId": "digifilm_791571_20131003_FSOF00000114",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e8798-5d1e-731e-8bd8-80608415ab01",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 897804314857
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "4RG7zg0gn198295NpOYXiU",
+      "objectId": "digifilm_791571_20131003_FSOF00000115",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e88d6-550e-74d3-8488-9381b41a65cc",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 1282982999941
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "6BgukfGhyldgJd4wcXSHiX",
+      "objectId": "digifilm_791571_20131003_FSOF00000116",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e8a22-03c5-7f1f-af97-473be77b1c45",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 1270126199145
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "5tqSx9LksL77Wt1tvfXK3b",
+      "objectId": "digifilm_791571_20131003_FSOF00000117",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e8b18-b5e7-792a-8c1f-eefc4d556508",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 993315460253
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "1uGfKjLCcEwWp5TVcehLO0",
+      "objectId": "digifilm_800107_20131002_FCEF00002900",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e8bdd-10da-75df-9bde-d4a6537bfe57",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 797622284570
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "4cx4d05spz0zbSCk94K8i8",
+      "objectId": "digifilm_800602_20131008_FCEF00003930",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e8ca5-da13-7f5d-b947-ff9e93e5821e",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 768841719637
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "1DMzoZzr6eptkw1ngNcWVM",
+      "objectId": "digifilm_801428_20131008_FBOF00001251",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e8d2c-138b-7c67-8da5-f03713236cd7",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 534311326050
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "55ntmZQBF9pQkpxys1PyR5",
+      "objectId": "digifilm_801450_20131002_FKOF00000495",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e8e65-e05a-7dbf-ae87-79e06c0cbfc3",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 1100409695218
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "2xRpC4Y7TdAvV7r5Eba9zT",
+      "objectId": "digifilm_801450_20131002_FKOF00000496",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e8f70-d0dc-7132-93f3-2ef57109ce57",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 1018307967025
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "3zDs6ksCIjCEkc4xZRqFpZ",
+      "objectId": "digifilm_801833_20131008_FGEF00000150",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e907a-a050-7e2a-986b-18973d1353e5",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 1011107610159
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "1h0ske9eYSDD8tUATyxgZ8",
+      "objectId": "digifilm_801833_20131008_FGEF00000151",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e916d-13e2-7f9a-a851-405506d703cb",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 942956863696
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "6isW2SGk41ECDEYIV15OyP",
+      "objectId": "digifilm_801989_20131016_FBIB00001300",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e919f-b3db-72cd-b8d8-38e7e5ca1844",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 303456273715
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "4BqPL77JrirYk3jM9Y9NS4",
+      "objectId": "digifilm_802070_20131004_FCEF00004571",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e9332-b37a-758b-9359-cac96e2d7f57",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 1442391191351
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "34Ig0Ty2AZgZcWKDGGHZbg",
+      "objectId": "digifilm_802904_20131008_FCEF00000108",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "019e9379-d353-7d9e-a476-a24a7df46ad6",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 428246663154
+    }
+  ],
+  "page": {
+    "size": 100,
+    "number": 0,
+    "totalElements": 1519,
+    "totalPages": 16
+  }
+}

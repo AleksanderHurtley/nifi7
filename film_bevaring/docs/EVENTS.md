@@ -1,5 +1,8 @@
 # Preservation events (NDJSON)
 
+These events belong to the film → bevaring flow. Script paths below are
+relative to `film_bevaring/`.
+
 Events are appended as NDJSON records, one JSON object per line, with these top-level fields:
 - `packageId` — local-only; identifies which package the event belongs to
 - `agent` — nested object (`agentName`, `agentType`, `agentVersion`, optional `agentNote`)

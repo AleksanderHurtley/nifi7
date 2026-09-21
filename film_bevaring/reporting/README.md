@@ -1,8 +1,10 @@
-# Transfer flow reporting
+# film → bevaring reporting
 
 This directory contains the database view and Grafana dashboard for reporting
-completed transfer-flow packages from `DIGITIZED_ITEM`, `DI_EVENT`, and the
+completed film → bevaring packages from `DIGITIZED_ITEM`, `DI_EVENT`, and the
 existing `DI_PARAMETER` stats table.
+
+Asset paths below are relative to `film_bevaring/reporting/`.
 
 ## Database setup
 

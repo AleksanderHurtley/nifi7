@@ -1,5 +1,7 @@
 # Error handling conventions
 
+These conventions describe the film → bevaring flow.
+
 ## Goals
 - Fail fast when integrity is at risk (fixity mismatch, missing inputs)
 - Provide actionable error messages

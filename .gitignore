@@ -1,0 +1,5 @@
+# Complete local package copies and working files; keep only the instructions.
+/film_produksjon/local-packages/*
+!/film_produksjon/local-packages/README.md
+/video_eksternvideo/local-packages/*
+!/video_eksternvideo/local-packages/README.md

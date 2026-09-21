@@ -1,6 +1,7 @@
 # Flow overview
 
-This describes the logical NiFi pipeline implemented by the scripts in this repository.
+This describes the film → bevaring NiFi pipeline implemented by the scripts in
+`film_bevaring/`. Script and asset paths below are relative to that directory.
 (Processor names may differ; script names are the source of truth.)
 
 ## Pipeline stages
@@ -70,7 +71,7 @@ Input metadata source:
 - `dpxmeta.manifest.path` (or fallback path under `metadata.preservation.dpx.dir`)
 
 Note: the fixity check is recorded as part of the lumped `transfer` event
-(see `docs/EVENTS.md`); this stage does not emit its own event by default.
+(see [events](EVENTS.md)); this stage does not emit its own event by default.
 On failure, set `event.outcome=failure` on the transfer event and include
 mismatch context in `error.message` (and optionally append to `event.detail`).
 
@@ -234,7 +235,8 @@ Behavior:
 ---
 
 ## Event emission
-Events are appended as NDJSON via a shared "add event" script (not listed here).
+Events are appended as NDJSON via `Add event.groovy`, used across stages in
+this flow.
 Scripts set attributes:
 - `event.datetime`, `event.type`, `event.outcome`, `event.detail`, optional `event.outcomeDetail`
 - optional agent overrides: `agent.name`, `agent.type`, `agent.version`

@@ -1,5 +1,23 @@
 # Operations / deployment
 
+These notes apply to film → bevaring. Repository asset paths below are
+relative to `film_bevaring/`.
+
+## Repository layout and deployment
+
+This flow's scripts and supporting assets have moved from the repository root
+to `film_bevaring/`. Deploy from that directory.
+
+If a NiFi processor's `Script File` or an external deployment command points
+into a checkout of this repository, update the path to include
+`film_bevaring/`. For example, a script previously selected as
+`<checkout>/01_Initialize/01_Initialize Flowfile.groovy` is now at
+`<checkout>/film_bevaring/01_Initialize/01_Initialize Flowfile.groovy`.
+Processors configured with pasted script bodies need no change for this move.
+
+The repository move does not change the source, staging, output, or cleanup
+paths used by the scripts, and does not update the running NiFi flow.
+
 ## Environment
 - Servers have no internet access; deploy via SSH/VPN file transfer.
 - Ensure system has:

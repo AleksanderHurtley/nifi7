@@ -1,50 +1,55 @@
-# SAM-FS → Preservation Ingest (NiFi)
+# NiFi7 flows
 
-This repository contains Groovy and Bash scripts used in an Apache NiFi flow that:
-1) transfers packages out of SAM-FS archival storage into a local staging/work area,
-2) validates fixity using checksums recorded in a DPX metadata manifest XML generated from SAM-FS metadata,
-3) migrates DPX image sequences to FFV1-in-Matroska using RAWcooked,
-4) records preservation events (NDJSON) and pipeline timing stats for reporting.
+This repository holds the scripts, documentation, examples, and operational
+assets for the flows on the `nifi7` server. Each flow has its own top-level
+NiFi process group and a matching directory here.
 
-The NiFi flow is organized into logical process groups matching the folder structure in this repo.
+| Flow | Directory | Status |
+|---|---|---|
+| film → bevaring | [film_bevaring/](film_bevaring/README.md) | Existing flow: SAM-FS extraction, fixity validation, RAWcooked migration, and preservation ingest |
+| video → eksternvideo | [video_eksternvideo/](video_eksternvideo/README.md) | Prepared for development |
+| film → produksjon | [film_produksjon/](film_produksjon/README.md) | Prepared for development |
 
-## Key concepts
+Directory names use lowercase words separated by underscores to keep paths
+easy to use in commands.
 
-- **Package**: a logical preservation unit identified by `package.name` / `packageId`.
-- **SAM-FS archival storage**: source storage for content and associated metadata/checksum files.
-- **Staging area**: local disk paths where packages are copied/extracted for processing.
-- **Events**: appended as NDJSON records to a file pointed to by `events.payload.path`.
-- **Stats**: timestamps/durations/size and tool stats written to a database at the end.
+For the two new flows, put complete SAM-FS packages in
+[film_produksjon/local-packages/](film_produksjon/local-packages/README.md) or
+[video_eksternvideo/local-packages/](video_eksternvideo/local-packages/README.md).
+Those directories are ignored by Git except for their READMEs. Extract small
+reference files and structure listings into each flow's `examples/sam-fs/`
+directory to keep them in Git.
 
-## Repo structure
+## Working on a flow
 
-- `01_Initialize/` – create directories and initial flowfile attributes
-- `02_Fetch files from SAM-FS/` – gather metadata + content (tar, audio, etc.) into staging
-- `03_Checksum/` – verify DPX fixity after transfer using SAM-FS checksum metadata
-- `04_Catalog/` – build the DPS submission payload (objectId, metadata, title) from descriptive XML
-- `05_RAWcooked/` – batch conversion + cleanup, and emits migration event (RAWcooked as agent)
-- `06_Generate checksums/` – compute checksums for outputs if needed downstream
-- `07_Submission body/` – parse descriptive catalog XML (`_WORK_`, `_DIGITAL_ITEM_`, `_ANALOG_ITEM_PART_`, `_DIGITAL_ITEM_PART_`) and assemble the DPS submission body JSON
-- `08_dps-2/` – delivery-stage failure margin (single buffer manager script for acquire/release)
-- `09_Finalize stats/` – compute end-of-pipeline timing/size totals and write stats to the database
-- `10_Package cleanup/` – package-level cleanup of staging/output folders
+Keep each flow's scripts and supporting assets inside its directory:
 
-Note: the `information package creation` and `transfer` events, E-ARK packaging
-(`EarkSIPGenerator`), and the events/submission upload to the DPS API happen in the
-NiFi flow itself (see `docs/EVENTS.md` and `docs/FLOW_OVERVIEW.md`), not as folders here.
-- `reporting/` – MySQL/MariaDB view, validation queries, and Grafana dashboard for completed package reporting
+- Numbered stage directories (such as `01_Initialize/`) follow the process
+  groups within that flow. Numbering starts independently for each flow.
+- The flow's `README.md` describes its purpose, stages, and current status.
+- Add `docs/`, `examples/`, `catalog_dump/`, `reporting/`, and
+  `deletion-batches/` as needed for that flow.
+- Document the flow's NiFi process-group name/ID, parameter contexts, storage
+  paths, and database/DPS configuration in its own documentation.
 
-## Operating assumptions
+The existing film → bevaring implementation is the reference for the current
+conventions. Its storage paths, production-line filter, DPS contract, and
+reporting assets are specific to that flow. Confirm the corresponding values
+when implementing another flow. Extract shared code only when multiple flows
+actually use it.
 
-- Servers are offline (no internet); deployment is done via SSH + file transfer.
-- RAWcooked/ffmpeg/ffprobe are installed and available on the NiFi host(s).
-- SAM-FS is mounted and accessible on the NiFi source host.
+Paths in a flow's documentation are relative to that flow directory unless
+stated otherwise. Commands labeled "from the repository root" include the
+flow directory explicitly.
 
-## Where to start
+## Existing flow after the move
 
-Read:
-- `docs/FLOW_OVERVIEW.md`
-- `docs/ATTRIBUTES.md`
-- `docs/EVENTS.md`
-- `docs/OPERATIONS.md`
-- `reporting/README.md`
+All previous flow content now lives under `film_bevaring/`, including
+`Add event.groovy`, documentation, examples, catalog samples, reporting, and
+deletion-batch evidence. For example,
+`01_Initialize/01_Initialize Flowfile.groovy` is now
+`film_bevaring/01_Initialize/01_Initialize Flowfile.groovy`.
+
+See the [film → bevaring overview](film_bevaring/docs/FLOW_OVERVIEW.md) and
+[deployment notes](film_bevaring/docs/OPERATIONS.md) when working on the
+existing flow.
