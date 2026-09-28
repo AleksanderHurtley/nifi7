@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mets:mets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:mavis="http://www.wizardis.com.au/2005/12/MAVIS"
+           xmlns:fn="http://www.w3.org/2005/xpath-functions"
+           xmlns:jhove="http://hul.harvard.edu/ois/xml/ns/jhove"
+           xmlns:range="http://www.nb.no/xmlschema/preservation/elementrange/1.0"
+           xmlns:mods="http://www.loc.gov/mods/v3"
+           xmlns:mets="http://www.loc.gov/METS/"
+           xmlns:premis="http://www.loc.gov/standards/premis/v1"
+           xmlns:ffprobe="http://www.ffmpeg.org/schema/ffprobe"
+           xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd">
+   <mets:metsHdr CREATEDATE="2023-05-23T10:52:45.193+02:00"/>
+   <mets:dmdSec ID="MODS">
+      <mets:mdWrap MDTYPE="MODS" MIMETYPE="text/xml">
+         <mets:xmlData>
+            <mods:mods ID="MODS_01">
+               <mods:titleInfo>
+                  <mods:title>Naustet</mods:title>
+               </mods:titleInfo>
+               <mods:typeOfResource>moving image</mods:typeOfResource>
+               <mods:name authority="mavis" valueURI="/Person/key/122130-1">
+                  <mods:namePart>Aasgård, Ann-Karin</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Film editor</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/122131-1">
+                  <mods:namePart>Helle, Bente Santi</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Other</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Organisation/key/2-1">
+                  <mods:namePart>Norsk filminstitutt</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Sponsor</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Organisation/key/32645-1">
+                  <mods:namePart>Vestnorsk Filmsenter</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Sponsor</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Organisation/key/7980-1">
+                  <mods:namePart>Filmhuset AS</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Producer</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Organisation/key/34625-1">
+                  <mods:namePart>Norsk kassettavgiftsfond</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Sponsor</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Organisation/key/34917-1">
+                  <mods:namePart>Norsk filminstitutt. Filmbutikken</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Distributor</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/40473-1">
+                  <mods:namePart>Lotherington, Nils-Petter</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Cinematographer</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/41004-1">
+                  <mods:namePart>Johannesen, Aamund</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Production personnel</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/41374-1">
+                  <mods:namePart>Ødegård, Egil</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Producer</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/41792-1">
+                  <mods:namePart>Langhelle, Jørgen Sandvik</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Actor</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/42034-1">
+                  <mods:namePart>Andersen, Bjørn Willberg</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Actor</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/42261-1">
+                  <mods:namePart>Berrum, Christian</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Lighting designer</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/42280-1">
+                  <mods:namePart>Lange, Carle</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Set designer</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/42280-1">
+                  <mods:namePart>Lange, Carle</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Production personnel</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/42444-1">
+                  <mods:namePart>Hagen, Trygve</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Author of screenplay</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/42444-1">
+                  <mods:namePart>Hagen, Trygve</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Film editor</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/42444-1">
+                  <mods:namePart>Hagen, Trygve</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Director</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/42447-1">
+                  <mods:namePart>Johansen, Håvard</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Production personnel</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/42529-1">
+                  <mods:namePart>Trier, Jacob</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Sound designer</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/43233-1">
+                  <mods:namePart>Jakobsen, Svenn</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Sound designer</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/43307-1">
+                  <mods:namePart>Wiese, Ingrid</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Production personnel</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/47775-1">
+                  <mods:namePart>Fosse, Jon</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Author</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/58568-1">
+                  <mods:namePart>Nielsen, Jan Erik</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Film editor</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/736-1">
+                  <mods:namePart>Krigsvoll, Anne</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Actor</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:name authority="mavis" valueURI="/Person/key/8444-1">
+                  <mods:namePart>Nordrå, Grete</mods:namePart>
+                  <mods:role>
+                     <mods:roleTerm type="text" authority="marcrelator">Actor</mods:roleTerm>
+                  </mods:role>
+               </mods:name>
+               <mods:genre>Kortfilm (fiksjon, novellefilm o.l.)</mods:genre>
+               <mods:originInfo>
+                  <mods:place>
+                     <mods:placeTerm type="text">Norge</mods:placeTerm>
+                  </mods:place>
+                  <mods:dateCreated encoding="w3cdtf" keyDate="yes">1997</mods:dateCreated>
+                  <mods:issuance>monographic</mods:issuance>
+               </mods:originInfo>
+               <mods:identifier type="urn">URN:NBN:no-nb_digifilm_796646_20230321</mods:identifier>
+               <mods:location>
+                  <mods:url>http://urn.nb.no/URN:NBN:no-nb_digifilm_796646_20230321</mods:url>
+               </mods:location>
+               <mods:physicalDescription>
+                  <mods:digitalOrigin>reformatted digital</mods:digitalOrigin>
+               </mods:physicalDescription>
+            </mods:mods>
+         </mets:xmlData>
+      </mets:mdWrap>
+   </mets:dmdSec>
+   <mets:amdSec>
+      <mets:techMD ID="OBJ_001">
+         <mets:mdWrap MDTYPE="PREMIS:OBJECT">
+            <mets:xmlData>
+               <premis:object>
+                  <premis:objectIdentifier>
+                     <premis:objectIdentifierType>URN</premis:objectIdentifierType>
+                     <premis:objectIdentifierValue>URN:NBN:no-nb_digifilm_796646_20230321#0001</premis:objectIdentifierValue>
+                  </premis:objectIdentifier>
+                  <premis:preservationLevel>production</premis:preservationLevel>
+                  <premis:objectCategory>file</premis:objectCategory>
+                  <premis:objectCharacteristics>
+                     <premis:compositionLevel>0</premis:compositionLevel>
+                     <premis:fixity>
+                        <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                        <premis:messageDigest>872e9deca085f6f5ad419d6de0dcc615</premis:messageDigest>
+                        <premis:messageDigestOriginator>jhove</premis:messageDigestOriginator>
+                     </premis:fixity>
+                     <premis:fixity>
+                        <premis:messageDigestAlgorithm>SHA-1</premis:messageDigestAlgorithm>
+                        <premis:messageDigest>77d78bb89d7dfa65ce68b968b60c3c556a6e1423</premis:messageDigest>
+                        <premis:messageDigestOriginator>jhove</premis:messageDigestOriginator>
+                     </premis:fixity>
+                     <premis:size>220812884653</premis:size>
+                     <premis:format>
+                        <premis:formatDesignation>
+                           <premis:formatName>QuickTime / MOV</premis:formatName>
+                           <premis:formatVersion>512</premis:formatVersion>
+                        </premis:formatDesignation>
+                     </premis:format>
+                  </premis:objectCharacteristics>
+                  <premis:creatingApplication>
+                     <premis:creatingApplicationName>FFmpeg</premis:creatingApplicationName>
+                     <premis:creatingApplicationVersion>Lavf58.62.100</premis:creatingApplicationVersion>
+                     <premis:dateCreatedByApplication>2023-05-04T09:02:30+02:00</premis:dateCreatedByApplication>
+                  </premis:creatingApplication>
+                  <premis:originalName>digifilm_796646_20230321.mov</premis:originalName>
+                  <premis:storage>
+                     <premis:storageMedium>SAM-FS</premis:storageMedium>
+                  </premis:storage>
+                  <premis:relationship>
+                     <premis:relationshipType>derivative</premis:relationshipType>
+                     <premis:relationshipSubType>derived from</premis:relationshipSubType>
+                     <premis:relatedObjectIdentification>
+                        <premis:relatedObjectIdentifierType>URN</premis:relatedObjectIdentifierType>
+                        <premis:relatedObjectIdentifierValue>URN:NBN:no-nb_digifilm_796646_20230321_FSIG00000076</premis:relatedObjectIdentifierValue>
+                        <premis:relatedObjectSequence>1</premis:relatedObjectSequence>
+                     </premis:relatedObjectIdentification>
+                     <premis:relatedObjectIdentification>
+                        <premis:relatedObjectIdentifierType>URN</premis:relatedObjectIdentifierType>
+                        <premis:relatedObjectIdentifierValue>URN:NBN:no-nb_digifilm_796646_20230321_FSIG00000077</premis:relatedObjectIdentifierValue>
+                        <premis:relatedObjectSequence>2</premis:relatedObjectSequence>
+                     </premis:relatedObjectIdentification>
+                  </premis:relationship>
+                  <premis:linkingEventIdentifier>
+                     <premis:linkingEventIdentifierType>no.nb.evt</premis:linkingEventIdentifierType>
+                     <premis:linkingEventIdentifierValue>URN:NBN:no-nb_digifilm_796646_20230321#EVT_001</premis:linkingEventIdentifierValue>
+                  </premis:linkingEventIdentifier>
+               </premis:object>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:techMD>
+      <mets:digiprovMD ID="EVT_001">
+         <mets:mdWrap MDTYPE="PREMIS:EVENT">
+            <mets:xmlData>
+               <premis:event>
+                  <premis:eventIdentifier>
+                     <premis:eventIdentifierType>no.nb.evt</premis:eventIdentifierType>
+                     <premis:eventIdentifierValue>URN:NBN:no-nb_digifilm_796646_20230321#EVT_001</premis:eventIdentifierValue>
+                  </premis:eventIdentifier>
+                  <premis:eventType>derivation</premis:eventType>
+                  <premis:eventDateTime>2023-05-04T09:02:30+02:00</premis:eventDateTime>
+                  <premis:eventOutcomeInformation>
+                     <premis:eventOutcome>successful</premis:eventOutcome>
+                  </premis:eventOutcomeInformation>
+                  <premis:linkingObjectIdentifier>
+                     <premis:linkingObjectIdentifierType>URN</premis:linkingObjectIdentifierType>
+                     <premis:linkingObjectIdentifierValue>URN:NBN:no-nb_digifilm_796646_20230321#0001</premis:linkingObjectIdentifierValue>
+                  </premis:linkingObjectIdentifier>
+               </premis:event>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:digiprovMD>
+   </mets:amdSec>
+   <mets:amdSec ID="MEZZANIN_META">
+      <mets:techMD ID="MEZZANIN_001">
+         <mets:mdWrap MDTYPE="OTHER">
+            <mets:xmlData>
+               <ffprobe:ffprobe>
+                  <streams>
+                     <stream index="0"
+                             codec_name="h264"
+                             codec_long_name="H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10"
+                             profile="High 4:4:4 Predictive"
+                             codec_type="video"
+                             codec_tag_string="avc1"
+                             codec_tag="0x31637661"
+                             width="3488"
+                             height="2100"
+                             coded_width="3488"
+                             coded_height="2100"
+                             closed_captions="0"
+                             film_grain="0"
+                             has_b_frames="0"
+                             sample_aspect_ratio="1:1"
+                             display_aspect_ratio="872:525"
+                             pix_fmt="yuv422p10le"
+                             level="51"
+                             chroma_location="left"
+                             field_order="progressive"
+                             refs="1"
+                             is_avc="true"
+                             nal_length_size="4"
+                             id="0x1"
+                             r_frame_rate="24/1"
+                             avg_frame_rate="24/1"
+                             time_base="1/12288"
+                             start_pts="0"
+                             start_time="0.000000"
+                             duration_ts="21337088"
+                             duration="1736.416667"
+                             bit_rate="1015018546"
+                             bits_per_raw_sample="10"
+                             nb_frames="41674"
+                             extradata_size="49">
+                        <disposition default="1"
+                                     dub="0"
+                                     original="0"
+                                     comment="0"
+                                     lyrics="0"
+                                     karaoke="0"
+                                     forced="0"
+                                     hearing_impaired="0"
+                                     visual_impaired="0"
+                                     clean_effects="0"
+                                     attached_pic="0"
+                                     timed_thumbnails="0"
+                                     captions="0"
+                                     descriptions="0"
+                                     metadata="0"
+                                     dependent="0"
+                                     still_image="0"/>
+                        <tag key="handler_name" value="VideoHandler"/>
+                        <tag key="vendor_id" value="FFMP"/>
+                        <tag key="encoder" value="Lavc58.111.101 libx264"/>
+                     </stream>
+                     <stream index="1"
+                             codec_name="pcm_s24le"
+                             codec_long_name="PCM signed 24-bit little-endian"
+                             codec_type="audio"
+                             codec_tag_string="in24"
+                             codec_tag="0x34326e69"
+                             sample_fmt="s32"
+                             sample_rate="48000"
+                             channels="2"
+                             channel_layout="stereo"
+                             bits_per_sample="24"
+                             id="0x2"
+                             r_frame_rate="0/0"
+                             avg_frame_rate="0/0"
+                             time_base="1/48000"
+                             start_pts="0"
+                             start_time="0.000000"
+                             duration_ts="83348000"
+                             duration="1736.416667"
+                             bit_rate="2304000"
+                             bits_per_raw_sample="24"
+                             nb_frames="83348000">
+                        <disposition default="1"
+                                     dub="0"
+                                     original="0"
+                                     comment="0"
+                                     lyrics="0"
+                                     karaoke="0"
+                                     forced="0"
+                                     hearing_impaired="0"
+                                     visual_impaired="0"
+                                     clean_effects="0"
+                                     attached_pic="0"
+                                     timed_thumbnails="0"
+                                     captions="0"
+                                     descriptions="0"
+                                     metadata="0"
+                                     dependent="0"
+                                     still_image="0"/>
+                        <tag key="handler_name" value="SoundHandler"/>
+                        <tag key="vendor_id" value="[0][0][0][0]"/>
+                     </stream>
+                  </streams>
+                  <format filename="/stornext/SNFS01/FilmMezzanin/digifilm_796646_20230321/lossless/digifilm_796646_20230321.mov"
+                          nb_streams="2"
+                          nb_programs="0"
+                          format_name="mov,mp4,m4a,3gp,3g2,mj2"
+                          format_long_name="QuickTime / MOV"
+                          start_time="0.000000"
+                          duration="1736.417000"
+                          size="220812884653"
+                          bit_rate="1017326527"
+                          probe_score="100">
+                     <tag key="major_brand" value="qt  "/>
+                     <tag key="minor_version" value="512"/>
+                     <tag key="compatible_brands" value="qt  "/>
+                     <tag key="encoder" value="Lavf58.62.100"/>
+                  </format>
+               </ffprobe:ffprobe>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:techMD>
+   </mets:amdSec>
+   <mets:fileSec>
+      <mets:fileGrp ID="FILMGROUP">
+         <mets:file SEQ="1"
+                    ID="DO_0001"
+                    MIMETYPE="video/mp4"
+                    CHECKSUMTYPE="MD5"
+                    CHECKSUM="872e9deca085f6f5ad419d6de0dcc615"
+                    SIZE="220812884653"
+                    ADMID="OBJ_001 MEZZANIN_001">
+            <mets:FLocat LOCTYPE="URN"
+                         xlink:type="simple"
+                         xlink:href="URN:NBN:no-nb_digifilm_796646_20230321"/>
+         </mets:file>
+      </mets:fileGrp>
+   </mets:fileSec>
+   <mets:structMap TYPE="physical">
+      <mets:div ID="DIV_P1" TYPE="moving image">
+         <mets:fptr>
+            <mets:area FILEID="DO_0001"/>
+         </mets:fptr>
+      </mets:div>
+   </mets:structMap>
+</mets:mets>

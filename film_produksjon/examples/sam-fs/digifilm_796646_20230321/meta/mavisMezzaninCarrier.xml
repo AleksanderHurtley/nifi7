@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mavis database="NBR:MAVIS" version="05.03.04.06" date="2023-05-23T10:00:29" organisation="National Library of Norway" xmlns:xl="http://www.w3.org/1999/xlink" xmlns="http://www.wizardis.com.au/2005/12/MAVIS" objectCount="0" exportLimit="0">
+	<DigitalCarrier descr="Video/quicktime" xl:href="/DigitalCarrier/key/796646-14-1" xl:title="796646-14-1 Naustet">
+		<actualReelNo>1</actualReelNo>
+		<audioDurationInSeconds>0.0</audioDurationInSeconds>
+		<audiovisualItemType xl:href="/Code/key/AV_ITEM_TYPE//CA" xl:title="Bærer">CA</audiovisualItemType>
+		<carrierNo>1</carrierNo>
+		<component descr="Video/quicktime" xl:href="/DigitalComponent/key/796646-14" xl:title="796646-14 Naustet"/>
+		<componentNo>14</componentNo>
+		<copiedFromItems>
+			<ItemCopy xl:href="/ItemCopy/key/11096656" xl:title="796646-12-1 Naustet">
+				<copiedDate>2023-05-23</copiedDate>
+				<copyItem descr="Video/quicktime" xl:href="/DigitalCarrier/key/796646-14-1" xl:title="796646-14-1 Naustet"/>
+				<item descr="Image/x-dpx" xl:href="/DigitalCarrier/key/796646-12-1" xl:title="796646-12-1 Naustet"/>
+			</ItemCopy>
+			<ItemCopy xl:href="/ItemCopy/key/11096657" xl:title="796646-12-2 Naustet">
+				<copiedDate>2023-05-23</copiedDate>
+				<copyItem descr="Video/quicktime" xl:href="/DigitalCarrier/key/796646-14-1" xl:title="796646-14-1 Naustet"/>
+				<item descr="Image/x-dpx" xl:href="/DigitalCarrier/key/796646-12-2" xl:title="796646-12-2 Naustet"/>
+			</ItemCopy>
+		</copiedFromItems>
+		<enteredDate>2023-05-23T10:00:24</enteredDate>
+		<fileFormat xl:href="/Code/key/FILE_FORMAT//VQ" xl:title="Video/quicktime">VQ</fileFormat>
+		<fileFormatVariant xl:href="/Code/key/FILE_FORMAT_VARIANT//MOV" xl:title="MOV">MOV</fileFormatVariant>
+		<fileSize>0</fileSize>
+		<format xl:href="/Code/key/FORMAT//G" xl:title="Digital">G</format>
+		<isUnattached>N</isUnattached>
+		<itemId>158741773</itemId>
+		<itemType xl:href="/Code/key/ITEM_TYPE//GA" xl:title="Digital Carrier">GA</itemType>
+		<modifiedDate>2023-05-23T10:00:24</modifiedDate>
+		<objectResourceIdentifiers>
+			<ResourceIdentifier  xl:href="/ResourceIdentifier/key/112635966">
+				<creationMethod xl:href="/Code/key/IDENTIFIER_CREATION_METHOD//M" xl:title="Manually created">M</creationMethod>
+				<getResourceIdentifier>http://urn.nb.no/URN:NBN:no-nb_digifilm_796646_20230321</getResourceIdentifier>
+				<resourceIdentifier>URN:NBN:no-nb_digifilm_796646_20230321</resourceIdentifier>
+				<resourceIdentifierType xl:href="/Code/key/RESOURCE_IDENTIFIER_TYPE//URN" xl:title="URN">URN</resourceIdentifierType>
+				<runResourceIdentifier>http://urn.nb.no/URN:NBN:no-nb_digifilm_796646_20230321</runResourceIdentifier>
+			</ResourceIdentifier>
+		</objectResourceIdentifiers>
+		<operatingSystem xl:href="/Code/key/OS_TYPE//SUSE" xl:title="Linux SUSE">SUSE</operatingSystem>
+		<softwareForFinalVersion xl:href="/Code/key/SOFTWARE_CREATE_FINAL_VER//EN" xl:title="larsencoder">EN</softwareForFinalVersion>
+		<softwareRequired xl:href="/Code/key/SOFTWARE_REQ_PLAY//FF" xl:title="ffplay">FF</softwareRequired>
+		<softwareUsed xl:href="/Code/key/CAPTURE_SOFTWARE//FL1" xl:title="Flexxity v 1.xx">FL1</softwareUsed>
+		<videoAvgBitrateUnit xl:href="/Code/key/BITRATE_UNIT//MB/S" xl:title="Megabytes per second">MB/S</videoAvgBitrateUnit>
+		<videoBitsPerSample xl:href="/Code/key/BITS_PER_SAMPLE//10" xl:title="10">10</videoBitsPerSample>
+		<videoColourSpace xl:href="/Code/key/COLOUR_SPACE//YUV" xl:title="YUV">YUV</videoColourSpace>
+		<videoCompression xl:href="/Code/key/VIDEO_COMPRESSION//H264P" xl:title="H264 H444P">H264P</videoCompression>
+		<videoDurationInSeconds>0.0</videoDurationInSeconds>
+		<videoFixedBitrate>Y</videoFixedBitrate>
+		<videoFrameLayout xl:href="/Code/key/VIDEO_FRAME_LAYOUT//P" xl:title="Progressive">P</videoFrameLayout>
+		<videoPeakBitrateUnit xl:href="/Code/key/BITRATE_UNIT//MB/S" xl:title="Megabytes per second">MB/S</videoPeakBitrateUnit>
+		<videoSamplingHierarchy xl:href="/Code/key/VIDEO_SAMPLING_HIERARCHY//4:2:2" xl:title="4:2:2">4:2:2</videoSamplingHierarchy>
+		<videoTimecodeType xl:href="/Code/key/TIMECODE_TYPE//SE" xl:title="SMPTE/EBU">SE</videoTimecodeType>
+		<whoEntered>FILM</whoEntered>
+		<whoModified>FILM</whoModified>
+		<work descr="Levende bilder" xl:href="/TitleWork/key/796646" xl:title="Naustet"/>
+		<workGroupEntered xl:href="/Code/key/WORK_GROUP//IT" xl:title="DBU (IT-seksjonene)">IT</workGroupEntered>
+	</DigitalCarrier>
+
+</mavis>

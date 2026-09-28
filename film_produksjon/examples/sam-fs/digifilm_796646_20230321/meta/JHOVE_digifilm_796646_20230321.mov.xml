@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jhove xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hul.harvard.edu/ois/xml/ns/jhove" xsi:schemaLocation="http://hul.harvard.edu/ois/xml/ns/jhove http://hul.harvard.edu/ois/xml/xsd/jhove/1.6/jhove.xsd" name="Jhove" release="1.5" date="2009-12-23">
+ <date>2023-05-23T10:28:13+02:00</date>
+ <repInfo uri="/stornext/SNFS01/FilmMezzanin/digifilm_796646_20230321/lossless/digifilm_796646_20230321.mov">
+  <reportingModule release="1.3" date="2007-04-10">BYTESTREAM</reportingModule>
+  <lastModified>2023-05-04T09:02:30+02:00</lastModified>
+  <size>220812884653</size>
+  <format>bytestream</format>
+  <status>Well-Formed and valid</status>
+  <mimeType>application/octet-stream</mimeType>
+  <checksums>
+   <checksum type="CRC32">3f9a7999</checksum>
+   <checksum type="MD5">872e9deca085f6f5ad419d6de0dcc615</checksum>
+   <checksum type="SHA-1">77d78bb89d7dfa65ce68b968b60c3c556a6e1423</checksum>
+  </checksums>
+ </repInfo>
+</jhove>

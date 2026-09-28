@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mavis xmlns="http://www.wizardis.com.au/2005/12/MAVIS"
+       xmlns:xl="http://www.w3.org/1999/xlink"
+       version="05.03.04.06">
+   <DigitalCarrier xl:href="/DigitalCarrier/key/796646-14-1">
+      <objectIdentifiers>
+         <ObjectIdentifier>
+            <identifier>77d78bb89d7dfa65ce68b968b60c3c556a6e1423</identifier>
+            <identifierType xl:href="/Code/key/IDENTIFIER_TYPE/CARRIER/SHA-1"/>
+         </ObjectIdentifier>
+         <ObjectIdentifier>
+            <identifier>872e9deca085f6f5ad419d6de0dcc615</identifier>
+            <identifierType xl:href="/Code/key/IDENTIFIER_TYPE/CARRIER/MD5"/>
+         </ObjectIdentifier>
+      </objectIdentifiers>
+      <fileSize>220812884653</fileSize>
+      <videoHeight>2100</videoHeight>
+      <videoWidth>3488</videoWidth>
+      <videoDurationHr>0</videoDurationHr>
+      <videoDurationMin>28</videoDurationMin>
+      <videoDurationSec>56</videoDurationSec>
+      <videoDurationTics>416</videoDurationTics>
+      <videoAudioCompression xl:href="/Code/key/AUDIO_COMPRESSION//UN"/>
+      <videoAudioNoChannels xl:href="/Code/key/NUMBER_AUDIO_CHANNELS//2"/>
+      <videoAudioSampleRate xl:href="/Code/key/AUDIO_SAMPLE_RATE//48"/>
+   </DigitalCarrier>
+</mavis>

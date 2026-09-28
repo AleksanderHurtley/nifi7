@@ -1,0 +1,16 @@
+# Partial inventory supplied by the user on 2026-09-24.
+# Package path relative to the eksternvideo source root:
+# 2/no-nb_eksternvideo_AV1000026258_01
+# The absolute source root and remaining metadata files are not yet recorded.
+# Member sizes below are bytes; archive file sizes were not supplied.
+
+original/AV1000026258_01_original.tar
+  ./                                      directory
+  ./AV1000026258_01_0001.mkv               46186028687
+
+reference/AV1000026258_01_reference.tar
+  ./                                      directory
+  ./AV1000026258_01_ref_0001.tif                6852786
+
+# Indented entries are tar members, not existing unpacked source files.
+# No archives or media were downloaded.

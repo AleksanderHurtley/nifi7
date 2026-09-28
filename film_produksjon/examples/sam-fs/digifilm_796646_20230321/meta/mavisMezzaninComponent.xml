@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mavis database="NBR:MAVIS" version="05.03.04.06" date="2023-05-23T10:00:28" organisation="National Library of Norway" xmlns:xl="http://www.w3.org/1999/xlink" xmlns="http://www.wizardis.com.au/2005/12/MAVIS" objectCount="0" exportLimit="0">
+	<DigitalComponent descr="Video/quicktime" xl:href="/DigitalComponent/key/796646-14" xl:title="796646-14 Naustet">
+		<carriers>
+			<DigitalCarrier descr="Video/quicktime" xl:href="/DigitalCarrier/key/796646-14-1" xl:title="796646-14-1 Naustet"/>
+		</carriers>
+		<accessionDate>2023-05-23</accessionDate>
+		<acquisitionCode xl:href="/Code/key/ACQUISITION//4" xl:title="Kopiert ved NB">4</acquisitionCode>
+		<audiovisualItemType xl:href="/Code/key/AV_ITEM_TYPE//CP" xl:title="Komponent">CP</audiovisualItemType>
+		<autographed>N</autographed>
+		<categoryMaterial xl:href="/Code/key/CATEGORY/G/M" xl:title="Mezzanin">M</categoryMaterial>
+		<componentNo>14</componentNo>
+		<copiedFromItems>
+			<ItemCopy xl:href="/ItemCopy/key/11096658" xl:title="796646-12 Naustet">
+				<copiedDate>2023-05-23</copiedDate>
+				<copyItem descr="Video/quicktime" xl:href="/DigitalComponent/key/796646-14" xl:title="796646-14 Naustet"/>
+				<item descr="Image/x-dpx" xl:href="/DigitalComponent/key/796646-12" xl:title="796646-12 Naustet"/>
+			</ItemCopy>
+		</copiedFromItems>
+		<deaccessionRecommended>N</deaccessionRecommended>
+		<durationHr>0</durationHr>
+		<durationMin>0</durationMin>
+		<durationSec>0</durationSec>
+		<enteredDate>2023-05-23T10:00:24</enteredDate>
+		<fileFormat xl:href="/Code/key/FILE_FORMAT//VQ" xl:title="Video/quicktime">VQ</fileFormat>
+		<fileRelationship xl:href="/Code/key/FILE_RELATIONSHIP//SE" xl:title="Sekvensielt">SE</fileRelationship>
+		<format xl:href="/Code/key/FORMAT//G" xl:title="Digital">G</format>
+		<isComplete>Y</isComplete>
+		<isRegistration>N</isRegistration>
+		<isUnattached>N</isUnattached>
+		<itemId>158741772</itemId>
+		<itemType xl:href="/Code/key/ITEM_TYPE//G" xl:title="Digital">G</itemType>
+		<modifiedDate>2023-05-23T10:00:24</modifiedDate>
+		<obligationMet>N</obligationMet>
+		<pictureDisc>N</pictureDisc>
+		<pictureSleeve>N</pictureSleeve>
+		<purchasePrice>0,00</purchasePrice>
+		<receiptRequired>N</receiptRequired>
+		<source xl:href="/Organisation/key/41-1" xl:title="Nasjonalbiblioteket. Avdeling Rana"/>
+		<typeMaterial xl:href="/Code/key/TYPE_MATERIAL/G/V" xl:title="Levende bilder">V</typeMaterial>
+		<valuation>0,00</valuation>
+		<whoEntered>FILM</whoEntered>
+		<whoModified>FILM</whoModified>
+		<work descr="Levende bilder" xl:href="/TitleWork/key/796646" xl:title="Naustet"/>
+		<workGroupEntered xl:href="/Code/key/WORK_GROUP//IT" xl:title="DBU (IT-seksjonene)">IT</workGroupEntered>
+	</DigitalComponent>
+
+</mavis>

@@ -4,6 +4,10 @@ Put complete packages from SAM-FS → video → eksternvideo here, keeping each
 package's original directory name and internal structure. Package archives
 can also be placed here.
 
+Metadata-only copies are also supported. Record which files were omitted in
+the corresponding example notes under `examples/sam-fs/`; a local copy does
+not have to contain the complete media payload to support mapping work.
+
 Everything in this directory except this README is ignored by Git, including
 media, metadata, archives, and extracted working files.
 

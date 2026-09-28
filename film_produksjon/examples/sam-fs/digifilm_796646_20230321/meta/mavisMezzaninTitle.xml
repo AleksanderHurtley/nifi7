@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mavis database="NBR:MAVIS" version="05.03.04.06" date="2023-05-23T10:00:27" organisation="National Library of Norway" xmlns:xl="http://www.w3.org/1999/xlink" xmlns="http://www.wizardis.com.au/2005/12/MAVIS" objectCount="0" exportLimit="0">
+	<TitleWork descr="Levende bilder" xl:href="/TitleWork/key/796646" xl:title="Naustet">
+		<objectIdentifiers>
+			<ObjectIdentifier  xl:href="/ObjectIdentifier/key/1996309">
+				<identifier>45543</identifier>
+				<identifierType xl:href="/Code/key/IDENTIFIER_TYPE/TITLE/NFIMAVISM" xl:title="Film: NFI Identifier for Merge (Mavisnr fra NFI-basen)">NFIMAVISM</identifierType>
+			</ObjectIdentifier>
+		</objectIdentifiers>
+		<components>
+			<VideoTapeComponent descr="VHS video" itemLocation="AAVB00001165" xl:href="/VideoTapeComponent/key/796646-1" xl:title="796646-1 Naustet"/>
+			<VideoTapeComponent descr="VHS video" itemLocation="AAXB00000919" xl:href="/VideoTapeComponent/key/796646-2" xl:title="796646-2 Naustet"/>
+			<VideoTapeComponent descr="VHS video" itemLocation="AAVB00002140" xl:href="/VideoTapeComponent/key/796646-3" xl:title="796646-3 Naustet"/>
+			<VideoTapeComponent descr="VHS video" itemLocation="FV  11450854" xl:href="/VideoTapeComponent/key/796646-4" xl:title="796646-4 Naustet"/>
+			<AcetateFilmComponent descr="Visningskopi" itemLocation="FBIG00003328" xl:href="/AcetateFilmComponent/key/796646-5" xl:title="796646-5 Naustet"/>
+			<AcetateFilmComponent descr="Sepmag." itemLocation="FOSF00000252" xl:href="/AcetateFilmComponent/key/796646-6" xl:title="796646-6 Naustet"/>
+			<AcetateFilmComponent descr="Bildenegativ" itemLocation="FOOF00005671" xl:href="/AcetateFilmComponent/key/796646-7" xl:title="796646-7 Naustet"/>
+			<AcetateFilmComponent descr="Lydnegativ" itemLocation="FOOF00005673" xl:href="/AcetateFilmComponent/key/796646-8" xl:title="796646-8 Naustet"/>
+			<AcetateFilmComponent descr="Duplikat positiv" itemLocation="FSIG00000076" xl:href="/AcetateFilmComponent/key/796646-9" xl:title="796646-9 Naustet"/>
+			<AcetateFilmComponent descr="Kameranegativ" itemLocation="FOOG00003924" xl:href="/AcetateFilmComponent/key/796646-10" xl:title="796646-10 Naustet"/>
+			<AcetateFilmComponent descr="Arbeidskopi" itemLocation="FOOG00003926" xl:href="/AcetateFilmComponent/key/796646-11" xl:title="796646-11 Naustet"/>
+			<DigitalComponent descr="Image/x-dpx" xl:href="/DigitalComponent/key/796646-12" xl:title="796646-12 Naustet"/>
+			<VideoTapeComponent descr="Betacam SP" itemLocation="FOVB00016291" xl:href="/VideoTapeComponent/key/796646-13" xl:title="796646-13 Naustet"/>
+			<DigitalComponent descr="Video/quicktime" xl:href="/DigitalComponent/key/796646-14" xl:title="796646-14 Naustet"/>
+		</components>
+		<award>N</award>
+		<censorRating xl:href="/Code/key/CENSOR_RATING//11" xl:title="11 år">11</censorRating>
+		<classes>
+			<WorkClass xl:href="/WorkClass/key/4716010" xl:title="F">
+				<workClass xl:href="/Code/key/CLASS//F" xl:title="Film">F</workClass>
+			</WorkClass>
+		</classes>
+		<colour xl:href="/Code/key/COLOUR//S" xl:title="Svart/hvitt">S</colour>
+		<contentSortIndex>1</contentSortIndex>
+		<countries>
+			<WorkCountry xl:href="/WorkCountry/key/4716011" xl:title="NO">
+				<country xl:href="/Code/key/COUNTRY/Y/NO" xl:title="Norge">NO</country>
+			</WorkCountry>
+		</countries>
+		<durationMin>29</durationMin>
+		<enteredDate>2003-10-15T14:37:03</enteredDate>
+		<genres>
+			<WorkGenre xl:href="/WorkGenre/key/4716012" xl:title="KF">
+				<genre xl:href="/Code/key/GENRE//KF" xl:title="Kortfilm (fiksjon, novellefilm o.l.)">KF</genre>
+			</WorkGenre>
+		</genres>
+		<isCompilation>N</isCompilation>
+		<languages>
+			<WorkLanguage xl:href="/WorkLanguage/key/4716013" xl:title="NOR">
+				<language xl:href="/Code/key/LANGUAGE//NOR" xl:title="Norsk">NOR</language>
+				<languageRole xl:href="/Code/key/LANGUAGE_ROLE//ORIG" xl:title="Originalspråk">ORIG</languageRole>
+			</WorkLanguage>
+		</languages>
+		<mediums>
+			<WorkMedium xl:href="/WorkMedium/key/4716015" xl:title="LB">
+				<isPrincipal>Y</isPrincipal>
+				<medium xl:href="/Code/key/MEDIUM//LB" xl:title="Levende bilder">LB</medium>
+			</WorkMedium>
+			<WorkMedium xl:href="/WorkMedium/key/4716016" xl:title="LY">
+				<isPrincipal>N</isPrincipal>
+				<medium xl:href="/Code/key/MEDIUM//LY" xl:title="Lyd">LY</medium>
+			</WorkMedium>
+		</mediums>
+		<modifiedDate>2023-05-23T10:00:24</modifiedDate>
+		<nomination>N</nomination>
+		<notForPublic>N</notForPublic>
+		<objectDates>
+			<Date-Year xl:href="/Date-Year/key/619357" xl:title="Produksjon(1997 - 1997)">
+				<dateType xl:href="/Code/key/OBJECT_DATE_TYPE/2/PRODUCTION" xl:title="Produksjon">PRODUCTION</dateType>
+				<dayFrom>0</dayFrom>
+				<dayTo>0</dayTo>
+				<isCirca>N</isCirca>
+				<monthFrom>0</monthFrom>
+				<monthTo>0</monthTo>
+				<timeFrom>00:00:00</timeFrom>
+				<timeTo>00:00:00</timeTo>
+				<yearFrom>1997</yearFrom>
+				<yearTo>1997</yearTo>
+			</Date-Year>
+		</objectDates>
+		<objectSummaries>
+			<ObjectSummary  xl:href="/ObjectSummary/key/281967">
+				<summary>Novellefilm laga etter Jon Fosses roman med same tittel. Knut&apos;n kjem heim til bygda på ferie saman med kona Ingrid og døtrene. Der møter han barndomsvennen Atle igjen etter meir enn ti år. Atle er ein av dei som aldri har blitt til noko og som framleis bur hos mora. Gamle konfliktar og ny sjalusi kjem opp til overflata fordi dei to er mykje saman. Men noko blir liggjande att på botnen, og det gjev grobotn for farlege strøymningar, Dei menneskelege relasjonene og konfliktane i filmen blir skildra gjennom skarpe observasjonar og med svart humor.
+(fra NFI&apos;s avleveringsseddel)</summary>
+				<summaryType xl:href="/Code/key/SUMMARY_TYPE/TITLE/ORG" xl:title="Beskrivelse">ORG</summaryType>
+			</ObjectSummary>
+			<ObjectSummary  xl:href="/ObjectSummary/key/342454">
+				<summary>Novellefilm laga etter Jon Fosses roman med same tittel. Knut&apos;n kjem heim til bygda på ferie saman med kona Ingrid og døtrene. Der møter han barndomsvennen Atle igjen etter meir enn ti år. Atle er ein av dei som aldri har blitt til noko og som framleis bur hos mora. Gamle konfliktar og ny sjalusi kjem opp til overflata fordi dei to er mykje saman. Men noko blir liggjande att på botnen, og det gjev grobotn for farlege strøymningar, Dei menneskelege relasjonene og konfliktane i filmen blir skildra gjennom skarpe observasjonar og med svart humor.
+(fra NFI&apos;s avleveringsseddel)</summary>
+				<summaryType xl:href="/Code/key/SUMMARY_TYPE/TITLE/NOR1" xl:title="Norsk til publisering">NOR1</summaryType>
+			</ObjectSummary>
+		</objectSummaries>
+		<preferredTitle>
+			<Title xl:href="/Title/key/808955" xl:title="Naustet">
+				<descr>Naustet</descr>
+				<titlePurpose xl:href="/Code/key/TITLE_PURPOSE//1" xl:title="Originaltittel">1</titlePurpose>
+			</Title>
+		</preferredTitle>
+		<recordStatus xl:href="/Code/key/RECORD_STATUS//4" xl:title="Ny post">4</recordStatus>
+		<relatedWorks>
+			<RelatedWork sortKey="Naustet : [manus]" xl:href="/RelatedWork/key/14497" xl:title="Naustet  Naustet : [manus]">
+				<work descr="Tekst" xl:href="/TitleWork/key/1040951" xl:title="Naustet : [manus]"/>
+			</RelatedWork>
+		</relatedWorks>
+		<roles>
+			<Name-Role sortKey="AASGÅRD, ANN-KARIN" xl:href="/Name-Role/key/69384962" xl:title="Aasgård, Ann-Karin (Klipp)">
+				<party xl:href="/Person/key/122130-1" xl:title="Aasgård, Ann-Karin"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//KLI" xl:title="Klipp">KLI</role>
+				<summary>Negativklipp</summary>
+			</Name-Role>
+			<Name-Role sortKey="HELLE, BENTE SANTI" xl:href="/Name-Role/key/69384948" xl:title="Helle, Bente Santi (Annen funksjon)">
+				<party xl:href="/Person/key/122131-1" xl:title="Helle, Bente Santi"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//BYR" xl:title="Annen funksjon">BYR</role>
+				<summary>Optiske effekter</summary>
+			</Name-Role>
+			<Name-Role sortKey="NORSK FILMINSTITUTT" xl:href="/Name-Role/key/69385026" xl:title="Norsk filminstitutt (Finansiering/sponsing)">
+				<party xl:href="/Organisation/key/2-1" xl:title="Norsk filminstitutt"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//FIN" xl:title="Finansiering/sponsing">FIN</role>
+				<summary>Tore Kinge</summary>
+			</Name-Role>
+			<Name-Role sortKey="VESTNORSK FILMSENTER" xl:href="/Name-Role/key/69385046" xl:title="Vestnorsk Filmsenter (Finansiering/sponsing)">
+				<party xl:href="/Organisation/key/32645-1" xl:title="Vestnorsk Filmsenter"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//FIN" xl:title="Finansiering/sponsing">FIN</role>
+				<summary>Nico</summary>
+			</Name-Role>
+			<Name-Role sortKey="FILMHUSET AS" xl:href="/Name-Role/key/4716008" xl:title="Filmhuset AS (Produksjon/produsent)">
+				<party xl:href="/Organisation/key/7980-1" xl:title="Filmhuset AS"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//PRO" xl:title="Produksjon/produsent">PRO</role>
+			</Name-Role>
+			<Name-Role sortKey="NORSK KASSETTAVGIFTSFOND" xl:href="/Name-Role/key/69385027" xl:title="Norsk kassettavgiftsfond (Finansiering/sponsing)">
+				<party xl:href="/Organisation/key/34625-1" xl:title="Norsk kassettavgiftsfond"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//FIN" xl:title="Finansiering/sponsing">FIN</role>
+			</Name-Role>
+			<Name-Role sortKey="NORSK FILMINSTITUTT. FILMBUTIKKEN" xl:href="/Name-Role/key/4716004" xl:title="Norsk filminstitutt. Filmbutikken (Distribusjon)">
+				<party xl:href="/Organisation/key/34917-1" xl:title="Norsk filminstitutt. Filmbutikken"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//DIS" xl:title="Distribusjon">DIS</role>
+			</Name-Role>
+			<Name-Role sortKey="LOTHERINGTON, NILS-PETTER" xl:href="/Name-Role/key/4716006" xl:title="Lotherington, Nils-Petter (Fotograf (levende bilder))">
+				<party xl:href="/Person/key/40473-1" xl:title="Lotherington, Nils-Petter"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//FTL" xl:title="Fotograf (levende bilder)">FTL</role>
+			</Name-Role>
+			<Name-Role sortKey="JOHANNESEN, AAMUND" xl:href="/Name-Role/key/69385025" xl:title="Johannesen, Aamund (Produksjonsledelse/-stab)">
+				<party xl:href="/Person/key/41004-1" xl:title="Johannesen, Aamund"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//PRL" xl:title="Produksjonsledelse/-stab">PRL</role>
+				<summary>Produksjonsleder</summary>
+			</Name-Role>
+			<Name-Role sortKey="ØDEGÅRD, EGIL" xl:href="/Name-Role/key/4716007" xl:title="Ødegård, Egil (Produksjon/produsent)">
+				<party xl:href="/Person/key/41374-1" xl:title="Ødegård, Egil"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//PRO" xl:title="Produksjon/produsent">PRO</role>
+			</Name-Role>
+			<Name-Role sortKey="LANGHELLE, JØRGEN SANDVIK" xl:href="/Name-Role/key/69384918" xl:title="Langhelle, Jørgen Sandvik (Skuespiller)">
+				<party xl:href="/Person/key/41792-1" xl:title="Langhelle, Jørgen Sandvik"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//SKU" xl:title="Skuespiller">SKU</role>
+				<summary>Atle</summary>
+			</Name-Role>
+			<Name-Role sortKey="ANDERSEN, BJØRN WILLBERG" xl:href="/Name-Role/key/69384920" xl:title="Andersen, Bjørn Willberg (Skuespiller)">
+				<party xl:href="/Person/key/42034-1" xl:title="Andersen, Bjørn Willberg"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//SKU" xl:title="Skuespiller">SKU</role>
+				<summary>Knut</summary>
+			</Name-Role>
+			<Name-Role sortKey="BERRUM, CHRISTIAN" xl:href="/Name-Role/key/69384955" xl:title="Berrum, Christian (Lys)">
+				<party xl:href="/Person/key/42261-1" xl:title="Berrum, Christian"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//LYS" xl:title="Lys">LYS</role>
+				<summary>Lysmester</summary>
+			</Name-Role>
+			<Name-Role sortKey="LANGE, CARLE" xl:href="/Name-Role/key/69384984" xl:title="Lange, Carle (Scenografi)">
+				<party xl:href="/Person/key/42280-1" xl:title="Lange, Carle"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//SCE" xl:title="Scenografi">SCE</role>
+			</Name-Role>
+			<Name-Role sortKey="LANGE, CARLE" xl:href="/Name-Role/key/69384985" xl:title="Lange, Carle (Rekvisitter)">
+				<party xl:href="/Person/key/42280-1" xl:title="Lange, Carle"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//REK" xl:title="Rekvisitter">REK</role>
+			</Name-Role>
+			<Name-Role sortKey="HAGEN, TRYGVE" xl:href="/Name-Role/key/69384976" xl:title="Hagen, Trygve (Manus)">
+				<party xl:href="/Person/key/42444-1" xl:title="Hagen, Trygve"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//MAN" xl:title="Manus">MAN</role>
+			</Name-Role>
+			<Name-Role sortKey="HAGEN, TRYGVE" xl:href="/Name-Role/key/69384977" xl:title="Hagen, Trygve (Klipp)">
+				<party xl:href="/Person/key/42444-1" xl:title="Hagen, Trygve"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//KLI" xl:title="Klipp">KLI</role>
+			</Name-Role>
+			<Name-Role sortKey="HAGEN, TRYGVE" xl:href="/Name-Role/key/4716009" xl:title="Hagen, Trygve (Regissør)">
+				<party xl:href="/Person/key/42444-1" xl:title="Hagen, Trygve"/>
+				<principalRole>Y</principalRole>
+				<role xl:href="/Code/key/ROLE//REG" xl:title="Regissør">REG</role>
+			</Name-Role>
+			<Name-Role sortKey="JOHANSEN, HÅVARD" xl:href="/Name-Role/key/69385024" xl:title="Johansen, Håvard (Innspillingsledelse/-stab)">
+				<party xl:href="/Person/key/42447-1" xl:title="Johansen, Håvard"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//INL" xl:title="Innspillingsledelse/-stab">INL</role>
+				<summary>Innspillingsleder</summary>
+			</Name-Role>
+			<Name-Role sortKey="TRIER, JACOB" xl:href="/Name-Role/key/69385023" xl:title="Trier, Jacob (Lyd)">
+				<party xl:href="/Person/key/42529-1" xl:title="Trier, Jacob"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//LYD" xl:title="Lyd">LYD</role>
+			</Name-Role>
+			<Name-Role sortKey="JAKOBSEN, SVENN" xl:href="/Name-Role/key/69384928" xl:title="Jakobsen, Svenn (Lyd)">
+				<party xl:href="/Person/key/43233-1" xl:title="Jakobsen, Svenn"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//LYD" xl:title="Lyd">LYD</role>
+				<summary>Lyddesign</summary>
+			</Name-Role>
+			<Name-Role sortKey="WIESE, INGRID" xl:href="/Name-Role/key/69384992" xl:title="Wiese, Ingrid (Script)">
+				<party xl:href="/Person/key/43307-1" xl:title="Wiese, Ingrid"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//SCR" xl:title="Script">SCR</role>
+			</Name-Role>
+			<Name-Role sortKey="FOSSE, JON" xl:href="/Name-Role/key/4716005" xl:title="Fosse, Jon (Litterært forelegg)">
+				<party xl:href="/Person/key/47775-1" xl:title="Fosse, Jon"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//LIT" xl:title="Litterært forelegg">LIT</role>
+				<summary>Romanen Naustet, 1989</summary>
+			</Name-Role>
+			<Name-Role sortKey="NIELSEN, JAN ERIK" xl:href="/Name-Role/key/69384963" xl:title="Nielsen, Jan Erik (Klipp)">
+				<party xl:href="/Person/key/58568-1" xl:title="Nielsen, Jan Erik"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//KLI" xl:title="Klipp">KLI</role>
+				<summary>Lyssetter</summary>
+			</Name-Role>
+			<Name-Role sortKey="KRIGSVOLL, ANNE" xl:href="/Name-Role/key/8316991" xl:title="Krigsvoll, Anne (Skuespiller)">
+				<party xl:href="/Person/key/736-1" xl:title="Krigsvoll, Anne"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//SKU" xl:title="Skuespiller">SKU</role>
+				<summary>Ingrid</summary>
+			</Name-Role>
+			<Name-Role sortKey="NORDRÅGRETE" xl:href="/Name-Role/key/69384919" xl:title="Nordrå, Grete (Skuespiller)">
+				<party xl:href="/Person/key/8444-1" xl:title="Nordrå, Grete"/>
+				<principalRole>N</principalRole>
+				<role xl:href="/Code/key/ROLE//SKU" xl:title="Skuespiller">SKU</role>
+			</Name-Role>
+		</roles>
+		<sound>Y</sound>
+		<subMediums>
+			<WorkSubMedium xl:href="/WorkSubMedium/key/4716014" xl:title="FI">
+				<isPrincipal>Y</isPrincipal>
+				<subMedium xl:href="/Code/key/SUBMEDIUM//FI" xl:title="Film">FI</subMedium>
+			</WorkSubMedium>
+		</subMediums>
+		<verificationNote>Emballasje (komp 2)</verificationNote>
+		<whoEntered>MSKA</whoEntered>
+		<whoModified>FILM</whoModified>
+		<workGroupEntered xl:href="/Code/key/WORK_GROUP//FG" xl:title="Filmgruppa, Rana">FG</workGroupEntered>
+		<workStatus xl:href="/Code/key/WORK_STATUS//U" xl:title="Ikke verifisert">U</workStatus>
+	</TitleWork>
+
+</mavis>

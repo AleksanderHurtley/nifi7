@@ -13,12 +13,13 @@ NiFi process group and a matching directory here.
 Directory names use lowercase words separated by underscores to keep paths
 easy to use in commands.
 
-For the two new flows, put complete SAM-FS packages in
+For the two new flows, collect small metadata files and source inventories
+in each flow's `examples/sam-fs/` directory. Record media filenames, sizes,
+and archive members so we can develop the E-ARK mapping without downloading
+large payloads. Optional complete packages or partial downloads belong in
 [film_produksjon/local-packages/](film_produksjon/local-packages/README.md) or
 [video_eksternvideo/local-packages/](video_eksternvideo/local-packages/README.md).
-Those directories are ignored by Git except for their READMEs. Extract small
-reference files and structure listings into each flow's `examples/sam-fs/`
-directory to keep them in Git.
+Those directories are ignored by Git except for their READMEs.
 
 ## Working on a flow
 

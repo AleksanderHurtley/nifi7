@@ -1,0 +1,16 @@
+# Source: /global/film/00/film/produksjon/202303/digifilm_796646_20230321
+# Observed on nifi7: 2026-09-24
+# File sizes are bytes. Paths are relative to the package root.
+# This is a source inventory, not a list of files copied into Git.
+
+digifilm_796646_20230321.xml                         23181  copied
+logs/                                                     empty directory
+lossless/
+  digifilm_796646_20230321.mov               220812884653  omitted media
+meta/
+  ffprobe.xml                                       2718  copied
+  JHOVE_digifilm_796646_20230321.mov.xml                986  copied
+  MAVIS_mezzaninCarrierUpdate.xml                    1260  copied
+  mavisMezzaninCarrier.xml                           4501  copied
+  mavisMezzaninComponent.xml                         2790  copied
+  mavisMezzaninTitle.xml                            16861  copied

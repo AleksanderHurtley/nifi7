@@ -7,13 +7,19 @@ Status: ready to start; no processors or scripts have been added here yet.
 
 ## Source package examples
 
-Put complete SAM-FS packages in
-[local-packages/](local-packages/README.md). Its contents are ignored by Git
-except for the README.
-
-Extract small reference files and structure listings into
+Copy small metadata files and record the source layout in
 [examples/sam-fs/](examples/sam-fs/README.md), one directory per package.
-These tracked examples establish the input layout for the fetch stage.
+Media can remain on SAM-FS while we develop the E-ARK mapping from these
+examples. Record its paths and sizes, plus archive members where applicable.
+
+The [AV1000026258 example](examples/sam-fs/no-nb_eksternvideo_AV1000026258_01.notes.md)
+records the supplied MKV and TIFF tar listings. The intended fetch stage will
+unpack the archives and map their content into E-ARK without media conversion.
+Metadata collection and the final E-ARK layout are still pending.
+
+Optional complete packages or partial downloads belong in
+[local-packages/](local-packages/README.md), which is ignored by Git except
+for its README.
 
 ## Starting the flow
 

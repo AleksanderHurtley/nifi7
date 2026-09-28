@@ -1,0 +1,22 @@
+# Source: /global/film/00/film/produksjon/201307/digifilm_1300107_20130729
+# Evidence: user-provided ls and tree output from nifi7.
+# Paths are relative to the package root. Sizes and contents are not yet captured.
+# No files from this package have been copied into this example.
+
+digifilm_1300107_20130729.xml
+jhove.done
+logs/
+  ffmpeg_20130812-130154_convert-to-dnxhd_and_lossless_yuv422p10le_libx264.log
+lossless/
+  digifilm_1300107_20130729.mov
+mavisxml.done
+meta/
+  ffprobe.xml
+  JHOVE_digifilm_1300107_20130729.mov.xml
+  MAVIS_mezzaninCarrierUpdate.xml
+  mavisMezzaninCarrier.xml
+  mavisMezzaninComponent.xml
+  mavisMezzaninTitle.xml
+storage_production.done
+xmltransform_mavis.done
+xmltransform_mets.done
