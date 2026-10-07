@@ -1,5 +1,8 @@
 import java.nio.file.*
 import java.nio.charset.StandardCharsets
+import java.security.MessageDigest
+import java.util.Arrays
+import groovy.xml.XmlSlurper
 
 def ff = session.get()
 if (!ff) return
@@ -103,6 +106,20 @@ try {
 
   def isJhove = { String name -> name.startsWith("JHOVE_") || name.contains("JHOVE_") }
 
+  final Set<String> IGNORED_LEGACY_CHECKSUM_FILES = [
+    "checksum.md5",
+    "images.md5"
+  ] as Set
+
+  def isIgnoredLegacyChecksum = { String name ->
+    IGNORED_LEGACY_CHECKSUM_FILES.contains((name ?: "").toLowerCase())
+  }
+
+  def isScanityTransferFile = { String name ->
+    def n = (name ?: "").toLowerCase()
+    n.contains("scanitytransfer") && (n.endsWith(".xml") || n.endsWith(".xml~"))
+  }
+
   def isIgnorableMarkerFile = { String name ->
     def n = (name ?: "").toLowerCase()
     if (n.endsWith(".done")) return true
@@ -124,12 +141,94 @@ try {
     }
   }
 
+  def filesEqual = { Path a, Path b ->
+    if (!Files.isRegularFile(a) || !Files.isRegularFile(b)) return false
+    if (Files.size(a) != Files.size(b)) return false
+    Arrays.equals(Files.readAllBytes(a), Files.readAllBytes(b))
+  }
+
+  def sha256Prefix = { Path p ->
+    byte[] digest = MessageDigest.getInstance("SHA-256").digest(Files.readAllBytes(p))
+    digest.collect { String.format("%02x", it) }.join().substring(0, 12)
+  }
+
+  def scanityFrameRange = { Path p ->
+    def xml = new XmlSlurper(false, false).parse(p.toFile())
+    def clips = xml.WorkItem.Material.Element.PullClip
+    if (clips.size() != 1) {
+      throw new RuntimeException("Expected exactly one Scanity PullClip in ${p}, found ${clips.size()}")
+    }
+
+    String firstText = clips[0].FirstFrame.text()?.trim()
+    String lastText  = clips[0].LastFrame.text()?.trim()
+    if (!(firstText ==~ /\d+/) || !(lastText ==~ /\d+/)) {
+      throw new RuntimeException("Missing or invalid Scanity frame range in ${p}: first='${firstText}', last='${lastText}'")
+    }
+
+    long first = firstText.toLong()
+    long last  = lastText.toLong()
+    if (last < first) {
+      throw new RuntimeException("Invalid Scanity frame range in ${p}: ${first}-${last}")
+    }
+
+    [first: first, last: last]
+  }
+
+  int additionalScanityCopied = 0
+  int duplicateScanitySkipped = 0
+  int fallbackScanityNamed = 0
+  int ignoredLegacyChecksumCount = 0
+
+  def copyAdditionalScanity = { Path src, Path canonicalDst ->
+    if (Files.isRegularFile(canonicalDst) && filesEqual(src, canonicalDst)) {
+      duplicateScanitySkipped++
+      log.info("Skipping byte-identical additional ScanityTransfer file: ${src}")
+      return
+    }
+
+    String baseName
+    try {
+      def range = scanityFrameRange(src)
+      baseName = "ScanityTransfer-range-${range.first}-${range.last}"
+    } catch (Exception rangeError) {
+      fallbackScanityNamed++
+      baseName = "ScanityTransfer-extra-${sha256Prefix(src)}"
+      log.warn("Could not derive a Scanity frame range from ${src}; preserving it as ${baseName}.xml: ${rangeError.message}")
+    }
+    Path dst = preservationDir.resolve(baseName + ".xml")
+
+    if (Files.exists(dst)) {
+      if (filesEqual(src, dst)) {
+        duplicateScanitySkipped++
+        log.info("Skipping byte-identical additional ScanityTransfer file already staged as ${dst}: ${src}")
+        return
+      }
+      dst = preservationDir.resolve(baseName + "-" + sha256Prefix(src) + ".xml")
+    }
+
+    if (Files.exists(dst)) {
+      if (filesEqual(src, dst)) {
+        duplicateScanitySkipped++
+        log.info("Skipping byte-identical additional ScanityTransfer file already staged as ${dst}: ${src}")
+        return
+      }
+      throw new RuntimeException("Refusing to overwrite different ScanityTransfer metadata: ${dst}")
+    }
+
+    Files.createDirectories(dst.getParent())
+    Files.copy(src, dst, StandardCopyOption.COPY_ATTRIBUTES)
+    additionalScanityCopied++
+    log.info("Preserved additional ScanityTransfer metadata: ${src} -> ${dst}")
+  }
+
   // ----------------------------------------------------------------
   // Check if a file is "known/handled"
   // ----------------------------------------------------------------
   def isHandledSourceFile = { String name ->
     if (isIgnorableMarkerFile(name)) return true
     if (isJhove(name)) return true
+    if (isIgnoredLegacyChecksum(name)) return true
+    if (isScanityTransferFile(name)) return true
     if (name == "${pkg}.xml") return true
     if (name.toLowerCase().endsWith("_meta_xml.tar")) return true
     if (name.startsWith("MAVIS_") && name.toLowerCase().endsWith(".xml")) return true
@@ -139,10 +238,11 @@ try {
   def isHandledExtractedFile = { String name ->
     if (isIgnorableMarkerFile(name)) return true
     if (isJhove(name)) return true
+    if (isIgnoredLegacyChecksum(name)) return true
     if (name == ".extract_complete") return true
     if (name.startsWith("META_") && name.endsWith(".tar.xml")) return true // intentionally kept only in extractDir
     if (name.startsWith("METS_") && name.toLowerCase().endsWith(".xml")) return true
-    if (name.toLowerCase().contains("scanitytransfer") && name.toLowerCase().endsWith(".xml")) return true
+    if (isScanityTransferFile(name)) return true
     return false
   }
 
@@ -210,33 +310,69 @@ try {
     Files.newDirectoryStream(sourceDir, "*.xml").each { Path p ->
       def n = p.fileName.toString()
       if (isJhove(n)) return
+      if (isScanityTransferFile(n)) return
       safeCopy(p, deprMetsDir.resolve(n))
     }
   }
 
   // ----------------------------------------------------------------
-  // 4) From extractDir: ScanityTransfer goes to preservation, METS_*.xml
-  //    (the deprecated reel METS files) go to descriptive/deprecated_mets/.
+  // 4) ScanityTransfer metadata goes to preservation. Select the canonical
+  //    file deterministically and preserve distinct additional/backup files
+  //    under frame-range names. Deprecated reel METS files go to
+  //    descriptive/deprecated_mets/.
   // ----------------------------------------------------------------
-  boolean scanityCopied = false
-
+  List<Path> extractedFiles = []
   if (Files.isDirectory(extractDir)) {
     Files.walk(extractDir).forEach { Path p ->
-      if (!Files.isRegularFile(p)) return
-      def n = p.fileName.toString()
-      if (isJhove(n)) return
-      if (n == ".extract_complete") return
+      if (Files.isRegularFile(p)) extractedFiles << p
+    }
+  }
 
-      if (!scanityCopied && n.toLowerCase().contains("scanitytransfer") && n.toLowerCase().endsWith(".xml")) {
-        safeCopy(p, preservationDir.resolve("ScanityTransfer.xml"))
-        scanityCopied = true
-        return
-      }
+  List<Path> canonicalCandidates = extractedFiles.findAll { Path p ->
+    def n = p.fileName.toString()
+    !isJhove(n) && n.toLowerCase().contains("scanitytransfer") && n.toLowerCase().endsWith(".xml")
+  }.sort { a, b -> a.toString() <=> b.toString() }
 
-      if (n.startsWith("METS_") && n.toLowerCase().endsWith(".xml")) {
-        safeCopy(p, deprMetsDir.resolve(n))
-        return
+  Path canonicalScanitySource = null
+  Path canonicalScanityDst = preservationDir.resolve("ScanityTransfer.xml")
+  if (!canonicalCandidates.isEmpty()) {
+    String packageName = "${pkg}_ScanityTransfer.xml".toLowerCase()
+    canonicalScanitySource = canonicalCandidates.find {
+      it.fileName.toString().toLowerCase() == packageName
+    } ?: canonicalCandidates.find {
+      it.fileName.toString().equalsIgnoreCase("ScanityTransfer.xml")
+    } ?: canonicalCandidates[0]
+
+    safeCopy(canonicalScanitySource, canonicalScanityDst)
+  }
+
+  List<Path> additionalScanityCandidates = []
+  extractedFiles.each { Path p ->
+    def n = p.fileName.toString()
+    if (!isJhove(n) && isScanityTransferFile(n) && p != canonicalScanitySource) {
+      additionalScanityCandidates << p
+    }
+  }
+
+  // Source-level Scanity files, including editor-style *.xml~ backups.
+  [sourceDir, sourceDir.resolve("meta")].each { Path dir ->
+    if (!Files.isDirectory(dir)) return
+    Files.newDirectoryStream(dir).each { Path p ->
+      if (Files.isRegularFile(p) && !isJhove(p.fileName.toString()) && isScanityTransferFile(p.fileName.toString())) {
+        additionalScanityCandidates << p
       }
+    }
+  }
+
+  additionalScanityCandidates
+    .unique { it.toAbsolutePath().normalize().toString() }
+    .sort { a, b -> a.toString() <=> b.toString() }
+    .each { Path p -> copyAdditionalScanity(p, canonicalScanityDst) }
+
+  extractedFiles.each { Path p ->
+    def n = p.fileName.toString()
+    if (!isJhove(n) && n.startsWith("METS_") && n.toLowerCase().endsWith(".xml")) {
+      safeCopy(p, deprMetsDir.resolve(n))
     }
   }
 
@@ -249,6 +385,11 @@ try {
     if (!Files.isRegularFile(p)) return
     def n = p.fileName.toString()
     if (isIgnorableMarkerFile(n)) return
+    if (isIgnoredLegacyChecksum(n)) {
+      ignoredLegacyChecksumCount++
+      log.info("Ignoring legacy checksum sidecar; DPX fixity is verified from extracted META metadata: ${p}")
+      return
+    }
     if (isHandledSourceFile(n)) return
     safeCopyLazy(p, unclassifiedSourceDir.resolve(n))
   }
@@ -260,6 +401,11 @@ try {
       if (!Files.isRegularFile(p)) return
       def n = p.fileName.toString()
       if (isIgnorableMarkerFile(n)) return
+      if (isIgnoredLegacyChecksum(n)) {
+        ignoredLegacyChecksumCount++
+        log.info("Ignoring legacy checksum sidecar; DPX fixity is verified from extracted META metadata: ${p}")
+        return
+      }
       if (isHandledSourceFile(n)) return
       safeCopyLazy(p, unclassifiedSourceDir.resolve(n))
     }
@@ -271,6 +417,11 @@ try {
       if (!Files.isRegularFile(p)) return
       def n = p.fileName.toString()
       if (isIgnorableMarkerFile(n)) return
+      if (isIgnoredLegacyChecksum(n)) {
+        ignoredLegacyChecksumCount++
+        log.info("Ignoring legacy checksum sidecar; DPX fixity is verified from extracted META metadata: ${p}")
+        return
+      }
       if (isHandledExtractedFile(n)) return
       Path rel = extractDir.relativize(p)
       safeCopyLazy(p, unclassifiedExtractedDir.resolve(rel))
@@ -282,6 +433,10 @@ try {
   // ----------------------------------------------------------------
   ff = session.putAttribute(ff, 'metadata.org.status', 'OK')
   ff = session.putAttribute(ff, 'metadata.org.review.required', wroteUnclassified ? 'true' : 'false')
+  ff = session.putAttribute(ff, 'metadata.org.scanity.additional.count', additionalScanityCopied.toString())
+  ff = session.putAttribute(ff, 'metadata.org.scanity.duplicate.count', duplicateScanitySkipped.toString())
+  ff = session.putAttribute(ff, 'metadata.org.scanity.fallback.count', fallbackScanityNamed.toString())
+  ff = session.putAttribute(ff, 'metadata.org.legacy.checksum.ignored.count', ignoredLegacyChecksumCount.toString())
   session.transfer(ff, REL_SUCCESS)
 
 } catch (Exception e) {

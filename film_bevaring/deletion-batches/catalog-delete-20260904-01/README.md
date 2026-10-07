@@ -51,10 +51,15 @@ Result: **PASS**. Every package in this deletion manifest was represented by a
 
 - `package-paths.txt` is the path-only deletion manifest supplied to the
   platform team.
-- `dps-submissions/submissions-page-00-of-15.json` through
-  `submissions-page-15-of-15.json` contain the DPS submission records.
+- `dps-snapshot.json` references the shared snapshot at
+  `../../dps-submissions/legacy-20260904-01/`, containing
+  `submissions-page-00-of-15.json` through `submissions-page-15-of-15.json`.
 - `validation-summary.json` contains the machine-readable validation result.
 - `SHA256SUMS` records the evidence checksums.
+
+On 2026-10-05, the DPS response files were moved to the shared snapshot
+directory without changing their contents. Checksum paths were updated.
+The original validation report and its timestamp are retained.
 
 The DPS response `files` arrays were removed before committing because
 file-level metadata and generated upload URLs were not used by this check.

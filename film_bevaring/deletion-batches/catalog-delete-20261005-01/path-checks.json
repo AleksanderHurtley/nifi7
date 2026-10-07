@@ -1,0 +1,32 @@
+{
+  "batchId": "catalog-delete-20261005-01",
+  "checkedOn": "2026-10-05",
+  "pathChecks": "PASS",
+  "preservationValidation": "PENDING_FRESH_DPS_RESPONSES",
+  "readyForPlatformHandoff": false,
+  "source": "DIGITIZED_ITEM.csv",
+  "sourceSha256": "00289b882d12bd726f89f30ab6ca8d98ab8a4962cd89db47431cb6c9418349d3",
+  "manifest": "package-paths.txt",
+  "manifestSha256": "84fce4375aae90acd471c2c4ca9fbb5720fb06cfe431320c77e1a96fef79929e",
+  "counts": {
+    "paths": 353,
+    "uniquePaths": 353,
+    "uniqueObjectIds": 353,
+    "malformedRows": 0,
+    "blankPaths": 0,
+    "unsafePaths": 0,
+    "duplicatePaths": 0,
+    "duplicateObjectIds": 0
+  },
+  "expectedRoot": "/global/film/00/film/bevaring/",
+  "previousBatches": [
+    {
+      "batchId": "catalog-delete-20260904-01",
+      "manifestSha256": "22628a028aca866a4896a253fa181a02724f731d2bbe8a7dad417e08d4300683",
+      "paths": 1130,
+      "overlappingPaths": 0,
+      "overlappingObjectIds": 0
+    }
+  ],
+  "databaseAssignmentAffectedRows": null
+}

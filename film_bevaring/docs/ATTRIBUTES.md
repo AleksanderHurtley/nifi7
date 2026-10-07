@@ -76,6 +76,22 @@ Conventions:
 - `creation.event.reason` — text reason when skipped (no METS, missing mix data, etc.)
 - `creation.event.mets.count` — number of METS files inspected (when emit=true)
 
+## Metadata organization
+
+- `metadata.org.review.required`
+  - `true` only when files remain genuinely unclassified after known metadata
+    and ignorable sidecars have been handled.
+- `metadata.org.scanity.additional.count`
+  - Number of distinct additional Scanity transfer records copied into the
+    representation preservation metadata directory.
+- `metadata.org.scanity.duplicate.count`
+  - Number of byte-identical Scanity transfer records skipped.
+- `metadata.org.scanity.fallback.count`
+  - Number of additional Scanity transfer records preserved with a content-hash
+    fallback name because no valid frame range could be read.
+- `metadata.org.legacy.checksum.ignored.count`
+  - Number of known legacy `checksum.md5` or `images.md5` sidecars ignored.
+
 ## Timing / stats (used for DB updates)
 
 - `fetch.start`, `fetch.end`, `fetch.duration`

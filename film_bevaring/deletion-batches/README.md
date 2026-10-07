@@ -9,14 +9,29 @@ Each batch has an immutable identifier that is also stored in
 
 - `package-paths.txt`: the literal filesystem paths supplied to the platform
   team, one path per line.
-- `dps-submissions/`: paginated submission responses used to verify that the
-  path basename equals the DPS `objectId` and that the submission status is
-  `PRESERVED`.
+- `dps-snapshot.json`: reference to a shared contract-wide export in
+  `../dps-submissions/<snapshot-id>/` (relative to this README). Each reference
+  contains a path relative to its batch directory and the expected contract ID.
 - `validation-summary.json`: the saved result of the reproducible validation.
 - `README.md`: the batch scope, checks, result, and operational follow-up.
 - `SHA256SUMS`: checksums for the manifest and DPS evidence.
 
 ## Validation
+
+Store complete DPS exports in [the shared snapshot directory](../dps-submissions/).
+Multiple batches can reference the same snapshot. Retain earlier snapshots so
+historical validation remains reproducible. Every batch must have a
+`dps-snapshot.json`, for example:
+
+```json
+{
+  "path": "../../dps-submissions/2026-10-05-01",
+  "contractId": "91c5"
+}
+```
+
+The validator checks that each path basename equals a DPS `objectId` whose
+status is `PRESERVED`, using only the batch's explicitly selected snapshot.
 
 Run the validator from the repository root:
 

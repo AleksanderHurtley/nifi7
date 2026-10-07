@@ -53,6 +53,17 @@ Events (recommended):
 
 Notes:
 - Avoid commands like `tree/du/find` on SAM-FS if it can trigger recall/staging.
+- Metadata organization ignores the known legacy sidecars `checksum.md5` and
+  `images.md5`. DPX fixity is instead verified from the checksums extracted
+  from the authoritative `META_*.tar.xml` metadata.
+- The canonical Scanity transfer record is staged as
+  `representations/<representation>/metadata/preservation/ScanityTransfer.xml`.
+  Distinct additional records, including `*.xml~` backups, are parsed and
+  preserved as `ScanityTransfer-range-<first>-<last>.xml`. A short SHA-256
+  suffix is added only when different records have the same frame range;
+  byte-identical duplicates are skipped. If a frame range cannot be read, the
+  record is still preserved as `ScanityTransfer-extra-<sha256-prefix>.xml`.
+  Source files are never renamed or deleted.
 - Metadata extraction writes a single DPX manifest:
   - `metadata/preservation/dpx/<package.name>_dpx_manifest.xml`
   - root: `dpxManifest`

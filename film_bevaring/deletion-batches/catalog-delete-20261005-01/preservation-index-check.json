@@ -1,0 +1,21 @@
+{
+  "batchId": "catalog-delete-20261005-01",
+  "result": "PASS_RECORDED_PRESERVATION",
+  "evidenceScope": "Combined historical and October snapshots; not a complete fresh status check.",
+  "indexPath": "../../dps-submissions/preservation-index.json",
+  "indexSha256": "15dbd7dfa930ae07062b5810efdc30e1a196eabd4c97edae8a379730e0cfdeea",
+  "manifestSha256": "84fce4375aae90acd471c2c4ca9fbb5720fb06cfe431320c77e1a96fef79929e",
+  "counts": {
+    "manifestPaths": 353,
+    "matchedPaths": 353,
+    "recordedPreservedPaths": 353,
+    "missingPaths": 0,
+    "nonPreservedPaths": 0
+  },
+  "latestEvidenceBySnapshot": {
+    "legacy-20260904-01": 35,
+    "2026-10-05-01": 318
+  },
+  "missingPaths": [],
+  "nonPreservedPaths": []
+}

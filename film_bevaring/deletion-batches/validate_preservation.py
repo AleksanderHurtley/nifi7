@@ -49,7 +49,16 @@ def duplicates(values: list[str]) -> list[str]:
 
 def validate(batch_dir: Path, expected_root: str) -> dict:
     manifest_path = batch_dir / "package-paths.txt"
-    payload_dir = batch_dir / "dps-submissions"
+    with (batch_dir / "dps-snapshot.json").open(encoding="utf-8") as handle:
+        snapshot = json.load(handle)
+    if not isinstance(snapshot, dict) or not all(
+        isinstance(snapshot.get(key), str) and snapshot[key].strip()
+        for key in ("path", "contractId")
+    ):
+        raise ValueError("dps-snapshot.json must specify path and contractId")
+    payload_dir = batch_dir / snapshot["path"]
+    if not payload_dir.is_dir() or not any(payload_dir.glob("*.json")):
+        raise ValueError(f"DPS snapshot has no response pages: {payload_dir}")
     manifest_paths = read_manifest(manifest_path)
     pages, submissions = read_payloads(payload_dir)
 
@@ -116,6 +125,8 @@ def validate(batch_dir: Path, expected_root: str) -> dict:
         issues.append("One or more DPS records lack a required identifier")
     if len(set(contract_ids)) != 1:
         issues.append("DPS records contain zero or multiple contract IDs")
+    if set(contract_ids) != {snapshot["contractId"]}:
+        issues.append(f"DPS contract does not match expected {snapshot['contractId']}")
     if len(total_pages_values) != 1 or len(total_elements_values) != 1:
         issues.append("DPS pagination totals are inconsistent across files")
     if page_numbers != expected_page_numbers:
@@ -136,6 +147,7 @@ def validate(batch_dir: Path, expected_root: str) -> dict:
         "batchId": batch_dir.name,
         "result": "PASS" if not issues else "FAIL",
         "expectedPathRoot": expected_root,
+        "dpsSnapshot": snapshot,
         "counts": {
             "manifestPaths": len(manifest_paths),
             "uniqueManifestPaths": len(set(manifest_paths)),
@@ -180,7 +192,11 @@ def main() -> int:
     parser.add_argument("--report", type=Path)
     args = parser.parse_args()
 
-    report = validate(args.batch_dir, args.root)
+    try:
+        report = validate(args.batch_dir, args.root)
+    except (OSError, ValueError) as error:
+        print(f"ERROR: {error}", file=sys.stderr)
+        return 1
     if args.report:
         args.report.write_text(
             json.dumps(report, indent=2, ensure_ascii=False) + "\n",

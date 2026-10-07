@@ -43,6 +43,15 @@ paths used by the scripts, and does not update the running NiFi flow.
 ## Runtime safety
 - Avoid recursive filesystem inspection commands on SAM-FS (`tree`, `du`, `find`) unless data is staged; they may trigger recall/staging and hang in D-state.
 - When deleting large directories, prefer controlled deletion via ExecuteStreamCommand with explicit path checks.
+- Metadata organization treats `checksum.md5` and `images.md5` as known legacy
+  sidecars and does not send them to unclassified review. Fixity verification
+  continues to use checksums extracted from `META_*.tar.xml`.
+- Extra Scanity transfer records are copied—not moved—from source/extracted
+  metadata into the representation preservation directory. Their staged names
+  use the recorded frame range; byte-identical duplicates are skipped and
+  conflicting records receive a short content-hash suffix. A file with no
+  readable frame range is retained under a content-hash fallback name rather
+  than failing the package.
 - The audio copy ExecuteStreamCommand normalizes only staged WAV filenames:
   one or more consecutive spaces become one hyphen. It leaves SAM-FS source
   names unchanged and fails on a normalized-name collision. Keep this step
