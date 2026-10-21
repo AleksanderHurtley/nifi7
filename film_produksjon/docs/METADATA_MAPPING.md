@@ -5,6 +5,15 @@ based on its source files and the bevaring staging conventions. The E-ARK
 processor's metadata properties and the local SIP profile must be checked
 before treating these locations as the final package contract.
 
+The [Fetch scripts](../02_Fetch%20files/README.md) implement this staging map.
+Local tests cover the captured XML and synthetic media; live fetch of the
+current 2013 test package is the next verification step.
+
+The [simple transfer flow](FLOW_OVERVIEW.md) copies the existing MOV and source
+XML byte-for-byte, verifies the copied media, and packages them with current
+catalog metadata. The mapping describes that placement and identity work;
+the media needs no conversion.
+
 ## What the source establishes
 
 Source path:
@@ -60,6 +69,8 @@ created on the date encoded in the package name.
 | `meta/MAVIS_mezzaninCarrierUpdate.xml` | `metadata/descriptive/legacy_mavis/MAVIS_mezzaninCarrierUpdate.xml` |
 | `meta/ffprobe.xml` | `<rep>/metadata/other/ffprobe.xml` |
 | `meta/JHOVE_digifilm_796646_20230321.mov.xml` | `<rep>/metadata/preservation/JHOVE_digifilm_796646_20230321.mov.xml` |
+| `logs/<filename>` where present | `<rep>/metadata/other/logs/<filename>` |
+| Root-level `*.done` where present | `<rep>/metadata/other/workflow_markers/<filename>` |
 | Current catalog XML fetched later | `metadata/descriptive/<catalog-export-filename>.xml` |
 
 Keep every source XML byte-for-byte, including its declared encoding and old
@@ -81,16 +92,14 @@ shows the same loose MOV and seven-XML layout, plus one ffmpeg log under
 `logs/` and five root-level `.done` files. Only the listing is available;
 metadata contents, sizes, and checksums have not been checked for this package.
 
-Propose retaining `logs/<filename>` unchanged under
-`<rep>/metadata/other/logs/<filename>` as production history, subject to the
-same SIP-profile check as the other proposed paths. A non-empty `logs/`
-directory must be included when collecting metadata for staging and checksums.
-
-The `.done` filenames suggest historical workflow markers, but the listing
-does not establish that they are empty. Inventory and inspect them before
-defining their SIP placement or exclusion. Do not use them as a substitute
-for current fixity verification or DPS status. These extra files do not
-change discovery: this directory still produces exactly one package FlowFile.
+Retain `logs/<filename>` unchanged under
+`<rep>/metadata/other/logs/<filename>` as production history, preserving any
+subdirectories. The Fetch script also retains root-level `.done` files under
+`<rep>/metadata/other/workflow_markers/`, whether empty or nonempty. This
+preserves their contents without relying on them to establish current fixity
+or DPS status. These extra files do not change discovery: this directory still
+produces exactly one package FlowFile. Final metadata registration remains
+subject to the E-ARK profile check, as for the other staged paths.
 
 ## Catalog identity and provenance
 
@@ -109,22 +118,22 @@ the current catalog's relationship fields. They are provenance links, not
 additional media files to fetch for this package. Do not replace the viewing
 file's identity with either source URN.
 
-## What must change from bevaring
+## Small adaptations for this transfer
 
-- The metadata organizer currently requires one `*_meta_xml.tar`, removes
-  extracted JHOVE files, and expects Scanity/reel metadata. Replace that logic
-  for these seven loose XML files and retain JHOVE as fixity evidence.
-- The checksum extractor/verifier uses a DPX manifest and batches. Replace
-  that with the METS file-to-object binding and staged MOV verification.
-  Fail on conflicting evidence or ambiguous file mappings; never invent a
-  successful fixity result when the expected checksum is missing.
-- The historical event is FFmpeg derivation, not the scanner event extracted
-  from bevaring's MIX metadata. Preserve the original event and decide its DPS
-  representation independently from this transfer's new events.
-- The submission-body builders become reusable once the matching current
-  catalog exports exist. Add a readiness check for the required identity and
-  title fields; an empty export search must not become a successful empty body.
+- Use a small produksjon organizer for these seven loose XML files, retaining
+  JHOVE as fixity evidence and applying the placement table above. Bevaring's
+  metadata tar and Scanity handling remain specific to that flow.
+- Verify the staged MOV using the METS file-to-object binding, expected size,
+  and digest. Conflicting evidence, ambiguous mappings, or a missing expected
+  checksum must prevent a successful verification result.
+- Preserve the historical FFmpeg derivation in the source METS. Record this
+  run's transfer and information-package-creation events using the existing
+  event handling.
+- Reuse the catalog and submission-body builders with matching current
+  exports, checking the required identity and title fields before submission.
+- Reuse checksum generation, E-ARK, and DPS processing with the configured
+  produksjon paths. Shared-code refactoring is outside the initial scope.
 
-No media verification, catalog lookup, SIP generation, or DPS submission has
-been performed for this proposed mapping. The source XML is enough to develop
-and check the metadata parser; real media is needed for the later end-to-end run.
+No real media verification, catalog lookup, SIP generation, or DPS submission
+has been performed for this mapping. Parsing and small-media copy/verification
+have passed local tests; the next step is the live metadata-first test on nifi7.
