@@ -24,6 +24,13 @@ byte-for-byte, verify it, organize its metadata, generate an E-ARK SIP, and
 submit it to DPS. Reuse the existing NiFi groups and conventions with small,
 produksjon-specific adaptations.
 
+Local output uses `/fc1/film_produksjon/` with `work/`, `payloads/`, and
+`transfer/` beneath it. Source METS is preserved under package-level
+`metadata/descriptive/deprecated_mets/`, matching bevaring. The four legacy
+MAVIS XML snapshots are grouped there unchanged, separate from current catalog
+exports. Regular `.done` files are ignored; JHOVE, ffprobe, and logs keep their
+representation-level locations.
+
 The [flow overview and step-by-step walkthrough](docs/FLOW_OVERVIEW.md) use
 five stages:
 

@@ -89,9 +89,9 @@ in order. The default local roots are:
 
 | Attribute | Value |
 |---|---|
-| `work.base.dir` | `/fc1/work/film_produksjon` |
-| `payloads.base.dir` | `/fc1/payloads/film_produksjon` |
-| `transfer.base.dir` | `/fc1/transfer/film_produksjon` |
+| `work.base.dir` | `/fc1/film_produksjon/work` |
+| `payloads.base.dir` | `/fc1/film_produksjon/payloads` |
+| `transfer.base.dir` | `/fc1/film_produksjon/transfer` |
 | `source.dir` | Validated `package.path` under `/global/film/00/film/produksjon/` |
 | `rep.dir` | `<work.dir>/representations/primary_20130729` for the manual test |
 | `rep.data.dir` | `<rep.dir>/data` |
@@ -101,6 +101,22 @@ uses its terminal calendar date for a stable representation name. This date
 is a naming token, not evidence of the historical derivation date. Incoming
 base-directory attributes can override the defaults. The MOV source and
 destination paths use `<package.name>.mov`.
+
+The package's source METS is assigned to
+`<work.dir>/metadata/descriptive/deprecated_mets/` through
+`metadata.descriptive.depr_mets.dir`, matching bevaring's placement. The complete
+document is retained unchanged, including its descriptive, technical, and
+provenance information; the historical folder name does not make that content
+obsolete.
+The four known legacy MAVIS XML snapshots share that directory, unchanged
+and with their original names. They are grouped as legacy metadata, not
+converted into METS. Current catalog exports remain directly under
+`metadata/descriptive/`. No separate `legacy_mavis/` directory is created.
+After updating the scripts, use a fresh manual trigger and run Initialize
+again to replace the old path attributes. Existing test directories are not
+automatically migrated or removed. Reconcile any previous `legacy_mavis/`
+copies into `deprecated_mets/` without overwriting different content before
+SIP generation; see [Initialize](../01_Initialize/README.md).
 
 Directory initialization creates the local staging/metadata directories and
 missing payload files, retaining existing event and submission content on
@@ -116,12 +132,12 @@ in the next stage.
 
 Run the two [Fetch scripts](../02_Fetch%20files/README.md) in order:
 
-1. Fetch and organize the source XML, logs, and workflow markers. Bind the
+1. Fetch and organize the source XML and logs. Bind the
    METS file entry through `ADMID` to its PREMIS object and extract expected
    MOV identity, size, and MD5. Check agreement with available METS attributes,
-   JHOVE, and MAVIS carrier update evidence. Retain `.done` files under
-   representation other metadata as historical workflow markers. Unknown
-   entries require review before media copying.
+   JHOVE, and MAVIS carrier update evidence. Ignore regular `.done` files;
+   they do not trigger unclassified review or enter the staged package.
+   Other unknown entries require review before media copying.
 2. Copy `lossless/<package.name>.mov` unchanged into a temporary local file,
    read the staged bytes to verify size and MD5, then publish the verified MOV
    under `rep.data.dir`. A previously staged MOV is verified again before

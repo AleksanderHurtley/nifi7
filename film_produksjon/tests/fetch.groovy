@@ -117,21 +117,47 @@ try {
     assert parsed.attributes['media.urn'] == "URN:NBN:no-nb_${pkg}"
     assert parsed.attributes['metadata.org.count'] == '7'
     assert parsed.attributes['metadata.org.review.required'] == 'false'
-    Path stagedCarrier = Path.of(parsed.attributes['metadata.descriptive.legacy_mavis.dir'], 'MAVIS_mezzaninCarrierUpdate.xml')
-    assert Arrays.equals(Files.readAllBytes(example.resolve('meta/MAVIS_mezzaninCarrierUpdate.xml')), Files.readAllBytes(stagedCarrier))
+    assert parsed.attributes['media.mets.path'] == Path.of(parsed.attributes['metadata.descriptive.depr_mets.dir'], "${pkg}.xml").toString()
+    assert Arrays.equals(Files.readAllBytes(example.resolve("${pkg}.xml")), Files.readAllBytes(Path.of(parsed.attributes['media.mets.path'])))
+    assert !Files.exists(Path.of(parsed.attributes['metadata.preservation.dir'], 'source_mets'))
+    ['mavisMezzaninCarrier.xml', 'mavisMezzaninComponent.xml',
+     'mavisMezzaninTitle.xml', 'MAVIS_mezzaninCarrierUpdate.xml'].each { name ->
+        Path staged = Path.of(parsed.attributes['metadata.descriptive.depr_mets.dir'], name)
+        assert Arrays.equals(Files.readAllBytes(example.resolve('meta').resolve(name)), Files.readAllBytes(staged))
+    }
+    assert !Files.exists(Path.of(parsed.attributes['metadata.descriptive.dir'], 'legacy_mavis'))
     assert runStage(3, parsed.attributes).relationship == 'failure' // Omitted media is not a successful transfer.
+
+    // A queued FlowFile's retired attribute must not select the old layout.
+    def queued = fixture(true)
+    Path retiredMavisDir = Path.of(queued.attributes['metadata.descriptive.dir'], 'legacy_mavis')
+    def regrouped = runStage(2, queued.attributes + ['metadata.descriptive.legacy_mavis.dir': retiredMavisDir.toString()])
+    assert regrouped.relationship == 'success': regrouped.attributes
+    assert !Files.exists(retiredMavisDir)
+    assert regrouped.attributes['media.expected.md5'] == mediaMd5
+    assert runStage(2, regrouped.attributes).relationship == 'success'
+    assert runStage(3, regrouped.attributes).relationship == 'success'
 
     def full = fixture(true)
     Files.writeString(full.source.resolve('jhove.done'), 'historical marker with content\n')
+    Files.write(full.source.resolve('storage.DONE'), new byte[0])
+    Files.writeString(full.source.resolve('meta/metadata.done'), 'ignore in metadata')
+    Files.writeString(full.source.resolve('lossless/copy.done'), 'ignore in media directory')
     Files.writeString(full.source.resolve('logs/ffmpeg.log'), 'historical conversion log\n')
     Files.createDirectory(full.source.resolve('logs/nested'))
     Files.writeString(full.source.resolve('logs/nested/extra.log'), 'nested log\n')
+    Files.writeString(full.source.resolve('logs/nested/log.done'), 'ignore nested marker')
     def metadata = runStage(2, full.attributes)
     assert metadata.relationship == 'success': metadata.attributes
-    assert metadata.attributes['metadata.org.marker.count'] == '1'
+    assert metadata.attributes['metadata.org.ignored.done.count'] == '5'
+    assert metadata.attributes['metadata.org.count'] == '9' // Seven XML files and two logs.
     assert metadata.attributes['media.expected.md5'] == mediaMd5
     assert metadata.attributes['metadata.org.review.required'] == 'false'
-    assert Files.readString(Path.of(metadata.attributes['metadata.other.dir'], 'workflow_markers/jhove.done')) == 'historical marker with content\n'
+    assert !Files.exists(Path.of(metadata.attributes['metadata.other.dir'], 'workflow_markers'))
+    assert Files.readString(full.source.resolve('jhove.done')) == 'historical marker with content\n'
+    Files.walk(Path.of(metadata.attributes['work.dir'])).withCloseable { paths ->
+        assert paths.noneMatch { it.fileName.toString().toLowerCase(Locale.ROOT).endsWith('.done') }
+    }
     assert Files.readString(Path.of(metadata.attributes['metadata.other.dir'], 'logs/nested/extra.log')) == 'nested log\n'
     def fetched = runStage(3, metadata.attributes)
     assert fetched.relationship == 'success': fetched.attributes
@@ -203,7 +229,7 @@ try {
         assert result.attributes['metadata.org.status'] == 'FAIL'
         assert !Files.exists(Path.of(result.attributes['video.output.path']))
     }
-    println 'PASS: captured METS/JHOVE/MAVIS parsing, byte-preserved metadata, logs/markers, review gating, MOV copy/reuse, corruption detection, and temporary-file cleanup.'
+    println 'PASS: captured METS/JHOVE/MAVIS parsing, bevaring-style METS placement, ignored .done files, byte-preserved metadata/logs, review gating, MOV copy/reuse, corruption detection, and temporary-file cleanup.'
 } finally {
     Files.walk(scratch).withCloseable { paths ->
         paths.sorted(Comparator.reverseOrder()).forEach { Files.delete(it) }

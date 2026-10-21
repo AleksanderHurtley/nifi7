@@ -15,7 +15,6 @@ List<String> directoryAttributes = [
     'rep.data.dir',
     'metadata.descriptive.dir',
     'metadata.descriptive.depr_mets.dir',
-    'metadata.descriptive.legacy_mavis.dir',
     'metadata.preservation.dir',
     'metadata.other.dir',
     'payloads.dir'

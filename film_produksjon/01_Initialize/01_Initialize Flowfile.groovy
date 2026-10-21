@@ -49,9 +49,9 @@ try {
         root
     }
 
-    Path workBase = localRoot('work.base.dir', '/fc1/work/film_produksjon')
-    Path payloadBase = localRoot('payloads.base.dir', '/fc1/payloads/film_produksjon')
-    Path transferBase = localRoot('transfer.base.dir', '/fc1/transfer/film_produksjon')
+    Path workBase = localRoot('work.base.dir', '/fc1/film_produksjon/work')
+    Path payloadBase = localRoot('payloads.base.dir', '/fc1/film_produksjon/payloads')
+    Path transferBase = localRoot('transfer.base.dir', '/fc1/film_produksjon/transfer')
     Path workDir = workBase.resolve(packageName)
     Path payloadDir = payloadBase.resolve(packageName)
     Path repDir = workDir.resolve("representations/primary_${packageDate}")
@@ -83,7 +83,6 @@ try {
         'video.output.path': repDataDir.resolve(videoFilename).toString(),
         'metadata.descriptive.dir': descriptiveDir.toString(),
         'metadata.descriptive.depr_mets.dir': descriptiveDir.resolve('deprecated_mets').toString(),
-        'metadata.descriptive.legacy_mavis.dir': descriptiveDir.resolve('legacy_mavis').toString(),
         'metadata.preservation.dir': repDir.resolve('metadata/preservation').toString(),
         'metadata.other.dir': repDir.resolve('metadata/other').toString(),
         'metadata.other.unclassified.dir': workDir.resolve('metadata/other/unclassified').toString(),

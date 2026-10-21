@@ -37,31 +37,49 @@ For the current manual test, the main output attributes are:
 | `source.mets.path` | `<source.dir>/digifilm_1300107_20130729.xml` |
 | `source.metadata.dir` | `<source.dir>/meta` |
 | `source.logs.dir` | `<source.dir>/logs` |
-| `work.dir` | `/fc1/work/film_produksjon/digifilm_1300107_20130729` |
+| `work.dir` | `/fc1/film_produksjon/work/digifilm_1300107_20130729` |
 | `rep.dir` | `<work.dir>/representations/primary_20130729` |
 | `rep.data.dir` | `<rep.dir>/data` |
 | `video.filename` | `digifilm_1300107_20130729.mov` |
 | `video.output.path` | `<rep.data.dir>/digifilm_1300107_20130729.mov` |
-| `payloads.dir` | `/fc1/payloads/film_produksjon/digifilm_1300107_20130729` |
+| `payloads.dir` | `/fc1/film_produksjon/payloads/digifilm_1300107_20130729` |
 | `events.payload.path` | `<payloads.dir>/events.ndjson` |
 | `submission.payload.path` | `<payloads.dir>/submission.json` |
-| `transfer.dir` | `/fc1/transfer/film_produksjon/digifilm_1300107_20130729` |
+| `transfer.dir` | `/fc1/film_produksjon/transfer/digifilm_1300107_20130729` |
+| `metadata.descriptive.depr_mets.dir` | `<work.dir>/metadata/descriptive/deprecated_mets` |
 
 The first script also sets the metadata directory attributes used by the
-[staging map](../docs/METADATA_MAPPING.md), including
-`metadata.descriptive.legacy_mavis.dir`. It sets `total.pipeline.start` on
+[staging map](../docs/METADATA_MAPPING.md). Source METS and the four known legacy
+MAVIS XML snapshots share `metadata.descriptive.depr_mets.dir`, grouping legacy
+metadata under `deprecated_mets` in line with bevaring's structure. MAVIS
+snapshots are not METS documents, but belong to this legacy group rather than
+the current catalog exports. All files retain their names and complete contents;
+the historical folder name does not mean the information is without value.
+The script sets `total.pipeline.start` on
 the first run and retains an existing value when the same FlowFile is retried.
 No DPX, batch, separate-audio, or RAWcooked paths are generated.
 
 You can override `work.base.dir`, `payloads.base.dir`, and `transfer.base.dir`
-on the incoming FlowFile. The defaults are `/fc1/work/film_produksjon`,
-`/fc1/payloads/film_produksjon`, and `/fc1/transfer/film_produksjon`.
+on the incoming FlowFile. The defaults are `/fc1/film_produksjon/work`,
+`/fc1/film_produksjon/payloads`, and `/fc1/film_produksjon/transfer`.
 Overrides must be absolute output roots outside the source tree.
+
+When deploying these roots and the bevaring-style METS placement, replace both
+Initialize scripts and the metadata Fetch script. Generate a fresh manual
+FlowFile and run Initialize again; old FlowFiles retain their old path
+attributes, and explicit base-directory overrides are still honored. Existing
+staging directories and payload files are not moved or deleted automatically.
+The separate `metadata.descriptive.legacy_mavis.dir` attribute is no longer
+emitted or required. If a previous test already populated `legacy_mavis/`,
+compare and move its four known XML files into `deprecated_mets/`, without
+overwriting different files, then remove the old directory only when empty.
+Do not package both the old and new layouts. A new metadata fetch copies the
+source files to the new location but does not clean up the old location.
 
 ## Directory and payload behavior
 
 The second script creates work, representation data, descriptive metadata,
-deprecated METS, legacy MAVIS, preservation metadata, other metadata, and
+the shared legacy metadata directory, preservation metadata, other metadata, and
 payload directories. It creates `events.ndjson` and `submission.json` as
 empty files if absent, preserving existing files and their content on reruns.
 Unlike the bevaring initializer, it does not reset existing payloads.

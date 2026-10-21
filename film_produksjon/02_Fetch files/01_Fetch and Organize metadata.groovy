@@ -32,8 +32,7 @@ try {
         }
         path
     }
-    Path deprecated = outputDirectory('metadata.descriptive.depr_mets.dir')
-    Path legacyMavis = outputDirectory('metadata.descriptive.legacy_mavis.dir')
+    Path deprecatedMets = outputDirectory('metadata.descriptive.depr_mets.dir')
     Path preservation = outputDirectory('metadata.preservation.dir')
     Path other = outputDirectory('metadata.other.dir')
     Path unclassified = outputDirectory('metadata.other.unclassified.dir')
@@ -46,8 +45,12 @@ try {
     ff = session.putAttribute(ff, 'fetch.start', ff.getAttribute('fetch.start')?.trim() ?: System.currentTimeMillis().toString())
 
     int copied = 0
-    int markers = 0
+    int ignoredDone = 0
     Set<String> review = new TreeSet<>()
+    def isDoneFile = { Path path ->
+        path.fileName.toString().toLowerCase(Locale.ROOT).endsWith('.done') &&
+            Files.isRegularFile(path, LinkOption.NOFOLLOW_LINKS)
+    }
     def copyMetadata = { Path src, Path dst ->
         if (!Files.isRegularFile(src, LinkOption.NOFOLLOW_LINKS)) {
             throw new IOException("Expected a regular metadata file: ${src}")
@@ -70,23 +73,23 @@ try {
         paths.sort { it.fileName.toString() }
     }
 
-    Path stagedMets = deprecated.resolve("${pkg}.xml")
+    // Retain the complete source METS using bevaring's legacy-METS placement.
+    Path stagedMets = deprecatedMets.resolve("${pkg}.xml")
     copyMetadata(source.resolve("${pkg}.xml"), stagedMets)
 
     // Inspect only the package root and the known directories. Do not unpack archives.
     entries(source).each { Path path ->
         String name = path.fileName.toString()
+        if (isDoneFile(path)) {
+            ignoredDone++
+            return
+        }
         if (name == "${pkg}.xml" || name == 'meta') return
         if (name == 'lossless' || name == 'logs') {
             if (!Files.isDirectory(path, LinkOption.NOFOLLOW_LINKS)) reviewEntry(path, false)
             return
         }
-        if (name.toLowerCase(Locale.ROOT).endsWith('.done') && Files.isRegularFile(path, LinkOption.NOFOLLOW_LINKS)) {
-            copyMetadata(path, other.resolve('workflow_markers').resolve(name))
-            markers++
-        } else {
-            reviewEntry(path, true)
-        }
+        reviewEntry(path, true)
     }
 
     Set<String> mavisNames = [
@@ -97,10 +100,15 @@ try {
     Path stagedCarrierUpdate = null
     entries(source.resolve('meta')).each { Path path ->
         String name = path.fileName.toString()
+        if (isDoneFile(path)) {
+            ignoredDone++
+            return
+        }
         if (!Files.isRegularFile(path, LinkOption.NOFOLLOW_LINKS)) {
             reviewEntry(path, false)
         } else if (mavisNames.contains(name)) {
-            Path dst = legacyMavis.resolve(name)
+            // Group legacy MAVIS snapshots with source METS; keep current catalog exports separate.
+            Path dst = deprecatedMets.resolve(name)
             copyMetadata(path, dst)
             if (name == 'MAVIS_mezzaninCarrierUpdate.xml') stagedCarrierUpdate = dst
         } else if (name == 'ffprobe.xml') {
@@ -118,6 +126,10 @@ try {
         Files.walk(logs).withCloseable { paths ->
             paths.forEach { Path path ->
                 if (Files.isDirectory(path, LinkOption.NOFOLLOW_LINKS)) return
+                if (isDoneFile(path)) {
+                    ignoredDone++
+                    return
+                }
                 if (Files.isRegularFile(path, LinkOption.NOFOLLOW_LINKS)) {
                     copyMetadata(path, other.resolve('logs').resolve(logs.relativize(path)))
                 } else {
@@ -131,6 +143,10 @@ try {
         throw new IOException("Source media directory not found: ${mediaDir}")
     }
     entries(mediaDir).each { Path path ->
+        if (isDoneFile(path)) {
+            ignoredDone++
+            return
+        }
         if (path.fileName.toString() != videoName || !Files.isRegularFile(path, LinkOption.NOFOLLOW_LINKS)) {
             reviewEntry(path, false) // Do not recall/copy unexpected large media for review.
         }
@@ -210,7 +226,7 @@ try {
     ff = session.putAllAttributes(ff, [
         'metadata.org.status': 'OK',
         'metadata.org.count': copied.toString(),
-        'metadata.org.marker.count': markers.toString(),
+        'metadata.org.ignored.done.count': ignoredDone.toString(),
         'metadata.org.review.required': (!review.isEmpty()).toString(),
         'metadata.org.review.paths': review.join('; ').take(2048),
         'metadata.org.unclassified.count': review.size().toString(),

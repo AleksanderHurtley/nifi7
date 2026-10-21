@@ -53,10 +53,16 @@ def input = [
 
 def defaults = runStage(0, input)
 assert defaults.relationship == 'success'
-assert defaults.attributes['rep.dir'] == "/fc1/work/film_produksjon/${pkg}/representations/primary_20130729"
+assert defaults.attributes['work.base.dir'] == '/fc1/film_produksjon/work'
+assert defaults.attributes['payloads.base.dir'] == '/fc1/film_produksjon/payloads'
+assert defaults.attributes['transfer.base.dir'] == '/fc1/film_produksjon/transfer'
+assert defaults.attributes['rep.dir'] == "/fc1/film_produksjon/work/${pkg}/representations/primary_20130729"
 assert defaults.attributes['source.video.path'] == "${source}/lossless/${pkg}.mov"
 assert defaults.attributes['video.output.path'] == "${defaults.attributes['rep.dir']}/data/${pkg}.mov"
-assert defaults.attributes['transfer.dir'] == "/fc1/transfer/film_produksjon/${pkg}"
+assert defaults.attributes['transfer.dir'] == "/fc1/film_produksjon/transfer/${pkg}"
+assert defaults.attributes['metadata.descriptive.depr_mets.dir'] == "${defaults.attributes['work.dir']}/metadata/descriptive/deprecated_mets"
+assert !defaults.attributes.containsKey('metadata.preservation.source_mets.dir')
+assert !defaults.attributes.containsKey('metadata.descriptive.legacy_mavis.dir')
 assert defaults.attributes['package.uuid'] == input['package.uuid']
 assert defaults.attributes['prod_db_id'] == input['prod_db_id']
 assert !defaults.attributes.keySet().any { it.startsWith('dpx.') || it.startsWith('batches.') || it.startsWith('rawcooked.') }
@@ -113,9 +119,11 @@ try {
     def ready = runStage(1, attrs)
     assert ready.relationship == 'success'
     assert ready.attributes['setup.status'] == 'OK'
-    ['rep.data.dir', 'metadata.descriptive.legacy_mavis.dir', 'metadata.preservation.dir', 'metadata.other.dir'].each {
+    ['rep.data.dir', 'metadata.descriptive.depr_mets.dir', 'metadata.preservation.dir', 'metadata.other.dir'].each {
         assert Files.isDirectory(Path.of(attrs[it]))
     }
+    assert !Files.exists(Path.of(attrs['metadata.descriptive.dir'], 'legacy_mavis'))
+    assert !Files.exists(Path.of(attrs['metadata.preservation.dir'], 'source_mets'))
     assert !Files.exists(Path.of(attrs['metadata.other.unclassified.dir']))
     assert !Files.exists(Path.of(attrs['transfer.dir']))
 

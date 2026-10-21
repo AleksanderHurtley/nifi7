@@ -1,16 +1,17 @@
 # Fetch produksjon files
 
-Use two ExecuteGroovyScript processors, connected in order:
+Use two ExecuteGroovyScript processors with a RouteOnAttribute between them:
 
 ```text
 Initialize
   → 01_Fetch and Organize metadata
+  → Check for unclassified files (ready → MOV; unmatched → Failure)
   → 02_Copy and Verify MOV
   → Catalog
 ```
 
 Load each `.groovy` file into its processor's Script Body, or deploy the file
-and use Script File. Connect `failure` to review/error handling. Use one
+and use Script File. Connect both scripts' `failure` relationships to Failure. Use one
 concurrent task per processor for the initial test and keep DB/DPS writers
 stopped. The FlowFile body is not read or modified. No database writes,
 source changes, conversion, or source archive extraction are performed.
@@ -25,15 +26,33 @@ documented loose-MOV layout under `source.dir`.
 | Source | Staged location |
 |---|---|
 | `<package.name>.xml` | `metadata.descriptive.depr_mets.dir` |
-| The four known MAVIS XML files under `meta/` | `metadata.descriptive.legacy_mavis.dir` |
+| The four known MAVIS XML files under `meta/` | `metadata.descriptive.depr_mets.dir` |
 | `meta/ffprobe.xml` | `metadata.other.dir` |
 | `meta/JHOVE_<package.name>.mov.xml` | `metadata.preservation.dir` |
-| Files under `logs/`, including subdirectories | `<metadata.other.dir>/logs/` |
-| Root-level `*.done` files, including nonempty files | `<metadata.other.dir>/workflow_markers/` |
+| Files under `logs/`, including subdirectories, except `*.done` | `<metadata.other.dir>/logs/` |
+| Regular `*.done` files | Ignored; not copied or sent to unclassified review |
 
-Files are copied byte-for-byte with their original names. The `.done` files
-are retained as historical evidence; they do not establish current transfer
-success or fixity. Known metadata copies are refreshed on a rerun.
+Retained files are copied byte-for-byte with their original names. The package
+METS is retained under `<work.dir>/metadata/descriptive/deprecated_mets/`,
+matching bevaring's attribute and placement. This historical folder name does
+not mean all information is obsolete: the complete descriptive, technical,
+and provenance content is preserved. The four known MAVIS files are grouped
+in that same directory as valuable legacy catalog snapshots, retaining their
+original names. They are not METS documents, and grouping does not convert
+their format. Current catalog exports remain outside this legacy directory.
+JHOVE and ffprobe keep their report-specific locations above. There is no
+catch-all rule that moves every XML file into `deprecated_mets/`.
+
+The retired `metadata.descriptive.legacy_mavis.dir` attribute is ignored. Existing
+files under the old `legacy_mavis/` directory are not moved or deleted by this
+script; reconcile them before SIP generation as described in
+[Initialize](../01_Initialize/README.md).
+
+Regular files ending in `.done`, case-insensitively, are ignored in the package
+root, `meta/`, `lossless/`, and the logs tree, including nonempty markers. They
+are not copied, parsed, or used as evidence of current transfer success or
+fixity. Source files are left in place. Known metadata copies are refreshed
+on a rerun.
 
 The script parses the staged METS. Its one `mets:file` must bind through
 `ADMID` to one PREMIS object with the expected MOV `originalName`, a valid MD5,
@@ -51,9 +70,13 @@ unexpected media. Directory inspection is limited to the package root and
 the known `meta/`, `lossless/`, and `logs/` directories; only logs are walked
 recursively.
 
-Unknown entries set `metadata.org.review.required=true`. The MOV processor
-refuses to copy while that flag is true. An optional RouteOnAttribute between
-the two processors can direct review cases to a dedicated queue. Existing
+Unknown entries set `metadata.org.review.required=true`. Configure the
+RouteOnAttribute with routing strategy **Route to Property name** and property
+`ready=${metadata.org.review.required:equals('false')}`. Connect `ready` to the
+MOV processor and `unmatched` to the same Failure output as script errors;
+there is no separate needs-review output. The MOV processor also refuses to
+copy unless the flag is `false`. Resolve failed cases before rerunning them
+from the metadata processor. Existing
 unclassified copies continue to require review on a rerun; resolve their
 placement before removing any redundant staged review copy. The script never
 deletes source files or silently clears review material.
@@ -63,8 +86,8 @@ Expected attributes after this processor:
 | Attribute | Meaning |
 |---|---|
 | `metadata.org.status` | `OK` when organization and parsing succeeded; `FAIL` otherwise |
-| `metadata.org.count` | Number of metadata/log/marker files copied, including unknown review copies |
-| `metadata.org.marker.count` | Number of retained root-level `.done` files |
+| `metadata.org.count` | Number of metadata/log files copied, including unknown review copies |
+| `metadata.org.ignored.done.count` | Number of regular `.done` files ignored |
 | `metadata.org.review.required` | `false` when nothing remains unclassified |
 | `metadata.org.unclassified.count` | Number of distinct entries requiring review |
 | `metadata.org.review.paths` | Review paths, capped at 2048 characters |
@@ -72,7 +95,7 @@ Expected attributes after this processor:
 | `media.expected.size` | Expected bytes from PREMIS |
 | `media.expected.md5` | Expected MD5 from PREMIS |
 | `media.urn` | `URN:NBN:no-nb_<package.name>` |
-| `media.mets.path` | The staged legacy METS used for these values |
+| `media.mets.path` | The staged source METS used for these values |
 | `fetch.start` | Epoch milliseconds, retained when the same FlowFile is retried |
 
 `metadata.org.status=OK` does not mean the MOV is present or verified. Inspect
@@ -141,6 +164,6 @@ groovy film_produksjon/tests/fetch.groovy
 
 The tests parse the captured XML and use small synthetic media with matching
 fixture checksums for copy/verification tests. They cover raw metadata bytes,
-logs and nonempty markers, source-report conflicts, broken METS bindings,
+logs, ignored empty/nonempty `.done` files, source-report conflicts, broken METS bindings,
 missing media, unknown-file review, existing-file corruption, repeated runs,
 and failed-copy cleanup. They do not access SAM-FS or a database.

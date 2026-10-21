@@ -63,14 +63,14 @@ created on the date encoded in the package name.
 |---|---|
 | `lossless/digifilm_796646_20230321.mov` | `<rep>/data/digifilm_796646_20230321.mov` |
 | `digifilm_796646_20230321.xml` | `metadata/descriptive/deprecated_mets/digifilm_796646_20230321.xml` |
-| `meta/mavisMezzaninCarrier.xml` | `metadata/descriptive/legacy_mavis/mavisMezzaninCarrier.xml` |
-| `meta/mavisMezzaninComponent.xml` | `metadata/descriptive/legacy_mavis/mavisMezzaninComponent.xml` |
-| `meta/mavisMezzaninTitle.xml` | `metadata/descriptive/legacy_mavis/mavisMezzaninTitle.xml` |
-| `meta/MAVIS_mezzaninCarrierUpdate.xml` | `metadata/descriptive/legacy_mavis/MAVIS_mezzaninCarrierUpdate.xml` |
+| `meta/mavisMezzaninCarrier.xml` | `metadata/descriptive/deprecated_mets/mavisMezzaninCarrier.xml` |
+| `meta/mavisMezzaninComponent.xml` | `metadata/descriptive/deprecated_mets/mavisMezzaninComponent.xml` |
+| `meta/mavisMezzaninTitle.xml` | `metadata/descriptive/deprecated_mets/mavisMezzaninTitle.xml` |
+| `meta/MAVIS_mezzaninCarrierUpdate.xml` | `metadata/descriptive/deprecated_mets/MAVIS_mezzaninCarrierUpdate.xml` |
 | `meta/ffprobe.xml` | `<rep>/metadata/other/ffprobe.xml` |
 | `meta/JHOVE_digifilm_796646_20230321.mov.xml` | `<rep>/metadata/preservation/JHOVE_digifilm_796646_20230321.mov.xml` |
-| `logs/<filename>` where present | `<rep>/metadata/other/logs/<filename>` |
-| Root-level `*.done` where present | `<rep>/metadata/other/workflow_markers/<filename>` |
+| `logs/<filename>` where present, except `*.done` | `<rep>/metadata/other/logs/<filename>` |
+| Regular `*.done` files | Ignored; remain only in the source |
 | Current catalog XML fetched later | `metadata/descriptive/<catalog-export-filename>.xml` |
 
 Keep every source XML byte-for-byte, including its declared encoding and old
@@ -78,6 +78,19 @@ paths. Parse copies to produce new attributes, inventory, and submission JSON.
 Preserve historical references as evidence while the newly generated SIP METS
 describes the new layout. Empty source `logs/` needs no packaged file.
 Capture unexpected files for review rather than silently discarding them.
+
+The source METS combines MODS description, PREMIS technical/fixity information,
+and historical events. Its complete content is retained unchanged under
+`metadata/descriptive/deprecated_mets/`, matching bevaring's existing convention.
+The historical folder name does not mean all embedded information is obsolete
+or purely descriptive. The four legacy MAVIS XML snapshots share this directory,
+including any valuable technical fields within those records. These are not
+METS documents themselves; this is a legacy-metadata grouping, not a format
+conversion. It follows the preservation-team-approved separation of legacy
+metadata from current catalog exports shown in bevaring. Other XML files are
+placed according to their role; there is no general rule that every XML file
+is descriptive metadata. The separate `legacy_mavis/` directory is no longer
+created; existing staging requires manual reconciliation before SIP generation.
 
 Keep current catalog exports separate from the legacy MAVIS snapshot. The
 existing submission scripts expect Axiell-style `recordList/record` exports
@@ -94,12 +107,12 @@ metadata contents, sizes, and checksums have not been checked for this package.
 
 Retain `logs/<filename>` unchanged under
 `<rep>/metadata/other/logs/<filename>` as production history, preserving any
-subdirectories. The Fetch script also retains root-level `.done` files under
-`<rep>/metadata/other/workflow_markers/`, whether empty or nonempty. This
-preserves their contents without relying on them to establish current fixity
-or DPS status. These extra files do not change discovery: this directory still
-produces exactly one package FlowFile. Final metadata registration remains
-subject to the E-ARK profile check, as for the other staged paths.
+subdirectories, except for `.done` files. Regular `.done` files are explicitly
+ignored, whether empty or nonempty, and are not copied or sent to unclassified
+review. They are not evidence of current fixity or DPS status. These extra
+files do not change discovery: this directory still produces exactly one
+package FlowFile. Final metadata registration remains subject to the E-ARK
+profile check, as for the other staged paths.
 
 ## Catalog identity and provenance
 
