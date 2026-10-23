@@ -7,9 +7,13 @@ October status check. All 353 paths remain in the CSV and manifest.
 The database assignment affected-row count has not been supplied independently.
 
 `preservation-index-check.json` records the successful combined-evidence check,
-the SHA-256 of `../../dps-submissions/preservation-index.json`, the unchanged
+the SHA-256 of `../../dps-submissions/preservation-index-2026-10-05.json`, the unchanged
 manifest hash, and evidence counts by snapshot. The earlier `path-checks.json`
 and `coverage-check.json` document the checks performed before consolidation.
+
+On 2026-10-23, the index used for this check was preserved byte-for-byte as
+`preservation-index-2026-10-05.json` before the current index was refreshed.
+The report's reference was updated; its hash, result, and manifest are unchanged.
 
 Batch identifier: `catalog-delete-20261005-01`.
 Scope: film → bevaring, production line 79, source paths beneath

@@ -139,13 +139,14 @@ file's identity with either source URN.
 - Verify the staged MOV using the METS file-to-object binding, expected size,
   and digest. Conflicting evidence, ambiguous mappings, or a missing expected
   checksum must prevent a successful verification result.
-- Preserve the historical FFmpeg derivation in the source METS. Record this
-  run's transfer and information-package-creation events using the existing
-  event handling.
+- Preserve the historical FFmpeg derivation in the source METS. After E-ARK,
+  the [event builder](../04_Events/README.md) also represents it as a historical
+  creation event, followed by this run's transfer and SIP-creation records.
 - Reuse the catalog and submission-body builders with matching current
   exports, checking the required identity and title fields before submission.
-- Reuse checksum generation, E-ARK, and DPS processing with the configured
-  produksjon paths. Shared-code refactoring is outside the initial scope.
+- Let EarkSIPGenerator generate package checksums with Checksum File unset,
+  and reuse DPS processing with the configured produksjon paths. Shared-code
+  refactoring is outside the initial scope.
 
 No real media verification, catalog lookup, SIP generation, or DPS submission
 has been performed for this mapping. Parsing and small-media copy/verification

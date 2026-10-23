@@ -6,11 +6,13 @@ per submission, sorted by object ID, with the submission metadata and evidence
 references. File-level `files` arrays are omitted from the index; original
 responses are retained unchanged.
 
-Current index: 1,830 unique submissions, all last recorded as `PRESERVED`.
-19 overlapping observations were merged. The newer observations update two
-previously `PROCESSING` submissions to `PRESERVED`.
-330 records have October evidence; 1,500 retain September evidence. The count
-matches October's declared contract total, but the index is a combination of
+Current index (updated 2026-10-23): 2,063 unique submissions, with 2,058 last
+recorded as `PRESERVED` and 5 as `PROCESSING`. The latest export added 233
+submissions and refreshed 30 existing records without changing their statuses.
+49 overlapping observations have been merged across all snapshots.
+263 records have October 23 evidence, 300 retain October 5 evidence, and 1,500
+retain September evidence. The count matches the latest declared contract
+total, but the index is a combination of
 snapshots, not a fresh full-contract response. It does not have synthetic API
 pagination metadata.
 
@@ -20,6 +22,7 @@ Rebuild from the repository root, listing snapshots **oldest to newest**:
 python3 film_bevaring/dps-submissions/build_preservation_index.py \
   film_bevaring/dps-submissions/legacy-20260904-01 \
   film_bevaring/dps-submissions/2026-10-05-01 \
+  film_bevaring/dps-submissions/2026-10-23-01 \
   --output film_bevaring/dps-submissions/preservation-index.json
 ```
 
@@ -44,6 +47,9 @@ film_bevaring/
 ├── dps-submissions/
 │   ├── legacy-20260904-01/  # Original September evidence
 │   ├── 2026-10-05-01/      # October pages 15–18
+│   ├── 2026-10-23-01/      # October 23 pages 18–20
+│   ├── preservation-index-2026-10-05.json  # Frozen batch evidence
+│   ├── preservation-index-2026-10-23.json  # Frozen October 23 batch evidence
 │   └── preservation-index.json
 └── deletion-batches/
     └── <batch-id>/
@@ -59,6 +65,12 @@ new validation reports. It does not automatically select the latest export.
 That validator requires a complete single snapshot. The October batch's
 `preservation-index-check.json` separately records its check against the
 combined index, including the index hash and counts by evidence snapshot.
+It now references `preservation-index-2026-10-05.json`, a byte-identical frozen
+copy of the index used for that check. Preserve any index referenced by a batch
+report before refreshing the current index, and point the report to that frozen
+copy without changing its recorded hash or results.
+The October 23 batch similarly references `preservation-index-2026-10-23.json`;
+all 224 of its paths have October 23 `PRESERVED` observations.
 
 Use a new `YYYY-MM-DD-NN` directory for each fresh export. The legacy
 directory's name comes from the original batch ID, not a verified capture

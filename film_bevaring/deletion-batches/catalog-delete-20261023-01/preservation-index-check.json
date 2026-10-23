@@ -1,0 +1,50 @@
+{
+  "batchId": "catalog-delete-20261023-01",
+  "checkedOn": "2026-10-23",
+  "result": "PASS_RECORDED_PRESERVATION",
+  "readyForPlatformHandoff": true,
+  "evidenceScope": "All 224 batch objects are recorded PRESERVED in October 23 responses (pages 18\u201320). The contract index also retains older observations for other objects.",
+  "sourceCsv": "DIGITIZED_ITEM.csv",
+  "sourceSha256": "c52612047a1c2a5913c3694de896b4862c957179a598b08bbd2a5c0f71679f71",
+  "indexPath": "../../dps-submissions/preservation-index-2026-10-23.json",
+  "indexSha256": "237ef07ec97cc5584d29a1f879416eaa5be980ec94b076bc639f16b66eefdbc8",
+  "manifestSha256": "58148952d5f41db89812697cb69681f368157038bd0909e0bc9d87c3cb905171",
+  "expectedRoot": "/global/film/00/film/bevaring/",
+  "contractId": "91c5",
+  "databaseAssignment": "User confirmed assignment query executed; export contains 224 rows, matching preview.",
+  "counts": {
+    "manifestPaths": 224,
+    "uniquePaths": 224,
+    "uniqueObjectIds": 224,
+    "matchedPaths": 224,
+    "recordedPreservedPaths": 224,
+    "missingPaths": 0,
+    "nonPreservedPaths": 0,
+    "ambiguousMatches": 0,
+    "unsafePaths": 0,
+    "blankPaths": 0
+  },
+  "latestEvidenceBySnapshot": {
+    "2026-10-23-01": 224
+  },
+  "previousBatches": [
+    {
+      "batchId": "catalog-delete-20260904-01",
+      "manifestSha256": "22628a028aca866a4896a253fa181a02724f731d2bbe8a7dad417e08d4300683",
+      "paths": 1130,
+      "overlappingPaths": 0,
+      "overlappingObjectIds": 0
+    },
+    {
+      "batchId": "catalog-delete-20261005-01",
+      "manifestSha256": "84fce4375aae90acd471c2c4ca9fbb5720fb06cfe431320c77e1a96fef79929e",
+      "paths": 353,
+      "overlappingPaths": 0,
+      "overlappingObjectIds": 0
+    }
+  ],
+  "missingPaths": [],
+  "nonPreservedPaths": [],
+  "sentToPlatform": false,
+  "deletionConfirmed": false
+}

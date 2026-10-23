@@ -7,8 +7,12 @@ existing viewing/production files from SAM-FS into E-ARK and DPS.
 Status: package discovery, initialization, and fetch/metadata scripts are
 available. The existing produksjon DB pickup has been tested with production
 line 82, and initialization has completed successfully on nifi7. The fetch
-scripts are locally tested and ready for the next manual run. Catalog,
-E-ARK, and DPS adaptations remain to be implemented in this repository.
+scripts have passed local tests and the user-reported 2013 live copy/verification.
+Catalog/submission-body preparation is complete in the live flow and E-ARK is
+configured; that configuration is not fully exported into the repo. The
+[post-E-ARK event builder](04_Events/README.md) is locally tested on the 2023
+example, and its [2013 live output](examples/events/README.md) is recorded from
+the successful nifi7 run after work cleanup. Confirmed DPS completion remains pending.
 
 ## Prepare package FlowFiles
 
@@ -37,7 +41,7 @@ five stages:
 1. Pick up the package from the DB and initialize paths.
 2. Copy the media and source metadata, then verify source checksums.
 3. Fetch current catalog metadata and prepare the submission.
-4. Complete package checksums and generate the E-ARK SIP.
+4. Generate the E-ARK SIP (including checksums), then build the three events.
 5. Submit to DPS, record completion, and clean local staging.
 
 The first implementation covers the captured loose-MOV package. DPX batching,
@@ -51,6 +55,14 @@ The current manual test uses `digifilm_1300107_20130729`, DB item `49062190`,
 bypassing the STARTED update. See [Initialize](01_Initialize/README.md) for
 its scripts and output attributes, then [Fetch](02_Fetch%20files/README.md)
 for the metadata-first test and MOV copy/verification.
+After successful E-ARK generation, capture its completion timestamp, then
+[clean up work staging](05_Cleanup%20work/README.md) while retaining the
+completed SIP and external payloads for DPS. Use [Events](04_Events/README.md)
+to read the retained SIP metadata and write historical FFmpeg creation,
+transfer, and SIP-creation records together. The builder also supports retries
+after work deletion; no restaging is required for event creation.
+Leave the E-ARK **Checksum File** property unset; there is no separate
+produksjon checksum-manifest step.
 
 ## Source package examples
 
@@ -64,7 +76,8 @@ now includes its metadata and inventory. This package has a loose MOV file.
 
 The [digifilm_1300107_20130729 layout](examples/sam-fs/digifilm_1300107_20130729.notes.md)
 also records a production log and five `.done` files found in an older package.
-Only its directory listing is available so far.
+Its original XML/log contents are not copied locally; the separately captured
+[event output](examples/events/README.md) documents the successful live event build.
 
 Optional complete packages or partial downloads belong in
 [local-packages/](local-packages/README.md), which is ignored by Git except

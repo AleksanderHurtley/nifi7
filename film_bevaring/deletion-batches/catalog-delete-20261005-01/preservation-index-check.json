@@ -2,7 +2,7 @@
   "batchId": "catalog-delete-20261005-01",
   "result": "PASS_RECORDED_PRESERVATION",
   "evidenceScope": "Combined historical and October snapshots; not a complete fresh status check.",
-  "indexPath": "../../dps-submissions/preservation-index.json",
+  "indexPath": "../../dps-submissions/preservation-index-2026-10-05.json",
   "indexSha256": "15dbd7dfa930ae07062b5810efdc30e1a196eabd4c97edae8a379730e0cfdeea",
   "manifestSha256": "84fce4375aae90acd471c2c4ca9fbb5720fb06cfe431320c77e1a96fef79929e",
   "counts": {

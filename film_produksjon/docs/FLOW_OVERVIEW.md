@@ -3,8 +3,12 @@
 Status: step-by-step implementation in progress. Package discovery,
 initialization, and the two fetch scripts are available. The existing
 produksjon DB pickup has selected a test package on production line 82, and
-initialization has succeeded on nifi7. Fetch has passed local tests and is
-ready for a live manual run. Catalog, E-ARK, and DPS adaptation are still pending.
+initialization has succeeded on nifi7. The user has reported a successful
+2013 MOV fetch and checksum verification, completed Catalog/submission-body
+preparation, and configured E-ARK. Their live configuration is not fully
+exported here. The post-E-ARK event builder is locally tested against the
+2023 metadata. Its [2013 live output](../examples/events/README.md) is recorded
+from the successful nifi7 run after work cleanup; DPS completion remains pending.
 
 Transfer the existing viewing/production media byte-for-byte from SAM-FS into
 an E-ARK SIP and DPS. Reuse the existing NiFi groups and conventions, making
@@ -29,13 +33,13 @@ reach each step.
 flowchart TD
     A[1. Pick up package and initialize] --> B[2. Copy media and metadata, then verify]
     B --> C[3. Fetch catalog metadata and prepare submission]
-    C --> D[4. Complete checksums and generate E-ARK SIP]
+    C --> D[4. Generate E-ARK SIP and build events]
     D --> E[5. Submit to DPS, record completion, clean staging]
 ```
 
 These are five walkthrough stages; existing NiFi process groups can keep
 their current boundaries. Checksum verification after copying and package
-checksum generation before E-ARK remain separate responsibilities within
+checksum generation during E-ARK remain separate responsibilities within
 this path.
 
 ## Step-by-step walkthrough
@@ -176,23 +180,25 @@ the viewing-file URN supplies this package's catalog identity.
 **Check before continuing:** current catalog XML is staged and a populated
 submission body identifies the correct viewing/production object.
 
-### 4. Complete checksums and generate the E-ARK SIP
+### 4. Generate the E-ARK SIP and build events
 
-Reuse the [checksum generator](../../film_bevaring/06_Generate%20checksums/)
-and live `EarkSIPGenerator` configuration with produksjon paths. Generate the
-final package checksum manifest after the source and catalog metadata are
-in place. E-ARK produces the new SIP structure and METS around the existing
-media and prepared metadata.
+Use `EarkSIPGenerator` with produksjon paths after all media and catalog XML
+are staged. Leave **Checksum File** unset, as agreed: the generator calculates
+its package checksums. Fetch's earlier MOV fixity verification remains a
+separate check against historical source evidence; it does not create a
+`checksums.md5` file. No extra checksum-generator processor is required here.
+E-ARK produces the new structure and METS around the existing media and metadata.
 
-Bevaring writes `checksums.md5` as `<md5> *<relative-path>` lines and exposes
-`checksums.md5.path`, covering `metadata/` and `representations/`. Confirm the
-live processor's checksum format, path base, algorithm, and metadata mapping
-when wiring this stage. The file placements in the metadata mapping remain
-proposed until that check is complete.
-
-Start with the existing generator even if it reads the MOV again. Reusing the
-earlier verified digest is a later optimization that requires tracking whether
-the staged file has changed.
+On generator success, immediately capture `eark.end` and the actual software
+versions. Run [work-only cleanup](../05_Cleanup%20work/README.md) to remove the
+package's `work.dir` and any root scratch files, then the
+[three-event builder](../04_Events/README.md). The builder reads retained legacy
+METS and the MOV inside `transfer.dir`, not the deleted work paths, and writes
+external `events.ndjson`. It does not modify the completed SIP or put events
+into the package after its checksums are made. Keep `transfer.dir` and
+`payloads.dir` for event creation, DPS delivery, and retries. Earlier
+work-dependent stages such as fetch still need restaging after cleanup;
+event-build retries do not.
 
 **Check before continuing:** the generated SIP includes the unchanged MOV and
 all intended metadata, with checksums and file references matching its layout.
@@ -209,19 +215,22 @@ condition established by the live response-handling configuration.
 Adapt [finalization](../../film_bevaring/09_Finalize%20stats/) to the small set
 of transfer fields below, and configure
 [cleanup](../../film_bevaring/10_Package%20cleanup/) for this flow's local
-roots. SAM-FS source deletion is a separate operation.
+roots. This final all-directory cleanup is separate from early work-only
+cleanup and must wait for confirmed DPS completion. SAM-FS source deletion
+is a separate operation.
 
 **Check before completing the first run:** DPS confirms completion, the DB
 records the submission and outcome, and eligible local staging is cleaned.
 
 ## Events and basic operations
 
-Reuse the [event appender](../../film_bevaring/Add%20event.groovy) for
-`transfer` and `information package creation`. Adapt transfer text to MOV
-checksum verification and use the actual deployed agent versions. Complete
-event writes before the DPS stage uploads them. Preserve the historical
-`derivation` event in the legacy METS; mapping that history into separate DPS
-events can be decided later. This flow performs no new media conversion.
+Use the [produksjon event builder](../04_Events/README.md) after E-ARK success
+for historical FFmpeg `creation`, SAM-FS `transfer` including MOV verification,
+and `information package creation`. Each keeps its own evidence-based timestamp.
+Do not also append these records using bevaring's appender. Preserve the original
+`derivation` evidence in the unchanged legacy METS. This flow performs no new
+media conversion. Finish event writes before the DPS upload stage, retaining
+the existing flat NDJSON upload shape specified by the published OpenAPI.
 
 Keep the existing DB model (`DIGITIZED_ITEM`, `DI_EVENT`, `DI_PARAMETER`) and
 NiFi queue/error monitoring. Record package identity, source path, state,
