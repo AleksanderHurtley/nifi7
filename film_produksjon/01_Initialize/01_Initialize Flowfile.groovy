@@ -84,7 +84,7 @@ try {
         'metadata.descriptive.dir': descriptiveDir.toString(),
         'metadata.descriptive.depr_mets.dir': descriptiveDir.resolve('deprecated_mets').toString(),
         'metadata.preservation.dir': repDir.resolve('metadata/preservation').toString(),
-        'metadata.other.dir': repDir.resolve('metadata/other').toString(),
+        'metadata.technical.dir': repDir.resolve('metadata/technical').toString(),
         'metadata.other.unclassified.dir': workDir.resolve('metadata/other/unclassified').toString(),
         'total.pipeline.start': ff.getAttribute('total.pipeline.start')?.trim() ?: System.currentTimeMillis().toString()
     ])

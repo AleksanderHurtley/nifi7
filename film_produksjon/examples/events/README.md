@@ -26,3 +26,24 @@ This records a live 2013 event-build test after work cleanup, not proof that
 the events have been accepted by the DPS API or preservation completed.
 `packageId` is local bookkeeping; remove it before posting each event as
 described in [Events](../../04_Events/README.md).
+
+## Creation-event review, 2026-10-27
+
+[digifilm_1300107_20130729.reviewed.events.ndjson](digifilm_1300107_20130729.reviewed.events.ndjson)
+is an expected-output example derived from that capture, not another live run
+or accepted API payload. It applies the agreed reviewer/user changes:
+
+- Start with `Produksjonsfilen ... ble opprettet med FFmpeg`, without Historisk.
+- Clarify `Denne hendelsen er dokumentert i ettertid på grunnlag av de opprinnelige METS-metadataene.`
+  It is the event documentation that was created afterwards, not the MOV.
+- Use `Opprinnelig hendelsestype: derivat` without parentheses or a trailing
+  full stop. The original label remains in METS. Keep API eventType `creation`.
+- Move the version to `libavformat 54.63.104 (FFmpeg versjon ikke dokumentert)`
+  in agentVersion; omit creation outcomeDetail and the duplicate version sentence.
+
+Other event contents and all timestamps are retained for comparison. When the
+SIP is actually rebuilt to fix representation metadata paths, capture its new
+completion time for the new SIP-creation event. This example is not a reason
+to reuse the old completion time or blindly repost events to the rejected submission.
+The readable `.events.json` example also reflects the reviewed creation event;
+the separately appended submission response is retained unchanged.

@@ -63,6 +63,8 @@ assert defaults.attributes['transfer.dir'] == "/fc1/film_produksjon/transfer/${p
 assert defaults.attributes['metadata.descriptive.depr_mets.dir'] == "${defaults.attributes['work.dir']}/metadata/descriptive/deprecated_mets"
 assert !defaults.attributes.containsKey('metadata.preservation.source_mets.dir')
 assert !defaults.attributes.containsKey('metadata.descriptive.legacy_mavis.dir')
+assert !defaults.attributes.containsKey('metadata.other.dir')
+assert defaults.attributes['metadata.technical.dir'] == "${defaults.attributes['rep.dir']}/metadata/technical"
 assert defaults.attributes['package.uuid'] == input['package.uuid']
 assert defaults.attributes['prod_db_id'] == input['prod_db_id']
 assert !defaults.attributes.keySet().any { it.startsWith('dpx.') || it.startsWith('batches.') || it.startsWith('rawcooked.') }
@@ -119,11 +121,12 @@ try {
     def ready = runStage(1, attrs)
     assert ready.relationship == 'success'
     assert ready.attributes['setup.status'] == 'OK'
-    ['rep.data.dir', 'metadata.descriptive.depr_mets.dir', 'metadata.preservation.dir', 'metadata.other.dir'].each {
+    ['rep.data.dir', 'metadata.descriptive.depr_mets.dir', 'metadata.preservation.dir', 'metadata.technical.dir'].each {
         assert Files.isDirectory(Path.of(attrs[it]))
     }
     assert !Files.exists(Path.of(attrs['metadata.descriptive.dir'], 'legacy_mavis'))
     assert !Files.exists(Path.of(attrs['metadata.preservation.dir'], 'source_mets'))
+    assert !Files.exists(Path.of(attrs['rep.dir'], 'metadata/other'))
     assert !Files.exists(Path.of(attrs['metadata.other.unclassified.dir']))
     assert !Files.exists(Path.of(attrs['transfer.dir']))
 

@@ -67,9 +67,9 @@ created on the date encoded in the package name.
 | `meta/mavisMezzaninComponent.xml` | `metadata/descriptive/deprecated_mets/mavisMezzaninComponent.xml` |
 | `meta/mavisMezzaninTitle.xml` | `metadata/descriptive/deprecated_mets/mavisMezzaninTitle.xml` |
 | `meta/MAVIS_mezzaninCarrierUpdate.xml` | `metadata/descriptive/deprecated_mets/MAVIS_mezzaninCarrierUpdate.xml` |
-| `meta/ffprobe.xml` | `<rep>/metadata/other/ffprobe.xml` |
-| `meta/JHOVE_digifilm_796646_20230321.mov.xml` | `<rep>/metadata/preservation/JHOVE_digifilm_796646_20230321.mov.xml` |
-| `logs/<filename>` where present, except `*.done` | `<rep>/metadata/other/logs/<filename>` |
+| `meta/ffprobe.xml` | `<rep>/metadata/technical/ffprobe/ffprobe.xml` |
+| `meta/JHOVE_digifilm_796646_20230321.mov.xml` | `<rep>/metadata/technical/jhove/JHOVE_digifilm_796646_20230321.mov.xml` |
+| `logs/<filename>` where present, except `*.done` | `<rep>/metadata/preservation/logs/<filename>` |
 | Regular `*.done` files | Ignored; remain only in the source |
 | Current catalog XML fetched later | `metadata/descriptive/<catalog-export-filename>.xml` |
 
@@ -78,6 +78,17 @@ paths. Parse copies to produce new attributes, inventory, and submission JSON.
 Preserve historical references as evidence while the newly generated SIP METS
 describes the new layout. Empty source `logs/` needs no packaged file.
 Capture unexpected files for review rather than silently discarding them.
+
+The former representation `metadata/other` mapping caused stage rejection
+`NBSIPSTR20` for the 2013 package (review supplied 2026-10-27). The corrected
+map above uses tool-specific technical subdirectories for reports and
+preservation for processing history, following the
+[NB structure requirements](https://digitalpreservation.no/nb/docs/dps/sip/structure-requirements/)
+and [metadata guidance](https://digitalpreservation.no/nb/docs/dps/sip/metadata/).
+Package-level `metadata/other` is a different scope and is not globally renamed.
+Reconcile existing staging and regenerate SIP METS/checksums; changing the
+contents of the already-generated SIP in place is not the deployment plan.
+Local script tests do not establish acceptance of the corrected SIP in DPS.
 
 The source METS combines MODS description, PREMIS technical/fixity information,
 and historical events. Its complete content is retained unchanged under
@@ -106,7 +117,7 @@ shows the same loose MOV and seven-XML layout, plus one ffmpeg log under
 metadata contents, sizes, and checksums have not been checked for this package.
 
 Retain `logs/<filename>` unchanged under
-`<rep>/metadata/other/logs/<filename>` as production history, preserving any
+`<rep>/metadata/preservation/logs/<filename>` as production history, preserving any
 subdirectories, except for `.done` files. Regular `.done` files are explicitly
 ignored, whether empty or nonempty, and are not copied or sent to unclassified
 review. They are not evidence of current fixity or DPS status. These extra

@@ -16,7 +16,7 @@ List<String> directoryAttributes = [
     'metadata.descriptive.dir',
     'metadata.descriptive.depr_mets.dir',
     'metadata.preservation.dir',
-    'metadata.other.dir',
+    'metadata.technical.dir',
     'payloads.dir'
 ]
 List<String> payloadAttributes = ['events.payload.path', 'submission.payload.path']

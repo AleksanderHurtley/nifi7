@@ -34,8 +34,11 @@ try {
     }
     Path deprecatedMets = outputDirectory('metadata.descriptive.depr_mets.dir')
     Path preservation = outputDirectory('metadata.preservation.dir')
-    Path other = outputDirectory('metadata.other.dir')
+    Path technical = outputDirectory('metadata.technical.dir')
     Path unclassified = outputDirectory('metadata.other.unclassified.dir')
+    if (Files.exists(technical.parent.resolve('other'), LinkOption.NOFOLLOW_LINKS)) {
+        throw new IOException('Obsolete representation metadata/other directory exists; reconcile old staging or use a fresh work directory before fetching')
+    }
     if (!Files.isDirectory(source, LinkOption.NOFOLLOW_LINKS)) {
         throw new IOException("Source directory not found: ${source}")
     }
@@ -112,9 +115,9 @@ try {
             copyMetadata(path, dst)
             if (name == 'MAVIS_mezzaninCarrierUpdate.xml') stagedCarrierUpdate = dst
         } else if (name == 'ffprobe.xml') {
-            copyMetadata(path, other.resolve(name))
+            copyMetadata(path, technical.resolve('ffprobe').resolve(name))
         } else if (name == "JHOVE_${videoName}.xml") {
-            stagedJhove = preservation.resolve(name)
+            stagedJhove = technical.resolve('jhove').resolve(name)
             copyMetadata(path, stagedJhove)
         } else {
             reviewEntry(path, true)
@@ -131,7 +134,7 @@ try {
                     return
                 }
                 if (Files.isRegularFile(path, LinkOption.NOFOLLOW_LINKS)) {
-                    copyMetadata(path, other.resolve('logs').resolve(logs.relativize(path)))
+                    copyMetadata(path, preservation.resolve('logs').resolve(logs.relativize(path)))
                 } else {
                     reviewEntry(path, false)
                 }

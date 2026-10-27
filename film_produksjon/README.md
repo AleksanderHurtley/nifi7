@@ -32,8 +32,10 @@ Local output uses `/fc1/film_produksjon/` with `work/`, `payloads/`, and
 `transfer/` beneath it. Source METS is preserved under package-level
 `metadata/descriptive/deprecated_mets/`, matching bevaring. The four legacy
 MAVIS XML snapshots are grouped there unchanged, separate from current catalog
-exports. Regular `.done` files are ignored; JHOVE, ffprobe, and logs keep their
-representation-level locations.
+exports. Regular `.done` files are ignored. Representation reports use
+`metadata/technical/ffprobe/` and `metadata/technical/jhove/`; conversion logs
+use `metadata/preservation/logs/`. The old representation-level `metadata/other`
+was rejected in stage and must not be included in a regenerated SIP.
 
 The [flow overview and step-by-step walkthrough](docs/FLOW_OVERVIEW.md) use
 five stages:

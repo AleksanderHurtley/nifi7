@@ -27,9 +27,9 @@ documented loose-MOV layout under `source.dir`.
 |---|---|
 | `<package.name>.xml` | `metadata.descriptive.depr_mets.dir` |
 | The four known MAVIS XML files under `meta/` | `metadata.descriptive.depr_mets.dir` |
-| `meta/ffprobe.xml` | `metadata.other.dir` |
-| `meta/JHOVE_<package.name>.mov.xml` | `metadata.preservation.dir` |
-| Files under `logs/`, including subdirectories, except `*.done` | `<metadata.other.dir>/logs/` |
+| `meta/ffprobe.xml` | `<metadata.technical.dir>/ffprobe/ffprobe.xml` |
+| `meta/JHOVE_<package.name>.mov.xml` | `<metadata.technical.dir>/jhove/JHOVE_<package.name>.mov.xml` |
+| Files under `logs/`, including subdirectories, except `*.done` | `<metadata.preservation.dir>/logs/` |
 | Regular `*.done` files | Ignored; not copied or sent to unclassified review |
 
 Retained files are copied byte-for-byte with their original names. The package
@@ -42,6 +42,17 @@ original names. They are not METS documents, and grouping does not convert
 their format. Current catalog exports remain outside this legacy directory.
 JHOVE and ffprobe keep their report-specific locations above. There is no
 catch-all rule that moves every XML file into `deprecated_mets/`.
+
+The stage review rejected representation-level `metadata/other` with
+`NBSIPSTR20`. That directory is no longer created. Technical reports use
+tool-specific subdirectories as required by
+[NBSIPSTR16](https://digitalpreservation.no/nb/docs/dps/sip/structure-requirements/);
+conversion logs document processing history and are retained under preservation.
+The old `metadata.other.dir` attribute is ignored. An existing representation
+`metadata/other` causes failure before copying; reconcile old staging or use
+fresh staging, then regenerate the SIP. Nothing is automatically moved/deleted
+from an old or rejected SIP. Package-level `metadata/other/unclassified` is
+unchanged; unknown source files still fail the normal ready/failure gate.
 
 The retired `metadata.descriptive.legacy_mavis.dir` attribute is ignored. Existing
 files under the old `legacy_mavis/` directory are not moved or deleted by this

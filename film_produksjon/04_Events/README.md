@@ -70,10 +70,26 @@ reconstructed historical `creation` of the existing MOV, not a claim of a
 new conversion in this flow. Its source type is retained in eventDetail.
 The retained original XML remains unchanged in the SIP's `deprecated_mets/`.
 
-The recorded `Lavf58.62.100` is kept in eventDetail as a source software/library
-identifier, not mislabeled as the FFmpeg release version. A non-Lavf creating
-application version, if present, is carried as `agentVersion`; an absent
-version is omitted. Agent notes remain stable rather than changing per package.
+Following the stage review, eventDetail begins `Produksjonsfilen <filename>
+ble opprettet med FFmpeg.` rather than `Historisk opprettelse`. It explicitly
+states `Denne hendelsen er dokumentert i ettertid på grunnlag av de opprinnelige
+METS-metadataene.` This refers to documenting the event afterwards, not
+reconstructing the MOV from METS. The original source type is written in Norwegian
+as `Opprinnelig hendelsestype: derivat` or `Opprinnelig hendelsestype: opprettelse`, without a parenthetical English
+label or trailing full stop. The original label remains in the retained METS. The
+controlled API `eventType` remains `creation`, not a translated value.
+The creation event omits `outcomeDetail`, retaining `outcome=success` and fileRef.
+
+The recorded `Lavf58.62.100` becomes agentVersion
+`libavformat 58.62.100 (FFmpeg versjon ikke dokumentert)`. For the 2013 example
+the value is `libavformat 54.63.104 (FFmpeg versjon ikke dokumentert)`.
+This identifies the library version without claiming the complete FFmpeg
+release/build is known; see the
+[FFmpeg libavformat identifier](https://www.ffmpeg.org/doxygen/trunk/libavformat_2version_8h.html).
+The version is no longer repeated in eventDetail. A non-Lavf creating
+application version is used as recorded; an absent version is omitted. An
+unrecognized Lavf identifier is kept verbatim with the same unknown-FFmpeg
+qualification instead of guessing a numeric version. Agent notes remain stable.
 No FFmpeg command, source format, or lossless result is inferred.
 
 The MOV is bound to one PREMIS object via the source METS `ADMID`, then to one
@@ -150,6 +166,7 @@ Tests use the captured 2023 XML with small synthetic MOV bytes and a minimal
 SIP existence fixture. They execute the real cleanup script before event
 creation to cover deleted work and stale work-path attributes. They also
 cover absent work attributes, missing retained METS (without fallback),
+reviewed creation wording/no outcomeDetail, qualified Lavf versions,
 epoch/ISO timestamps with timezone offsets, readable UTF-8 Norwegian letters
 and safe JSON control-character escaping, exact dates/agents/fileRef, linkage failures,
 status/size/checksum gates, missing SIP output, immutable input XML, retry-safe

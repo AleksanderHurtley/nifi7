@@ -139,17 +139,24 @@ try {
     String recordedVersion = applications[0].creatingApplicationVersion.text().trim()
     def creationAgent = [agentName: 'FFmpeg', agentType: 'software',
         agentNote: 'Programvare for behandling og produksjon av lyd- og videofiler.']
-    // Lavf is a libavformat identifier, not an FFmpeg release number. Keep it as source evidence.
-    if (recordedVersion && !recordedVersion.toLowerCase(Locale.ROOT).startsWith('lavf')) {
-        creationAgent.agentVersion = recordedVersion
+    // A Lavf version identifies libavformat, not the complete FFmpeg build.
+    if (recordedVersion) {
+        def libraryVersion = recordedVersion =~ /(?i)Lavf(\d+\.\d+\.\d+)/
+        if (libraryVersion.matches()) {
+            creationAgent.agentVersion = "libavformat ${libraryVersion.group(1)} (FFmpeg versjon ikke dokumentert)".toString()
+        } else if (recordedVersion.toLowerCase(Locale.ROOT).startsWith('lavf')) {
+            creationAgent.agentVersion = "${recordedVersion} (FFmpeg versjon ikke dokumentert)".toString()
+        } else {
+            creationAgent.agentVersion = recordedVersion
+        }
     }
-    String creationDetail = "Historisk opprettelse av produksjonsfilen ${filename} med FFmpeg. Rekonstruert fra opprinnelig METS-metadata; opprinnelig hendelsestype: ${historicalType}."
-    if (recordedVersion) creationDetail += " Registrert programvare-/bibliotekversjon: ${recordedVersion}."
+    String historicalLabel = historicalType.equalsIgnoreCase('derivation') ? 'derivat' : 'opprettelse'
+    String creationDetail = "Produksjonsfilen ${filename} ble opprettet med FFmpeg. Denne hendelsen er dokumentert i ettertid på grunnlag av de opprinnelige METS-metadataene. Opprinnelig hendelsestype: ${historicalLabel}"
     def records = [
         [packageId: pkg, agent: creationAgent,
          eventDateTime: creationTime.toString(), eventType: 'creation',
          eventDetail: creationDetail, fileRef: [relativePath: fileRef],
-         outcome: 'success', outcomeDetail: "Resulterende MOV-fil bevart som ${fileRef}."],
+         outcome: 'success'],
         [packageId: pkg, agent: [agentName: 'Apache NiFi', agentType: 'software', agentVersion: nifiVersion,
             agentNote: 'Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines.'],
          eventDateTime: transferTime.toString(), eventType: 'transfer',

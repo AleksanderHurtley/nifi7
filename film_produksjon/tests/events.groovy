@@ -100,9 +100,11 @@ try {
     assert events.every { it.packageId == pkg && it.outcome == 'success' && !it.containsKey('event') }
     assert events.every { it.agent.agentType == 'software' && it.agent.containsKey('agentNote') && !it.agent.containsKey('agentNotes') }
     assert events[0].agent.agentName == 'FFmpeg'
-    assert !events[0].agent.containsKey('agentVersion')
-    assert events[0].eventDetail.contains('Lavf58.62.100')
-    assert events[0].eventDetail.contains('derivation')
+    assert events[0].agent.agentVersion == 'libavformat 58.62.100 (FFmpeg versjon ikke dokumentert)'
+    assert events[0].eventDetail == "Produksjonsfilen ${pkg}.mov ble opprettet med FFmpeg. Denne hendelsen er dokumentert i ettertid på grunnlag av de opprinnelige METS-metadataene. Opprinnelig hendelsestype: derivat"
+    assert !events[0].containsKey('outcomeDetail')
+    assert !events[0].eventDetail.contains('Lavf')
+    assert !events[0].eventDetail.contains('Historisk')
     assert events[0].eventDateTime == '2023-05-04T07:02:30Z'
     assert events[0].fileRef.relativePath == relativeMov
     assert !events[1].containsKey('fileRef') && !events[2].containsKey('fileRef')
@@ -198,6 +200,21 @@ try {
     assert runStage(version.attributes).relationship == 'success'
     assert records(version.events)[0].agent.agentVersion == '6.0'
 
+    def oldVersion = fixture()
+    replaceText(oldVersion.mets, 'Lavf58.62.100', 'Lavf54.63.104')
+    assert runStage(oldVersion.attributes).relationship == 'success'
+    assert records(oldVersion.events)[0].agent.agentVersion == 'libavformat 54.63.104 (FFmpeg versjon ikke dokumentert)'
+
+    def noVersion = fixture()
+    replaceText(noVersion.mets, '<premis:creatingApplicationVersion>Lavf58.62.100</premis:creatingApplicationVersion>', '')
+    assert runStage(noVersion.attributes).relationship == 'success'
+    assert !records(noVersion.events)[0].agent.containsKey('agentVersion')
+
+    def creationType = fixture()
+    replaceText(creationType.mets, '<premis:eventType>derivation</premis:eventType>', '<premis:eventType>creation</premis:eventType>')
+    assert runStage(creationType.attributes).relationship == 'success'
+    assert records(creationType.events)[0].eventDetail.endsWith('Opprinnelig hendelsestype: opprettelse')
+
     // Write all Norwegian letters as UTF-8, but retain JSON escaping for quotes,
     // backslashes, and embedded newlines so every event still occupies one line.
     def unicode = fixture()
@@ -209,7 +226,7 @@ try {
     String unicodeOutput = Files.readString(unicode.events)
     assert unicodeOutput.contains('æøå ÆØÅ')
     assert Files.readAllLines(unicode.events).size() == 3
-    assert records(unicode.events)[0].eventDetail.contains(specialVersion)
+    assert records(unicode.events)[0].agent.agentVersion.contains(specialVersion)
     assert records(unicode.events)[1].eventDetail.contains('arbeidsområde')
 
     ['{"packageId":"other","eventType":"creation"}\n',

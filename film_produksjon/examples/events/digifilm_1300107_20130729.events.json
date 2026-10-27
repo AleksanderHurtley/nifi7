@@ -5,16 +5,16 @@
       "agent": {
         "agentName": "FFmpeg",
         "agentType": "software",
-        "agentNote": "Programvare for behandling og produksjon av lyd- og videofiler."
+        "agentNote": "Programvare for behandling og produksjon av lyd- og videofiler.",
+        "agentVersion": "libavformat 54.63.104 (FFmpeg versjon ikke dokumentert)"
       },
       "eventDateTime": "2013-08-12T11:14:34Z",
       "eventType": "creation",
-      "eventDetail": "Historisk opprettelse av produksjonsfilen digifilm_1300107_20130729.mov med FFmpeg. Rekonstruert fra opprinnelig METS-metadata; opprinnelig hendelsestype: derivation. Registrert programvare-/bibliotekversjon: Lavf54.63.104.",
+      "eventDetail": "Produksjonsfilen digifilm_1300107_20130729.mov ble opprettet med FFmpeg. Denne hendelsen er dokumentert i ettertid på grunnlag av de opprinnelige METS-metadataene. Opprinnelig hendelsestype: derivat",
       "fileRef": {
         "relativePath": "representations/primary_20130729/data/digifilm_1300107_20130729.mov"
       },
-      "outcome": "success",
-      "outcomeDetail": "Resulterende MOV-fil bevart som representations/primary_20130729/data/digifilm_1300107_20130729.mov."
+      "outcome": "success"
     },
     {
       "packageId": "digifilm_1300107_20130729",
@@ -44,4 +44,16 @@
       "outcome": "success"
     }
   ]
+}
+
+{
+  "contractId" : "91c5",
+  "submissionId" : "5Qz6VRNrUXdxF0YO0o7aEY",
+  "objectId" : "digifilm_1300107_20130729",
+  "clientId" : "nb-levende-bilder",
+  "archiveId" : "01a168a3-af3e-7cca-b6f3-6d90208d2bfc",
+  "status" : "REGISTERED",
+  "priority" : 70,
+  "message" : null,
+  "files" : [ ]
 }

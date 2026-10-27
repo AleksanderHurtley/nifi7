@@ -47,6 +47,8 @@ For the current manual test, the main output attributes are:
 | `submission.payload.path` | `<payloads.dir>/submission.json` |
 | `transfer.dir` | `/fc1/film_produksjon/transfer/digifilm_1300107_20130729` |
 | `metadata.descriptive.depr_mets.dir` | `<work.dir>/metadata/descriptive/deprecated_mets` |
+| `metadata.technical.dir` | `<rep.dir>/metadata/technical` |
+| `metadata.preservation.dir` | `<rep.dir>/metadata/preservation` |
 
 The first script also sets the metadata directory attributes used by the
 [staging map](../docs/METADATA_MAPPING.md). Source METS and the four known legacy
@@ -76,10 +78,22 @@ overwriting different files, then remove the old directory only when empty.
 Do not package both the old and new layouts. A new metadata fetch copies the
 source files to the new location but does not clean up the old location.
 
+After the staging review reported `NBSIPSTR20`, representation-level
+`metadata.other.dir` is retired and ignored by Fetch. Deploy both Initialize
+scripts plus the metadata Fetch script together and rerun Initialize to set
+`metadata.technical.dir`. Fetch writes ffprobe under `technical/ffprobe/`,
+JHOVE under `technical/jhove/`, and conversion logs under `preservation/logs/`.
+Use fresh package staging or reconcile old copies first: an existing
+representation `metadata/other` causes Fetch to fail, not silently package it.
+Old JHOVE copies in preservation are not automatically deleted. Regenerate
+the SIP after all paths are corrected; don't rename files inside a completed
+SIP without rebuilding its METS and checksums. Package-level
+`metadata/other/unclassified` remains separate from representation metadata.
+
 ## Directory and payload behavior
 
 The second script creates work, representation data, descriptive metadata,
-the shared legacy metadata directory, preservation metadata, other metadata, and
+the shared legacy metadata directory, preservation metadata, technical metadata, and
 payload directories. It creates `events.ndjson` and `submission.json` as
 empty files if absent, preserving existing files and their content on reruns.
 Unlike the bevaring initializer, it does not reset existing payloads.

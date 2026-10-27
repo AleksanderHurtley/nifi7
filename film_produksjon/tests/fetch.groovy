@@ -126,14 +126,21 @@ try {
         assert Arrays.equals(Files.readAllBytes(example.resolve('meta').resolve(name)), Files.readAllBytes(staged))
     }
     assert !Files.exists(Path.of(parsed.attributes['metadata.descriptive.dir'], 'legacy_mavis'))
+    assert !Files.exists(Path.of(parsed.attributes['rep.dir'], 'metadata/other'))
+    ['ffprobe/ffprobe.xml', "jhove/JHOVE_${pkg}.mov.xml"].each { relative ->
+        Path report = Path.of(parsed.attributes['metadata.technical.dir'], relative.toString())
+        assert Arrays.equals(Files.readAllBytes(example.resolve('meta').resolve(report.fileName)), Files.readAllBytes(report))
+    }
     assert runStage(3, parsed.attributes).relationship == 'failure' // Omitted media is not a successful transfer.
 
     // A queued FlowFile's retired attribute must not select the old layout.
     def queued = fixture(true)
     Path retiredMavisDir = Path.of(queued.attributes['metadata.descriptive.dir'], 'legacy_mavis')
-    def regrouped = runStage(2, queued.attributes + ['metadata.descriptive.legacy_mavis.dir': retiredMavisDir.toString()])
+    def regrouped = runStage(2, queued.attributes + ['metadata.descriptive.legacy_mavis.dir': retiredMavisDir.toString(),
+        'metadata.other.dir': Path.of(queued.attributes['rep.dir'], 'metadata/other').toString()])
     assert regrouped.relationship == 'success': regrouped.attributes
     assert !Files.exists(retiredMavisDir)
+    assert !Files.exists(Path.of(regrouped.attributes['rep.dir'], 'metadata/other'))
     assert regrouped.attributes['media.expected.md5'] == mediaMd5
     assert runStage(2, regrouped.attributes).relationship == 'success'
     assert runStage(3, regrouped.attributes).relationship == 'success'
@@ -153,12 +160,13 @@ try {
     assert metadata.attributes['metadata.org.count'] == '9' // Seven XML files and two logs.
     assert metadata.attributes['media.expected.md5'] == mediaMd5
     assert metadata.attributes['metadata.org.review.required'] == 'false'
-    assert !Files.exists(Path.of(metadata.attributes['metadata.other.dir'], 'workflow_markers'))
+    assert !Files.exists(Path.of(metadata.attributes['metadata.preservation.dir'], 'workflow_markers'))
+    assert !Files.exists(Path.of(metadata.attributes['rep.dir'], 'metadata/other'))
     assert Files.readString(full.source.resolve('jhove.done')) == 'historical marker with content\n'
     Files.walk(Path.of(metadata.attributes['work.dir'])).withCloseable { paths ->
         assert paths.noneMatch { it.fileName.toString().toLowerCase(Locale.ROOT).endsWith('.done') }
     }
-    assert Files.readString(Path.of(metadata.attributes['metadata.other.dir'], 'logs/nested/extra.log')) == 'nested log\n'
+    assert Files.readString(Path.of(metadata.attributes['metadata.preservation.dir'], 'logs/nested/extra.log')) == 'nested log\n'
     def fetched = runStage(3, metadata.attributes)
     assert fetched.relationship == 'success': fetched.attributes
     assert fetched.attributes['fetch.status'] == 'OK'
@@ -171,6 +179,12 @@ try {
     assert Arrays.equals(Files.readAllBytes(full.source.resolve("lossless/${pkg}.mov")), media)
     assertNoScratchMov(fetched.attributes)
     assert runStage(3, metadata.attributes).attributes['fetch.video.reused'] == 'true'
+
+    def oldLayout = fixture(true)
+    Files.createDirectories(Path.of(oldLayout.attributes['rep.dir'], 'metadata/other'))
+    def rejectedLayout = runStage(2, oldLayout.attributes)
+    assert rejectedLayout.relationship == 'failure'
+    assert rejectedLayout.attributes['error.message'].contains('Obsolete representation metadata/other')
 
     // Reuse still hashes the staged bytes and never overwrites corrupt existing media.
     byte[] corrupt = media.clone()
