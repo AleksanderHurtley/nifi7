@@ -137,21 +137,23 @@ try {
     // packageId is local bookkeeping and must be removed before each API POST.
     String historicalType = historical.eventType.text().trim()
     String recordedVersion = applications[0].creatingApplicationVersion.text().trim()
-    def creationAgent = [agentName: 'FFmpeg', agentType: 'software',
-        agentNote: 'Programvare for behandling og produksjon av lyd- og videofiler.']
+    // Responsible organization agreed for this flow; software evidence remains in eventDetail.
+    def creationAgent = [agentName: 'Digital filmlab Mo i Rana, Nasjonalbiblioteket', agentType: 'organization',
+        agentNote: 'Fagmiljø ved Nasjonalbiblioteket som utfører filmskanning og digitalt etterarbeid for bevaring og formidling.']
     // A Lavf version identifies libavformat, not the complete FFmpeg build.
+    String versionDetail = 'Versjonen av FFmpeg fremgår ikke av kildemetadataene. '
     if (recordedVersion) {
         def libraryVersion = recordedVersion =~ /(?i)Lavf(\d+\.\d+\.\d+)/
         if (libraryVersion.matches()) {
-            creationAgent.agentVersion = "libavformat ${libraryVersion.group(1)} (FFmpeg versjon ikke dokumentert)".toString()
+            versionDetail = "Registrert bibliotekversjon: libavformat ${libraryVersion.group(1)}. Versjonen av FFmpeg fremgår ikke av kildemetadataene. "
         } else if (recordedVersion.toLowerCase(Locale.ROOT).startsWith('lavf')) {
-            creationAgent.agentVersion = "${recordedVersion} (FFmpeg versjon ikke dokumentert)".toString()
+            versionDetail = "Registrert versjonsinformasjon: ${recordedVersion}. Versjonen av FFmpeg fremgår ikke av kildemetadataene. "
         } else {
-            creationAgent.agentVersion = recordedVersion
+            versionDetail = "Registrert versjon av FFmpeg: ${recordedVersion}. "
         }
     }
     String historicalLabel = historicalType.equalsIgnoreCase('derivation') ? 'derivat' : 'opprettelse'
-    String creationDetail = "Produksjonsfilen ${filename} ble opprettet med FFmpeg. Denne hendelsen er dokumentert i ettertid på grunnlag av de opprinnelige METS-metadataene. Opprinnelig hendelsestype: ${historicalLabel}"
+    String creationDetail = "Produksjonsfilen ${filename} ble opprettet med FFmpeg. ${versionDetail}Denne hendelsen er dokumentert i ettertid på grunnlag av de opprinnelige METS-metadataene. Opprinnelig hendelsestype: ${historicalLabel}"
     def records = [
         [packageId: pkg, agent: creationAgent,
          eventDateTime: creationTime.toString(), eventType: 'creation',

@@ -27,7 +27,7 @@ the events have been accepted by the DPS API or preservation completed.
 `packageId` is local bookkeeping; remove it before posting each event as
 described in [Events](../../04_Events/README.md).
 
-## Creation-event review, 2026-10-27
+## Creation-event review, updated 2026-10-30
 
 [digifilm_1300107_20130729.reviewed.events.ndjson](digifilm_1300107_20130729.reviewed.events.ndjson)
 is an expected-output example derived from that capture, not another live run
@@ -38,12 +38,18 @@ or accepted API payload. It applies the agreed reviewer/user changes:
   It is the event documentation that was created afterwards, not the MOV.
 - Use `Opprinnelig hendelsestype: derivat` without parentheses or a trailing
   full stop. The original label remains in METS. Keep API eventType `creation`.
-- Move the version to `libavformat 54.63.104 (FFmpeg versjon ikke dokumentert)`
-  in agentVersion; omit creation outcomeDetail and the duplicate version sentence.
+- Use `Digital filmlab Mo i Rana, Nasjonalbiblioteket` as the agreed responsible
+  organization, with no agentVersion. This is agreed flow context, while the
+  source METS identifies the FFmpeg software used.
+- Preserve version evidence in eventDetail as `Registrert bibliotekversjon:
+  libavformat 54.63.104. Versjonen av FFmpeg fremgår ikke av kildemetadataene.`
+  Use separate sentences without parentheses; omit creation outcomeDetail.
 
 Other event contents and all timestamps are retained for comparison. When the
 SIP is actually rebuilt to fix representation metadata paths, capture its new
 completion time for the new SIP-creation event. This example is not a reason
 to reuse the old completion time or blindly repost events to the rejected submission.
-The readable `.events.json` example also reflects the reviewed creation event;
-the separately appended submission response is retained unchanged.
+The readable [`.events.json` example](digifilm_1300107_20130729.events.json)
+contains the three updated events as one JSON document for sharing and discussion.
+It has no appended submission response. Its package data and timestamps remain
+those of the original example; it is a review draft, not a new live-run capture.

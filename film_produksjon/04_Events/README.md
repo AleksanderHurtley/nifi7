@@ -59,7 +59,7 @@ as are `work.dir` and `work.base.dir`. There is no fallback to old work files.
 
 | Type | Evidence and timestamp | Agent and scope |
 |---|---|---|
-| `creation` | Historical PREMIS creatingApplication date, corroborated by a linked successful creation/derivation event | FFmpeg; `fileRef.relativePath` identifies the MOV in the new SIP |
+| `creation` | Historical PREMIS creatingApplication date, corroborated by a linked successful creation/derivation event | Digital filmlab Mo i Rana, Nasjonalbiblioteket (`organization`); FFmpeg evidence in eventDetail; `fileRef.relativePath` identifies the MOV in the new SIP |
 | `transfer` | Existing `transfer.event.datetime`, captured after MOV verification | Apache NiFi; package-level, including verification of the MOV only |
 | `information package creation` | `eark.end`, captured on generator success | nifi-nb-eark-nar.EarkSIPGenerator; package-level |
 
@@ -80,16 +80,26 @@ label or trailing full stop. The original label remains in the retained METS. Th
 controlled API `eventType` remains `creation`, not a translated value.
 The creation event omits `outcomeDetail`, retaining `outcome=success` and fileRef.
 
-The recorded `Lavf58.62.100` becomes agentVersion
-`libavformat 58.62.100 (FFmpeg versjon ikke dokumentert)`. For the 2013 example
-the value is `libavformat 54.63.104 (FFmpeg versjon ikke dokumentert)`.
-This identifies the library version without claiming the complete FFmpeg
-release/build is known; see the
+The agreed creation agent is the responsible organization:
+`Digital filmlab Mo i Rana, Nasjonalbiblioteket`, with type `organization` and
+note `Fagmiljø ved Nasjonalbiblioteket som utfører filmskanning og digitalt
+etterarbeid for bevaring og formidling.` This attribution is agreed context
+for this flow; it is not extracted or inferred from the METS software fields.
+The organization has no `agentVersion` field, including no empty-string value.
+The linked historical METS must still identify FFmpeg as the creating application.
+
+Software version evidence is included in eventDetail instead. The recorded
+`Lavf58.62.100` produces `Registrert bibliotekversjon: libavformat 58.62.100.
+Versjonen av FFmpeg fremgår ikke av kildemetadataene.` For the 2013 example
+the library version is `54.63.104`. The qualification is a separate sentence,
+without parentheses. This identifies the library version without claiming the
+complete FFmpeg release/build is known; see the
 [FFmpeg libavformat identifier](https://www.ffmpeg.org/doxygen/trunk/libavformat_2version_8h.html).
-The version is no longer repeated in eventDetail. A non-Lavf creating
-application version is used as recorded; an absent version is omitted. An
-unrecognized Lavf identifier is kept verbatim with the same unknown-FFmpeg
-qualification instead of guessing a numeric version. Agent notes remain stable.
+A non-Lavf creating application version is used verbatim after
+`Registrert versjon av FFmpeg:`. An unrecognized Lavf identifier is retained
+after `Registrert versjonsinformasjon:`, with the sentence explaining that the
+FFmpeg version is undocumented. An absent version produces only that explanatory
+sentence; no library version is invented. Agent notes remain stable.
 No FFmpeg command, source format, or lossless result is inferred.
 
 The MOV is bound to one PREMIS object via the source METS `ADMID`, then to one
@@ -166,7 +176,8 @@ Tests use the captured 2023 XML with small synthetic MOV bytes and a minimal
 SIP existence fixture. They execute the real cleanup script before event
 creation to cover deleted work and stale work-path attributes. They also
 cover absent work attributes, missing retained METS (without fallback),
-reviewed creation wording/no outcomeDetail, qualified Lavf versions,
+reviewed organization agent without agentVersion, creation wording/no outcomeDetail,
+Lavf/software version evidence in eventDetail,
 epoch/ISO timestamps with timezone offsets, readable UTF-8 Norwegian letters
 and safe JSON control-character escaping, exact dates/agents/fileRef, linkage failures,
 status/size/checksum gates, missing SIP output, immutable input XML, retry-safe

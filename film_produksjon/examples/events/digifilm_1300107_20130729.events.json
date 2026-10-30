@@ -3,14 +3,13 @@
     {
       "packageId": "digifilm_1300107_20130729",
       "agent": {
-        "agentName": "FFmpeg",
-        "agentType": "software",
-        "agentNote": "Programvare for behandling og produksjon av lyd- og videofiler.",
-        "agentVersion": "libavformat 54.63.104 (FFmpeg versjon ikke dokumentert)"
+        "agentName": "Digital filmlab Mo i Rana, Nasjonalbiblioteket",
+        "agentType": "organization",
+        "agentNote": "Fagmiljø ved Nasjonalbiblioteket som utfører filmskanning og digitalt etterarbeid for bevaring og formidling."
       },
       "eventDateTime": "2013-08-12T11:14:34Z",
       "eventType": "creation",
-      "eventDetail": "Produksjonsfilen digifilm_1300107_20130729.mov ble opprettet med FFmpeg. Denne hendelsen er dokumentert i ettertid på grunnlag av de opprinnelige METS-metadataene. Opprinnelig hendelsestype: derivat",
+      "eventDetail": "Produksjonsfilen digifilm_1300107_20130729.mov ble opprettet med FFmpeg. Registrert bibliotekversjon: libavformat 54.63.104. Versjonen av FFmpeg fremgår ikke av kildemetadataene. Denne hendelsen er dokumentert i ettertid på grunnlag av de opprinnelige METS-metadataene. Opprinnelig hendelsestype: derivat",
       "fileRef": {
         "relativePath": "representations/primary_20130729/data/digifilm_1300107_20130729.mov"
       },
