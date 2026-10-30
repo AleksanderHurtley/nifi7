@@ -45,15 +45,3 @@
     }
   ]
 }
-
-{
-  "contractId" : "91c5",
-  "submissionId" : "5Qz6VRNrUXdxF0YO0o7aEY",
-  "objectId" : "digifilm_1300107_20130729",
-  "clientId" : "nb-levende-bilder",
-  "archiveId" : "01a168a3-af3e-7cca-b6f3-6d90208d2bfc",
-  "status" : "REGISTERED",
-  "priority" : 70,
-  "message" : null,
-  "files" : [ ]
-}

@@ -66,6 +66,14 @@ after work deletion; no restaging is required for event creation.
 Leave the E-ARK **Checksum File** property unset; there is no separate
 produksjon checksum-manifest step.
 
+For the final **Cleanup** processor, use the produksjon-local
+[package cleanup script](10_Package%20cleanup/README.md), copied unchanged
+from bevaring and reported working in the live produksjon flow. It removes
+this package's `payloads/`, `transfer/`, and `work/` directories using the
+incoming base attributes. The calling flow controls when it runs after delivery;
+the script only performs deletion and path checks. This is separate from the
+earlier work-only cleanup described above.
+
 ## Source package examples
 
 Copy small metadata files and record the source layout in

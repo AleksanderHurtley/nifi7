@@ -161,6 +161,11 @@ Conventions:
 
 ## Package cleanup attributes
 
+Inputs: `package.name`, `payloads.base.dir`, `transfer.base.dir`, and `work.base.dir`.
+Package names must be single directory names (both bevaring names with carrier
+suffixes and produksjon names are supported); base paths must be absolute.
+No workflow status attributes are required. Output flags are reset for each run.
+
 - `cleanup.package.status`
   - `OK` or `FAIL`
 - `cleanup.package.deleted.any`

@@ -214,8 +214,11 @@ condition established by the live response-handling configuration.
 
 Adapt [finalization](../../film_bevaring/09_Finalize%20stats/) to the small set
 of transfer fields below, and configure
-[cleanup](../../film_bevaring/10_Package%20cleanup/) for this flow's local
-roots. This final all-directory cleanup is separate from early work-only
+[package cleanup](../10_Package%20cleanup/README.md) using the produksjon-local
+`01_Delete package directories.groovy`, copied unchanged from the working
+bevaring script. It uses the incoming `payloads.base.dir`, `transfer.base.dir`,
+and `work.base.dir` attributes, so no root-path adaptation is needed.
+This final all-directory cleanup is separate from early work-only
 cleanup and must wait for confirmed DPS completion. SAM-FS source deletion
 is a separate operation.
 

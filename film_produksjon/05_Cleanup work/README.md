@@ -4,8 +4,9 @@ Use [E-ARK - Cleanup.groovy](E-ARK%20-%20Cleanup.groovy) in
 ExecuteGroovyScript to remove only the current package's work directory after
 SIP generation has succeeded. The [event builder](../04_Events/README.md) reads
 the retained metadata/media in the SIP and can run after cleanup.
-The script is intentionally separate from bevaring's final all-directory
-cleanup. Its single responsibility is deletion: the NiFi connections determine
+The script is intentionally separate from produksjon's
+[final all-directory cleanup](../10_Package%20cleanup/README.md).
+Its single responsibility is deletion: the NiFi connections determine
 when it runs. It does not check events, SIP contents, checksums, or upstream
 status flags, and it does not depend on their attributes.
 
@@ -76,7 +77,7 @@ Earlier work-dependent stages such as fetch still need restaging. Local
 cleanup retries do not repost events and do not modify existing payloads.
 
 Retain the SIP and payloads until the existing DPS completion condition allows
-final package cleanup. Bevaring's all-directory cleanup must not be used in
+final package cleanup. The final all-directory script must not be used in
 this early slot, because it would also delete files still needed for delivery.
 
 ## Local verification

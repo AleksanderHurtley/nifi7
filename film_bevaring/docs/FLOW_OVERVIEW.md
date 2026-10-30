@@ -240,8 +240,11 @@ Script:
 - `10_Package cleanup/01_Delete package directories.groovy`
 
 Behavior:
-- Removes `/fc1/payloads/<package.name>`, `/fc1/transfer/<package.name>`, `/fc1/work/<package.name>`
-- Uses strict path guardrails and standard `error.*` handling
+- Removes `<payloads.base.dir>/<package.name>`, `<transfer.base.dir>/<package.name>`, and `<work.base.dir>/<package.name>` (normally under `/fc1/payloads`, `/fc1/transfer`, and `/fc1/work`).
+- Deletion only: no submission, event, or checksum status checks. The calling flow decides when cleanup runs.
+- Requires a single-component package name and absolute bases; validates all three targets before deletion and refuses filesystem-root bases, symbolic-link bases/targets, and non-directory targets.
+- Missing package directories are skipped. Links within a package are deleted without following them. Retries reset deletion flags; filesystem deletion is not rolled back if a later I/O operation fails.
+- Uses standard `error.*` handling. Local checks: `tests/package-cleanup.groovy` (run from the repository root with Groovy 4).
 
 ---
 
