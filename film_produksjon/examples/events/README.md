@@ -27,22 +27,26 @@ the events have been accepted by the DPS API or preservation completed.
 `packageId` is local bookkeeping; remove it before posting each event as
 described in [Events](../../04_Events/README.md).
 
-## Creation-event review, updated 2026-10-30
+## Creation-event review, updated 2026-11-02
 
 [digifilm_1300107_20130729.reviewed.events.ndjson](digifilm_1300107_20130729.reviewed.events.ndjson)
 is an expected-output example derived from that capture, not another live run
 or accepted API payload. It applies the agreed reviewer/user changes:
 
-- Start with `Produksjonsfilen ... ble opprettet med FFmpeg`, without Historisk.
-- Clarify `Denne hendelsen er dokumentert i ettertid på grunnlag av de opprinnelige METS-metadataene.`
-  It is the event documentation that was created afterwards, not the MOV.
-- Use `Opprinnelig hendelsestype: derivat` without parentheses or a trailing
-  full stop. The original label remains in METS. Keep API eventType `creation`.
+- Describe the final FFmpeg conversion after digital post-production, including
+  `blant annet` and `faste trinn` for color correction, cropping, and sound
+  synchronization. These steps are user-confirmed workflow context; other work
+  may also have occurred.
+- State that the event was registered afterwards using original METS and
+  knowledge of the production workflow. It is the event documentation that
+  was created afterwards, not the MOV.
+- Explain `derivation` as `METS-metadataene beskriver opprettelsen av et derivat.`
+  The original label remains in METS. Keep API eventType `creation`.
 - Use `Digital filmlab Mo i Rana, Nasjonalbiblioteket` as the agreed responsible
   organization, with no agentVersion. This is agreed flow context, while the
   source METS identifies the FFmpeg software used.
 - Preserve version evidence in eventDetail as `Registrert bibliotekversjon:
-  libavformat 54.63.104. Versjonen av FFmpeg fremgår ikke av kildemetadataene.`
+  libavformat 54.63.104. Versjonen av FFmpeg fremgår ikke av METS-metadataene.`
   Use separate sentences without parentheses; omit creation outcomeDetail.
 
 Other event contents and all timestamps are retained for comparison. When the

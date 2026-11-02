@@ -9,7 +9,7 @@
       },
       "eventDateTime": "2013-08-12T11:14:34Z",
       "eventType": "creation",
-      "eventDetail": "Produksjonsfilen digifilm_1300107_20130729.mov ble opprettet med FFmpeg. Registrert bibliotekversjon: libavformat 54.63.104. Versjonen av FFmpeg fremgår ikke av kildemetadataene. Denne hendelsen er dokumentert i ettertid på grunnlag av de opprinnelige METS-metadataene. Opprinnelig hendelsestype: derivat",
+      "eventDetail": "Produksjonsfilen digifilm_1300107_20130729.mov ble opprettet ved en avsluttende konvertering med FFmpeg etter digitalt etterarbeid som blant annet omfatter de faste trinnene fargekorrigering, beskjæring og lydsynkronisering. Registrert bibliotekversjon: libavformat 54.63.104. Versjonen av FFmpeg fremgår ikke av METS-metadataene. Hendelsen ble registrert i ettertid på grunnlag av de opprinnelige METS-metadataene og kunnskap om produksjonsflyten. METS-metadataene beskriver opprettelsen av et derivat.",
       "fileRef": {
         "relativePath": "representations/primary_20130729/data/digifilm_1300107_20130729.mov"
       },

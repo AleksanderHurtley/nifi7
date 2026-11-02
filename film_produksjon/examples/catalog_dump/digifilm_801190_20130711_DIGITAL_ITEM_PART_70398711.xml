@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?><adlibXML>
+  <recordList>
+    <record deleted="false" created="2025-04-27T07:56:16" priref="70398711" modification="2025-09-02T14:58:53" selected="false">
+      <audio.no_channels>1</audio.no_channels>
+      <audio.no_channels.lref>7657</audio.no_channels.lref>
+      <availability>
+        <value lang="neutral">V</value>
+        <value lang="0">Available</value>
+        <value lang="12">Tilgjengelig</value>
+      </availability>
+      <bitrate_video_constant>x</bitrate_video_constant>
+      <check_record>
+        <value lang="neutral">U</value>
+        <value lang="0">Unverified</value>
+      </check_record>
+      <colour_system>YUV</colour_system>
+      <colour_system.lref>7749</colour_system.lref>
+      <colour_type>Farger</colour_type>
+      <colour_type.lref>5942</colour_type.lref>
+      <dataset_name>
+        <value lang="neutral">catalogue</value>
+        <value lang="0">Audio-Visual Catalogue</value>
+        <value lang="12">AV-katalogen</value>
+      </dataset_name>
+      <edit.date>2025-07-17</edit.date>
+      <edit.name>per.korsnes@nb.no</edit.name>
+      <edit.source>collect&gt;catalogue</edit.source>
+      <edit.time>09:08:13</edit.time>
+      <file.format>Video/quicktime</file.format>
+      <file.format.lref>7737</file.format.lref>
+      <file.format_variant>MOV</file.format_variant>
+      <file.format_variant.lref>7750</file.format_variant.lref>
+      <file.size>50733872727</file.size>
+      <format>
+        <value lang="neutral">G</value>
+        <value lang="0">Digital</value>
+        <value lang="12">Digital</value>
+      </format>
+      <frame.layout>Progressive</frame.layout>
+      <frame.layout.lref>7671</frame.layout.lref>
+      <Alternative_number>
+        <alternative_number>20398711</alternative_number>
+        <alternative_number.date>2025-04-22</alternative_number.date>
+        <alternative_number.type>Mavis ITEM_ID</alternative_number.type>
+        <alternative_number.type.lref>6388</alternative_number.type.lref>
+      </Alternative_number>
+      <Alternative_number>
+        <alternative_number>801190-7-1</alternative_number>
+        <alternative_number.date>2025-04-22</alternative_number.date>
+        <alternative_number.type>Mavis-nummer</alternative_number.type>
+        <alternative_number.type.lref>6389</alternative_number.type.lref>
+      </Alternative_number>
+      <Alternative_number>
+        <alternative_number>3033fb8f96025f65872d2b095f69a7928360f87a</alternative_number>
+        <alternative_number.type>Sjekksum SHA-1</alternative_number.type>
+        <alternative_number.type.lref>7226</alternative_number.type.lref>
+      </Alternative_number>
+      <Alternative_number>
+        <alternative_number>ca267cd5d0d9b8e4f610af27474e714e</alternative_number>
+        <alternative_number.type>Sjekksum MD5</alternative_number.type>
+        <alternative_number.type.lref>7225</alternative_number.type.lref>
+      </Alternative_number>
+      <Bit_depth>
+        <bit_depth>10</bit_depth>
+        <bit_depth.lref>7719</bit_depth.lref>
+        <bit_depth.type>
+          <value lang="neutral">VIDEO</value>
+          <value lang="0">video</value>
+          <value lang="1">video</value>
+          <value lang="3">Video</value>
+        </bit_depth.type>
+      </Bit_depth>
+      <Carrier_type>
+        <carrier_type_general/>
+        <carrier_type_general.lref>6690</carrier_type_general.lref>
+      </Carrier_type>
+      <Compression>
+        <compression>H264 H444P</compression>
+        <compression.lref>7753</compression.lref>
+        <compression.type>
+          <value lang="neutral">COMPRESSION_VIDEO</value>
+          <value lang="0">Video</value>
+        </compression.type>
+      </Compression>
+      <CopiedFrom>
+        <copied_from>AV-68902056</copied_from>
+        <copied_from.carrier_type_specific/>
+        <copied_from.lref>68902056</copied_from.lref>
+        <copied_from.title/>
+        <metadata_copiedfrom_date>2013-10-17</metadata_copiedfrom_date>
+        <metadata_copiedfrom_end_hour/>
+        <metadata_copiedfrom_end_min/>
+        <metadata_copiedfrom_end_sec/>
+        <metadata_copiedfrom_end_tics/>
+        <metadata_copiedfrom_reference>214357</metadata_copiedfrom_reference>
+        <metadata_copiedfrom_start_hour/>
+        <metadata_copiedfrom_start_min/>
+        <metadata_copiedfrom_start_sec/>
+        <metadata_copiedfrom_start_tics/>
+      </CopiedFrom>
+      <CopiedFrom>
+        <copied_from>AV-68902058</copied_from>
+        <copied_from.carrier_type_specific/>
+        <copied_from.lref>68902058</copied_from.lref>
+        <copied_from.title/>
+        <metadata_copiedfrom_date>2013-10-17</metadata_copiedfrom_date>
+        <metadata_copiedfrom_end_hour/>
+        <metadata_copiedfrom_end_min/>
+        <metadata_copiedfrom_end_sec/>
+        <metadata_copiedfrom_end_tics/>
+        <metadata_copiedfrom_reference>214358</metadata_copiedfrom_reference>
+        <metadata_copiedfrom_start_hour/>
+        <metadata_copiedfrom_start_min/>
+        <metadata_copiedfrom_start_sec/>
+        <metadata_copiedfrom_start_tics/>
+      </CopiedFrom>
+      <edit_history>
+        <edit.history.date>2016-03-02</edit.history.date>
+        <edit.history.name>NB. IKT utvikling</edit.history.name>
+      </edit_history>
+      <Media>
+        <media.creator/>
+        <media.date/>
+        <media.format/>
+        <media.original_file_name/>
+        <media.reference>URN:NBN:no-nb_digifilm_801190_20130711</media.reference>
+        <media.reference.lref>16805821</media.reference.lref>
+        <media.type>video</media.type>
+      </Media>
+      <Medium>
+        <medium>Levende bilder</medium>
+        <medium.lref>6078</medium.lref>
+        <medium.principal>x</medium.principal>
+      </Medium>
+      <Medium>
+        <medium>Lyd</medium>
+        <medium.lref>6060</medium.lref>
+      </Medium>
+      <Part_of>
+        <part_of.availability/>
+        <part_of.dating.date.start/>
+        <part_of.format>
+          <value lang="neutral">G</value>
+          <value lang="0">Digital</value>
+          <value lang="12">Digital</value>
+        </part_of.format>
+        <part_of.item_description/>
+        <part_of.lead_word/>
+        <part_of.manifestation_title/>
+        <part_of.manifestation_type/>
+        <part_of.record_type>
+          <value lang="neutral">ITEM</value>
+          <value lang="0">Item</value>
+          <value lang="1">Item</value>
+          <value lang="3">Exemplar</value>
+          <value lang="9">Objekt</value>
+          <value lang="12">Komponent</value>
+        </part_of.record_type>
+        <part_of.submedium>Film</part_of.submedium>
+        <part_of.title>Over Nordpolen : med Hjalmar Riiser-Larsen</part_of.title>
+        <part_of_reference>
+          <Part_of>
+            <part_of_reference>
+              <Part_of>
+                <part_of_reference>
+                  <Title>
+                    <title>Over Nordpolen : med Hjalmar Riiser-Larsen</title>
+                  </Title>
+                  <Title>
+                    <title>Over the Pole</title>
+                  </Title>
+                  <object_number>AV-801190</object_number>
+                  <priref>801190</priref>
+                  <record_type>
+                    <value lang="neutral">WORK</value>
+                    <value lang="0">Work</value>
+                    <value lang="1">Werk</value>
+                    <value lang="3">Werk</value>
+                    <value lang="9">Verk</value>
+                    <value lang="12">Verk/uttrykk</value>
+                  </record_type>
+                </part_of_reference>
+              </Part_of>
+              <Title>
+                <title>Over Nordpolen : med Hjalmar Riiser-Larsen</title>
+              </Title>
+              <Title>
+                <title>Over the Pole</title>
+              </Title>
+              <object_number>AV-25801190</object_number>
+              <priref>25801190</priref>
+              <record_type>
+                <value lang="neutral">MANIFESTATION</value>
+                <value lang="0">Manifestation</value>
+                <value lang="1">Manifestatie</value>
+                <value lang="3">Manifestation</value>
+                <value lang="9">Manifestation</value>
+                <value lang="12">Manifestasjon</value>
+              </record_type>
+            </part_of_reference>
+          </Part_of>
+          <Title>
+            <title>Over Nordpolen : med Hjalmar Riiser-Larsen</title>
+          </Title>
+          <Title>
+            <title>Over the Pole</title>
+          </Title>
+          <object_number>AV-70398710</object_number>
+          <priref>70398710</priref>
+          <record_type>
+            <value lang="neutral">ITEM</value>
+            <value lang="0">Item</value>
+            <value lang="1">Item</value>
+            <value lang="3">Exemplar</value>
+            <value lang="9">Objekt</value>
+            <value lang="12">Komponent</value>
+          </record_type>
+        </part_of_reference>
+        <part_of_reference.lref>70398710</part_of_reference.lref>
+        <part_of_total_parts>1</part_of_total_parts>
+      </Part_of>
+      <Resolution>
+        <resolution>Pixler</resolution>
+        <resolution.height>1080</resolution.height>
+        <resolution.lref>7650</resolution.lref>
+        <resolution.width>1920</resolution.width>
+      </Resolution>
+      <Runtime_main>
+        <runtime.combined>0:17:35:84</runtime.combined>
+        <runtime.hours>0</runtime.hours>
+        <runtime.minutes>17</runtime.minutes>
+        <runtime.seconds>35</runtime.seconds>
+        <runtime.tics>842</runtime.tics>
+      </Runtime_main>
+      <Submedium>
+        <submedium>Film</submedium>
+        <submedium.lref>6077</submedium.lref>
+        <submedium.principal>x</submedium.principal>
+      </Submedium>
+      <Title>
+        <title>Over Nordpolen : med Hjalmar Riiser-Larsen</title>
+        <title.main>x</title.main>
+        <title.type>Originaltittel</title.type>
+        <title.type.lref>5936</title.type.lref>
+      </Title>
+      <Title>
+        <title>Over the Pole</title>
+        <title.type>Utenlandsk tittel</title.type>
+        <title.type.lref>5951</title.type.lref>
+      </Title>
+      <guid>c685f12f-c1f4-4f1f-9217-851783b90865</guid>
+      <input.date>2013-10-17</input.date>
+      <input.name>FILM</input.name>
+      <item_status>Mezzanin</item_status>
+      <item_status.lref>6845</item_status.lref>
+      <management_status>
+        <value lang="neutral">INTERNAL</value>
+        <value lang="0">internal</value>
+        <value lang="1">eigen beheer</value>
+        <value lang="3">Intern</value>
+      </management_status>
+      <object_number>AV-70398711</object_number>
+      <operating_system>Linux SUSE</operating_system>
+      <PID_data_URN>URN:NBN:no-nb_digifilm_801190_20130711</PID_data_URN>
+      <priref>70398711</priref>
+      <record_access.owner>NLNadmin</record_access.owner>
+      <record_type>
+        <value lang="neutral">ITEM_PART</value>
+        <value lang="0">Item part</value>
+        <value lang="1">Item deel</value>
+        <value lang="3">Einzelstück Teil</value>
+        <value lang="9">Objektsdel</value>
+        <value lang="12">Bærer</value>
+      </record_type>
+      <reel.number>1</reel.number>
+      <sample_hierarchy>4:2:2</sample_hierarchy>
+      <sample_hierarchy.lref>7665</sample_hierarchy.lref>
+      <sample_rate>48 kHz</sample_rate>
+      <sample_rate.lref>7633</sample_rate.lref>
+      <sequence_no>1</sequence_no>
+      <software_required>ffplay</software_required>
+      <software_required.lref>7713</software_required.lref>
+      <software_used>larsencoder</software_used>
+      <software_used.lref>7752</software_used.lref>
+      <source_software>Flexxity v 1.xx</source_software>
+      <source_software.lref>7751</source_software.lref>
+      <time_code.type>SMPTE/EBU</time_code.type>
+      <total_parts>0</total_parts>
+      <total_segments>0</total_segments>
+      <total_series>0</total_series>
+    </record>
+  </recordList>
+  <diagnostic>
+    <hits>1</hits>
+    <xmltype>Grouped</xmltype>
+    <hits_on_display>1</hits_on_display>
+    <search>PID_data_URN = 'URN:NBN:no-nb_digifilm_801190_20130711'</search>
+    <first_item>1</first_item>
+    <forward>0</forward>
+    <backward>0</backward>
+    <limit>10</limit>
+    <dbname>collect</dbname>
+    <dsname>catalogue</dsname>
+    <cgistring>
+      <param name="database">catalogue</param>
+    </cgistring>
+    <link_resolve_time unit="mS" culture="en-US">109,3751</link_resolve_time>
+    <response_time unit="mS" culture="en-US">617</response_time>
+  </diagnostic>
+</adlibXML>

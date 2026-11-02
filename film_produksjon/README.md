@@ -57,6 +57,11 @@ The current manual test uses `digifilm_1300107_20130729`, DB item `49062190`,
 bypassing the STARTED update. See [Initialize](01_Initialize/README.md) for
 its scripts and output attributes, then [Fetch](02_Fetch%20files/README.md)
 for the metadata-first test and MOV copy/verification.
+The [produksjon submission builder](07_Submission%20body/README.md) adds
+`metadata.source` from the current digital item's `CopiedFrom` source-component
+references, following the current carrier's parent link. Descriptions combine
+the film title and source format from the catalog hierarchy. The other payload
+fields, including carrier-level relations, are retained.
 After successful E-ARK generation, capture its completion timestamp, then
 [clean up work staging](05_Cleanup%20work/README.md) while retaining the
 completed SIP and external payloads for DPS. Use [Events](04_Events/README.md)

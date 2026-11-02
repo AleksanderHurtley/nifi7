@@ -104,7 +104,7 @@ try {
         agentNote: 'Fagmiljø ved Nasjonalbiblioteket som utfører filmskanning og digitalt etterarbeid for bevaring og formidling.'
     ]
     assert events[1..2].every { it.agent.agentType == 'software' }
-    assert events[0].eventDetail == "Produksjonsfilen ${pkg}.mov ble opprettet med FFmpeg. Registrert bibliotekversjon: libavformat 58.62.100. Versjonen av FFmpeg fremgår ikke av kildemetadataene. Denne hendelsen er dokumentert i ettertid på grunnlag av de opprinnelige METS-metadataene. Opprinnelig hendelsestype: derivat"
+    assert events[0].eventDetail == "Produksjonsfilen ${pkg}.mov ble opprettet ved en avsluttende konvertering med FFmpeg etter digitalt etterarbeid som blant annet omfatter de faste trinnene fargekorrigering, beskjæring og lydsynkronisering. Registrert bibliotekversjon: libavformat 58.62.100. Versjonen av FFmpeg fremgår ikke av METS-metadataene. Hendelsen ble registrert i ettertid på grunnlag av de opprinnelige METS-metadataene og kunnskap om produksjonsflyten. METS-metadataene beskriver opprettelsen av et derivat."
     assert !events[0].containsKey('outcomeDetail')
     assert !events[0].eventDetail.contains('Lavf')
     assert !events[0].eventDetail.contains('Historisk')
@@ -209,20 +209,21 @@ try {
     replaceText(oldVersion.mets, 'Lavf58.62.100', 'Lavf54.63.104')
     assert runStage(oldVersion.attributes).relationship == 'success'
     assert !records(oldVersion.events)[0].agent.containsKey('agentVersion')
-    assert records(oldVersion.events)[0].eventDetail == "Produksjonsfilen ${pkg}.mov ble opprettet med FFmpeg. Registrert bibliotekversjon: libavformat 54.63.104. Versjonen av FFmpeg fremgår ikke av kildemetadataene. Denne hendelsen er dokumentert i ettertid på grunnlag av de opprinnelige METS-metadataene. Opprinnelig hendelsestype: derivat"
+    assert records(oldVersion.events)[0].eventDetail == "Produksjonsfilen ${pkg}.mov ble opprettet ved en avsluttende konvertering med FFmpeg etter digitalt etterarbeid som blant annet omfatter de faste trinnene fargekorrigering, beskjæring og lydsynkronisering. Registrert bibliotekversjon: libavformat 54.63.104. Versjonen av FFmpeg fremgår ikke av METS-metadataene. Hendelsen ble registrert i ettertid på grunnlag av de opprinnelige METS-metadataene og kunnskap om produksjonsflyten. METS-metadataene beskriver opprettelsen av et derivat."
 
     def noVersion = fixture()
     replaceText(noVersion.mets, '<premis:creatingApplicationVersion>Lavf58.62.100</premis:creatingApplicationVersion>', '')
     assert runStage(noVersion.attributes).relationship == 'success'
     assert !records(noVersion.events)[0].agent.containsKey('agentVersion')
-    assert records(noVersion.events)[0].eventDetail.contains('Versjonen av FFmpeg fremgår ikke av kildemetadataene. ')
+    assert records(noVersion.events)[0].eventDetail.contains('Versjonen av FFmpeg fremgår ikke av METS-metadataene. ')
     assert !records(noVersion.events)[0].eventDetail.contains('Registrert bibliotekversjon')
     assert !records(noVersion.events)[0].eventDetail.contains('Registrert versjonsinformasjon')
 
     def creationType = fixture()
     replaceText(creationType.mets, '<premis:eventType>derivation</premis:eventType>', '<premis:eventType>creation</premis:eventType>')
     assert runStage(creationType.attributes).relationship == 'success'
-    assert records(creationType.events)[0].eventDetail.endsWith('Opprinnelig hendelsestype: opprettelse')
+    assert records(creationType.events)[0].eventDetail.endsWith('METS-metadataene beskriver opprettelsen av filen.')
+    assert !records(creationType.events)[0].eventDetail.contains('opprettelsen av et derivat')
 
     // Write all Norwegian letters as UTF-8, but retain JSON escaping for quotes,
     // backslashes, and embedded newlines so every event still occupies one line.
@@ -236,7 +237,7 @@ try {
     assert unicodeOutput.contains('æøå ÆØÅ')
     assert Files.readAllLines(unicode.events).size() == 3
     assert !records(unicode.events)[0].agent.containsKey('agentVersion')
-    assert records(unicode.events)[0].eventDetail.contains("Registrert versjonsinformasjon: ${specialVersion}. Versjonen av FFmpeg fremgår ikke av kildemetadataene.")
+    assert records(unicode.events)[0].eventDetail.contains("Registrert versjonsinformasjon: ${specialVersion}. Versjonen av FFmpeg fremgår ikke av METS-metadataene.")
     assert records(unicode.events)[1].eventDetail.contains('arbeidsområde')
 
     ['{"packageId":"other","eventType":"creation"}\n',

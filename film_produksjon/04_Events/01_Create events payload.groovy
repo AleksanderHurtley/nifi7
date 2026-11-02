@@ -141,19 +141,22 @@ try {
     def creationAgent = [agentName: 'Digital filmlab Mo i Rana, Nasjonalbiblioteket', agentType: 'organization',
         agentNote: 'Fagmiljø ved Nasjonalbiblioteket som utfører filmskanning og digitalt etterarbeid for bevaring og formidling.']
     // A Lavf version identifies libavformat, not the complete FFmpeg build.
-    String versionDetail = 'Versjonen av FFmpeg fremgår ikke av kildemetadataene. '
+    String versionDetail = 'Versjonen av FFmpeg fremgår ikke av METS-metadataene. '
     if (recordedVersion) {
         def libraryVersion = recordedVersion =~ /(?i)Lavf(\d+\.\d+\.\d+)/
         if (libraryVersion.matches()) {
-            versionDetail = "Registrert bibliotekversjon: libavformat ${libraryVersion.group(1)}. Versjonen av FFmpeg fremgår ikke av kildemetadataene. "
+            versionDetail = "Registrert bibliotekversjon: libavformat ${libraryVersion.group(1)}. Versjonen av FFmpeg fremgår ikke av METS-metadataene. "
         } else if (recordedVersion.toLowerCase(Locale.ROOT).startsWith('lavf')) {
-            versionDetail = "Registrert versjonsinformasjon: ${recordedVersion}. Versjonen av FFmpeg fremgår ikke av kildemetadataene. "
+            versionDetail = "Registrert versjonsinformasjon: ${recordedVersion}. Versjonen av FFmpeg fremgår ikke av METS-metadataene. "
         } else {
             versionDetail = "Registrert versjon av FFmpeg: ${recordedVersion}. "
         }
     }
-    String historicalLabel = historicalType.equalsIgnoreCase('derivation') ? 'derivat' : 'opprettelse'
-    String creationDetail = "Produksjonsfilen ${filename} ble opprettet med FFmpeg. ${versionDetail}Denne hendelsen er dokumentert i ettertid på grunnlag av de opprinnelige METS-metadataene. Opprinnelig hendelsestype: ${historicalLabel}"
+    String historicalDescription = historicalType.equalsIgnoreCase('derivation') ?
+        'METS-metadataene beskriver opprettelsen av et derivat.' :
+        'METS-metadataene beskriver opprettelsen av filen.'
+    // Standard production steps are agreed workflow context, not inferred from METS.
+    String creationDetail = "Produksjonsfilen ${filename} ble opprettet ved en avsluttende konvertering med FFmpeg etter digitalt etterarbeid som blant annet omfatter de faste trinnene fargekorrigering, beskjæring og lydsynkronisering. ${versionDetail}Hendelsen ble registrert i ettertid på grunnlag av de opprinnelige METS-metadataene og kunnskap om produksjonsflyten. ${historicalDescription}"
     def records = [
         [packageId: pkg, agent: creationAgent,
          eventDateTime: creationTime.toString(), eventType: 'creation',

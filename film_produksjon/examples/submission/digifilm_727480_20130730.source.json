@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "source": [
+      {
+        "identifier": [
+          {
+            "type": "Collections priref",
+            "value": "69194878"
+          }
+        ],
+        "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/69194878",
+        "description": "Kontakten knyttes — Image/x-dpx"
+      },
+      {
+        "identifier": [
+          {
+            "type": "Collections priref",
+            "value": "69194880"
+          }
+        ],
+        "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/69194880",
+        "description": "Kontakten knyttes — Audio/wav"
+      }
+    ]
+  }
+}

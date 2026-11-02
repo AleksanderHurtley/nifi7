@@ -142,6 +142,23 @@ the current catalog's relationship fields. They are provenance links, not
 additional media files to fetch for this package. Do not replace the viewing
 file's identity with either source URN.
 
+The [produksjon submission builder](../07_Submission%20body/README.md) now maps
+the current carrier's parent digital item's `CopiedFrom` references into
+`metadata.source`, with one entry per source-component Collections priref.
+This component-level choice was agreed with the user; carrier-level references
+are retained as a fallback when parent exports are unavailable.
+It retains the existing relation
+list and uses typed catalog identifiers and record links. Missing relation
+titles and source file formats are filled from locally staged source records
+or explicitly linked `Parts` hierarchy entries. When the child title is absent,
+the containing manifestation/component supplies the shared film title.
+The current four-file produksjon example contains enough data for title/format
+descriptions without extra queries. The MOV's format is never substituted for
+source formats.
+Enriching these
+entries with source URNs, barcodes, or carrier descriptions requires explicitly
+resolving the corresponding source records; do not reuse the viewing-file URN.
+
 ## Small adaptations for this transfer
 
 - Use a small produksjon organizer for these seven loose XML files, retaining

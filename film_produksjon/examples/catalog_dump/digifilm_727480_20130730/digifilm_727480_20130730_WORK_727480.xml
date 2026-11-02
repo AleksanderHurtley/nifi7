@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?><adlibXML>
+  <recordList>
+    <record deleted="false" created="2025-04-26T16:34:59" priref="727480" modification="2026-09-09T10:27:23" selected="false">
+      <audit_notes>Marked as a potential duplicate, Bent Bang-Hansen, 03-OCT-22</audit_notes>
+      <check_record>
+        <value lang="neutral">U</value>
+        <value lang="0">Unverified</value>
+      </check_record>
+      <colour>Farger</colour>
+      <colour.lref>8073</colour.lref>
+      <content.genre>Oppdragsfilm</content.genre>
+      <content.genre>Dokumentarfilm</content.genre>
+      <content.genre>Kortfilm (fiksjon, novellefilm o.l.)</content.genre>
+      <content.genre.lref>6086</content.genre.lref>
+      <content.genre.lref>6025</content.genre.lref>
+      <content.genre.lref>6074</content.genre.lref>
+      <dataset_name>
+        <value lang="neutral">catalogue</value>
+        <value lang="0">Audio-Visual Catalogue</value>
+        <value lang="12">AV-katalogen</value>
+      </dataset_name>
+      <duplicate_status>
+        <value lang="neutral">Y</value>
+        <value lang="0">Potential duplicates detected</value>
+      </duplicate_status>
+      <edit.date>2026-09-09</edit.date>
+      <edit.name>torbjorn.pedersen@nb.no</edit.name>
+      <edit.source>collect&gt;catalogue</edit.source>
+      <edit.time>10:27:23</edit.time>
+      <Alternative_number>
+        <alternative_number>NSM 297</alternative_number>
+        <alternative_number.type>Andre arkivnummer</alternative_number.type>
+        <alternative_number.type.lref>2808</alternative_number.type.lref>
+      </Alternative_number>
+      <AssociationGeo>
+        <associated_keyword.gis/>
+        <association.geographical_keyword>New Orleans og Vera Cruz</association.geographical_keyword>
+        <association.geographical_keyword.broader_term/>
+        <association.geographical_keyword.geoterm_notes/>
+        <association.geographical_keyword.lref>5351</association.geographical_keyword.lref>
+        <geographical_importance>
+          <value lang="neutral">O</value>
+          <value lang="0">Recording location</value>
+          <value lang="12">Opptakssted</value>
+        </geographical_importance>
+      </AssociationGeo>
+      <Credits>
+        <credit.name>Sandberg, Sverre</credit.name>
+        <credit.name.lref>1040883</credit.name.lref>
+        <credit.type>Manus</credit.type>
+        <credit.type.lref>6063</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Sandberg, Sverre</credit.name>
+        <credit.name.lref>1040883</credit.name.lref>
+        <credit.type>Fotograf (levende bilder)</credit.type>
+        <credit.type.lref>6051</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Svekon film</credit.name>
+        <credit.name.lref>1030367</credit.name.lref>
+        <credit.type>Produksjonsselskap</credit.type>
+        <credit.type.lref>6033</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Den norske sjømannsmisjon</credit.name>
+        <credit.name.lref>1033481</credit.name.lref>
+        <credit.type>Oppdragsgiver</credit.type>
+        <credit.type.lref>6036</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Sandberg, Sverre</credit.name>
+        <credit.name.lref>1040883</credit.name.lref>
+        <credit.type>Kontakt for rettighetshaver</credit.type>
+        <credit.type.lref>6052</credit.type.lref>
+      </Credits>
+      <Dating>
+        <dating.date.end>1963</dating.date.end>
+        <dating.date.end.prec>circa</dating.date.end.prec>
+        <dating.date.start>1963</dating.date.start>
+        <dating.date.start.prec>circa</dating.date.start.prec>
+        <dating.type>Produksjon</dating.type>
+        <dating.type.lref>6372</dating.type.lref>
+      </Dating>
+      <Description>
+        <description>Fra boks:" Sjømannsmisjonen i New Orleans og Vera Cruz".</description>
+        <description.type>Beskrivelse</description.type>
+        <description.type.lref>5963</description.type.lref>
+      </Description>
+      <edit_history>
+        <edit.history.date>2022-10-03</edit.history.date>
+        <edit.history.name>Bent Bang-Hansen</edit.history.name>
+        <edit.history.source/>
+        <edit.history.time/>
+      </edit_history>
+      <edit_history>
+        <edit.history.date>2025-07-11</edit.history.date>
+        <edit.history.name>per.korsnes@nb.no</edit.history.name>
+        <edit.history.source>collect&gt;catalogue</edit.history.source>
+        <edit.history.time>10:00:06</edit.history.time>
+      </edit_history>
+      <edit_history>
+        <edit.history.date>2025-07-28</edit.history.date>
+        <edit.history.name>torbjorn.pedersen@nb.no</edit.history.name>
+        <edit.history.source>collect&gt;catalogue</edit.history.source>
+        <edit.history.time>13:48:30</edit.history.time>
+      </edit_history>
+      <edit_history>
+        <edit.history.date>2025-08-08</edit.history.date>
+        <edit.history.name>torbjorn.pedersen@nb.no</edit.history.name>
+        <edit.history.source>collect&gt;catalogue</edit.history.source>
+        <edit.history.time>23:12:25</edit.history.time>
+      </edit_history>
+      <edit_history>
+        <edit.history.date>2026-08-11</edit.history.date>
+        <edit.history.name>bent.bang-hansen@nb.no</edit.history.name>
+        <edit.history.source>collect&gt;catalogue</edit.history.source>
+        <edit.history.time>10:57:51</edit.history.time>
+      </edit_history>
+      <edit_history>
+        <edit.history.date>2026-09-04</edit.history.date>
+        <edit.history.name>torbjorn.pedersen@nb.no</edit.history.name>
+        <edit.history.source>collect&gt;catalogue</edit.history.source>
+        <edit.history.time>17:16:56</edit.history.time>
+      </edit_history>
+      <Language>
+        <language>Norsk</language>
+        <language.lref>6066</language.lref>
+        <language.usage>Originalspråk</language.usage>
+        <language.usage.lref>6067</language.usage.lref>
+      </Language>
+      <Medium>
+        <medium>Levende bilder</medium>
+        <medium.lref>6078</medium.lref>
+        <medium.principal>x</medium.principal>
+      </Medium>
+      <Object_name>
+        <object_name>Film</object_name>
+        <object_name.lref>6029</object_name.lref>
+      </Object_name>
+      <Parts>
+        <parts.carrier_type.specific/>
+        <parts.collection.name/>
+        <parts.condition/>
+        <parts.condition.date/>
+        <parts.current_location.context/>
+        <parts.current_location.name/>
+        <parts.dating.date.start/>
+        <parts.default_location.name/>
+        <parts.dimension.type/>
+        <parts.dimension.unit/>
+        <parts.dimension.value/>
+        <parts.file.size/>
+        <parts.fileformat/>
+        <parts.format>
+          <value lang="neutral"/>
+        </parts.format>
+        <parts.item_description/>
+        <parts.item_status/>
+        <parts.lead_word/>
+        <parts.linked_acquisition.number/>
+        <parts.manifestation_title/>
+        <parts.manifestation_type>Ukjent</parts.manifestation_type>
+        <parts.material/>
+        <parts.part/>
+        <parts.record_type>
+          <value lang="neutral">MANIFESTATION</value>
+          <value lang="0">Manifestation</value>
+          <value lang="1">Manifestatie</value>
+          <value lang="3">Manifestation</value>
+          <value lang="9">Manifestation</value>
+          <value lang="12">Manifestasjon</value>
+        </parts.record_type>
+        <parts.reel.number/>
+        <parts.reference.lref>25727480</parts.reference.lref>
+        <parts.runtime_combined>00:20:00:00</parts.runtime_combined>
+        <parts.sequence_no/>
+        <parts.title/>
+        <parts_reference>
+          <object_number>AV-25727480</object_number>
+          <priref>25727480</priref>
+          <record_type>
+            <value lang="neutral">MANIFESTATION</value>
+            <value lang="0">Manifestation</value>
+            <value lang="1">Manifestatie</value>
+            <value lang="3">Manifestation</value>
+            <value lang="9">Manifestation</value>
+            <value lang="12">Manifestasjon</value>
+          </record_type>
+        </parts_reference>
+      </Parts>
+      <Related_object>
+        <related_object.association>Mangler type</related_object.association>
+        <related_object.association.lref>8017</related_object.association.lref>
+        <related_object.dataset>
+          <value lang="neutral">catalogue</value>
+          <value lang="0">Audio-visual catalogue</value>
+          <value lang="12">AV-katalogen</value>
+        </related_object.dataset>
+        <related_object.object_name>Film</related_object.object_name>
+        <related_object.record_type>
+          <value lang="neutral">WORK</value>
+          <value lang="0">Work</value>
+          <value lang="1">Werk</value>
+          <value lang="3">Werk</value>
+          <value lang="9">Verk</value>
+          <value lang="12">Verk/uttrykk</value>
+        </related_object.record_type>
+        <related_object.reference>AV-17639873</related_object.reference>
+        <related_object.reference.lref>17639873</related_object.reference.lref>
+        <related_object.title>Kontakten knyttes</related_object.title>
+        <related_object.title.article/>
+      </Related_object>
+      <Runtime_main>
+        <runtime.combined>00:20:00:00</runtime.combined>
+        <runtime.minutes>20</runtime.minutes>
+      </Runtime_main>
+      <Submedium>
+        <submedium>Film</submedium>
+        <submedium.lref>6077</submedium.lref>
+        <submedium.principal>x</submedium.principal>
+      </Submedium>
+      <Title>
+        <title>Kontakten knyttes</title>
+        <title.main>x</title.main>
+        <title.type>Originaltittel</title.type>
+        <title.type.lref>5936</title.type.lref>
+      </Title>
+      <guid>3a2f00ee-f456-4f32-b296-e3d1dd0ef259</guid>
+      <input.date>2009-08-21</input.date>
+      <input.name>Tina Anckarman</input.name>
+      <management_status>
+        <value lang="neutral">INTERNAL</value>
+        <value lang="0">internal</value>
+        <value lang="1">eigen beheer</value>
+        <value lang="3">Intern</value>
+      </management_status>
+      <object_name.domain>
+        <value lang="neutral">FILM_FORM</value>
+        <value lang="0">form (Film)</value>
+        <value lang="1">vorm (Film)</value>
+        <value lang="3">Form (Film)</value>
+        <value lang="12">Koder</value>
+      </object_name.domain>
+      <object_number>AV-727480</object_number>
+      <priref>727480</priref>
+      <production_country>Norge</production_country>
+      <production_country.lref>5</production_country.lref>
+      <project>Fellessøket/Sesam</project>
+      <project.lref>6158</project.lref>
+      <publish_on_web>x</publish_on_web>
+      <record_access.owner>NLNadmin</record_access.owner>
+      <record_type>
+        <value lang="neutral">WORK</value>
+        <value lang="0">Work</value>
+        <value lang="1">Werk</value>
+        <value lang="3">Werk</value>
+        <value lang="9">Verk</value>
+        <value lang="12">Verk/uttrykk</value>
+      </record_type>
+      <relevance>x</relevance>
+      <sound>
+        <value lang="neutral">LYD</value>
+        <value lang="0">Sound</value>
+        <value lang="12">Lyd</value>
+      </sound>
+      <total_parts>1</total_parts>
+      <total_segments>0</total_segments>
+      <total_series>0</total_series>
+      <work.description_type>
+        <value lang="neutral">WORK</value>
+        <value lang="0">Work</value>
+        <value lang="9">Självständigt verk</value>
+        <value lang="12">Verkstittel</value>
+      </work.description_type>
+    </record>
+  </recordList>
+  <diagnostic>
+    <hits>1</hits>
+    <xmltype>Grouped</xmltype>
+    <hits_on_display>1</hits_on_display>
+    <search>priref = 727480</search>
+    <first_item>1</first_item>
+    <forward>0</forward>
+    <backward>0</backward>
+    <limit>1</limit>
+    <dbname>collect</dbname>
+    <dsname>catalogue</dsname>
+    <cgistring>
+      <param name="database">catalogue</param>
+    </cgistring>
+    <link_resolve_time unit="mS" culture="en-US">46,8782</link_resolve_time>
+    <response_time unit="mS" culture="en-US">91</response_time>
+  </diagnostic>
+</adlibXML>

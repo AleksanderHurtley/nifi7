@@ -67,16 +67,21 @@ For the [captured 2023 METS](../examples/sam-fs/digifilm_796646_20230321/digifil
 creation is `2023-05-04T07:02:30Z`, the same instant as its recorded
 `2023-05-04T09:02:30+02:00`. The original `derivation` is represented as a
 reconstructed historical `creation` of the existing MOV, not a claim of a
-new conversion in this flow. Its source type is retained in eventDetail.
+new conversion in this flow. Its source type is explained in eventDetail.
 The retained original XML remains unchanged in the SIP's `deprecated_mets/`.
 
-Following the stage review, eventDetail begins `Produksjonsfilen <filename>
-ble opprettet med FFmpeg.` rather than `Historisk opprettelse`. It explicitly
-states `Denne hendelsen er dokumentert i ettertid på grunnlag av de opprinnelige
-METS-metadataene.` This refers to documenting the event afterwards, not
-reconstructing the MOV from METS. The original source type is written in Norwegian
-as `Opprinnelig hendelsestype: derivat` or `Opprinnelig hendelsestype: opprettelse`, without a parenthetical English
-label or trailing full stop. The original label remains in the retained METS. The
+The approved wording starts `Produksjonsfilen <filename> ble opprettet ved en
+avsluttende konvertering med FFmpeg etter digitalt etterarbeid som blant annet
+omfatter de faste trinnene fargekorrigering, beskjæring og lydsynkronisering.`
+The three fixed steps are user-confirmed production-workflow context, not
+extracted from each METS. The list is non-exhaustive; it does not claim which
+additional operations or tools were used for a particular file.
+It explicitly states `Hendelsen ble registrert i ettertid på grunnlag av de
+opprinnelige METS-metadataene og kunnskap om produksjonsflyten.` This refers to
+recording the event afterwards, not reconstructing the MOV from METS.
+For a source `derivation`, the final sentence is `METS-metadataene beskriver
+opprettelsen av et derivat.` For `creation`, it is `METS-metadataene beskriver
+opprettelsen av filen.` The original label remains in the retained METS. The
 controlled API `eventType` remains `creation`, not a translated value.
 The creation event omits `outcomeDetail`, retaining `outcome=success` and fileRef.
 
@@ -90,7 +95,7 @@ The linked historical METS must still identify FFmpeg as the creating applicatio
 
 Software version evidence is included in eventDetail instead. The recorded
 `Lavf58.62.100` produces `Registrert bibliotekversjon: libavformat 58.62.100.
-Versjonen av FFmpeg fremgår ikke av kildemetadataene.` For the 2013 example
+Versjonen av FFmpeg fremgår ikke av METS-metadataene.` For the 2013 example
 the library version is `54.63.104`. The qualification is a separate sentence,
 without parentheses. This identifies the library version without claiming the
 complete FFmpeg release/build is known; see the

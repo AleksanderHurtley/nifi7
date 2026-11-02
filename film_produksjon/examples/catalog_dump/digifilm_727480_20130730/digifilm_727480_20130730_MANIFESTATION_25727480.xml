@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?><adlibXML>
+  <recordList>
+    <record deleted="false" created="2025-04-25T23:48:58" priref="25727480" modification="2025-10-15T09:49:09" selected="false">
+      <check_record>
+        <value lang="neutral">U</value>
+        <value lang="0">Unverified</value>
+      </check_record>
+      <colour_type>Farger</colour_type>
+      <colour_type.lref>5942</colour_type.lref>
+      <dataset_name>
+        <value lang="neutral">catalogue</value>
+        <value lang="0">Audio-Visual Catalogue</value>
+        <value lang="12">AV-katalogen</value>
+      </dataset_name>
+      <edit.date>2025-08-09</edit.date>
+      <edit.name>torbjorn.pedersen@nb.no</edit.name>
+      <edit.source>collect&gt;catalogue</edit.source>
+      <edit.time>02:33:04</edit.time>
+      <edit_history>
+        <edit.history.date/>
+        <edit.history.name>Bent Bang-Hansen</edit.history.name>
+        <edit.history.source/>
+        <edit.history.time/>
+      </edit_history>
+      <edit_history>
+        <edit.history.date>2025-08-08</edit.history.date>
+        <edit.history.name>torbjorn.pedersen@nb.no</edit.history.name>
+        <edit.history.source>collect&gt;catalogue</edit.history.source>
+        <edit.history.time>18:30:22</edit.history.time>
+      </edit_history>
+      <Medium>
+        <medium>Levende bilder</medium>
+        <medium.lref>6078</medium.lref>
+        <medium.principal>x</medium.principal>
+      </Medium>
+      <Part_of>
+        <part_of.availability/>
+        <part_of.dating.date.start>1963</part_of.dating.date.start>
+        <part_of.format>
+          <value lang="neutral"/>
+        </part_of.format>
+        <part_of.item_description/>
+        <part_of.lead_word/>
+        <part_of.manifestation_title/>
+        <part_of.manifestation_type/>
+        <part_of.record_type>
+          <value lang="neutral">WORK</value>
+          <value lang="0">Work</value>
+          <value lang="1">Werk</value>
+          <value lang="3">Werk</value>
+          <value lang="9">Verk</value>
+          <value lang="12">Verk/uttrykk</value>
+        </part_of.record_type>
+        <part_of.submedium>Film</part_of.submedium>
+        <part_of.title>Kontakten knyttes</part_of.title>
+        <part_of_reference>
+          <Title>
+            <title>Kontakten knyttes</title>
+          </Title>
+          <object_number>AV-727480</object_number>
+          <priref>727480</priref>
+          <record_type>
+            <value lang="neutral">WORK</value>
+            <value lang="0">Work</value>
+            <value lang="1">Werk</value>
+            <value lang="3">Werk</value>
+            <value lang="9">Verk</value>
+            <value lang="12">Verk/uttrykk</value>
+          </record_type>
+        </part_of_reference>
+        <part_of_reference.lref>727480</part_of_reference.lref>
+        <part_of_total_parts>1</part_of_total_parts>
+      </Part_of>
+      <Parts>
+        <parts.carrier_type.specific>Visningskopi</parts.carrier_type.specific>
+        <parts.collection.name>DEN NORSKE SJØMANNSMISJON</parts.collection.name>
+        <parts.condition/>
+        <parts.condition.date/>
+        <parts.current_location.context/>
+        <parts.current_location.name/>
+        <parts.dating.date.start/>
+        <parts.default_location.name>113 fjell (fargefilm)</parts.default_location.name>
+        <parts.dimension.type>Lengde</parts.dimension.type>
+        <parts.dimension.unit>Meter</parts.dimension.unit>
+        <parts.dimension.value>220</parts.dimension.value>
+        <parts.file.size/>
+        <parts.fileformat/>
+        <parts.format>
+          <value lang="neutral">A</value>
+          <value lang="0">Safety film</value>
+          <value lang="12">Safetyfilm</value>
+        </parts.format>
+        <parts.item_description/>
+        <parts.item_status>Originalmateriale</parts.item_status>
+        <parts.lead_word/>
+        <parts.linked_acquisition.number>AK-4435</parts.linked_acquisition.number>
+        <parts.manifestation_title/>
+        <parts.manifestation_type/>
+        <parts.material>Acetat</parts.material>
+        <parts.part/>
+        <parts.record_type>
+          <value lang="neutral">ITEM</value>
+          <value lang="0">Item</value>
+          <value lang="1">Item</value>
+          <value lang="3">Exemplar</value>
+          <value lang="9">Objekt</value>
+          <value lang="12">Komponent</value>
+        </parts.record_type>
+        <parts.reel.number/>
+        <parts.reference.lref>52333481</parts.reference.lref>
+        <parts.runtime_combined/>
+        <parts.sequence_no>1</parts.sequence_no>
+        <parts.title/>
+        <parts_reference>
+          <object_number>AV-52333481</object_number>
+          <priref>52333481</priref>
+          <record_type>
+            <value lang="neutral">ITEM</value>
+            <value lang="0">Item</value>
+            <value lang="1">Item</value>
+            <value lang="3">Exemplar</value>
+            <value lang="9">Objekt</value>
+            <value lang="12">Komponent</value>
+          </record_type>
+        </parts_reference>
+      </Parts>
+      <Parts>
+        <parts.carrier_type.specific>Visningskopi</parts.carrier_type.specific>
+        <parts.collection.name>DEN NORSKE SJØMANNSMISJON</parts.collection.name>
+        <parts.condition/>
+        <parts.condition.date/>
+        <parts.current_location.context/>
+        <parts.current_location.name/>
+        <parts.dating.date.start/>
+        <parts.default_location.name>113 fjell (fargefilm)</parts.default_location.name>
+        <parts.dimension.type>Lengde</parts.dimension.type>
+        <parts.dimension.unit>Meter</parts.dimension.unit>
+        <parts.dimension.value>220</parts.dimension.value>
+        <parts.file.size/>
+        <parts.fileformat/>
+        <parts.format>
+          <value lang="neutral">A</value>
+          <value lang="0">Safety film</value>
+          <value lang="12">Safetyfilm</value>
+        </parts.format>
+        <parts.item_description/>
+        <parts.item_status>Originalmateriale</parts.item_status>
+        <parts.lead_word/>
+        <parts.linked_acquisition.number>AK-4435</parts.linked_acquisition.number>
+        <parts.manifestation_title/>
+        <parts.manifestation_type/>
+        <parts.material>Acetat</parts.material>
+        <parts.part/>
+        <parts.record_type>
+          <value lang="neutral">ITEM</value>
+          <value lang="0">Item</value>
+          <value lang="1">Item</value>
+          <value lang="3">Exemplar</value>
+          <value lang="9">Objekt</value>
+          <value lang="12">Komponent</value>
+        </parts.record_type>
+        <parts.reel.number/>
+        <parts.reference.lref>52333602</parts.reference.lref>
+        <parts.runtime_combined/>
+        <parts.sequence_no>2</parts.sequence_no>
+        <parts.title/>
+        <parts_reference>
+          <object_number>AV-52333602</object_number>
+          <priref>52333602</priref>
+          <record_type>
+            <value lang="neutral">ITEM</value>
+            <value lang="0">Item</value>
+            <value lang="1">Item</value>
+            <value lang="3">Exemplar</value>
+            <value lang="9">Objekt</value>
+            <value lang="12">Komponent</value>
+          </record_type>
+        </parts_reference>
+      </Parts>
+      <Parts>
+        <parts.carrier_type.specific/>
+        <parts.collection.name/>
+        <parts.condition/>
+        <parts.condition.date/>
+        <parts.current_location.context/>
+        <parts.current_location.name/>
+        <parts.dating.date.start/>
+        <parts.default_location.name/>
+        <parts.dimension.type/>
+        <parts.dimension.unit/>
+        <parts.dimension.value/>
+        <parts.file.size>707857440768</parts.file.size>
+        <parts.fileformat>Image/x-dpx</parts.fileformat>
+        <parts.format>
+          <value lang="neutral">G</value>
+          <value lang="0">Digital</value>
+          <value lang="12">Digital</value>
+        </parts.format>
+        <parts.item_description/>
+        <parts.item_status>Sikringseksemplar</parts.item_status>
+        <parts.lead_word/>
+        <parts.linked_acquisition.number/>
+        <parts.manifestation_title/>
+        <parts.manifestation_type/>
+        <parts.material/>
+        <parts.part/>
+        <parts.record_type>
+          <value lang="neutral">ITEM</value>
+          <value lang="0">Item</value>
+          <value lang="1">Item</value>
+          <value lang="3">Exemplar</value>
+          <value lang="9">Objekt</value>
+          <value lang="12">Komponent</value>
+        </parts.record_type>
+        <parts.reel.number/>
+        <parts.reference.lref>69194878</parts.reference.lref>
+        <parts.runtime_combined/>
+        <parts.sequence_no>3</parts.sequence_no>
+        <parts.title/>
+        <parts_reference>
+          <object_number>AV-69194878</object_number>
+          <priref>69194878</priref>
+          <record_type>
+            <value lang="neutral">ITEM</value>
+            <value lang="0">Item</value>
+            <value lang="1">Item</value>
+            <value lang="3">Exemplar</value>
+            <value lang="9">Objekt</value>
+            <value lang="12">Komponent</value>
+          </record_type>
+        </parts_reference>
+      </Parts>
+      <Parts>
+        <parts.carrier_type.specific/>
+        <parts.collection.name/>
+        <parts.condition/>
+        <parts.condition.date/>
+        <parts.current_location.context/>
+        <parts.current_location.name/>
+        <parts.dating.date.start/>
+        <parts.default_location.name/>
+        <parts.dimension.type/>
+        <parts.dimension.unit/>
+        <parts.dimension.value/>
+        <parts.file.size>169124124</parts.file.size>
+        <parts.fileformat>Audio/wav</parts.fileformat>
+        <parts.format>
+          <value lang="neutral">G</value>
+          <value lang="0">Digital</value>
+          <value lang="12">Digital</value>
+        </parts.format>
+        <parts.item_description/>
+        <parts.item_status>Sikringseksemplar</parts.item_status>
+        <parts.lead_word/>
+        <parts.linked_acquisition.number/>
+        <parts.manifestation_title/>
+        <parts.manifestation_type/>
+        <parts.material/>
+        <parts.part/>
+        <parts.record_type>
+          <value lang="neutral">ITEM</value>
+          <value lang="0">Item</value>
+          <value lang="1">Item</value>
+          <value lang="3">Exemplar</value>
+          <value lang="9">Objekt</value>
+          <value lang="12">Komponent</value>
+        </parts.record_type>
+        <parts.reel.number/>
+        <parts.reference.lref>69194880</parts.reference.lref>
+        <parts.runtime_combined/>
+        <parts.sequence_no>4</parts.sequence_no>
+        <parts.title/>
+        <parts_reference>
+          <object_number>AV-69194880</object_number>
+          <priref>69194880</priref>
+          <record_type>
+            <value lang="neutral">ITEM</value>
+            <value lang="0">Item</value>
+            <value lang="1">Item</value>
+            <value lang="3">Exemplar</value>
+            <value lang="9">Objekt</value>
+            <value lang="12">Komponent</value>
+          </record_type>
+        </parts_reference>
+      </Parts>
+      <Parts>
+        <parts.carrier_type.specific/>
+        <parts.collection.name/>
+        <parts.condition/>
+        <parts.condition.date/>
+        <parts.current_location.context/>
+        <parts.current_location.name/>
+        <parts.dating.date.start/>
+        <parts.default_location.name/>
+        <parts.dimension.type/>
+        <parts.dimension.unit/>
+        <parts.dimension.value/>
+        <parts.file.size>54327862702</parts.file.size>
+        <parts.fileformat>Video/quicktime</parts.fileformat>
+        <parts.format>
+          <value lang="neutral">G</value>
+          <value lang="0">Digital</value>
+          <value lang="12">Digital</value>
+        </parts.format>
+        <parts.item_description/>
+        <parts.item_status>Mezzanin</parts.item_status>
+        <parts.lead_word/>
+        <parts.linked_acquisition.number/>
+        <parts.manifestation_title/>
+        <parts.manifestation_type/>
+        <parts.material/>
+        <parts.part/>
+        <parts.record_type>
+          <value lang="neutral">ITEM</value>
+          <value lang="0">Item</value>
+          <value lang="1">Item</value>
+          <value lang="3">Exemplar</value>
+          <value lang="9">Objekt</value>
+          <value lang="12">Komponent</value>
+        </parts.record_type>
+        <parts.reel.number/>
+        <parts.reference.lref>70398204</parts.reference.lref>
+        <parts.runtime_combined/>
+        <parts.sequence_no>5</parts.sequence_no>
+        <parts.title/>
+        <parts_reference>
+          <object_number>AV-70398204</object_number>
+          <priref>70398204</priref>
+          <record_type>
+            <value lang="neutral">ITEM</value>
+            <value lang="0">Item</value>
+            <value lang="1">Item</value>
+            <value lang="3">Exemplar</value>
+            <value lang="9">Objekt</value>
+            <value lang="12">Komponent</value>
+          </record_type>
+        </parts_reference>
+      </Parts>
+      <Parts>
+        <parts.carrier_type.specific>Visningskopi</parts.carrier_type.specific>
+        <parts.collection.name/>
+        <parts.condition/>
+        <parts.condition.date/>
+        <parts.current_location.context/>
+        <parts.current_location.name/>
+        <parts.dating.date.start/>
+        <parts.default_location.name>Sikringsmagasin_2</parts.default_location.name>
+        <parts.dimension.type>Lengde</parts.dimension.type>
+        <parts.dimension.unit>Meter</parts.dimension.unit>
+        <parts.dimension.value>219</parts.dimension.value>
+        <parts.file.size/>
+        <parts.fileformat/>
+        <parts.format>
+          <value lang="neutral">A</value>
+          <value lang="0">Safety film</value>
+          <value lang="12">Safetyfilm</value>
+        </parts.format>
+        <parts.item_description/>
+        <parts.item_status>Originalmateriale</parts.item_status>
+        <parts.lead_word/>
+        <parts.linked_acquisition.number>AK-13655</parts.linked_acquisition.number>
+        <parts.manifestation_title/>
+        <parts.manifestation_type/>
+        <parts.material>Acetat</parts.material>
+        <parts.part/>
+        <parts.record_type>
+          <value lang="neutral">ITEM</value>
+          <value lang="0">Item</value>
+          <value lang="1">Item</value>
+          <value lang="3">Exemplar</value>
+          <value lang="9">Objekt</value>
+          <value lang="12">Komponent</value>
+        </parts.record_type>
+        <parts.reel.number/>
+        <parts.reference.lref>86575644</parts.reference.lref>
+        <parts.runtime_combined>00:20:00:00</parts.runtime_combined>
+        <parts.sequence_no>6</parts.sequence_no>
+        <parts.title/>
+        <parts_reference>
+          <object_number>AV-86575644</object_number>
+          <priref>86575644</priref>
+          <record_type>
+            <value lang="neutral">ITEM</value>
+            <value lang="0">Item</value>
+            <value lang="1">Item</value>
+            <value lang="3">Exemplar</value>
+            <value lang="9">Objekt</value>
+            <value lang="12">Komponent</value>
+          </record_type>
+        </parts_reference>
+      </Parts>
+      <Runtime_main>
+        <runtime.combined>00:20:00:00</runtime.combined>
+        <runtime.minutes>20</runtime.minutes>
+      </Runtime_main>
+      <Submedium>
+        <submedium>Film</submedium>
+        <submedium.lref>6077</submedium.lref>
+        <submedium.principal>x</submedium.principal>
+      </Submedium>
+      <Title>
+        <title>Kontakten knyttes</title>
+        <title.main>x</title.main>
+        <title.type>Originaltittel</title.type>
+        <title.type.lref>5936</title.type.lref>
+      </Title>
+      <guid>7b147708-61b2-4df3-9fb0-06bb608be718</guid>
+      <input.name>Tina Anckarman</input.name>
+      <management_status>
+        <value lang="neutral">INTERNAL</value>
+        <value lang="0">internal</value>
+        <value lang="1">eigen beheer</value>
+        <value lang="3">Intern</value>
+      </management_status>
+      <manifestation_type>Ukjent</manifestation_type>
+      <manifestation_type.lref>5934</manifestation_type.lref>
+      <object_number>AV-25727480</object_number>
+      <priref>25727480</priref>
+      <record_access.owner>NLNadmin</record_access.owner>
+      <record_type>
+        <value lang="neutral">MANIFESTATION</value>
+        <value lang="0">Manifestation</value>
+        <value lang="1">Manifestatie</value>
+        <value lang="3">Manifestation</value>
+        <value lang="9">Manifestation</value>
+        <value lang="12">Manifestasjon</value>
+      </record_type>
+      <sound>
+        <value lang="neutral">LYD</value>
+        <value lang="0">Sound</value>
+        <value lang="12">Lyd</value>
+      </sound>
+      <total_parts>6</total_parts>
+      <total_segments>0</total_segments>
+      <total_series>0</total_series>
+    </record>
+  </recordList>
+  <diagnostic>
+    <hits>1</hits>
+    <xmltype>Grouped</xmltype>
+    <hits_on_display>1</hits_on_display>
+    <search>priref = 25727480</search>
+    <first_item>1</first_item>
+    <forward>0</forward>
+    <backward>0</backward>
+    <limit>1</limit>
+    <dbname>collect</dbname>
+    <dsname>catalogue</dsname>
+    <cgistring>
+      <param name="database">catalogue</param>
+    </cgistring>
+    <link_resolve_time unit="mS" culture="en-US">103,7948</link_resolve_time>
+    <response_time unit="mS" culture="en-US">156</response_time>
+  </diagnostic>
+</adlibXML>

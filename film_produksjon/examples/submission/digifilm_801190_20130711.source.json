@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "source": [
+      {
+        "identifier": [
+          {
+            "type": "Collections priref",
+            "value": "68902056"
+          }
+        ],
+        "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/68902056",
+        "description": "Over Nordpolen : med Hjalmar Riiser-Larsen — Image/x-dpx"
+      },
+      {
+        "identifier": [
+          {
+            "type": "Collections priref",
+            "value": "68902058"
+          }
+        ],
+        "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/68902058",
+        "description": "Over Nordpolen : med Hjalmar Riiser-Larsen — Audio/wav"
+      }
+    ]
+  }
+}

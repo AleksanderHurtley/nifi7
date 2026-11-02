@@ -173,6 +173,15 @@ catalog records belong to this media file and contain the required identity
 and title fields. The legacy MAVIS snapshot remains source metadata alongside
 the current catalog exports.
 
+Use the [produksjon payload builder](../07_Submission%20body/README.md) for the
+final body. It follows the current carrier's explicit parent link to the digital
+item and adds one `metadata.source` entry per distinct `CopiedFrom` source
+component. Descriptions combine title and source format from the matched catalog
+hierarchy; identifiers are typed Collections prirefs with catalog links.
+Existing carrier-level relations remain unchanged and serve as a source fallback
+when parent-item exports are unavailable. It does not infer source
+barcodes or URNs from the current package's identifiers.
+
 Use the package name as the candidate DPS `objectId`, subject to the selected
 contract's rules. The related preservation/core-file URNs document provenance;
 the viewing-file URN supplies this package's catalog identity.
