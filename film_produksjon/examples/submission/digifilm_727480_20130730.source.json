@@ -5,21 +5,19 @@
         "identifier": [
           {
             "type": "Collections priref",
-            "value": "69194878"
+            "value": "69194879"
           }
         ],
-        "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/69194878",
-        "description": "Kontakten knyttes — Image/x-dpx"
+        "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/69194879"
       },
       {
         "identifier": [
           {
             "type": "Collections priref",
-            "value": "69194880"
+            "value": "69194881"
           }
         ],
-        "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/69194880",
-        "description": "Kontakten knyttes — Audio/wav"
+        "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/69194881"
       }
     ]
   }

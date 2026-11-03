@@ -1,0 +1,46 @@
+{
+  "events": [
+    {
+      "packageId": "digifilm_815655_20130726",
+      "agent": {
+        "agentName": "Digital filmlab Mo i Rana, Nasjonalbiblioteket",
+        "agentType": "organization",
+        "agentNote": "Fagmiljø ved Nasjonalbiblioteket som utfører filmskanning og digitalt etterarbeid for bevaring og formidling."
+      },
+      "eventDateTime": "2018-10-17T14:53:36Z",
+      "eventType": "creation",
+      "eventDetail": "Produksjonsfilen digifilm_815655_20130726.mov ble opprettet ved en avsluttende konvertering med FFmpeg etter digitalt etterarbeid som blant annet omfatter de faste trinnene fargekorrigering, beskjæring og lydsynkronisering. Registrert bibliotekversjon: libavformat 54.63.104. Versjonen av FFmpeg fremgår ikke av METS-metadataene. Hendelsen ble registrert i ettertid på grunnlag av de opprinnelige METS-metadataene og kunnskap om produksjonsflyten. METS-metadataene beskriver opprettelsen av et derivat.",
+      "fileRef": {
+        "relativePath": "representations/primary_20130726/data/digifilm_815655_20130726.mov"
+      },
+      "outcome": "success"
+    },
+    {
+      "packageId": "digifilm_815655_20130726",
+      "agent": {
+        "agentName": "Apache NiFi",
+        "agentType": "software",
+        "agentVersion": "2.2.0",
+        "agentNote": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
+      },
+      "eventDateTime": "2026-11-03T08:17:36Z",
+      "eventType": "transfer",
+      "eventDetail": "Pakke hentet fra Oracle HSM (SAM-FS) til lokalt arbeidsområde for rearkivering. MOV-filen ble kopiert uendret; filstørrelse og MD5-sjekksum ble kontrollert mot verdiene i opprinnelig METS-metadata med Java MessageDigest.",
+      "outcome": "success",
+      "outcomeDetail": "Verifisert MOV: representations/primary_20130726/data/digifilm_815655_20130726.mov; MD5=a37921b976194ee3d4628bd0f5617e2d; størrelse=41698832073 byte."
+    },
+    {
+      "packageId": "digifilm_815655_20130726",
+      "agent": {
+        "agentName": "nifi-nb-eark-nar.EarkSIPGenerator",
+        "agentType": "software",
+        "agentVersion": "1.0.10",
+        "agentNote": "Apache NiFi-prosessor utviklet av Nasjonalbiblioteket for opprettelse av E-ARK SIP. Bruker commons-ip, et Java-bibliotek for opprettelse og håndtering av E-ARK-informasjonspakker."
+      },
+      "eventDateTime": "2026-11-03T08:19:35Z",
+      "eventType": "information package creation",
+      "eventDetail": "Opprettet SIP i henhold til Nasjonalbibliotekets profil SIP 1.0.",
+      "outcome": "success"
+    }
+  ]
+}

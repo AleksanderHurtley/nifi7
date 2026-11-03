@@ -6,6 +6,22 @@ import groovy.json.JsonOutput
 def ff = session.get()
 if (!ff) return
 
+// Rebuild this stage's outputs on every run, including retries with fewer fields.
+// NiFi retains incoming attributes unless they are explicitly removed or replaced.
+[
+    'metadata.mainTitle',
+    'metadata.alternativeTitles',
+    'metadata.creators',
+    'metadata.contributors',
+    'metadata.publishers',
+    'metadata.workRelations',
+    'metadata.countries',
+    'metadata.dates',
+    'metadata.descriptions',
+    'submission.payload.status',
+    'submission.payload.error'
+].each { key -> ff = session.removeAttribute(ff, key) }
+
 def getAttr = { k -> ff.getAttribute(k)?.trim() ?: null }
 
 // ----------------------
@@ -47,7 +63,9 @@ try {
     // ----------------------
     // FIND XML FILES
     // ----------------------
-    def xmlPaths = dirsToCheck.collectMany { dir ->
+    // Use one catalog snapshot: prefer freshly staged work exports, falling
+    // back to the retained SIP only when this export type is absent in work.
+    def xmlPaths = dirsToCheck.collect { dir ->
         if (!Files.isDirectory(dir)) return []
 
         dir.toFile().listFiles()
@@ -55,7 +73,7 @@ try {
                 it.name.contains('_WORK_') && it.name.endsWith('.xml')
             }
             ?.collect { it.toPath() } ?: []
-    }
+    }.find { !it.isEmpty() } ?: []
 
     // ----------------------
     // COLLECTIONS
@@ -376,7 +394,7 @@ if (alternativeTitles && mainTitle?.value) {
 
     // --- COUNTRIES ---
     if (countries) {
-        def spatial = countries.collect {
+        def spatial = countries.unique().collect {
             [name: it, type: "Country"]
         }
 

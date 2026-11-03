@@ -143,18 +143,25 @@ additional media files to fetch for this package. Do not replace the viewing
 file's identity with either source URN.
 
 The [produksjon submission builder](../07_Submission%20body/README.md) now maps
-the current carrier's parent digital item's `CopiedFrom` references into
-`metadata.source`, with one entry per source-component Collections priref.
-This component-level choice was agreed with the user; carrier-level references
-are retained as a fallback when parent exports are unavailable.
+the current digital item part's direct `CopiedFrom` references into
+`metadata.source`, with one entry per source-item-part Collections priref.
+Copy history stays at carrier level; the parent ITEM's copy links do not
+replace those references. Extracted item-part relations supply the IDs when
+the current item-part export is unavailable.
 It retains the existing relation
 list and uses typed catalog identifiers and record links. Missing relation
 titles and source file formats are filled from locally staged source records
 or explicitly linked `Parts` hierarchy entries. When the child title is absent,
 the containing manifestation/component supplies the shared film title.
-The current four-file produksjon example contains enough data for title/format
-descriptions without extra queries. The MOV's format is never substituted for
-source formats.
+The four-file example for `digifilm_727480_20130730` identifies source carriers
+but only supplies formats for their components, without carrier/component
+links. Its source descriptions are omitted until matching carrier details are
+exported. Component or MOV formats are never substituted for carrier formats.
+The production-only [CopiedFrom acquisition step](../03_Catalog/README.md)
+now fetches the referenced source item parts and stages their full responses as
+`<package.name>_COPIED_FROM_<priref>.xml` under `metadata.descriptive.dir`.
+The source builder reads each record's title/format by exact ID. Stage these
+new files before generating the SIP; their URNs do not replace the MOV's identity.
 Enriching these
 entries with source URNs, barcodes, or carrier descriptions requires explicitly
 resolving the corresponding source records; do not reuse the viewing-file URN.

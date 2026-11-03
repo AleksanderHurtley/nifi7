@@ -36,6 +36,33 @@ with these fields to produce the descriptions automatically; the screenshot
 mapping is not hard-coded into the script. The production record's own
 `file.format=Video/quicktime` must not be assigned to its source objects.
 
+## WORK capture for Per på landet
+
+[digifilm_815655_20130726_WORK_815655.xml](digifilm_815655_20130726_WORK_815655.xml)
+was supplied as pasted server output on 2026-11-03 from
+`transfer/digifilm_815655_20130726/metadata/descriptive/`. Only the XML was saved;
+the shell commands and preceding submission JSON were removed. This is a
+user-provided capture, not a direct API fetch or a checksum-verified server copy.
+
+The record has title `Per på landet`, director `Gran, Sverre`, production company
+`Norsk Dokumentarfilm`, production year `1964`, country `Norge`, and a description
+of Per visiting his aunt and uncle's farm. It has no alternative title or
+work-level relationship fields. An earlier supplied submission incorrectly retained
+`COLUMBI EGG SOM SKOLEMAT` and two SAS `SegmentOf` relationships from a previous
+test. The shared catalog-attribute regression test uses this capture to verify
+that absent fields clear prior values before the next payload is built.
+The [corrected live submission](../submission/digifilm_815655_20130726.submission.json)
+records the user's subsequent rerun without those stale fields or duplicate countries.
+
+The subsequent [complete five-export capture](digifilm_815655_20130726/README.md)
+includes both digital items, their combined item-part export, the manifestation
+and WORK. It confirms that source-carrier titles are empty and that the listed
+DPX/WAV formats identify ITEM/components, not the source item parts.
+The same directory now also holds the two subsequently captured `COPIED_FROM`
+responses. They document each source carrier's own format and its explicit
+parent link/title. The source-builder tests cover both the original five-file
+capture without descriptions and the enriched seven-file data set.
+
 A subsequent user-provided field report for parent component `68902057`
 confirmed explicit child metadata: `parts.reference.lref=68902058`,
 `parts.title=Over Nordpolen : med Hjalmar Riiser-Larsen`, and

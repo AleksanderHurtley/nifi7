@@ -6,6 +6,13 @@ import groovy.json.JsonOutput
 def ff = session.get()
 if (!ff) return
 
+// Rebuild this stage's outputs; absent catalog fields must not retain old values.
+[
+    'metadata.languages',
+    'submission.payload.status',
+    'submission.payload.error'
+].each { key -> ff = session.removeAttribute(ff, key) }
+
 def getAttr = { k -> ff.getAttribute(k)?.trim() ?: null }
 
 // ----------------------
@@ -46,7 +53,8 @@ try {
     // ----------------------
     // FIND XML FILES
     // ----------------------
-    def xmlPaths = dirsToCheck.collectMany { dir ->
+    // Prefer this export type in work; do not mix it with an older SIP copy.
+    def xmlPaths = dirsToCheck.collect { dir ->
         if (!Files.isDirectory(dir)) return []
 
         dir.toFile().listFiles()
@@ -56,7 +64,7 @@ try {
                 it.name.endsWith('.xml')
             }
             ?.collect { it.toPath() } ?: []
-    }
+    }.find { !it.isEmpty() } ?: []
 
     // ----------------------
     // COLLECTIONS

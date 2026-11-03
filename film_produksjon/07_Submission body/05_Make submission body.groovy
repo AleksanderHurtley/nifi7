@@ -133,8 +133,7 @@ try {
         // Build RELATIONS array
         // ------------------------
         def relation = []
-        // Keep one source per Collections record. Item-part links are the fallback;
-        // prefer source components when the current part's parent ITEM is exported.
+        // Copy history stays at ITEM_PART level: one source per CopiedFrom carrier.
         def sourcesById = new LinkedHashMap()
         def sourceFormatsById = new LinkedHashMap()
         def addSource = { String sourceId, rawTitle ->
@@ -210,40 +209,35 @@ try {
                 }
             }
         }
-        def recordTitle = { record ->
-            def titles = record.Title.findAll { it.title.text()?.trim() }
+        def preferredTitle = { nodes ->
+            def titles = nodes.findAll { it.title.text()?.trim() }
             def selected = titles.find { it.'title.main'.text()?.trim() == 'x' } ?:
                 titles.find { it.'title.type'.text()?.trim()?.equalsIgnoreCase('Originaltittel') } ?:
                 (titles ? titles[0] : null)
-            selected?.title?.text()?.trim() ?:
-                record.Part_of.'part_of.title'.find { it.text()?.trim() }?.text()?.trim()
+            selected?.title?.text()?.trim()
+        }
+        def recordTitle = { record ->
+            preferredTitle(record.Title) ?:
+                record.Part_of.'part_of.title'.find { it.text()?.trim() }?.text()?.trim() ?:
+                preferredTitle(record.Part_of.part_of_reference.Title)
         }
 
-        // Bind the current ITEM_PART by its resource URN, then follow its parent
-        // ITEM and that item's CopiedFrom references. Never infer IDs by offsets.
+        // Prefer direct CopiedFrom links on the current ITEM_PART export when
+        // available. Never follow its parent ITEM or infer IDs by numeric offsets.
         def resourceUrns = (attrs['metadata.pidDataUrns'] ?: '').split(',')
             .collect { it.trim() }.findAll { it } as Set
         if (!resourceUrns && pkg) resourceUrns = ["URN:NBN:no-nb_${pkg}".toString()] as Set
-        def parentIds = new LinkedHashSet()
-        recordsById.values().each { record ->
+        def currentParts = recordsById.values().findAll { record ->
             def recordType = record.record_type.value.find { it.@lang.text() == 'neutral' }?.text()?.trim()
-            if (recordType == 'ITEM_PART' && record.PID_data_URN.any { resourceUrns.contains(it.text()?.trim()) }) {
-                record.Part_of.'part_of_reference.lref'.each { node ->
-                    def id = node.text()?.trim()
-                    if (id) parentIds.add(id)
+            recordType == 'ITEM_PART' && record.PID_data_URN.any { resourceUrns.contains(it.text()?.trim()) }
+        }
+        if (currentParts) {
+            sourcesById.clear()
+            currentParts.each { record ->
+                record.CopiedFrom.each { node ->
+                    addSource(node.'copied_from.lref'.text(), node.'copied_from.title'.text())
                 }
             }
-        }
-        def parentSourceGroups = parentIds.collect { id ->
-            def parent = recordsById[id]
-            if (parent == null) return []
-            parent.CopiedFrom.collect { node ->
-                [id: node.'copied_from.lref'.text()?.trim(), title: node.'copied_from.title'.text()?.trim()]
-            }.findAll { it.id }
-        }
-        if (parentIds && parentSourceGroups.every { !it.isEmpty() }) {
-            sourcesById.clear()
-            parentSourceGroups.each { group -> group.each { item -> addSource(item.id, item.title) } }
         }
 
         // Resolve source details via an exact record priref or Parts child reference.

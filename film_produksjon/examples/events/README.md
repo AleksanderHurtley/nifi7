@@ -3,6 +3,39 @@
 These are generated outputs, separate from the original source examples under
 [sam-fs/](../sam-fs/README.md). Keep one NDJSON file per package.
 
+## digifilm_815655_20130726
+
+[digifilm_815655_20130726.events.ndjson](digifilm_815655_20130726.events.ndjson)
+records the three event lines supplied by the user from nifi7 on 2026-11-03.
+The latest enriched [submission capture](../submission/digifilm_815655_20130726.enriched-submission.json)
+belongs to the same package, `Per på landet`. The server event file was:
+
+```text
+/fc1/film_produksjon/payloads/digifilm_815655_20130726/events.ndjson
+```
+
+The readable [digifilm_815655_20130726.events.json](digifilm_815655_20130726.events.json)
+contains the identical records under an `events` array for sharing. Both files
+retain literal UTF-8 Norwegian characters and the supplied values:
+
+- Creation: `2018-10-17T14:53:36Z`; organization agent `Digital filmlab Mo i Rana,
+  Nasjonalbiblioteket`; recorded library `libavformat 54.63.104` in eventDetail.
+- Transfer: `2026-11-03T08:17:36Z`; reported MD5
+  `a37921b976194ee3d4628bd0f5617e2d`, size `41698832073` bytes.
+- SIP creation: `2026-11-03T08:19:35Z`; EarkSIPGenerator `1.0.10`.
+- MOV reference: `representations/primary_20130726/data/digifilm_815655_20130726.mov`.
+
+The user reran only Catalog/submission while correcting metadata. These event
+timestamps therefore remain those of the earlier media/SIP processing; this
+capture does not claim a new transfer or SIP creation on each metadata retry.
+The 2018 creation timestamp is retained as reported even though the package
+name contains 2013. Original METS for this package has not been supplied for
+independent confirmation of that timestamp, library version, or MOV fixity.
+
+These are user-provided live outputs, not confirmation of DPS acceptance or
+preservation completion. `packageId` remains local bookkeeping and is removed
+before posting each event, as described in [Events](../../04_Events/README.md).
+
 ## digifilm_1300107_20130729
 
 [digifilm_1300107_20130729.events.ndjson](digifilm_1300107_20130729.events.ndjson)

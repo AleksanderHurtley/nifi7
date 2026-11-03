@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?><adlibXML>
+  <recordList>
+    <record deleted="false" created="2025-04-26T16:41:26" priref="815655" modification="2026-09-09T11:02:56" selected="false">
+      <check_record>
+        <value lang="neutral">U</value>
+        <value lang="0">Unverified</value>
+      </check_record>
+      <colour>Farger</colour>
+      <colour.lref>8073</colour.lref>
+      <content.genre>Dokumentarfilm</content.genre>
+      <content.genre.lref>6025</content.genre.lref>
+      <dataset_name>
+        <value lang="neutral">catalogue</value>
+        <value lang="0">Audio-Visual Catalogue</value>
+        <value lang="12">AV-katalogen</value>
+      </dataset_name>
+      <duplicate_status>
+        <value lang="neutral">U</value>
+        <value lang="0">Unknown</value>
+      </duplicate_status>
+      <edit.date>2026-09-09</edit.date>
+      <edit.name>torbjorn.pedersen@nb.no</edit.name>
+      <edit.source>collect&gt;catalogue</edit.source>
+      <edit.time>11:02:56</edit.time>
+      <Alternative_number>
+        <alternative_number>NK-00081</alternative_number>
+        <alternative_number.type>Film: NK/NL/UK/UL-nummer (NFIs sift-databaser)</alternative_number.type>
+        <alternative_number.type.lref>5976</alternative_number.type.lref>
+      </Alternative_number>
+      <Alternative_number>
+        <alternative_number>66433</alternative_number>
+        <alternative_number.type>Film: NFI Identifier for Merge (Mavisnr fra NFI-basen)</alternative_number.type>
+        <alternative_number.type.lref>5983</alternative_number.type.lref>
+      </Alternative_number>
+      <Alternative_number>
+        <alternative_number>515 AV-sentralen Nord-Trøndelag Pedagogiske Fellestjeneste</alternative_number>
+        <alternative_number.type>Andre arkivnummer</alternative_number.type>
+        <alternative_number.type.lref>2808</alternative_number.type.lref>
+      </Alternative_number>
+      <AssociationGeo>
+        <associated_keyword.gis/>
+        <association.geographical_keyword>Opsahl, Sørum</association.geographical_keyword>
+        <association.geographical_keyword.broader_term/>
+        <association.geographical_keyword.geoterm_notes/>
+        <association.geographical_keyword.lref>75422</association.geographical_keyword.lref>
+        <geographical_importance>
+          <value lang="neutral">O</value>
+          <value lang="0">Recording location</value>
+          <value lang="12">Opptakssted</value>
+        </geographical_importance>
+      </AssociationGeo>
+      <Credits>
+        <credit.name>Fongaard, Bjørn</credit.name>
+        <credit.name.lref>278136</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen/>
+        <credit.type>Komponist</credit.type>
+        <credit.type.lref>6022</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Norsk Dokumentarfilm</credit.name>
+        <credit.name.lref>270655</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen/>
+        <credit.type>Produksjonsselskap</credit.type>
+        <credit.type.lref>6033</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Prøysen, Alf</credit.name>
+        <credit.name.lref>294429</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen/>
+        <credit.type>Vokalist</credit.type>
+        <credit.type.lref>6021</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Revold, Åsmund</credit.name>
+        <credit.name.lref>1035436</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen/>
+        <credit.type>Fotograf (levende bilder)</credit.type>
+        <credit.type.lref>6051</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Gran, Sverre</credit.name>
+        <credit.name.lref>1035772</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen/>
+        <credit.type>Manus</credit.type>
+        <credit.type.lref>6063</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Gran, Sverre</credit.name>
+        <credit.name.lref>1035772</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen/>
+        <credit.type>Regissør</credit.type>
+        <credit.type.lref>6024</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Statens filmsentral</credit.name>
+        <credit.name.lref>1030446</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen/>
+        <credit.type>Finansiering/sponsing</credit.type>
+        <credit.type.lref>6114</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Prøysen, Alf</credit.name>
+        <credit.name.lref>294429</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen/>
+        <credit.type>Tekstforfatter (musikk)</credit.type>
+        <credit.type.lref>6039</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Hoff, Per-Trygve</credit.name>
+        <credit.name.lref>1036507</credit.name.lref>
+        <credit.notes/>
+        <credit.on_screen>Per</credit.on_screen>
+        <credit.type>Skuespiller</credit.type>
+        <credit.type.lref>6041</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Kalleberg, Ivar</credit.name>
+        <credit.name.lref>289155</credit.name.lref>
+        <credit.notes>B-fotograf</credit.notes>
+        <credit.on_screen/>
+        <credit.type>Foto - stab</credit.type>
+        <credit.type.lref>6056</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Trælvik, Svein</credit.name>
+        <credit.name.lref>1039134</credit.name.lref>
+        <credit.notes>Innspillingsleder</credit.notes>
+        <credit.on_screen/>
+        <credit.type>Innspillingsledelse/-stab</credit.type>
+        <credit.type.lref>6126</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Grøndahl, Ellen</credit.name>
+        <credit.name.lref>1136529</credit.name.lref>
+        <credit.on_screen>Marit</credit.on_screen>
+        <credit.type>Skuespiller</credit.type>
+        <credit.type.lref>6041</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Asak, Gudrun</credit.name>
+        <credit.name.lref>1136530</credit.name.lref>
+        <credit.on_screen>Tante</credit.on_screen>
+        <credit.type>Skuespiller</credit.type>
+        <credit.type.lref>6041</credit.type.lref>
+      </Credits>
+      <Credits>
+        <credit.name>Asak, Lars</credit.name>
+        <credit.name.lref>1136531</credit.name.lref>
+        <credit.on_screen>Onkel</credit.on_screen>
+        <credit.type>Skuespiller</credit.type>
+        <credit.type.lref>6041</credit.type.lref>
+      </Credits>
+      <Dating>
+        <dating.date.end>1964</dating.date.end>
+        <dating.date.start>1964</dating.date.start>
+        <dating.type>Produksjon</dating.type>
+        <dating.type.lref>6372</dating.type.lref>
+      </Dating>
+      <Description>
+        <description>Kortfilm om bygutten Per som i noen sommerdager er på landet hos sin onkel og tante. Fra morgen til kveld er han med på gårdens arbeid, og lærer således om livet i en bondegård. Kommentaren er på vers, sunget av Alf Prøysen. 
+(SIFT)
+
+Per konuner på landet til onkel og tante, der han treffer Marit.  Vi ser de vanligste husdyra våre. Teksten er en sang av Alf Prøysen. (AV-sentralens filmkatalog 1987, Nord-Trøndelag Pedagogiske Fellestjeneste)</description>
+        <description.type>Beskrivelse</description.type>
+        <description.type.lref>5963</description.type.lref>
+      </Description>
+      <edit_history>
+        <edit.history.date>2024-03-22</edit.history.date>
+        <edit.history.name>Arild Jørgensen</edit.history.name>
+        <edit.history.source/>
+        <edit.history.time/>
+      </edit_history>
+      <edit_history>
+        <edit.history.date>2025-07-28</edit.history.date>
+        <edit.history.name>torbjorn.pedersen@nb.no</edit.history.name>
+        <edit.history.source>collect&gt;catalogue</edit.history.source>
+        <edit.history.time>14:50:21</edit.history.time>
+      </edit_history>
+      <edit_history>
+        <edit.history.date>2025-08-08</edit.history.date>
+        <edit.history.name>torbjorn.pedersen@nb.no</edit.history.name>
+        <edit.history.source>collect&gt;catalogue</edit.history.source>
+        <edit.history.time>23:45:24</edit.history.time>
+      </edit_history>
+      <edit_history>
+        <edit.history.date>2026-09-04</edit.history.date>
+        <edit.history.name>torbjorn.pedersen@nb.no</edit.history.name>
+        <edit.history.source>collect&gt;catalogue</edit.history.source>
+        <edit.history.time>17:51:37</edit.history.time>
+      </edit_history>
+      <Language>
+        <language>Norsk</language>
+        <language.lref>6066</language.lref>
+        <language.usage>Originalspråk</language.usage>
+        <language.usage.lref>6067</language.usage.lref>
+      </Language>
+      <Medium>
+        <medium>Levende bilder</medium>
+        <medium.lref>6078</medium.lref>
+        <medium.principal>x</medium.principal>
+      </Medium>
+      <Medium>
+        <medium>Lyd</medium>
+        <medium.lref>6060</medium.lref>
+      </Medium>
+      <Object_name>
+        <object_name>Film</object_name>
+        <object_name.lref>6029</object_name.lref>
+      </Object_name>
+      <Parts>
+        <parts.carrier_type.specific/>
+        <parts.collection.name/>
+        <parts.condition/>
+        <parts.condition.date/>
+        <parts.current_location.context/>
+        <parts.current_location.name/>
+        <parts.dating.date.start/>
+        <parts.default_location.name/>
+        <parts.dimension.type/>
+        <parts.dimension.unit/>
+        <parts.dimension.value/>
+        <parts.file.size/>
+        <parts.fileformat/>
+        <parts.format>
+          <value lang="neutral"/>
+        </parts.format>
+        <parts.item_description/>
+        <parts.item_status/>
+        <parts.lead_word/>
+        <parts.linked_acquisition.number/>
+        <parts.manifestation_title/>
+        <parts.manifestation_type>Ukjent</parts.manifestation_type>
+        <parts.material/>
+        <parts.part/>
+        <parts.record_type>
+          <value lang="neutral">MANIFESTATION</value>
+          <value lang="0">Manifestation</value>
+          <value lang="1">Manifestatie</value>
+          <value lang="3">Manifestation</value>
+          <value lang="9">Manifestation</value>
+          <value lang="12">Manifestasjon</value>
+        </parts.record_type>
+        <parts.reel.number/>
+        <parts.reference.lref>25815655</parts.reference.lref>
+        <parts.runtime_combined>00:13:00:00</parts.runtime_combined>
+        <parts.sequence_no/>
+        <parts.title>Per på landet</parts.title>
+        <parts_reference>
+          <Title>
+            <title>Per på landet</title>
+          </Title>
+          <object_number>AV-25815655</object_number>
+          <priref>25815655</priref>
+          <record_type>
+            <value lang="neutral">MANIFESTATION</value>
+            <value lang="0">Manifestation</value>
+            <value lang="1">Manifestatie</value>
+            <value lang="3">Manifestation</value>
+            <value lang="9">Manifestation</value>
+            <value lang="12">Manifestasjon</value>
+          </record_type>
+        </parts_reference>
+      </Parts>
+      <Runtime_main>
+        <runtime.combined>00:13:00:00</runtime.combined>
+        <runtime.minutes>13</runtime.minutes>
+      </Runtime_main>
+      <Submedium>
+        <submedium>Film</submedium>
+        <submedium.lref>6077</submedium.lref>
+        <submedium.principal>x</submedium.principal>
+      </Submedium>
+      <Title>
+        <title>Per på landet</title>
+        <title.main>x</title.main>
+        <title.type>Originaltittel</title.type>
+        <title.type.lref>5936</title.type.lref>
+      </Title>
+      <guid>6139823f-7733-466b-a4e5-bba498748f82</guid>
+      <input.date>2009-05-27</input.date>
+      <input.name>Håvard Oppøyen</input.name>
+      <management_status>
+        <value lang="neutral">INTERNAL</value>
+        <value lang="0">internal</value>
+        <value lang="1">eigen beheer</value>
+        <value lang="3">Intern</value>
+      </management_status>
+      <object_name.domain>
+        <value lang="neutral">FILM_FORM</value>
+        <value lang="0">form (Film)</value>
+        <value lang="1">vorm (Film)</value>
+        <value lang="3">Form (Film)</value>
+        <value lang="12">Koder</value>
+      </object_name.domain>
+      <object_number>AV-815655</object_number>
+      <priref>815655</priref>
+      <production_country>Norge</production_country>
+      <production_country.lref>5</production_country.lref>
+      <publish_on_web>x</publish_on_web>
+      <record_access.owner>NLNadmin</record_access.owner>
+      <record_type>
+        <value lang="neutral">WORK</value>
+        <value lang="0">Work</value>
+        <value lang="1">Werk</value>
+        <value lang="3">Werk</value>
+        <value lang="9">Verk</value>
+        <value lang="12">Verk/uttrykk</value>
+      </record_type>
+      <relevance>x</relevance>
+      <sound>
+        <value lang="neutral">LYD</value>
+        <value lang="0">Sound</value>
+        <value lang="12">Lyd</value>
+      </sound>
+      <statement_of_responsibility>Statens filmsentral viser</statement_of_responsibility>
+      <total_parts>1</total_parts>
+      <total_segments>0</total_segments>
+      <total_series>0</total_series>
+      <work.description_type>
+        <value lang="neutral">WORK</value>
+        <value lang="0">Work</value>
+        <value lang="9">Självständigt verk</value>
+        <value lang="12">Verkstittel</value>
+      </work.description_type>
+    </record>
+  </recordList>
+  <diagnostic>
+    <hits>1</hits>
+    <xmltype>Grouped</xmltype>
+    <hits_on_display>1</hits_on_display>
+    <search>priref = 815655</search>
+    <first_item>1</first_item>
+    <forward>0</forward>
+    <backward>0</backward>
+    <limit>1</limit>
+    <dbname>collect</dbname>
+    <dsname>catalogue</dsname>
+    <cgistring>
+      <param name="database">catalogue</param>
+    </cgistring>
+    <link_resolve_time unit="mS" culture="en-US">46,8708</link_resolve_time>
+    <response_time unit="mS" culture="en-US">87</response_time>
+  </diagnostic>
+</adlibXML>

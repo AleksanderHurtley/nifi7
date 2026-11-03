@@ -166,20 +166,29 @@ and MD5. Queue the result for Catalog while that stage is adapted.
 
 ### 3. Fetch catalog metadata and prepare the submission
 
-Reuse the catalog retrieval and
-[submission-body components](../../film_bevaring/07_Submission%20body/),
+Reuse the catalog retrieval with the production-local
+[submission-body components](../07_Submission%20body/README.md),
 adapting the lookup to the viewing-file URN. Confirm that the returned current
 catalog records belong to this media file and contain the required identity
 and title fields. The legacy MAVIS snapshot remains source metadata alongside
 the current catalog exports.
 
+After the existing catalog fragment join, add the production-only
+[CopiedFrom export group](../03_Catalog/README.md). It uses the MOV item part's
+direct source IDs and the existing catalog InvokeHTTP connection to save
+`<package.name>_COPIED_FROM_<priref>.xml` beside the original exports. One package
+FlowFile passes onward after all source requests finish; zero sources pass
+without HTTP. Processor wiring and failure routing are documented separately.
+No new bevaring changes are required.
+
 Use the [produksjon payload builder](../07_Submission%20body/README.md) for the
-final body. It follows the current carrier's explicit parent link to the digital
-item and adds one `metadata.source` entry per distinct `CopiedFrom` source
-component. Descriptions combine title and source format from the matched catalog
-hierarchy; identifiers are typed Collections prirefs with catalog links.
-Existing carrier-level relations remain unchanged and serve as a source fallback
-when parent-item exports are unavailable. It does not infer source
+final body. It adds one `metadata.source` entry per distinct source item part
+in the current carrier's direct `CopiedFrom` links. It does not follow the
+parent ITEM's copy history. Descriptions combine title and format when matching
+source-carrier records or explicitly linked hierarchy entries supply them;
+identifiers are typed Collections prirefs with catalog links. Existing
+carrier-level relations remain unchanged and supply the source IDs when the
+current item-part export is unavailable. It does not infer source
 barcodes or URNs from the current package's identifiers.
 
 Use the package name as the candidate DPS `objectId`, subject to the selected

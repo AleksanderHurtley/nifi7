@@ -239,8 +239,8 @@ try {
     assert capturedParts.relationship == 'success': capturedParts.ff.attributes
     assert parse(capturedParts).metadata.source*.description == ['Solungen — Image/x-dpx', 'Solungen — Audio/wav']
 
-    // Actual four-file produksjon capture: formats identify source components,
-    // while the existing item-part relations identify different carrier IDs.
+    // Actual four-file capture: source IDs must remain carriers even though the
+    // parent ITEM and manifestation describe different component IDs/formats.
     Path fourDumps = Path.of('film_produksjon/examples/catalog_dump/digifilm_727480_20130730')
     def actualPart = new XmlSlurper().parse(fourDumps.resolve('digifilm_727480_20130730_DIGITAL_ITEM_PART_70398205.xml').toFile()).recordList.record[0]
     def actualItem = new XmlSlurper().parse(fourDumps.resolve('digifilm_727480_20130730_DIGITAL_ITEM_70398204.xml').toFile()).recordList.record[0]
@@ -261,8 +261,8 @@ try {
     ]
     def fourFileResult = run(fourFileAttributes)
     assert fourFileResult.relationship == 'success': fourFileResult.ff.attributes
-    assert parse(fourFileResult).metadata.source.collect { it.identifier[0].value } == ['69194878', '69194880']
-    assert parse(fourFileResult).metadata.source*.description == ['Kontakten knyttes — Image/x-dpx', 'Kontakten knyttes — Audio/wav']
+    assert parse(fourFileResult).metadata.source.collect { it.identifier[0].value } == ['69194879', '69194881']
+    assert parse(fourFileResult).metadata.source.every { !it.containsKey('description') }
     assert parse(fourFileResult).metadata.source == new JsonSlurper().parse(new File(
         'film_produksjon/examples/submission/digifilm_727480_20130730.source.json')).metadata.source
     assert parse(fourFileResult).metadata.relation.findAll { it.type == 'CopiedFrom' && it.id != '999' }*.id == ['69194879', '69194881']
@@ -274,6 +274,11 @@ try {
     assert wrongUrn.relationship == 'success'
     assert parse(wrongUrn).metadata.source.collect { it.identifier[0].value } == ['69194879', '69194881']
     assert parse(wrongUrn).metadata.source.every { !it.containsKey('description') }
+    def noRelationAttribute = new LinkedHashMap(fourFileAttributes)
+    noRelationAttribute.remove('metadata.digitalItemPartRelations')
+    assert parse(run(noRelationAttribute)).metadata.source == parse(fourFileResult).metadata.source
+    def noMatchingPart = noRelationAttribute + ['metadata.pidDataUrns': 'URN:NBN:no-nb_other_package']
+    assert !parse(run(noMatchingPart)).metadata.containsKey('source')
     Path sameUrnDump = Files.createDirectories(scratch.resolve('same-urn-on-item'))
     Files.newDirectoryStream(fourDumps, '*.xml').withCloseable { files ->
         files.each { path -> Files.copy(path, sameUrnDump.resolve(path.fileName)) }
@@ -284,6 +289,13 @@ try {
     def itemAlsoIdentified = run(fourFileAttributes + ['metadata.descriptive.dir': sameUrnDump.toString()])
     assert itemAlsoIdentified.relationship == 'success': itemAlsoIdentified.ff.attributes
     assert parse(itemAlsoIdentified).metadata.source == parse(fourFileResult).metadata.source
+    // An explicitly matched ITEM_PART with no CopiedFrom has no sources, even
+    // when its parent ITEM has copy links or the incoming attribute is stale.
+    Path partWithoutSources = sameUrnDump.resolve('digifilm_727480_20130730_DIGITAL_ITEM_PART_70398205.xml')
+    Files.writeString(partWithoutSources, Files.readString(partWithoutSources).replaceAll('(?s)<CopiedFrom>.*?</CopiedFrom>', ''))
+    def noPartSources = run(fourFileAttributes + ['metadata.descriptive.dir': sameUrnDump.toString()])
+    assert noPartSources.relationship == 'success'
+    assert !parse(noPartSources).metadata.containsKey('source')
     Path retainedFour = Files.createDirectories(scratch.resolve('retained-four/metadata/descriptive'))
     Files.newDirectoryStream(fourDumps, '*.xml').withCloseable { files ->
         files.each { path -> Files.copy(path, retainedFour.resolve(path.fileName)) }
@@ -294,13 +306,49 @@ try {
     ])
     assert retainedFourResult.relationship == 'success': retainedFourResult.ff.attributes
     assert parse(retainedFourResult).metadata.source == parse(fourFileResult).metadata.source
+
+    // Original five-export capture: both carriers repeat the same sources.
+    // Without the later COPIED_FROM exports, descriptions remain unavailable.
+    Path perDumps = Path.of('film_produksjon/examples/catalog_dump/digifilm_815655_20130726')
+    Path originalPerDumps = Files.createDirectories(scratch.resolve('original-per-dumps'))
+    Files.newDirectoryStream(perDumps, '*.xml').withCloseable { files ->
+        files.each { if (!it.fileName.toString().contains('_COPIED_FROM_')) Files.copy(it, originalPerDumps.resolve(it.fileName)) }
+    }
+    def perCatalog = new XmlSlurper().parse(perDumps.resolve('digifilm_815655_20130726_DIGITAL_ITEM_PART_70398020_162311522.xml').toFile())
+    assert perCatalog.recordList.record.size() == 2
+    def perRelations = perCatalog.recordList.record.CopiedFrom.collect { node ->
+        [id: node.'copied_from.lref'.text(), title: node.'copied_from.title'.text(), type: 'CopiedFrom']
+    }
+    assert perRelations*.id == ['69119828', '69119830', '69119828', '69119830']
+    def per = run(attrs + [
+        'package.name': 'digifilm_815655_20130726',
+        'metadata.pidDataUrns': 'URN:NBN:no-nb_digifilm_815655_20130726',
+        'metadata.mainTitle': '{"title":{"value":"Per på landet"}}',
+        'metadata.digitalItemPartRelations': JsonOutput.toJson([relation: perRelations]),
+        'metadata.descriptive.dir': originalPerDumps.toString()
+    ])
+    assert per.relationship == 'success': per.ff.attributes
+    assert parse(per).metadata.source == new JsonSlurper().parse(new File(
+        'film_produksjon/examples/submission/digifilm_815655_20130726.source.json')).metadata.source
+    assert parse(per).metadata.source.size() == 2
+    assert parse(per).metadata.source.every { !it.containsKey('description') }
+
+    // Actual source HTTP responses have no direct Title or part_of.title.
+    // The immediate embedded parent has the shared film title. Formats and
+    // identifiers must still come from each source carrier's own fields.
+    def enrichedPer = run(per.ff.attributes + ['metadata.descriptive.dir': perDumps.toString()])
+    assert enrichedPer.relationship == 'success': enrichedPer.ff.attributes
+    assert parse(enrichedPer).metadata.source == new JsonSlurper().parse(new File(
+        'film_produksjon/examples/submission/digifilm_815655_20130726.enriched-source.json')).metadata.source
+    assert parse(enrichedPer).metadata.source*.description == ['Per på landet — Image/x-dpx', 'Per på landet — Audio/wav']
+
     ['not-json', '{"relation":[{"id":"not-a-priref","type":"CopiedFrom"}]}'].each { bad ->
         def failed = run(attrs + ['metadata.digitalItemPartRelations': bad])
         assert failed.relationship == 'failure'
         assert failed.ff.attributes['submission.payload.status'] == 'FAIL'
         assert new String(failed.ff.body, 'UTF-8') == 'original body'
     }
-    println 'PASS: component sources via resource URN and parent ITEM, actual four-file dumps in work/SIP, title/format descriptions, unchanged existing metadata, carrier fallback, ID binding, UTF-8, and failure routing.'
+    println 'PASS: ITEM_PART-to-ITEM_PART sources, direct links without parent substitution, actual work/SIP dumps, exact title/format binding, unchanged existing metadata, optional sources, UTF-8, and failure routing.'
 } finally {
     Files.walk(scratch).withCloseable { paths ->
         paths.sorted(Comparator.reverseOrder()).forEach { Files.deleteIfExists(it) }

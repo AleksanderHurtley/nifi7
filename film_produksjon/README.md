@@ -12,7 +12,12 @@ Catalog/submission-body preparation is complete in the live flow and E-ARK is
 configured; that configuration is not fully exported into the repo. The
 [post-E-ARK event builder](04_Events/README.md) is locally tested on the 2023
 example, and its [2013 live output](examples/events/README.md) is recorded from
-the successful nifi7 run after work cleanup. Confirmed DPS completion remains pending.
+the successful nifi7 run after work cleanup. The latest complete captured
+[submission](examples/submission/README.md) and
+[events](examples/events/README.md#digifilm_815655_20130726) are for
+`digifilm_815655_20130726` (`Per på landet`), supplied on 2026-11-03 after
+correcting catalog-attribute resets, duplicate countries and item-part sources.
+Confirmed DPS completion remains pending.
 
 ## Prepare package FlowFiles
 
@@ -53,15 +58,22 @@ Grafana dashboard are deferred until there is a concrete need.
 
 The [metadata mapping](docs/METADATA_MAPPING.md) records the sample's existing
 checksums, viewing-file identity, provenance, and proposed E-ARK staging paths.
-The current manual test uses `digifilm_1300107_20130729`, DB item `49062190`,
+The initial manual test used `digifilm_1300107_20130729`, DB item `49062190`,
 bypassing the STARTED update. See [Initialize](01_Initialize/README.md) for
 its scripts and output attributes, then [Fetch](02_Fetch%20files/README.md)
 for the metadata-first test and MOV copy/verification.
 The [produksjon submission builder](07_Submission%20body/README.md) adds
-`metadata.source` from the current digital item's `CopiedFrom` source-component
-references, following the current carrier's parent link. Descriptions combine
-the film title and source format from the catalog hierarchy. The other payload
+`metadata.source` from the current digital item part's direct `CopiedFrom`
+references to other item parts. Descriptions combine title and format when
+source-carrier records or explicitly linked hierarchy entries supply them.
+Parent ITEM references and formats do not replace source-carrier data. The other payload
 fields, including carrier-level relations, are retained.
+The [production-only CopiedFrom catalog step](03_Catalog/README.md) exports the
+referenced source item parts through the existing catalog InvokeHTTP connection.
+It saves `<package.name>_COPIED_FROM_<priref>.xml` beside the other dumps before
+submission/E-ARK, enabling source title/format descriptions. The four metadata
+extractors are also available under `film_produksjon/07_Submission body/` so
+this flow can be updated independently of bevaring.
 After successful E-ARK generation, capture its completion timestamp, then
 [clean up work staging](05_Cleanup%20work/README.md) while retaining the
 completed SIP and external payloads for DPS. Use [Events](04_Events/README.md)

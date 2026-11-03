@@ -20,10 +20,14 @@ These exports do not directly link component `69194878` to carrier `69194879`,
 or component `69194880` to carrier `69194881`. Similar numeric IDs/order are
 not sufficient evidence for assigning formats between these levels.
 
-The [component-level example](../../submission/digifilm_727480_20130730.source.json)
-uses explicit `CopiedFrom` component references, their explicitly linked
-manifestation formats, and the common film title. The user approved component
-sources on 2026-11-02. Local tests confirm that the current builder produces
-this source fragment from these four exports, including when read from a
-retained SIP after work cleanup. No additional catalog calls are required.
-The rest of the metadata, including carrier-level `relation`, remains unchanged.
+The [item-part source example](../../submission/digifilm_727480_20130730.source.json)
+uses `70398205`'s direct `CopiedFrom` references to carriers `69194879` and
+`69194881`. The preservation review clarified that source copy history must
+stay at item-part level. The earlier component-level example was replaced.
+
+This source fragment has identifiers and catalog URIs, with descriptions omitted
+because no matching carrier titles/formats are supplied in these four exports.
+Exporting the source-carrier records or hierarchy entries explicitly identifying
+them will enable descriptions. Adjacent component IDs and their formats must
+not be used as substitutes. Local tests confirm the fragment from work and
+retained SIP exports. Existing carrier-level `relation` remains unchanged.

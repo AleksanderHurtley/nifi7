@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "source": [
+      {
+        "identifier": [
+          {
+            "type": "Collections priref",
+            "value": "69119828"
+          }
+        ],
+        "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/69119828",
+        "description": "Per på landet — Image/x-dpx"
+      },
+      {
+        "identifier": [
+          {
+            "type": "Collections priref",
+            "value": "69119830"
+          }
+        ],
+        "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/69119830",
+        "description": "Per på landet — Audio/wav"
+      }
+    ]
+  }
+}

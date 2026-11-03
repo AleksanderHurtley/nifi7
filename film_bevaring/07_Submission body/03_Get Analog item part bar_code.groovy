@@ -5,6 +5,13 @@ import groovy.json.JsonGenerator
 def ff = session.get()
 if (!ff) return
 
+// Rebuild this stage's outputs, also when this package has no analog part export.
+[
+    'metadata.barcode',
+    'submission.payload.status',
+    'submission.payload.error'
+].each { key -> ff = session.removeAttribute(ff, key) }
+
 def getAttr = { k -> ff.getAttribute(k)?.trim() ?: null }
 
 // ----------------------
@@ -46,7 +53,8 @@ try {
     // ----------------------
     // FIND ALL FILES
     // ----------------------
-    def analogItemPartXmlPaths = dirsToCheck.collectMany { dir ->
+    // Prefer this export type in work; do not mix it with an older SIP copy.
+    def analogItemPartXmlPaths = dirsToCheck.collect { dir ->
         if (Files.isDirectory(dir)) {
             dir.toFile().listFiles()
                 ?.findAll {
@@ -57,7 +65,7 @@ try {
         } else {
             []
         }
-    }
+    }.find { !it.isEmpty() } ?: []
 
     // ----------------------
     // COLLECT BARCODES

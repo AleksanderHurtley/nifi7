@@ -5,6 +5,15 @@ import groovy.json.JsonBuilder
 def ff = session.get()
 if (!ff) return
 
+// Rebuild this stage's outputs; missing URNs/relations must not reuse another run.
+[
+    'metadata.pidDataUrns',
+    'metadata.digitalItemPartRelations',
+    'metadata.provenance',
+    'submission.payload.status',
+    'submission.payload.error'
+].each { key -> ff = session.removeAttribute(ff, key) }
+
 def getAttr = { k -> ff.getAttribute(k)?.trim() ?: null }
 
 // ----------------------
@@ -46,7 +55,8 @@ try {
     // ----------------------
     // FIND ALL XML FILES
     // ----------------------
-    def xmlPaths = dirsToCheck.collectMany { dir ->
+    // Prefer this export type in work; do not mix it with an older SIP copy.
+    def xmlPaths = dirsToCheck.collect { dir ->
         if (Files.isDirectory(dir)) {
             dir.toFile().listFiles()
                 ?.findAll {
@@ -57,7 +67,7 @@ try {
         } else {
             []
         }
-    }
+    }.find { !it.isEmpty() } ?: []
 
     // ----------------------
     // COLLECTIONS
@@ -101,8 +111,9 @@ try {
             }
 
             // -- RELATION copied_from ---
-            record.'**'
-                .findAll { it.name().toString().equalsIgnoreCase('CopiedFrom') }
+            // Direct links belong to this item part; nested parent records have
+            // their own copy history and must not supply this carrier's sources.
+            record.CopiedFrom
                 .each { node ->
 
                     def copiedFromTitle = node.'copied_from.title'?.text()?.trim()
@@ -120,8 +131,7 @@ try {
                 }
 
             // -- RELATION copied_to ---
-            record.'**'
-                .findAll { it.name().toString().equalsIgnoreCase('CopiedTo') }
+            record.CopiedTo
                 .each { node ->
 
                     def copiedToTitle = node.'copied_to.title'?.text()?.trim()

@@ -1,0 +1,90 @@
+{
+  "objectId": "digifilm_815655_20130726",
+  "priority": 70,
+  "metadata": {
+    "type": "Film",
+    "identifier": [
+      {
+        "type": "URN",
+        "value": "URN:NBN:no-nb_digifilm_815655_20130726",
+        "lang": "eng"
+      }
+    ],
+    "title": {
+      "value": "Per på landet"
+    },
+    "alternative": [],
+    "creator": [
+      {
+        "name": "Gran, Sverre",
+        "type": "Person",
+        "role": "Regissør"
+      }
+    ],
+    "contributor": [
+      {
+        "name": "Norsk Dokumentarfilm",
+        "type": "korporasjon",
+        "role": "Produksjonsselskap"
+      }
+    ],
+    "publisher": [],
+    "spatial": [
+      {
+        "name": "Norge",
+        "type": "Country"
+      }
+    ],
+    "date": [
+      {
+        "type": "Produksjon",
+        "value": "1964"
+      }
+    ],
+    "relation": [
+      {
+        "title": "",
+        "id": "69119828",
+        "type": "CopiedFrom"
+      },
+      {
+        "title": "",
+        "id": "69119830",
+        "type": "CopiedFrom"
+      }
+    ],
+    "language": [],
+    "provenance": [
+      {
+        "value": "Digitale sikringsfiler og mezzaninfiler produsert ved NB for bevaring og formidling. Filtypene dette gjelder er digitale sikringsfiler fra film- og lydskannere (DPX og Wav) og etterarbeidede masterfiler (mezzanin/MOV). Dette er bilde- og lydfiler som er kopiert fra analogt filmmateriale.",
+        "lang": "nob"
+      }
+    ],
+    "description": [
+      {
+        "value": "Kortfilm om bygutten Per som i noen sommerdager er på landet hos sin onkel og tante. Fra morgen til kveld er han med på gårdens arbeid, og lærer således om livet i en bondegård. Kommentaren er på vers, sunget av Alf Prøysen. \n(SIFT)\n\nPer konuner på landet til onkel og tante, der han treffer Marit.  Vi ser de vanligste husdyra våre. Teksten er en sang av Alf Prøysen. (AV-sentralens filmkatalog 1987, Nord-Trøndelag Pedagogiske Fellestjeneste)",
+        "lang": "nob"
+      }
+    ],
+    "source": [
+      {
+        "identifier": [
+          {
+            "type": "Collections priref",
+            "value": "69119828"
+          }
+        ],
+        "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/69119828"
+      },
+      {
+        "identifier": [
+          {
+            "type": "Collections priref",
+            "value": "69119830"
+          }
+        ],
+        "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/69119830"
+      }
+    ]
+  }
+}
