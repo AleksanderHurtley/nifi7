@@ -50,10 +50,14 @@ they are not inferred from adjacent numeric IDs.
 
 The [enriched submission](../../submission/digifilm_815655_20130726.enriched-submission.json)
 was first verified locally using all seven exports and the production
-extractors/body builder. The user then supplied matching live NiFi output on
+unified submission builder. The user then supplied matching live NiFi output on
 2026-11-03, confirming the source enrichment. DPS acceptance is not recorded.
 The earlier live submission capture is unchanged. The new source
 descriptions are `Per på landet — Image/x-dpx` and `Per på landet — Audio/wav`.
+The subsequent [relation-title expected output](../../submission/digifilm_815655_20130726.titled-relations.submission.json)
+also fills the two blank `CopiedFrom` titles with `Per på landet`, retaining
+the same source IDs and source descriptions. It is locally tested output for
+the new builder revision; the earlier supplied live capture is unchanged.
 
 The local source-builder test reproduces the captured source entries from all
 five exports without descriptions, then the seven-export result with inherited

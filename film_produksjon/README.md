@@ -68,12 +68,21 @@ references to other item parts. Descriptions combine title and format when
 source-carrier records or explicitly linked hierarchy entries supply them.
 Parent ITEM references and formats do not replace source-carrier data. The other payload
 fields, including carrier-level relations, are retained.
-The [production-only CopiedFrom catalog step](03_Catalog/README.md) exports the
-referenced source item parts through the existing catalog InvokeHTTP connection.
-It saves `<package.name>_COPIED_FROM_<priref>.xml` beside the other dumps before
-submission/E-ARK, enabling source title/format descriptions. The four metadata
-extractors are also available under `film_produksjon/07_Submission body/` so
-this flow can be updated independently of bevaring.
+The [new catalog dump group](03_Catalog/README.md) uses a single validated primary
+URN record, follows its direct parent chain, and fetches direct source records
+once per priref. New exports omit the package prefix (`PACKAGE_CATALOG_RECORD_<id>.xml`,
+`ITEM_<id>.xml`, `WORK_<id>.xml`, `COPIED_FROM_<id>.xml`). Submission readers also
+support historical names. Validated exports are saved directly in the work
+package's `metadata/descriptive/` as responses arrive; only `COMPLETE` proceeds.
+URN lookup evidence and control reports remain separately under payloads.
+The new group replaces the old split/join catalog
+retrieval and is locally tested, awaiting NiFi deployment. Production duplicates
+stop with preserved evidence/report; the scripts do not delete catalog records.
+After approved external cleanup, a new URN request validates the expected single
+primary. The [submission body group](07_Submission%20body/README.md) uses one
+script to build the payload directly from the completed catalog exports and
+PutFile to save `submission.json`. It replaces the four attribute extractors,
+old body builder and filename step in produksjon.
 After successful E-ARK generation, capture its completion timestamp, then
 [clean up work staging](05_Cleanup%20work/README.md) while retaining the
 completed SIP and external payloads for DPS. Use [Events](04_Events/README.md)

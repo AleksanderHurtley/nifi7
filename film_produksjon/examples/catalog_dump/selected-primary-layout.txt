@@ -1,0 +1,24 @@
+Expected layout for the new catalog dumper (not a captured live cleanup).
+Package: digifilm_815655_20130726
+Assumes approved catalog cleanup retained primary ITEM_PART 162311522,
+confirmed by a new URN lookup. Historical captured XML is unchanged.
+
+metadata/descriptive/
+├── deprecated_mets/                 # unchanged legacy files
+├── PACKAGE_CATALOG_RECORD_162311522.xml
+├── ITEM_162311521.xml
+├── MANIFESTATION_25815655.xml
+├── WORK_815655.xml
+├── COPIED_FROM_69119828.xml
+└── COPIED_FROM_69119830.xml
+
+Each related priref is requested once. The root query is repeated after cleanup.
+The old zero-byte candidate 70398020 and its parent 70398019 are not part of
+this selected-primary snapshot. Their original lookup data remains in the
+separate package payloads/catalog-runs evidence directory, outside the SIP.
+
+Catalog exports are written directly to the work layout above as responses
+arrive. Only COMPLETE permits submission/E-ARK. A successful new payload run
+contains URN_RESPONSE.xml and CATALOG.json, not additional copies of these
+catalog exports. A duplicate failure contains DUPLICATES.json instead of a
+completion inventory. Partial work exports can remain after other failures.

@@ -49,8 +49,8 @@ The record has title `Per på landet`, director `Gran, Sverre`, production compa
 of Per visiting his aunt and uncle's farm. It has no alternative title or
 work-level relationship fields. An earlier supplied submission incorrectly retained
 `COLUMBI EGG SOM SKOLEMAT` and two SAS `SegmentOf` relationships from a previous
-test. The shared catalog-attribute regression test uses this capture to verify
-that absent fields clear prior values before the next payload is built.
+test. The submission regression tests use this capture to verify that the unified
+builder ignores stale metadata attributes when it builds a fresh payload.
 The [corrected live submission](../submission/digifilm_815655_20130726.submission.json)
 records the user's subsequent rerun without those stale fields or duplicate countries.
 
@@ -69,3 +69,14 @@ confirmed explicit child metadata: `parts.reference.lref=68902058`,
 `parts.fileformat=Audio/wav`. This is another supported lookup route when the
 corresponding `Parts` block is present in an exported XML file. The text report
 does not mean that the original production-record XML contains those fields.
+
+## New export names and primary selection
+
+The [selected-primary layout](selected-primary-layout.txt) illustrates the new
+short names and one-primary traversal. The package's own record uses
+`PACKAGE_CATALOG_RECORD_<priref>.xml`; its type is read from the XML. Existing
+XML captures keep their actual old names, including the combined duplicate response. They remain evidence of
+what the catalog returned; they do not imply cleanup has occurred. The new
+[local traversal test](../../tests/catalog-dump.groovy) uses those captures and
+constructs a separate synthetic one-record response to test post-cleanup URN
+validation. No live record was removed or rewritten.

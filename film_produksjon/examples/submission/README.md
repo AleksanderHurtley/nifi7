@@ -41,7 +41,7 @@ completed preservation. The original MOV has not been independently checked loca
 records the user's subsequent live NiFi output supplied on 2026-11-03 after
 adding the two `COPIED_FROM` responses and supporting their embedded parent
 titles. It matches the previously generated expected payload and is verified
-by the production-local extractor/body integration test against all
+by the production-local submission tests against all
 [seven exports](../catalog_dump/digifilm_815655_20130726/README.md). Whitespace
 is normalized. This confirms the generated payload, not DPS acceptance; the
 earlier capture above is retained separately.
@@ -50,6 +50,16 @@ The source records directly confirm `Image/x-dpx` for `69119828` and `Audio/wav`
 for `69119830`. Their own `Title` fields are absent; the explicit immediate
 parent references each embed `Per på landet`. Source IDs stay at item-part
 level. Every other payload field is retained from the earlier live submission.
+
+## Expected output with relation titles
+
+[digifilm_815655_20130726.titled-relations.submission.json](digifilm_815655_20130726.titled-relations.submission.json)
+shows the next builder revision's expected output. Its two blank `CopiedFrom`
+titles are filled with `Per på landet` using their exact source IDs. The source
+descriptions still include each source's format; all other fields match the
+latest live capture above. This file is verified by the production-local
+integration test, not yet supplied as a new live NiFi result. The earlier live
+files are not rewritten to imply that this revision has been deployed.
 
 ## Source fragments
 

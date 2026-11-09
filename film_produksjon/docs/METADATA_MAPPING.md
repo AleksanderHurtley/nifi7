@@ -104,9 +104,12 @@ is descriptive metadata. The separate `legacy_mavis/` directory is no longer
 created; existing staging requires manual reconciliation before SIP generation.
 
 Keep current catalog exports separate from the legacy MAVIS snapshot. The
-existing submission scripts expect Axiell-style `recordList/record` exports
-named with `_WORK_`, `_DIGITAL_ITEM_`, `_DIGITAL_ITEM_PART_`, and, where used,
-`_ANALOG_ITEM_PART_`. The seven source XML files do not supply those exports.
+submission builder expects Axiell-style `recordList/record` exports
+named `PACKAGE_CATALOG_RECORD_<id>.xml` for the package's primary record,
+`ITEM_<id>.xml`, `MANIFESTATION_<id>.xml`, `WORK_<id>.xml` for parents and
+`COPIED_FROM_<id>.xml` for sources. Historical package-prefixed names and analog
+item-part exports remain readable. The seven source XML files do not supply
+those exports.
 Renaming legacy MAVIS files would not make them compatible.
 
 ## Older package variant: logs and workflow markers
@@ -127,10 +130,20 @@ profile check, as for the other staged paths.
 
 ## Catalog identity and provenance
 
-Use the viewing-file URN above to find its current digital item part, then
-follow the catalog references to digital item, manifestation, and work, as
-shown in the bevaring Catalog screenshot. Verify that the returned record
-actually belongs to this viewing file before building the submission body.
+Use the viewing-file URN above to find exactly one active primary digital item
+part, then follow only its explicit direct parent references, stopping when no
+parent exists or WORK is reached. The new [catalog dumper](../03_Catalog/README.md)
+retains `catalog.primary.priref` for downstream identity and archive-ID updates.
+Multiple matches fail with original lookup evidence and a comparison report.
+After approved external cleanup, a fresh lookup must return the expected single
+priref. Catalog size/checksum comparison against the MOV is not mandatory for
+primary selection; duplicate comparison/cleanup remains an explicit review.
+The submission builder reads the selected priref and its actual parent line,
+without combining same-URN candidates or using old metadata attributes. The generic dumper does not require WORK.
+Validated exports are saved directly in `metadata/descriptive/` as responses
+arrive. URN response evidence and duplicate/completion reports are kept outside
+the SIP under the package's payload directory. Partial failures do not proceed;
+old exports not in the new result are removed only on successful completion.
 
 The legacy METS records derivation from the following core-file URNs:
 
@@ -146,25 +159,84 @@ The [produksjon submission builder](../07_Submission%20body/README.md) now maps
 the current digital item part's direct `CopiedFrom` references into
 `metadata.source`, with one entry per source-item-part Collections priref.
 Copy history stays at carrier level; the parent ITEM's copy links do not
-replace those references. Extracted item-part relations supply the IDs when
-the current item-part export is unavailable.
-It retains the existing relation
-list and uses typed catalog identifiers and record links. Missing relation
-titles and source file formats are filled from locally staged source records
+replace those references. The builder reads relation and source IDs directly
+from the selected primary's XML and retains typed catalog identifiers and
+record links. Blank `CopiedFrom`
+relation titles are filled from the source title matched by exact ID, without
+the format suffix used in `source.description`; existing titles are retained.
+Source titles and file formats are filled from locally staged source records
 or explicitly linked `Parts` hierarchy entries. When the child title is absent,
 the containing manifestation/component supplies the shared film title.
 The four-file example for `digifilm_727480_20130730` identifies source carriers
 but only supplies formats for their components, without carrier/component
 links. Its source descriptions are omitted until matching carrier details are
 exported. Component or MOV formats are never substituted for carrier formats.
-The production-only [CopiedFrom acquisition step](../03_Catalog/README.md)
-now fetches the referenced source item parts and stages their full responses as
-`<package.name>_COPIED_FROM_<priref>.xml` under `metadata.descriptive.dir`.
+The [catalog dumper](../03_Catalog/README.md) fetches the selected primary's
+referenced source item parts and stages their full responses as
+`COPIED_FROM_<priref>.xml` under `metadata.descriptive.dir`.
 The source builder reads each record's title/format by exact ID. Stage these
 new files before generating the SIP; their URNs do not replace the MOV's identity.
 Enriching these
 entries with source URNs, barcodes, or carrier descriptions requires explicitly
 resolving the corresponding source records; do not reuse the viewing-file URN.
+
+## Planned submission dates and optional WORK
+
+User requirement noted during planning of the generic catalog dump: submission
+dates are not limited to dates on the WORK record. The current builder maps
+WORK `Dating` fields to `metadata.date`; the following additional date mapping
+is planned.
+
+- Retain relevant work-level dates, such as production year, when a WORK record
+  exists. Also include the relevant historical date for the digital file
+  represented by the selected primary ITEM_PART. The catalog record need not
+  be its source: the original METS is the preferred candidate when the catalog
+  has no suitable digital-object date.
+- Output these as separate typed entries in `metadata.date`. Do not replace
+  the work's production date with the digital object's date or combine them
+  into an untyped value. Deduplicate only entries with the same type and value.
+- Bind item-part dates to the selected primary priref. Dates from CopiedFrom
+  sources or other duplicate candidates must not be attributed to the package.
+- WORK is optional. Follow explicit parent references only as far as they
+  exist. Submission preparation must use available catalog records and must
+  not fail solely because a WORK record is absent. Identity and required
+  descriptive fields still need validation against the selected flow profile.
+- Confirm the exact primary-record date field and its meaning before mapping
+  it to a submission date type. A catalog registration/modification timestamp
+  is not automatically a digital-object creation or digitization date.
+- Keep dates extracted from different record levels separate until the final
+  merge, so stage-owned attribute resets cannot erase another level's dates.
+  Missing dates must not retain values from a previous package.
+
+No new date values are added to the captured submission examples until this
+mapping is agreed and implemented. The catalog record's presence alone does
+not establish which of its date fields describes the relevant event.
+
+### Original METS as the digital-file date source
+
+The original PREMIS object has
+`creatingApplication/dateCreatedByApplication`. The linked successful
+creation/derivation event has `eventDateTime`. The existing event builder
+already checks that these timestamps agree and that the PREMIS object is bound
+to the verified MOV by media identity, ADMID, original filename, MD5 and size.
+Reuse that interpretation for the planned submission date instead of relying
+on catalog `input.date` or `edit.date`. It describes the final digital file's
+creation, not necessarily scanning/digitization of the original film.
+
+The captured `digifilm_796646_20230321` source METS demonstrates the distinction:
+the application/event timestamp is `2023-05-04T09:02:30+02:00`
+(`2023-05-04T07:02:30Z`), while `metsHdr/@CREATEDATE` is
+`2023-05-23T10:52:45.193+02:00`. The latter dates the metadata document, not the
+MOV. Newly generated E-ARK METS/SIP timestamps and the date in the package name
+must not be substituted for the historical file-creation date.
+
+Read this from the retained original METS in `deprecated_mets/<package.name>.xml`,
+not the new SIP's root `METS.xml`. The proposed submission date type is
+`Opprettelse av digital fil`; confirm the terminology before implementation.
+The timestamp extraction can happen before submission construction and be
+shared consistently with event creation later in the flow. If historical
+evidence is missing or conflicting, do not invent a date from catalog audit
+fields or the current time. WORK remains optional.
 
 ## Small adaptations for this transfer
 

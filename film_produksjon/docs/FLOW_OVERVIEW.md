@@ -166,37 +166,41 @@ and MD5. Queue the result for Catalog while that stage is adapted.
 
 ### 3. Fetch catalog metadata and prepare the submission
 
-Reuse the catalog retrieval with the production-local
-[submission-body components](../07_Submission%20body/README.md),
-adapting the lookup to the viewing-file URN. Confirm that the returned current
-catalog records belong to this media file and contain the required identity
-and title fields. The legacy MAVIS snapshot remains source metadata alongside
-the current catalog exports.
+Use the viewing-file URN for the catalog lookup. Confirm that the returned
+primary record belongs to this media file. The legacy MAVIS snapshot remains
+source metadata alongside the current catalog exports.
 
-After the existing catalog fragment join, add the production-only
-[CopiedFrom export group](../03_Catalog/README.md). It uses the MOV item part's
-direct source IDs and the existing catalog InvokeHTTP connection to save
-`<package.name>_COPIED_FROM_<priref>.xml` beside the original exports. One package
-FlowFile passes onward after all source requests finish; zero sources pass
-without HTTP. Processor wiring and failure routing are documented separately.
+The new [catalog dump group](../03_Catalog/README.md) replaces the old item-part,
+parent-fragment and CopiedFrom retrieval chain. It validates one primary URN
+record, follows its direct parents as far as present, and fetches its direct
+sources once per priref. It writes short names such as `PACKAGE_CATALOG_RECORD_<id>.xml`,
+`ITEM_<id>.xml`, `WORK_<id>.xml` and `COPIED_FROM_<id>.xml`. One package FlowFile
+continues only after all requests complete. Production duplicates are reported
+to Failure; after approved external cleanup a new URN lookup checks the expected
+surviving priref. This replacement is locally tested, awaiting NiFi deployment.
+Each validated export is saved directly in `metadata/descriptive/` as it arrives.
+URN lookup evidence and duplicate/completion reports remain separately under
+`payloads/<package>/catalog-runs/`. A failure can leave partial work exports;
+only `COMPLETE` proceeds, after obsolete catalog exports are removed.
 No new bevaring changes are required.
 
-Use the [produksjon payload builder](../07_Submission%20body/README.md) for the
-final body. It adds one `metadata.source` entry per distinct source item part
-in the current carrier's direct `CopiedFrom` links. It does not follow the
-parent ITEM's copy history. Descriptions combine title and format when matching
-source-carrier records or explicitly linked hierarchy entries supply them;
-identifiers are typed Collections prirefs with catalog links. Existing
-carrier-level relations remain unchanged and supply the source IDs when the
-current item-part export is unavailable. It does not infer source
-barcodes or URNs from the current package's identifiers.
+Connect Catalog's `COMPLETE` output to the
+[submission body group](../07_Submission%20body/README.md). One
+ExecuteGroovyScript reads the selected primary, its parent line and matching
+source exports, builds the JSON body and sets `filename=submission.json`.
+PutFile writes it under `${payloads.dir}`, with `replace` on reruns. Both
+processors send failures to the PG's Failure port. The payload is rebuilt from
+current XML each time, without intermediate metadata attributes.
 
-Use the package name as the candidate DPS `objectId`, subject to the selected
-contract's rules. The related preservation/core-file URNs document provenance;
-the viewing-file URN supplies this package's catalog identity.
+The package name supplies the DPS `objectId`; source identifiers stay on
+separate `metadata.source` entries. Direct `CopiedFrom` relation IDs and
+nonempty titles are kept. Blank titles are filled from the matching source;
+source descriptions also include its format when available. WORK dates and
+other existing fields keep their mapping. Missing WORK is allowed when a
+usable title is available from the primary or its parent line.
 
-**Check before continuing:** current catalog XML is staged and a populated
-submission body identifies the correct viewing/production object.
+**Check before continuing:** `submission.json` was saved successfully and its
+`objectId`, URN and source IDs identify the intended package and source records.
 
 ### 4. Generate the E-ARK SIP and build events
 
