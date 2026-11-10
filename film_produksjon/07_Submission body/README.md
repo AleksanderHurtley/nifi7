@@ -91,8 +91,10 @@ are excluded.
 WORK is optional. If no WORK title is available, use a title from the primary
 or its parent line. Missing optional fields produce empty lists; absence of
 any usable title fails with a clear error. An absent or blank source title or
-format is allowed. The [planned digital-file date mapping](../docs/METADATA_MAPPING.md#planned-submission-dates-and-optional-work)
-remains separate: this script maps the existing WORK dates to `metadata.date`.
+format is allowed. The builder keeps WORK dates in `metadata.date` and adds
+`Opprettelse av MOV-fil` when the original METS documents a matching MOV and
+creation timestamp. The additional entry is optional.
+[Submission date mapping](../docs/METADATA_MAPPING.md#submission-dates-and-optional-work)
 
 Each distinct direct `CopiedFrom` carrier becomes one source with a typed
 Collections priref and its record URI. The parent ITEM's and source records'

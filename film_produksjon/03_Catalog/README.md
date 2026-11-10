@@ -159,8 +159,8 @@ priref; HTML, wrong IDs/types, malformed XML and HTTP errors fail.
 The dumper supports `ITEM_PART`, `ITEM`, `MANIFESTATION`, `WORK`. Other catalog
 schemas/types require an explicit extension, not a guessed mapping. Generic
 dump support does not make the film-specific submission/event scripts generic.
-Work dates versus digital-file dates remain a
-[separate planned mapping](../docs/METADATA_MAPPING.md#planned-submission-dates-and-optional-work).
+The submission builder combines WORK dates and the original MOV creation date.
+[Submission date mapping](../docs/METADATA_MAPPING.md#submission-dates-and-optional-work)
 
 ## Production duplicates and cleanup
 

@@ -2,16 +2,59 @@ import groovy.json.JsonGenerator
 import groovy.json.JsonOutput
 import groovy.xml.XmlSlurper
 import org.apache.nifi.processor.io.StreamCallback
+import org.xml.sax.SAXException
 import java.nio.charset.StandardCharsets
 import java.nio.file.*
+import java.time.OffsetDateTime
+import java.time.format.DateTimeParseException
 import java.util.regex.Pattern
+
+String movCreationDate(Path directory, String pkg, String urn) {
+    if (!(pkg ==~ /digifilm_\d+_\d{8}/)) return null
+    Path source = directory.resolve("deprecated_mets/${pkg}.xml")
+    if (!Files.isRegularFile(source, LinkOption.NOFOLLOW_LINKS)) return null
+
+    try {
+        def mets = new XmlSlurper(false, true).parse(source.toFile())
+        if (mets.name() != 'mets') return null
+        def files = mets.fileSec.depthFirst().findAll { it.name() == 'file' }
+        if (files.size() != 1 || files[0].FLocat.findAll {
+            it.attributes()['{http://www.w3.org/1999/xlink}href'] == urn
+        }.size() != 1) return null
+
+        def adminIds = files[0].@ADMID.text().tokenize()
+        def objects = mets.amdSec.techMD.findAll { adminIds.contains(it.@ID.text()) }.mdWrap.xmlData.object
+        if (objects.size() != 1 || objects[0].originalName.text().trim() != "${pkg}.mov") return null
+
+        def object = objects[0]
+        def applications = object.creatingApplication
+        if (applications.size() != 1 || !applications[0].creatingApplicationName.text().trim().equalsIgnoreCase('FFmpeg')) {
+            return null
+        }
+        def created = OffsetDateTime.parse(applications[0].dateCreatedByApplication.text().trim()).toInstant()
+        def objectIds = object.objectIdentifier.objectIdentifierValue.collect { it.text().trim() }.findAll { it } as Set
+        def eventIds = object.linkingEventIdentifier.linkingEventIdentifierValue.collect { it.text().trim() }.findAll { it } as Set
+        def events = mets.amdSec.digiprovMD.mdWrap.xmlData.event.findAll { event ->
+            eventIds.contains(event.eventIdentifier.eventIdentifierValue.text().trim()) &&
+                event.linkingObjectIdentifier.linkingObjectIdentifierValue.any { objectIds.contains(it.text().trim()) } &&
+                ['creation', 'derivation'].contains(event.eventType.text().trim().toLowerCase(Locale.ROOT))
+        }
+        if (events.size() != 1) return null
+        def event = events[0]
+        String outcome = event.eventOutcomeInformation.eventOutcome.text().trim().toLowerCase(Locale.ROOT)
+        def eventTime = OffsetDateTime.parse(event.eventDateTime.text().trim()).toInstant()
+        return ['success', 'successful', 'succeeded'].contains(outcome) && eventTime == created ? created.toString() : null
+    } catch (IOException | SAXException | DateTimeParseException ignored) {
+        return null
+    }
+}
 
 def ff = session.get()
 if (!ff) return
 
 // Remove the former extractors' outputs, including on failure. Paths, identity,
 // fixity results and unrelated stages are retained. No metadata JSON attributes
-// are read or recreated: every payload is built from this catalog snapshot.
+// are read or recreated: each payload uses the current catalog and original METS.
 [
     'metadata.mainTitle', 'metadata.alternativeTitles', 'metadata.creators',
     'metadata.contributors', 'metadata.publishers', 'metadata.workRelations',
@@ -246,6 +289,8 @@ try {
         value: 'Digitale sikringsfiler og mezzaninfiler produsert ved NB for bevaring og formidling. Filtypene dette gjelder er digitale sikringsfiler fra film- og lydskannere (DPX og Wav) og etterarbeidede masterfiler (mezzanin/MOV). Dette er bilde- og lydfiler som er kopiert fra analogt filmmateriale.',
         lang: 'nob'
     ]]
+    String creationDate = movCreationDate(directory, pkg, urn)
+    if (creationDate) metadata.date << [type: 'Opprettelse av MOV-fil', value: creationDate]
     metadata.each { key, value -> if (value instanceof List) metadata[key] = value.unique() }
     def generator = new JsonGenerator.Options().disableUnicodeEscaping().build()
     String body = JsonOutput.prettyPrint(generator.toJson([objectId: pkg, priority: 70, metadata: metadata]), true)

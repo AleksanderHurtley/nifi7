@@ -180,63 +180,27 @@ Enriching these
 entries with source URNs, barcodes, or carrier descriptions requires explicitly
 resolving the corresponding source records; do not reuse the viewing-file URN.
 
-## Planned submission dates and optional WORK
+## Submission dates and optional WORK
 
-User requirement noted during planning of the generic catalog dump: submission
-dates are not limited to dates on the WORK record. The current builder maps
-WORK `Dating` fields to `metadata.date`; the following additional date mapping
-is planned.
-
-- Retain relevant work-level dates, such as production year, when a WORK record
-  exists. Also include the relevant historical date for the digital file
-  represented by the selected primary ITEM_PART. The catalog record need not
-  be its source: the original METS is the preferred candidate when the catalog
-  has no suitable digital-object date.
-- Output these as separate typed entries in `metadata.date`. Do not replace
-  the work's production date with the digital object's date or combine them
-  into an untyped value. Deduplicate only entries with the same type and value.
-- Bind item-part dates to the selected primary priref. Dates from CopiedFrom
-  sources or other duplicate candidates must not be attributed to the package.
-- WORK is optional. Follow explicit parent references only as far as they
-  exist. Submission preparation must use available catalog records and must
-  not fail solely because a WORK record is absent. Identity and required
-  descriptive fields still need validation against the selected flow profile.
-- Confirm the exact primary-record date field and its meaning before mapping
-  it to a submission date type. A catalog registration/modification timestamp
-  is not automatically a digital-object creation or digitization date.
-- Keep dates extracted from different record levels separate until the final
-  merge, so stage-owned attribute resets cannot erase another level's dates.
-  Missing dates must not retain values from a previous package.
-
-No new date values are added to the captured submission examples until this
-mapping is agreed and implemented. The catalog record's presence alone does
-not establish which of its date fields describes the relevant event.
+The submission builder keeps WORK `Dating` entries such as production year
+and adds a separate `metadata.date` entry of type `Opprettelse av MOV-fil`
+when the original METS documents the creation of the submitted MOV. WORK
+remains optional. A usable title can come from the primary or its parent line.
 
 ### Original METS as the digital-file date source
 
-The original PREMIS object has
-`creatingApplication/dateCreatedByApplication`. The linked successful
-creation/derivation event has `eventDateTime`. The existing event builder
-already checks that these timestamps agree and that the PREMIS object is bound
-to the verified MOV by media identity, ADMID, original filename, MD5 and size.
-Reuse that interpretation for the planned submission date instead of relying
-on catalog `input.date` or `edit.date`. It describes the final digital file's
-creation, not necessarily scanning/digitization of the original film.
+The builder reads `deprecated_mets/<package.name>.xml` from the same work or
+retained SIP directory as the catalog exports. It matches the MOV through
+the package URN, the file's `ADMID` and the PREMIS object's original filename.
+The FFmpeg `creatingApplication/dateCreatedByApplication` timestamp must agree
+with the timestamp of a linked successful creation or derivation event. This
+uses the same historical date evidence as the creation event builder.
 
-The captured `digifilm_796646_20230321` source METS demonstrates the distinction:
-the application/event timestamp is `2023-05-04T09:02:30+02:00`
-(`2023-05-04T07:02:30Z`), while `metsHdr/@CREATEDATE` is
-`2023-05-23T10:52:45.193+02:00`. The latter dates the metadata document, not the
-MOV. Newly generated E-ARK METS/SIP timestamps and the date in the package name
-must not be substituted for the historical file-creation date.
-
-Read this from the retained original METS in `deprecated_mets/<package.name>.xml`,
-not the new SIP's root `METS.xml`. The proposed submission date type is
-`Opprettelse av digital fil`; confirm the terminology before implementation.
-The timestamp extraction can happen before submission construction and be
-shared consistently with event creation later in the flow. If historical
-evidence is missing or conflicting, do not invent a date from catalog audit
-fields or the current time. WORK remains optional.
+The captured `digifilm_796646_20230321` source METS records
+`2023-05-04T09:02:30+02:00`, which is emitted as `2023-05-04T07:02:30Z`. The
+METS header timestamp `2023-05-23T10:52:45.193+02:00` describes the metadata
+document. When the source is missing, unreadable or conflicting, submission
+retains the catalog dates and omits the MOV creation date.
 
 ## Small adaptations for this transfer
 

@@ -143,6 +143,42 @@ try {
     assert parse(anotherPayload).metadata.source == new JsonSlurper().parse(new File(
         'film_produksjon/examples/submission/digifilm_727480_20130730.source.json')).metadata.source
 
+    // The original MOV METS supplies a separate creation date in UTC.
+    String movPackage = 'digifilm_796646_20230321'
+    String movUrn = "URN:NBN:no-nb_${movPackage}"
+    Path movMetadata = Files.createDirectories(scratch.resolve('mov-work/metadata/descriptive'))
+    Path originalMets = Files.createDirectories(movMetadata.resolve('deprecated_mets')).resolve("${movPackage}.xml")
+    String mets = Files.readString(Path.of("film_produksjon/examples/sam-fs/${movPackage}/${movPackage}.xml"))
+    Files.writeString(originalMets, mets)
+    Files.writeString(movMetadata.resolve('PACKAGE_CATALOG_RECORD_10.xml'), xml('10', 'ITEM_PART',
+        "<PID_data_URN>${movUrn}</PID_data_URN><Title><title>Testfilm</title></Title>" +
+        '<Part_of><part_of_reference.lref>20</part_of_reference.lref></Part_of>'))
+    Path movWork = movMetadata.resolve('WORK_20.xml')
+    Files.writeString(movWork, xml('20', 'WORK',
+        '<Dating><dating.type>Produksjon</dating.type><dating.date.start>1958</dating.date.start></Dating>'))
+    def movAttrs = attrs + ['package.name': movPackage, 'catalog.primary.priref': '10',
+        'catalog.primary.urn': movUrn, 'metadata.descriptive.dir': movMetadata.toString(),
+        'creation.event.datetime': '2000-01-01T00:00:00Z']
+    def productionDate = [type: 'Produksjon', value: '1958']
+    def creationDate = [type: 'Opprettelse av MOV-fil', value: '2023-05-04T07:02:30Z']
+    assert parse(run(movAttrs)).metadata.date == [productionDate, creationDate]
+    Files.writeString(originalMets, mets.replace(
+        '<premis:eventDateTime>2023-05-04T09:02:30+02:00', '<premis:eventDateTime>2023-05-05T09:02:30+02:00'))
+    assert parse(run(movAttrs)).metadata.date == [productionDate]
+    Files.writeString(originalMets, mets.replace('xlink:href="' + movUrn + '"', 'xlink:href="URN:other"'))
+    assert parse(run(movAttrs)).metadata.date == [productionDate]
+    Files.delete(originalMets)
+    assert parse(run(movAttrs)).metadata.date == [productionDate]
+    Files.writeString(originalMets, mets)
+    Files.delete(movWork)
+    assert parse(run(movAttrs)).metadata.date == [creationDate]
+
+    // The same original METS is available when rerunning from the retained SIP.
+    Path movSip = scratch.resolve('mov-sip')
+    Path sipMetadata = Files.createDirectories(movSip.resolve('metadata'))
+    Files.move(movMetadata, sipMetadata.resolve('descriptive'))
+    assert parse(run(movAttrs + ['transfer.dir': movSip.toString()])).metadata.date == [creationDate]
+
     // Fresh minimal package with a primary title: zero, one or two sources,
     // no WORK, no previously extracted metadata and no catalog API calls.
     Path minimal = Files.createDirectories(scratch.resolve('minimal'))
