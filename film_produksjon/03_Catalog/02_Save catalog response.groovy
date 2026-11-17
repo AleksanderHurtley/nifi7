@@ -23,6 +23,10 @@ def writeBytes = { Path path, byte[] bytes ->
 }
 def idOf = { record -> record.@priref.text()?.trim() ?: record.priref.text()?.trim() }
 def typeOf = { record -> record.record_type.value.find { it.@lang.text() == 'neutral' }?.text()?.trim() }
+def fileSizeOf = { record ->
+    def sizes = record.'file.size'
+    sizes.size() == 1 ? sizes.text().trim() : ''
+}
 def parentsOf = { record ->
     Set<String> ids = new LinkedHashSet<>()
     // Direct references only, never descendant Part_of entries in expanded records.
@@ -100,7 +104,7 @@ try {
         }
         if (records.size() > 1) {
             def sizes = records.collect { candidate ->
-                String value = candidate.'file.size'.text()?.trim()
+                String value = fileSizeOf(candidate)
                 [priref: idOf(candidate), type: typeOf(candidate), size: value,
                  sizeValue: value ==~ /[0-9]+/ ? value.toBigInteger() : null]
             }
@@ -110,8 +114,7 @@ try {
                 positive.size() == 1 && sizes.every { it.sizeValue == 0 || it.priref == positive[0].priref } ?
                 positive[0].priref : null
             // Compare complete top-level field groups, retaining repeated-field context
-            // and attributes. Empty groups may be absent in an incomplete record. A
-            // report is evidence for human review, never permission to delete.
+            // and attributes. Empty groups may be absent in an incomplete record.
             Closure canonical
             canonical = { node ->
                 def children = node.children().collect { canonical(it) }
@@ -137,8 +140,7 @@ try {
             }
             def report = [urn: urn, proposedPrimaryPriref: suggested,
                 candidates: sizes.collect { it.findAll { k, v -> k != 'sizeValue' } },
-                comparisons: comparisons, deletionApproved: false,
-                note: 'Preserve identifiers, unique metadata and incoming links before any approved catalog cleanup. Rerun with catalog.expected.primary.priref after cleanup.']
+                comparisons: comparisons]
             Path reportPath = runDir.resolve('DUPLICATES.json')
             writeBytes(reportPath, json.toJson(report).getBytes('UTF-8'))
             ff = session.putAttribute(ff, 'catalog.dump.report.path', reportPath.toString())
@@ -151,7 +153,7 @@ try {
         String requiredType = ff.getAttribute('catalog.dump.required.type')
         if (requiredType && typeOf(record) != requiredType) throw new IOException('Unexpected primary record type')
         if (ff.getAttribute('catalog.dump.duplicates.mode') == 'film_produksjon' &&
-            record.'file.size'.text()?.trim() == '0') {
+            (fileSizeOf(record) ==~ /0+/)) {
             throw new IOException('The sole production primary record has file.size=0; inspect the catalog before continuing')
         }
         role = 'PRIMARY'

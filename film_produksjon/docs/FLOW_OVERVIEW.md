@@ -175,9 +175,10 @@ parent-fragment and CopiedFrom retrieval chain. It validates one primary URN
 record, follows its direct parents as far as present, and fetches its direct
 sources once per priref. It writes short names such as `PACKAGE_CATALOG_RECORD_<id>.xml`,
 `ITEM_<id>.xml`, `WORK_<id>.xml` and `COPIED_FROM_<id>.xml`. One package FlowFile
-continues only after all requests complete. Production duplicates are reported
-to Failure; after approved external cleanup a new URN lookup checks the expected
-surviving priref. This replacement is locally tested, awaiting NiFi deployment.
+continues only after all requests complete. Multiple URN matches produce a
+report. In stage, the cleanup branch deletes eligible zero-byte ITEM_PART
+duplicates one at a time and repeats the URN lookup. Any remaining duplicates
+go to Failure for manual review.
 Each validated export is saved directly in `metadata/descriptive/` as it arrives.
 URN lookup evidence and duplicate/completion reports remain separately under
 `payloads/<package>/catalog-runs/`. A failure can leave partial work exports;

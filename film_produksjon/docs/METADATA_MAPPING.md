@@ -134,10 +134,10 @@ Use the viewing-file URN above to find exactly one active primary digital item
 part, then follow only its explicit direct parent references, stopping when no
 parent exists or WORK is reached. The new [catalog dumper](../03_Catalog/README.md)
 retains `catalog.primary.priref` for downstream identity and archive-ID updates.
-Multiple matches fail with original lookup evidence and a comparison report.
-After approved external cleanup, a fresh lookup must return the expected single
-priref. Catalog size/checksum comparison against the MOV is not mandatory for
-primary selection; duplicate comparison/cleanup remains an explicit review.
+Multiple matches produce original lookup evidence and a comparison report. The
+stage cleanup branch uses explicit zero-byte sizes to identify records for
+deletion. A fresh lookup must return exactly one record and match the expected
+priref when known. Residual duplicates go to manual review.
 The submission builder reads the selected priref and its actual parent line,
 without combining same-URN candidates or using old metadata attributes. The generic dumper does not require WORK.
 Validated exports are saved directly in `metadata/descriptive/` as responses

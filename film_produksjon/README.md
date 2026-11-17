@@ -75,11 +75,10 @@ once per priref. New exports omit the package prefix (`PACKAGE_CATALOG_RECORD_<i
 support historical names. Validated exports are saved directly in the work
 package's `metadata/descriptive/` as responses arrive; only `COMPLETE` proceeds.
 URN lookup evidence and control reports remain separately under payloads.
-The new group replaces the old split/join catalog
-retrieval and is locally tested, awaiting NiFi deployment. Production duplicates
-stop with preserved evidence/report; the scripts do not delete catalog records.
-After approved external cleanup, a new URN request validates the expected single
-primary. The [submission body group](07_Submission%20body/README.md) uses one
+The new group replaces the old split/join catalog retrieval. Multiple matches
+preserve the original lookup and a report. The optional stage branch deletes
+eligible zero-byte ITEM_PART duplicates, then repeats the URN request. Any
+remaining duplicates go to manual review. The [submission body group](07_Submission%20body/README.md) uses one
 script to build the payload directly from the completed catalog exports and
 PutFile to save `submission.json`. It replaces the four attribute extractors,
 old body builder and filename step in produksjon.

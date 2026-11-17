@@ -128,7 +128,7 @@ its proposed primary only when both package and URN still match.
 | `catalog.dump.run.dir` | Unique evidence directory under `<payloads.dir>/catalog-runs/`; catalog exports themselves are saved directly in work |
 | `catalog.dump.manifest.path` | Completed inventory JSON |
 | `catalog.dump.report.path` | Duplicate comparison report, if generated |
-| `catalog.dump.proposed.primary.priref` | Production duplicate candidate, never deletion authorization |
+| `catalog.dump.proposed.primary.priref` | Proposed surviving record when the URN has duplicates |
 
 Prepare resets previous transient `catalog.dump.*`, `catalog.primary.*` and old
 `catalog.copied_from.*` state. Package, media verification and other stages are
@@ -165,10 +165,9 @@ The submission builder combines WORK dates and the original MOV creation date.
 ## Production duplicates and cleanup
 
 In `film_produksjon` mode, exactly one ITEM_PART with positive `file.size` plus
-one or more zero-byte ITEM_PARTs yields a **proposed** surviving priref. Missing
-sizes, multiple positive records or different types produce no automatic
-proposal. A sole production primary with explicit zero size also fails for
-inspection. Catalog MD5/size is not compared to the verified MOV to select it.
+one or more zero-byte ITEM_PARTs yields a **proposed** surviving priref for the
+comparison report. A sole production primary with explicit zero size fails
+for inspection.
 
 The complete original URN response is saved as `URN_RESPONSE.xml`, and
 `DUPLICATES.json` lists candidates and all differing top-level XML field groups
@@ -177,20 +176,88 @@ The report deliberately retains differences in identifiers, parent references
 and administrative history. Empty versus missing fields can appear as a
 difference; no semantic equivalence or safe deletion is asserted.
 
-The package goes to **Failure**. Review relevant values, unique information,
-identifiers and incoming references before approved external cleanup. The
-scripts do not merge, change or delete catalog records. No catalog mutation API
-has been configured here. For the real `Per på landet` capture, `162311522` is
-proposed, but parent and legacy identifiers also differ: this is not a clean
-"zero-byte copy with no unique information" case.
+The main lookup sends multiple matches to its failure relationship. In the
+stage setup below, this relationship enters automatic cleanup. For external
+cleanup, rerun **Prepare catalog dump** afterwards. On the same FlowFile it
+retains the proposal as the expected surviving priref. On a new FlowFile, set
+`catalog.expected.primary.priref` when the expected survivor is known.
+The new response is preserved in a new run directory. Once validated, the
+selected primary's own parents and copy links drive traversal and submission.
 
-After cleanup, rerun Prepare. On the same FlowFile it retains the proposal as
-the expected surviving priref; on a new one set `catalog.expected.primary.priref`.
-This makes a **new URN request** and requires exactly one matching record with
-that ID. Zero/multiple results or an unexpected ID fail. The new response is
-preserved in a new run directory. Once validated, the selected primary's own
-parents/copy links drive traversal and submission; candidate metadata is not
-unioned together.
+### Delete zero-byte duplicates in stage
+
+Use one FlowFile per package. When the URN lookup returns multiple ITEM_PART
+records, **Read duplicate report** writes every ID with an explicit zero file
+size to `catalog.dump.duplicate.candidate.prirefs`. Records with missing or
+unreadable sizes are kept. The branch proceeds automatically when at least one
+zero-byte record can be removed and at least one match will remain. A known
+expected primary must be among the retained records. If there are no eligible
+deletions, or if every match is zero bytes, the case goes to **Failure** for
+review. **Advance duplicate deletion** schedules one DELETE at a time.
+
+```text
+Save catalog response → failure → Route stage duplicate
+  stage_duplicate → Read duplicate report → Advance duplicate deletion
+    Advance success → Route deletion status
+      delete_next → Delete stage record → Original → Advance duplicate deletion
+      complete → Prepare catalog dump
+```
+
+1. Keep **Route stage duplicate** on **Route to Property name** and use this
+   expression for `stage_duplicate`. Its `unmatched` relationship goes to
+   **Failure**.
+
+   ```text
+   ${catalog.dump.report.path:isEmpty():not():and(${catalog.delete.attempted:isEmpty()})}
+   ```
+
+2. Update **Read duplicate report** with
+   [03_Read duplicate report.groovy](03_Read%20duplicate%20report.groovy).
+   Replace **Set delete attributes** with an ExecuteGroovyScript named
+   **Advance duplicate deletion** using
+   [04_Advance duplicate deletion.groovy](04_Advance%20duplicate%20deletion.groovy).
+   Route both scripts' `failure` relationships to **Failure**.
+3. Add **Route deletion status** (RouteOnAttribute) after **Advance duplicate
+   deletion** with **Route to Property name**.
+
+   | Property | Expression | Destination |
+   |---|---|---|
+   | `delete_next` | `${catalog.delete.status:equals('DELETE')}` | **Delete stage record** |
+   | `complete` | `${catalog.delete.status:equals('COMPLETE')}` | **Prepare catalog dump** |
+
+   Route `unmatched` to **Failure**.
+4. Configure **Delete stage record** (InvokeHTTP) with **HTTP Method** `DELETE`,
+   stage authentication, and **HTTP URL**
+   `#{collections.rest.stage.base.url}/api/v1/records/${catalog.delete.priref}`.
+   Set the parameter to the stage REST base URL without a trailing slash.
+   Set **Response Redirects Enabled** to `false`. Connect **Original** to
+   **Advance duplicate deletion**, auto-terminate **Response**, and route
+   **Failure**, **No Retry**, and **Retry** to **Failure**. Keep automatic
+   retries off for this call. The script advances only on HTTP `204`.
+
+Use the same stage catalog for **Fetch catalog record** and **Delete stage
+record**. Existing tests can remove the obsolete
+`catalog.delete.approved.prirefs` property from **GenerateFlowFile**.
+
+Each acknowledged ID moves from `catalog.delete.pending.prirefs` to
+`catalog.delete.completed.prirefs`. If a call fails or returns an unexpected
+status, inspect both lists and check the catalogue before retrying. An
+interrupted HTTP request may have reached Collections. Start a fresh lookup
+and review the remaining IDs for another attempt. Previous successful deletions
+are already committed.
+
+After the final acknowledgement, **Prepare catalog dump** issues a fresh URN
+lookup using the existing stage **Fetch catalog record**. **Save catalog
+response** requires exactly one result and checks its priref when an expected
+survivor is known. If multiple matches remain, the new report goes to
+**Failure** for manual review. `catalog.delete.attempted` keeps that FlowFile
+out of the deletion branch.
+
+For a stage test of `URN:NBN:no-nb_digifilm_815855_20131106`, the recorded
+test data has zero-byte IDs `70941498`, `70941500` and `71394280`. If those
+records are still present, expect three HTTP `204` responses and
+`catalog.primary.priref = 71394278` on the completed catalog dump. Keep the
+catalog output disconnected from submission for this test.
 
 ## Direct saving and retrying
 

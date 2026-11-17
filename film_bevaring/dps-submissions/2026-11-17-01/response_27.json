@@ -1,0 +1,2080 @@
+{
+  "content": [
+    {
+      "contractId": "91c5",
+      "submissionId": "1Hq01a4dkgAhcUszImDcsq",
+      "objectId": "av_e2248f97-b25a-477a-902d-58e1d7b05986",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "01a1e482-cbba-7f77-bfe5-ae59d67d7ef9",
+      "status": "PRESERVED",
+      "priority": 50,
+      "sumSizeInBytes": 2141411059,
+      "message": null,
+      "files": [
+        {
+          "fileId": "1jI749iKHJ4TDUkOxUh6Ah",
+          "filePath": "metadata/descriptive/PART_OF_222630801.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1Hq01a4dkgAhcUszImDcsq/metadata/descriptive/PART_OF_222630801.xml",
+          "checksum": "1c767082844dbecfdf2f47e1e05f2fcf",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1Hq01a4dkgAhcUszImDcsq/metadata/descriptive/PART_OF_222630801.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T131900Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=e18e2d23ffdc8587a96a5abcf8a5cba0a9407af73aff8d0375c84ec2edf68c11"
+        },
+        {
+          "fileId": "4qGptWVQ7dQhDXcJC7hnyS",
+          "filePath": "METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1Hq01a4dkgAhcUszImDcsq/METS.xml",
+          "checksum": "49ffef908d7a7667fe0c067ba50fbfaf",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1Hq01a4dkgAhcUszImDcsq/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T131900Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=3b06bf80c1786584d184986c0f1f8c0b8ff2e39cd4b86738509984cbf64206e4"
+        },
+        {
+          "fileId": "3rZueRQrU5g8sW9adxs12M",
+          "filePath": "representations/primary_20261116/data/fv--11370603.iso",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1Hq01a4dkgAhcUszImDcsq/representations/primary_20261116/data/fv--11370603.iso",
+          "checksum": "892fb5ed31e3804e0822f05bc4d72dce",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1Hq01a4dkgAhcUszImDcsq/representations/primary_20261116/data/fv--11370603.iso?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T131900Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=dcaa7b14aed86066eafac572ab9bbbc70a0b2048ceb8668b233740e63b400d49"
+        },
+        {
+          "fileId": "3ix7IL0WaS1GuCoiVSyaqS",
+          "filePath": "representations/primary_20261116/METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1Hq01a4dkgAhcUszImDcsq/representations/primary_20261116/METS.xml",
+          "checksum": "29fe9c67cb3bed4af3ecbfaff16053dd",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1Hq01a4dkgAhcUszImDcsq/representations/primary_20261116/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T131900Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=1a24cc05a43eb181eab8768e3a6e65d240a147ac0a53ba866f6a4549a53717e1"
+        },
+        {
+          "fileId": "3whBNQaYm329uzSR4BTyNf",
+          "filePath": "schemas/DILCISExtensionMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1Hq01a4dkgAhcUszImDcsq/schemas/DILCISExtensionMETS.xsd",
+          "checksum": "eb72ef8ab5b1c93801dfacbfe6aa8e27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1Hq01a4dkgAhcUszImDcsq/schemas/DILCISExtensionMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T131900Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=d86dcc616cac688a84642dcfeef675b54336319b4e8142fd45009d1351afb6ee"
+        },
+        {
+          "fileId": "1zQtGFX2C0NCsJgOuscbpD",
+          "filePath": "schemas/DILCISExtensionSIPMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1Hq01a4dkgAhcUszImDcsq/schemas/DILCISExtensionSIPMETS.xsd",
+          "checksum": "83da1ff6f35adeece3cccfb5e2e9f83a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1Hq01a4dkgAhcUszImDcsq/schemas/DILCISExtensionSIPMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T131900Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=f6cec691545f9155839f1ad9855b31c1dff07796cf1c592d04103d028e6fd5cb"
+        },
+        {
+          "fileId": "4elFVpcjWBX0aDIcEZpkAT",
+          "filePath": "schemas/mets1_12.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1Hq01a4dkgAhcUszImDcsq/schemas/mets1_12.xsd",
+          "checksum": "0504dedc1251e87d7e85f9ff2dbadc0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1Hq01a4dkgAhcUszImDcsq/schemas/mets1_12.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T131900Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=0f1add59cb1877deac27522113721f9d4fbe302cf5cc53b16c75c83b6f79b754"
+        },
+        {
+          "fileId": "7QkWIhJCY6UKaW8QWmq4O8",
+          "filePath": "schemas/xlink.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1Hq01a4dkgAhcUszImDcsq/schemas/xlink.xsd",
+          "checksum": "6bdc7f9459a502964f889d70a335cece",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1Hq01a4dkgAhcUszImDcsq/schemas/xlink.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T131900Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=f942da5535278149528063c0f041868f3ee3b06867def7769aafe9c3b476c283"
+        }
+      ]
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "1rDEUHG5WpyNokird2wT9v",
+      "objectId": "av_911cba71-cf1b-4f47-b872-06f2e932eb42",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "01a1e489-1f74-701c-9332-0f6aad64a704",
+      "status": "PRESERVED",
+      "priority": 50,
+      "sumSizeInBytes": 7543023395,
+      "message": null,
+      "files": [
+        {
+          "fileId": "5giwgebfStOXlEiCSsVqkQ",
+          "filePath": "metadata/descriptive/PART_OF_222631158.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1rDEUHG5WpyNokird2wT9v/metadata/descriptive/PART_OF_222631158.xml",
+          "checksum": "fa1248133baf4a08ed6c9b5093bf9029",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1rDEUHG5WpyNokird2wT9v/metadata/descriptive/PART_OF_222631158.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T132554Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=06a78e499ebfbeee34c3d00661beda42a086466cb2ab43fda3978cc190dfe182"
+        },
+        {
+          "fileId": "3Jx57M3jDL943CuOEfltGT",
+          "filePath": "METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1rDEUHG5WpyNokird2wT9v/METS.xml",
+          "checksum": "7dab6eda5bf567c87553301ca2617d39",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1rDEUHG5WpyNokird2wT9v/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T132555Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=08c63f7ae0c60f950a15518be4af9f85a57dfb5bcb7c5fc89bd4f746059b4833"
+        },
+        {
+          "fileId": "4xaZkQunpR4l6MI18ac2CW",
+          "filePath": "representations/primary_20261116/data/fv--11370606.iso",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1rDEUHG5WpyNokird2wT9v/representations/primary_20261116/data/fv--11370606.iso",
+          "checksum": "0ddf8856a7b6922dfe196cefb3918556",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1rDEUHG5WpyNokird2wT9v/representations/primary_20261116/data/fv--11370606.iso?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T132554Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=4a69ab6cba27905f6f13913937ad28340934996ce4bcac1c9996ca2a2340ba6a"
+        },
+        {
+          "fileId": "4j0cumtoKLICogxWQF2b8X",
+          "filePath": "representations/primary_20261116/METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1rDEUHG5WpyNokird2wT9v/representations/primary_20261116/METS.xml",
+          "checksum": "e5c82a9ab8a9352dede7ea2bc36c7e1f",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1rDEUHG5WpyNokird2wT9v/representations/primary_20261116/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T132554Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=2dc82e82e25cc3c50be91504f1d9ffec210d104e948b5fa72345cb14db214f00"
+        },
+        {
+          "fileId": "0zVAP4yVrUygisIV0nZMXC",
+          "filePath": "schemas/DILCISExtensionMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1rDEUHG5WpyNokird2wT9v/schemas/DILCISExtensionMETS.xsd",
+          "checksum": "eb72ef8ab5b1c93801dfacbfe6aa8e27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1rDEUHG5WpyNokird2wT9v/schemas/DILCISExtensionMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T132554Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=3f983adc4304202912ee043c8b9464cbaeb1ebb5a93035c4b71e26e6893d858f"
+        },
+        {
+          "fileId": "2XElqgYqOVNmucWREhg84P",
+          "filePath": "schemas/DILCISExtensionSIPMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1rDEUHG5WpyNokird2wT9v/schemas/DILCISExtensionSIPMETS.xsd",
+          "checksum": "83da1ff6f35adeece3cccfb5e2e9f83a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1rDEUHG5WpyNokird2wT9v/schemas/DILCISExtensionSIPMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T132554Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=7d4eedff6bb06041e56e1710e5834432cdc666e784bc1ae2b9f4ebc072e4376f"
+        },
+        {
+          "fileId": "3ySNJTiWVusa0GLQZfxYsc",
+          "filePath": "schemas/mets1_12.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1rDEUHG5WpyNokird2wT9v/schemas/mets1_12.xsd",
+          "checksum": "0504dedc1251e87d7e85f9ff2dbadc0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1rDEUHG5WpyNokird2wT9v/schemas/mets1_12.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T132554Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=938e29a96fe3f20154af4c7b8672b0a267854be2ff3789105957b18a1f6fed04"
+        },
+        {
+          "fileId": "2GizrkXoAhw1FzFtzzGSy6",
+          "filePath": "schemas/xlink.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1rDEUHG5WpyNokird2wT9v/schemas/xlink.xsd",
+          "checksum": "6bdc7f9459a502964f889d70a335cece",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1rDEUHG5WpyNokird2wT9v/schemas/xlink.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T132554Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=dc34d22157e781e5630eba2dcbed7e8b6fbaffb806c021dd7f28255ed2893bc1"
+        }
+      ]
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "0j951bGVtlPz3Ymbk6wPfi",
+      "objectId": "digifilm_50559_20130723_FT--42220094",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "01a1e504-d04e-778a-a14d-2e347c568c4f",
+      "status": "PRESERVED",
+      "priority": 70,
+      "sumSizeInBytes": 323161538430,
+      "message": null,
+      "files": [
+        {
+          "fileId": "0jwxMF26D4TXDT3QzPD6Mm",
+          "filePath": "metadata/descriptive/deprecated_mets/digifilm_50559_20130723_FT--42220094.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/digifilm_50559_20130723_FT--42220094.xml",
+          "checksum": "006a6098c455be875d53f891ef77aff1",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/digifilm_50559_20130723_FT--42220094.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=17ae4742fd952753548a9a39d8adaa41fd633d774d4f40f919dd8371bffc57ad"
+        },
+        {
+          "fileId": "1OLpDN2OTzItQtpRE4lA7i",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0001.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0001.xml",
+          "checksum": "f94906ab66c64bb93f04fb21bcfb8837",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0001.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=562f0daee6180800111050d37f56a09fcb8caf715642af57bef9bd0669948d19"
+        },
+        {
+          "fileId": "7YQJTOqRJVUGq6gJUNa7Ag",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0002.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0002.xml",
+          "checksum": "f15090534609d6f94242e4f5f17d72eb",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0002.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=f4689d14d31db225c868bddfdd37b78090fc3051c160facb87de1b0988f4d988"
+        },
+        {
+          "fileId": "7iOi3aJz5x1k9aux3zP5qa",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0003.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0003.xml",
+          "checksum": "68b67bb9a6419bc1b536481fa46017c8",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0003.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=c408c85ac64876f28fd228afde10551f293637b76ea5df28e9d449433cf36849"
+        },
+        {
+          "fileId": "3Uqx7jApW43Y1WnuAQM7H1",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0004.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0004.xml",
+          "checksum": "fd1973b48c470210bbab662b9510195f",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0004.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=e91cd8abcf05d21907426f525c981e326e3b0a29e251f76b1abd4ab5b5c141be"
+        },
+        {
+          "fileId": "7Wktdf4kTHBjoso20zZna2",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0005.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0005.xml",
+          "checksum": "de46eb1b451e14c711b01b9b1a165eb1",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0005.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=403bd712ceb1401c60caf3f49365dba97b6a0afa3f46201fcd6f728c21deb878"
+        },
+        {
+          "fileId": "0hGohBzxumIoUB3OJUPXwI",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0006.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0006.xml",
+          "checksum": "18fb1a66ffd67b41a3555ff138ef3b52",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0006.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=9ca96ef61adfdf8275e1c9e14b609c74fa35c229f71687f2e8dff69e86520d05"
+        },
+        {
+          "fileId": "7mFD2yZBk12zvnX9bAVBSU",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0007.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0007.xml",
+          "checksum": "3b0534a8ed376dd5385367dbe0f67f27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0007.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=6ee75451d935606ddc64a8ba25f43185963d95358909bd45c469ab94c06a04e1"
+        },
+        {
+          "fileId": "2rKEamWs3uyxN6PgmvHRBb",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0008.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0008.xml",
+          "checksum": "c5c4233b1d2f44307d28f7aab0992bdf",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0008.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=f8547c888d6e41bd61f18db088199fcce70b44b4b1d22c37864504e4a68de398"
+        },
+        {
+          "fileId": "7YYaubhaW6OrVbLJdwUomw",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0009.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0009.xml",
+          "checksum": "a3a5956fdf10ee15438e7837dd7f4166",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0009.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=b468de9a6a0b94956fad1a2f8e55db8103cef8fbe77b928061405efa2734ad3b"
+        },
+        {
+          "fileId": "2PzXREhRjCYnQX7V80jZUu",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0010.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0010.xml",
+          "checksum": "bd057cedef94366cbb0b63e8641d08c0",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0010.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=50ba63a29650e8217568f8044c1331f9a482b1f14f930ae6e83828984e878dfd"
+        },
+        {
+          "fileId": "6qIKVbA8GxMED2IksFwrzC",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0011.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0011.xml",
+          "checksum": "9e4b0a021f408af44d6df56890d66d73",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0011.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=61db5210b8b756a49577b9e7bcc768095d37342a51fafebdf3b9da44bc1f0bdd"
+        },
+        {
+          "fileId": "6QezryQtqVd8LtZD0vHauA",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0012.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0012.xml",
+          "checksum": "442c6de08dfaf8defa5bdf059d90116c",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0012.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=4e7db5e7fb8517408ea1168a0a964357171d93b32b6c765b52480cfd2de65fef"
+        },
+        {
+          "fileId": "5sYqzK8tpfLkYnxMqWacqJ",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0013.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0013.xml",
+          "checksum": "dbc39450326660ebe278b785591ad17f",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0013.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=db3e531df2dd934d03278b0af5a9a78e40d77adcbb29c4501e0493dd8274f2c5"
+        },
+        {
+          "fileId": "7BCrS4bKkBIwUyroa30I02",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0014.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0014.xml",
+          "checksum": "964e3eed14b2cf201077b3a6f3d29e98",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_0014.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=43068f8979219ccf6eb2917b5b6116c980e7b8745dc6007a467fd246f37cb407"
+        },
+        {
+          "fileId": "3TtcO82HZ0tbXPE9vrwluu",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_pre.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_pre.xml",
+          "checksum": "6719def7f460c6774472bffd1a5625b0",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/deprecated_mets/METS_digifilm_50559_20130723_FT--42220094_pre.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=57559e22ef961744e0f934562c8704bcb120c6b0d990caec3555d52b1fbe68ac"
+        },
+        {
+          "fileId": "2CZQpQnOOqo9QU3PLXew0D",
+          "filePath": "metadata/descriptive/digifilm_50559_20130723_FT--42220094_DIGITAL_ITEM_69030648.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/digifilm_50559_20130723_FT--42220094_DIGITAL_ITEM_69030648.xml",
+          "checksum": "dcbdf66f3813441948a8c5f0b5475655",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/digifilm_50559_20130723_FT--42220094_DIGITAL_ITEM_69030648.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=f9941dd5d58c78f59ff3e7ddac699deaa21673a47a9c838a702186aff4621195"
+        },
+        {
+          "fileId": "5tVA4Int0R6hDo6QkPQCkW",
+          "filePath": "metadata/descriptive/digifilm_50559_20130723_FT--42220094_DIGITAL_ITEM_69030650.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/digifilm_50559_20130723_FT--42220094_DIGITAL_ITEM_69030650.xml",
+          "checksum": "4aecf14f3e184e038353857fe6aa13d7",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/digifilm_50559_20130723_FT--42220094_DIGITAL_ITEM_69030650.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=53ad2a6eeb5861d52f0594d04352aab8d2bf62fe1403fd1ee969c5f99cfdb6c0"
+        },
+        {
+          "fileId": "3toBAtxuKKiJ5UD0lk0L7l",
+          "filePath": "metadata/descriptive/digifilm_50559_20130723_FT--42220094_DIGITAL_ITEM_PART_69030649_69030651.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/digifilm_50559_20130723_FT--42220094_DIGITAL_ITEM_PART_69030649_69030651.xml",
+          "checksum": "7fe525e4e947d8b5aefd23ae10d79c5d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/digifilm_50559_20130723_FT--42220094_DIGITAL_ITEM_PART_69030649_69030651.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=cdcf2a70873869f74c048a74111948732b6885bb921d3b65ece1e2c45137fb5f"
+        },
+        {
+          "fileId": "0jxfoSEb36qiuxwwpmMIc0",
+          "filePath": "metadata/descriptive/digifilm_50559_20130723_FT--42220094_MANIFESTATION_25050559.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/digifilm_50559_20130723_FT--42220094_MANIFESTATION_25050559.xml",
+          "checksum": "d5dec7df92079e94f2d5057202a8c332",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/digifilm_50559_20130723_FT--42220094_MANIFESTATION_25050559.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=e40cb62e0520e5c2f4bb5ff6ced650f8592a09bc7b83ea233ff02de688273e3f"
+        },
+        {
+          "fileId": "4ElOByDCA1KZZP0TiPtQC3",
+          "filePath": "metadata/descriptive/digifilm_50559_20130723_FT--42220094_WORK_50559.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/digifilm_50559_20130723_FT--42220094_WORK_50559.xml",
+          "checksum": "dc22833b4ac79d51a540cd61add2c389",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/metadata/descriptive/digifilm_50559_20130723_FT--42220094_WORK_50559.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=4405bcb5468368f5893172c42114b68093ec0e5d491644fcd0e5c35b85662507"
+        },
+        {
+          "fileId": "5vOmofWpfP0iYVbr8w4PuF",
+          "filePath": "METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/METS.xml",
+          "checksum": "c5e836612463989342cfab001055a693",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=267d82da3b57ac32d60821521a538f51161586650b32ebba9ece03f8c317c63a"
+        },
+        {
+          "fileId": "6qFh706fxcYJGWdy0xBSBL",
+          "filePath": "representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0001.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0001.mkv",
+          "checksum": "b9d3c4c52a44f5ea09c5c2fec4b34636",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0001.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=808a17ac5897bb9c28c98559f2a02e66a94fe2062fe5d5efb6d486c2121b36e6"
+        },
+        {
+          "fileId": "0hu0lcxqTbDktCmctF3EkP",
+          "filePath": "representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0002.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0002.mkv",
+          "checksum": "96801de9d49bc94f37e26d18acb2960b",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0002.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=5203f5071840fcd0e0e2fa3575fc9f67dcd70c7cfa39d0705dae3ab9c81da33d"
+        },
+        {
+          "fileId": "2Z1e1vcDBTqJNgzVceKofb",
+          "filePath": "representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0003.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0003.mkv",
+          "checksum": "c9c617f604d83bac1513ef86575be2fb",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0003.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=8cdbdd0e6f2fab2959cd9a162bbc6db18d24682d6ddd8543abdcc61b2d868cf1"
+        },
+        {
+          "fileId": "21WaeeyoejImWVYtEMFGH0",
+          "filePath": "representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0004.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0004.mkv",
+          "checksum": "e750eb8524c649c0bcd856c3fe60b2e4",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0004.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=7c5397bba3ced1cb05777677e35a89f62ae6c2503b0bccf1fa6b325545b67c4a"
+        },
+        {
+          "fileId": "2RdWdzpcUFVr29Ba9RfHmF",
+          "filePath": "representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0005.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0005.mkv",
+          "checksum": "6208dc84c4b2e06f76ecb381a2293292",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0005.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=5bdc686cd4b03bfa843180171ae5be188999ce4774294bd046802a355fa9c2fd"
+        },
+        {
+          "fileId": "29UWQhcwrw9g5flmCcyUvU",
+          "filePath": "representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0006.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0006.mkv",
+          "checksum": "1e17ef2d925c53ac1b370b63e1bf42d2",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0006.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=cd8fe1687da87d9fb37eee4fa878936503219650afe1754efc9a7a5e2eba670e"
+        },
+        {
+          "fileId": "2jDSaUuPmzJtBRCOaGok9O",
+          "filePath": "representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0007.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0007.mkv",
+          "checksum": "3c3ba6d3824fc9c8a589abdaa737cb6f",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0007.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=67ceebb6837d73111a594c6edcefd57377582400347f8121bc9db2886a04b356"
+        },
+        {
+          "fileId": "5G5E1nszb8zwiqA5I8OJWb",
+          "filePath": "representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0008.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0008.mkv",
+          "checksum": "4e1fd86aa6cd864fa82ee5c8c03ea1bc",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0008.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=dd25475466dedcb5113dccc01b3881e4761e902991f49ac8ecf8470815b0771a"
+        },
+        {
+          "fileId": "6meCrLrFjcFQH3ce8NnlJh",
+          "filePath": "representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0009.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0009.mkv",
+          "checksum": "45d077aaf5591fd1d28df281e93cc48e",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0009.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=b15c4627dff042fcfcb5b314c25cadd187e123255a29feb72fcabfe9db2c178c"
+        },
+        {
+          "fileId": "4rEf4CyJuQSNXyp1OgpGeK",
+          "filePath": "representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0010.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0010.mkv",
+          "checksum": "ddc642c828b733d776a848a6fa74fbc0",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0010.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=77f272892244d8d54b12761f6045c3d1c26ffe1ff4ed9baca07caeed5fb135fc"
+        },
+        {
+          "fileId": "4Ddz6oThw48KdyrrbkjZMI",
+          "filePath": "representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0011.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0011.mkv",
+          "checksum": "f720c5c972619e088bc3557a954e9a4e",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0011.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154101Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=95e88c33c0c5869ea23284636ade825797bf5a178a32e1b45e0b78bb6850c10f"
+        },
+        {
+          "fileId": "0nB9lniC2k2AmQFb4a8mqk",
+          "filePath": "representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0012.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0012.mkv",
+          "checksum": "29ea1c2537db997f99d1720b87fa3aa3",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0012.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154101Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=7d5da7f79f842497b6fb8040b09e878840b4af5cbf34718bc1c41d0ce189bca3"
+        },
+        {
+          "fileId": "0fGwQkX1QZRtsfA9tSE6z2",
+          "filePath": "representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0013.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0013.mkv",
+          "checksum": "0db652ebd4ca1e3547db13697cd6e67b",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0013.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154101Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=78b26eb0af37d60c8bc3c82c21a8abb3340172d3d358c753757903193e68fd6e"
+        },
+        {
+          "fileId": "7IfCTtFQJRVOK5sRsreqvo",
+          "filePath": "representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0014.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0014.mkv",
+          "checksum": "c267347412b35f5c5d98d3db68c375ca",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batch0014.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154101Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=f4b24f6946e0feb5796f3fa1c5663a36c43a0287ebb99412d0b87b19f2fa7f33"
+        },
+        {
+          "fileId": "46nzc3liXRtAFfC0S68IwQ",
+          "filePath": "representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batchPRE.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batchPRE.mkv",
+          "checksum": "8802484fdf30ab3b399b7776efe299c5",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094_batchPRE.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=3f33de7330f47c95818f499d56544709381dd49c72dbe71078e0df403bce26ee"
+        },
+        {
+          "fileId": "0QaRv4DxQG0A0cs9OjXvZW",
+          "filePath": "representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094.wav",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094.wav",
+          "checksum": "8b5815b0abd1e7e4ead340239081a440",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/data/digifilm_50559_20130723_FT--42220094.wav?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=00b567369d39c843ea4030fe47e54e274da7f0ca0246caeea7c4a0852699771a"
+        },
+        {
+          "fileId": "0Sh6XMgHt6IKUVpNcsNGjd",
+          "filePath": "representations/primary_20130723/metadata/preservation/dpx/digifilm_50559_20130723_FT--42220094_dpx_manifest.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/metadata/preservation/dpx/digifilm_50559_20130723_FT--42220094_dpx_manifest.xml",
+          "checksum": "d4d38992d304b7baaa3cf757f4bc4f72",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/metadata/preservation/dpx/digifilm_50559_20130723_FT--42220094_dpx_manifest.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=dbdc25725211f87140880a39920e80162fca64f95cc92633ad4ef7071c4cd79b"
+        },
+        {
+          "fileId": "6sDVzDRcd31Q0L7ZLrG1Yp",
+          "filePath": "representations/primary_20130723/metadata/preservation/ScanityTransfer.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/metadata/preservation/ScanityTransfer.xml",
+          "checksum": "f290f8f752fa8922d2320d92beae72ad",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/metadata/preservation/ScanityTransfer.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=1c4c7be851ed9899b25dde99a09173f093cdb33609801d0e5f1c148fcc89325e"
+        },
+        {
+          "fileId": "77lB058fqU1mOGSvGugojK",
+          "filePath": "representations/primary_20130723/METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/METS.xml",
+          "checksum": "11766e406cced31540b97f63d93afe95",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/representations/primary_20130723/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=68b488ce0a935746cce020caab97dff302e34503646efeea6f4bbef2d0835aa8"
+        },
+        {
+          "fileId": "72dv1xpwMHKqiKC0l8khgX",
+          "filePath": "schemas/DILCISExtensionMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/schemas/DILCISExtensionMETS.xsd",
+          "checksum": "eb72ef8ab5b1c93801dfacbfe6aa8e27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/schemas/DILCISExtensionMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=7ab73ae224b2cb90f28ddbe239fb5175711cfb391b58c0b0b0012d29e011378d"
+        },
+        {
+          "fileId": "1870BBo2cAyn22IckheHd7",
+          "filePath": "schemas/DILCISExtensionSIPMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/schemas/DILCISExtensionSIPMETS.xsd",
+          "checksum": "83da1ff6f35adeece3cccfb5e2e9f83a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/schemas/DILCISExtensionSIPMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=21b729aa0e90a2d99b3be3e48d7f1cb684d0cd9753fac7ab97fbe141dfee7f6a"
+        },
+        {
+          "fileId": "7ZBlmiXEmiFXGDnYUpD7el",
+          "filePath": "schemas/mets1_12.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/schemas/mets1_12.xsd",
+          "checksum": "0504dedc1251e87d7e85f9ff2dbadc0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/schemas/mets1_12.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=7d391485c4792b20d464f2122cd6c5e2bfbc2917a184b5a1355e366971cc3d8e"
+        },
+        {
+          "fileId": "0iTUqyO9NPCj3WOmOUyYwZ",
+          "filePath": "schemas/xlink.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/schemas/xlink.xsd",
+          "checksum": "6bdc7f9459a502964f889d70a335cece",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/0j951bGVtlPz3Ymbk6wPfi/schemas/xlink.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261116T154100Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261116%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=a99ae3c4664361033e0587a8dbc370c01f34d900f0c2ced2ac26600715da3ac7"
+        }
+      ]
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "59yeJs5o2IrEr5feXRoyQN",
+      "objectId": "av_e994bd86-1a82-456b-9be1-5a730f5265c9",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "01a1e869-51d3-7660-b05a-7a0bc40222c2",
+      "status": "PRESERVED",
+      "priority": 50,
+      "sumSizeInBytes": 7198990316,
+      "message": null,
+      "files": [
+        {
+          "fileId": "3zbtTh2Go725JPGeQd2LyF",
+          "filePath": "metadata/descriptive/PART_OF_222636392.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/59yeJs5o2IrEr5feXRoyQN/metadata/descriptive/PART_OF_222636392.xml",
+          "checksum": "6fbd614b15b99ac310ad40e84c55e490",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/59yeJs5o2IrEr5feXRoyQN/metadata/descriptive/PART_OF_222636392.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T072939Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=bbaa239893b9d52fccb43b60aaf2b6f7aca83d479713fe0626a75a8909767f7e"
+        },
+        {
+          "fileId": "1Rb7eptagDTCclZWc7txpA",
+          "filePath": "METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/59yeJs5o2IrEr5feXRoyQN/METS.xml",
+          "checksum": "b336bcbb5743656325117b040567a3d3",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/59yeJs5o2IrEr5feXRoyQN/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T072940Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=0007c7705549508d7a512963127f4c566e89a7e741de61c42ac680eb936c624b"
+        },
+        {
+          "fileId": "3leFPbeMjaotJSEgbVPCEx",
+          "filePath": "representations/primary_20261117/data/fv--11370607.iso",
+          "s3ObjectKey": "nb-levende-bilder/91c5/59yeJs5o2IrEr5feXRoyQN/representations/primary_20261117/data/fv--11370607.iso",
+          "checksum": "55f1870ea874eeb63521fb987a5fbf72",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/59yeJs5o2IrEr5feXRoyQN/representations/primary_20261117/data/fv--11370607.iso?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T072939Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=0f3da94caaf7cf829e9041f963b6ff36bc66dd8fb24e3118b686d1785b8e169b"
+        },
+        {
+          "fileId": "5AW5xZOW91lu4piJTU2Q7L",
+          "filePath": "representations/primary_20261117/METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/59yeJs5o2IrEr5feXRoyQN/representations/primary_20261117/METS.xml",
+          "checksum": "226c2574d3e44a5831c1e561d9b6c09f",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/59yeJs5o2IrEr5feXRoyQN/representations/primary_20261117/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T072939Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=588f2d803825610d4c5fe5c69a03e2d60de9abc711d1fa8b492724b86070482c"
+        },
+        {
+          "fileId": "6Po2pWZEN6MORZjnDQfMtG",
+          "filePath": "schemas/DILCISExtensionMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/59yeJs5o2IrEr5feXRoyQN/schemas/DILCISExtensionMETS.xsd",
+          "checksum": "eb72ef8ab5b1c93801dfacbfe6aa8e27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/59yeJs5o2IrEr5feXRoyQN/schemas/DILCISExtensionMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T072939Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=9881b4cf7680975b7b4fbd6264030031055970eebba510f69a7059e6defbccc5"
+        },
+        {
+          "fileId": "6s4XnI50BP4UeXSeESS0Au",
+          "filePath": "schemas/DILCISExtensionSIPMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/59yeJs5o2IrEr5feXRoyQN/schemas/DILCISExtensionSIPMETS.xsd",
+          "checksum": "83da1ff6f35adeece3cccfb5e2e9f83a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/59yeJs5o2IrEr5feXRoyQN/schemas/DILCISExtensionSIPMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T072939Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=96e58e45c469b100db872dc42c4a1d5c14eb903f4d835547cd1479651b4a72d8"
+        },
+        {
+          "fileId": "3ALdRro2lTrfKSf54DidKB",
+          "filePath": "schemas/mets1_12.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/59yeJs5o2IrEr5feXRoyQN/schemas/mets1_12.xsd",
+          "checksum": "0504dedc1251e87d7e85f9ff2dbadc0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/59yeJs5o2IrEr5feXRoyQN/schemas/mets1_12.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T072939Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=66abeef8618d5e16faa2024fe3e6cd2315f61f06f454079297d9f5c1025fc0a0"
+        },
+        {
+          "fileId": "6ZYv64hJX9l4IEifsPLPoG",
+          "filePath": "schemas/xlink.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/59yeJs5o2IrEr5feXRoyQN/schemas/xlink.xsd",
+          "checksum": "6bdc7f9459a502964f889d70a335cece",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/59yeJs5o2IrEr5feXRoyQN/schemas/xlink.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T072939Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=1d0f5c44e7c9abffe4160a9cd9b3cf22eec118311bbb0a797b8c974ff3942c2d"
+        }
+      ]
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "2ucmbvOjvCFudeRh3zuxO7",
+      "objectId": "av_5910f28d-45d3-468f-bcd9-394c73f32ec2",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "01a1e877-2f88-7a51-890d-c4710e6ec7ec",
+      "status": "PRESERVED",
+      "priority": 50,
+      "sumSizeInBytes": 8271779837,
+      "message": null,
+      "files": [
+        {
+          "fileId": "6vXZ9stK4jICUaJR8cHALY",
+          "filePath": "metadata/descriptive/PART_OF_222636396.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2ucmbvOjvCFudeRh3zuxO7/metadata/descriptive/PART_OF_222636396.xml",
+          "checksum": "28c22d0f289c0ff8f8a29da26ac664dd",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2ucmbvOjvCFudeRh3zuxO7/metadata/descriptive/PART_OF_222636396.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T074448Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=429ed3cc7be5acc8f293f7c41c602f49cf1fece2f432f085f848f3701505ecbb"
+        },
+        {
+          "fileId": "1eOaJY71ZqTs2yruPhnOcj",
+          "filePath": "METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2ucmbvOjvCFudeRh3zuxO7/METS.xml",
+          "checksum": "6e3902e1621d11e92ae7122dd883610a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2ucmbvOjvCFudeRh3zuxO7/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T074448Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=345691d6cace2485c803c6b243e2213e26c8d8540e4c1b0fb880a33f4e9753a7"
+        },
+        {
+          "fileId": "3acAOoSXO0dtBwhQhqXiQh",
+          "filePath": "representations/primary_20261117/data/fv--11370609.iso",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2ucmbvOjvCFudeRh3zuxO7/representations/primary_20261117/data/fv--11370609.iso",
+          "checksum": "3f5309036f33df3c5cf6e0efadcd0110",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2ucmbvOjvCFudeRh3zuxO7/representations/primary_20261117/data/fv--11370609.iso?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T074448Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=2b7ed2e4355cca257a887e50e32766e11d3715e01f0ef61a6d18b9e9e294588c"
+        },
+        {
+          "fileId": "2PIrDEhebHTSvOxCMQpp5B",
+          "filePath": "representations/primary_20261117/METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2ucmbvOjvCFudeRh3zuxO7/representations/primary_20261117/METS.xml",
+          "checksum": "d3083db46c878c4f1e847047dce85ef2",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2ucmbvOjvCFudeRh3zuxO7/representations/primary_20261117/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T074448Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=7f7826c965e96314be3fbcecbd00558c0e79d48eead8929a2a2af951cb1a55bd"
+        },
+        {
+          "fileId": "3sgaOuzXrmyKYAHR9PKcbo",
+          "filePath": "schemas/DILCISExtensionMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2ucmbvOjvCFudeRh3zuxO7/schemas/DILCISExtensionMETS.xsd",
+          "checksum": "eb72ef8ab5b1c93801dfacbfe6aa8e27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2ucmbvOjvCFudeRh3zuxO7/schemas/DILCISExtensionMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T074448Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=58ddc009065fd7100fcdd12615acef2f08ffee63fd968d8306b2d1f809c1ea8c"
+        },
+        {
+          "fileId": "1oWYbHxbqMkoftkM1y3sJy",
+          "filePath": "schemas/DILCISExtensionSIPMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2ucmbvOjvCFudeRh3zuxO7/schemas/DILCISExtensionSIPMETS.xsd",
+          "checksum": "83da1ff6f35adeece3cccfb5e2e9f83a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2ucmbvOjvCFudeRh3zuxO7/schemas/DILCISExtensionSIPMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T074448Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=304a0a5b53345459085f3b60b11e59c021cd687769340835f4e6afa9cbca07a4"
+        },
+        {
+          "fileId": "4L9z5UeTNolJMpnHRvFvlB",
+          "filePath": "schemas/mets1_12.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2ucmbvOjvCFudeRh3zuxO7/schemas/mets1_12.xsd",
+          "checksum": "0504dedc1251e87d7e85f9ff2dbadc0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2ucmbvOjvCFudeRh3zuxO7/schemas/mets1_12.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T074448Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=bbeafe8b9188d04def16beebe03f96e64927d0455e1141a745d53cb96f8262d7"
+        },
+        {
+          "fileId": "4ChzPDlDcaleQCrW2h7VLf",
+          "filePath": "schemas/xlink.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2ucmbvOjvCFudeRh3zuxO7/schemas/xlink.xsd",
+          "checksum": "6bdc7f9459a502964f889d70a335cece",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2ucmbvOjvCFudeRh3zuxO7/schemas/xlink.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T074448Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=a0b0a1406a68513ce19a853a68ea6213608930ad0ec1cda803421f588ed538c9"
+        }
+      ]
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "2clS3V9mB7vgODkRBqayCi",
+      "objectId": "av_a2fdaa9d-c32f-45b7-ad35-95ad4b3b180c",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "01a1e878-f61f-7a46-8e2f-609229a61d86",
+      "status": "PRESERVED",
+      "priority": 50,
+      "sumSizeInBytes": 7794438040,
+      "message": null,
+      "files": [
+        {
+          "fileId": "166Mo6Gi1E5d0hKgPxbhF8",
+          "filePath": "metadata/descriptive/PART_OF_222636397.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2clS3V9mB7vgODkRBqayCi/metadata/descriptive/PART_OF_222636397.xml",
+          "checksum": "5bce64dbeaf5beafa265abb6e2e7650c",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2clS3V9mB7vgODkRBqayCi/metadata/descriptive/PART_OF_222636397.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T074644Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=b096bbfaa0d2baa88a7b871b319ac85e3041af1460a4e01795a50b6b98a101ac"
+        },
+        {
+          "fileId": "2zj3FhjrnJjyn5SzmMuQJN",
+          "filePath": "METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2clS3V9mB7vgODkRBqayCi/METS.xml",
+          "checksum": "bada79577036429717ee6383168f7328",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2clS3V9mB7vgODkRBqayCi/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T074645Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=8f36391290288a187449da0514d06695656dc5a09f30b65e82dc8eb32108ccae"
+        },
+        {
+          "fileId": "3lvE19gzAX1ndht5KAw9W2",
+          "filePath": "representations/primary_20261117/data/fv--11370610.iso",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2clS3V9mB7vgODkRBqayCi/representations/primary_20261117/data/fv--11370610.iso",
+          "checksum": "5f090d277ef394d8761acff4dba6af1b",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2clS3V9mB7vgODkRBqayCi/representations/primary_20261117/data/fv--11370610.iso?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T074645Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=5dd5cc662852c1bdcebbd5658b12eb4ed7b583fd81b23196dd0eeba960ed66e5"
+        },
+        {
+          "fileId": "1BTyjFOx2ZGSxCfMa2VvNb",
+          "filePath": "representations/primary_20261117/METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2clS3V9mB7vgODkRBqayCi/representations/primary_20261117/METS.xml",
+          "checksum": "9a9d3309bc4af03680e8568c2f88a9f4",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2clS3V9mB7vgODkRBqayCi/representations/primary_20261117/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T074644Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=ec317ed003e75e6956f031237fe2e5d4e035d617f6eeff6a8c65ee391b7dbd98"
+        },
+        {
+          "fileId": "02PBOkziW4KvcpLs2xjE9C",
+          "filePath": "schemas/DILCISExtensionMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2clS3V9mB7vgODkRBqayCi/schemas/DILCISExtensionMETS.xsd",
+          "checksum": "eb72ef8ab5b1c93801dfacbfe6aa8e27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2clS3V9mB7vgODkRBqayCi/schemas/DILCISExtensionMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T074644Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=60ac00cdc055e81f9e266cd9144fcad1e8dea36716443773b19b171461d09256"
+        },
+        {
+          "fileId": "3TfdufEQ1LoyMDqwHZibZ8",
+          "filePath": "schemas/DILCISExtensionSIPMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2clS3V9mB7vgODkRBqayCi/schemas/DILCISExtensionSIPMETS.xsd",
+          "checksum": "83da1ff6f35adeece3cccfb5e2e9f83a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2clS3V9mB7vgODkRBqayCi/schemas/DILCISExtensionSIPMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T074644Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=acbfdbd35c96a88a74a620f197f7a907c15747a2937217c8b02fc645179801ac"
+        },
+        {
+          "fileId": "2aNyCBdq876eAG3FoaVMx5",
+          "filePath": "schemas/mets1_12.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2clS3V9mB7vgODkRBqayCi/schemas/mets1_12.xsd",
+          "checksum": "0504dedc1251e87d7e85f9ff2dbadc0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2clS3V9mB7vgODkRBqayCi/schemas/mets1_12.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T074644Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=f4df17476e7d9cf1bdcbadb9ea7308ef8481c97ecf19480cc94392f0b494c707"
+        },
+        {
+          "fileId": "2cfvzyU2gI9YR0GamXzvZ6",
+          "filePath": "schemas/xlink.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2clS3V9mB7vgODkRBqayCi/schemas/xlink.xsd",
+          "checksum": "6bdc7f9459a502964f889d70a335cece",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2clS3V9mB7vgODkRBqayCi/schemas/xlink.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T074644Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=c8e51b0084a8162978ac52c0c69da8e26c286e3c49365fe787d93a51a7f7d639"
+        }
+      ]
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "3Wc4SnCB8V8nx0FcNUBxdY",
+      "objectId": "av_59acfd12-dcf4-4731-a2f0-ab2d9cf261ac",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "01a1e884-ca53-7f9d-bacd-d042a5d49a34",
+      "status": "PRESERVED",
+      "priority": 50,
+      "sumSizeInBytes": 7313409663,
+      "message": null,
+      "files": [
+        {
+          "fileId": "0zt51YU9yKf3mTj6DNzPCP",
+          "filePath": "metadata/descriptive/PART_OF_222636398.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3Wc4SnCB8V8nx0FcNUBxdY/metadata/descriptive/PART_OF_222636398.xml",
+          "checksum": "bb622e3578ad48ade6748d5fab313cfc",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3Wc4SnCB8V8nx0FcNUBxdY/metadata/descriptive/PART_OF_222636398.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T075939Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=02c29d67d26d85d45add60ed83cdb03853846d9744d3df9f044fc54ff339273c"
+        },
+        {
+          "fileId": "0v4zl2sVXWZ8mRHZSOxwyE",
+          "filePath": "METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3Wc4SnCB8V8nx0FcNUBxdY/METS.xml",
+          "checksum": "58378b020bcc758c25d915a4f095a927",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3Wc4SnCB8V8nx0FcNUBxdY/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T075940Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=094dd62aff53c173d0d0049d6d9b1b0859e3decb21418ac96edf239528d627e1"
+        },
+        {
+          "fileId": "4U84Ip2k5RqM7yYZ6Z0tpP",
+          "filePath": "representations/primary_20261117/data/fv--11370611.iso",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3Wc4SnCB8V8nx0FcNUBxdY/representations/primary_20261117/data/fv--11370611.iso",
+          "checksum": "92366d0a3bf9b162eb68259637afe0e2",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3Wc4SnCB8V8nx0FcNUBxdY/representations/primary_20261117/data/fv--11370611.iso?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T075939Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=9b10f654b890e49a46ab59125beec5bdfbce66056727f554ada66e9999898ec5"
+        },
+        {
+          "fileId": "5Vyb72tUTztn3aVIObFQMI",
+          "filePath": "representations/primary_20261117/METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3Wc4SnCB8V8nx0FcNUBxdY/representations/primary_20261117/METS.xml",
+          "checksum": "57f8974fbe7f2d4ab211d9d1892ddfa2",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3Wc4SnCB8V8nx0FcNUBxdY/representations/primary_20261117/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T075939Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=e57e965d4ad0cf2edb3173bc64707c2b6d919f3491272b825e4b27e54cca07c1"
+        },
+        {
+          "fileId": "3uxKM7gahGEB5O0o2iyEUm",
+          "filePath": "schemas/DILCISExtensionMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3Wc4SnCB8V8nx0FcNUBxdY/schemas/DILCISExtensionMETS.xsd",
+          "checksum": "eb72ef8ab5b1c93801dfacbfe6aa8e27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3Wc4SnCB8V8nx0FcNUBxdY/schemas/DILCISExtensionMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T075939Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=805a6fd1431b83d53b64d6f1ebcfb3af0d032200db717d5bf2eb8feda668f531"
+        },
+        {
+          "fileId": "4cp5P1kkZZtLV2DIbCm10j",
+          "filePath": "schemas/DILCISExtensionSIPMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3Wc4SnCB8V8nx0FcNUBxdY/schemas/DILCISExtensionSIPMETS.xsd",
+          "checksum": "83da1ff6f35adeece3cccfb5e2e9f83a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3Wc4SnCB8V8nx0FcNUBxdY/schemas/DILCISExtensionSIPMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T075939Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=64af6b08e6e19295b826b19f75cddc29a5fef56746926327fcf8392a3f95a789"
+        },
+        {
+          "fileId": "2FPngtgI7qSzGK3N2UyKAD",
+          "filePath": "schemas/mets1_12.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3Wc4SnCB8V8nx0FcNUBxdY/schemas/mets1_12.xsd",
+          "checksum": "0504dedc1251e87d7e85f9ff2dbadc0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3Wc4SnCB8V8nx0FcNUBxdY/schemas/mets1_12.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T075939Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=2ea2d580d903150899e2c9c5c013661b447a4637ce997161cee5279ed0f90059"
+        },
+        {
+          "fileId": "2jmpZyu3EPPz8dGPaJgin1",
+          "filePath": "schemas/xlink.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3Wc4SnCB8V8nx0FcNUBxdY/schemas/xlink.xsd",
+          "checksum": "6bdc7f9459a502964f889d70a335cece",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3Wc4SnCB8V8nx0FcNUBxdY/schemas/xlink.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T075939Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=e930ebfb4a6cb251d96fe8c03d430e0ecc13d10ece90b1d271bb065075b85fcb"
+        }
+      ]
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "32Fg11sUQdEI3PEm7aJ9E9",
+      "objectId": "av_09d63dc8-8577-46f4-b851-9f15f8dfb750",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "01a1e8bb-a268-74fd-a649-b3915d550014",
+      "status": "PROCESSING",
+      "priority": 50,
+      "sumSizeInBytes": 5935837076,
+      "message": null,
+      "files": [
+        {
+          "fileId": "2hiepcEVKacKBmCo8J4pFI",
+          "filePath": "metadata/descriptive/PART_OF_222636925.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/32Fg11sUQdEI3PEm7aJ9E9/metadata/descriptive/PART_OF_222636925.xml",
+          "checksum": "57ace459e89a5967e7628d0663b518d0",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/32Fg11sUQdEI3PEm7aJ9E9/metadata/descriptive/PART_OF_222636925.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T085934Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=604a40edf20a668b16ff27ec476f5f1243fdf4f858c44aa7c21b30003e605e4e"
+        },
+        {
+          "fileId": "6RUjog5hDaQNNCps5fGIBm",
+          "filePath": "METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/32Fg11sUQdEI3PEm7aJ9E9/METS.xml",
+          "checksum": "55645025afbc260384f0734a175379cb",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/32Fg11sUQdEI3PEm7aJ9E9/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T085934Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=4b6214bafae2de6473749085894a22b01027573260f89d602c86f6f39fb80a67"
+        },
+        {
+          "fileId": "6DllGGiG5t2GD71JkJ55QL",
+          "filePath": "representations/primary_20261117/data/fv--11370612.iso",
+          "s3ObjectKey": "nb-levende-bilder/91c5/32Fg11sUQdEI3PEm7aJ9E9/representations/primary_20261117/data/fv--11370612.iso",
+          "checksum": "070e312a301020c65e9faf87672b65ac",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/32Fg11sUQdEI3PEm7aJ9E9/representations/primary_20261117/data/fv--11370612.iso?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T085934Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=83685702aa63dc8b37d4c0516c76107b5a38b235c14394218aa067dbba7adaae"
+        },
+        {
+          "fileId": "1H3ZZvJY2QAQJILVJvw32Y",
+          "filePath": "representations/primary_20261117/METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/32Fg11sUQdEI3PEm7aJ9E9/representations/primary_20261117/METS.xml",
+          "checksum": "eb5082957bdd858ce601621363f049fa",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/32Fg11sUQdEI3PEm7aJ9E9/representations/primary_20261117/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T085934Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=fda88326f6e8a79d25821ac5b0ace68320640eb1da0df7e8f24aaf5f6b17656e"
+        },
+        {
+          "fileId": "53iPAdfFmcAIQoYIyyb6Wx",
+          "filePath": "schemas/DILCISExtensionMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/32Fg11sUQdEI3PEm7aJ9E9/schemas/DILCISExtensionMETS.xsd",
+          "checksum": "eb72ef8ab5b1c93801dfacbfe6aa8e27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/32Fg11sUQdEI3PEm7aJ9E9/schemas/DILCISExtensionMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T085934Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=14e3eb7ed588f796412b30d1d10cb2204f6d8f9c132eb7244c1e0d9a38882b42"
+        },
+        {
+          "fileId": "6egXz2Cz3QuylRxc3ttGCd",
+          "filePath": "schemas/DILCISExtensionSIPMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/32Fg11sUQdEI3PEm7aJ9E9/schemas/DILCISExtensionSIPMETS.xsd",
+          "checksum": "83da1ff6f35adeece3cccfb5e2e9f83a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/32Fg11sUQdEI3PEm7aJ9E9/schemas/DILCISExtensionSIPMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T085934Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=8cca0d1ffc1bc948c851e309203ec34687c334598ab8cd2c32eebd97e3497a80"
+        },
+        {
+          "fileId": "0kDGxNqozRomOlRxceHRpL",
+          "filePath": "schemas/mets1_12.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/32Fg11sUQdEI3PEm7aJ9E9/schemas/mets1_12.xsd",
+          "checksum": "0504dedc1251e87d7e85f9ff2dbadc0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/32Fg11sUQdEI3PEm7aJ9E9/schemas/mets1_12.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T085934Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=771678b754705b136d2ef2836ec9d8846d1fc0c42abf211a5538813e81c17d6f"
+        },
+        {
+          "fileId": "0dl0trC6OlpBhA0PPsWQBD",
+          "filePath": "schemas/xlink.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/32Fg11sUQdEI3PEm7aJ9E9/schemas/xlink.xsd",
+          "checksum": "6bdc7f9459a502964f889d70a335cece",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/32Fg11sUQdEI3PEm7aJ9E9/schemas/xlink.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T085934Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=59a7fc459b7b872b6eed17fd6f07d49b6487d16b16a760af6f389e70b8bd3651"
+        }
+      ]
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "6hUYe0edqd8agWxI8kwv2n",
+      "objectId": "av_57089921-0bd6-4d0f-bb38-c59abe924d83",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "01a1e8c2-c349-7ccd-9c0e-da9da81af64c",
+      "status": "PROCESSING",
+      "priority": 50,
+      "sumSizeInBytes": 4546189302,
+      "message": null,
+      "files": [
+        {
+          "fileId": "7lbdFUYZ6cNwRML8JLz5O4",
+          "filePath": "metadata/descriptive/PART_OF_222637376.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/6hUYe0edqd8agWxI8kwv2n/metadata/descriptive/PART_OF_222637376.xml",
+          "checksum": "d41158bd31518e1c1ae5d36172bb4752",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/6hUYe0edqd8agWxI8kwv2n/metadata/descriptive/PART_OF_222637376.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T090721Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=a285abc2b87d6727c26996ba59bffe9222e7a2f1d32c8ba0480bd0b995e451e4"
+        },
+        {
+          "fileId": "0MqqB77TEUI90ZanaQCexo",
+          "filePath": "METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/6hUYe0edqd8agWxI8kwv2n/METS.xml",
+          "checksum": "0f6db56a596dd7277cb0b26dbb4001ec",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/6hUYe0edqd8agWxI8kwv2n/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T090721Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=c9cb47056eb5af427f86161d446a82e422355267e3ad75659f7960dd3bef9678"
+        },
+        {
+          "fileId": "3bc0oUo2BWi4GYBRN7Ya1j",
+          "filePath": "representations/primary_20261117/data/fv--11370617.iso",
+          "s3ObjectKey": "nb-levende-bilder/91c5/6hUYe0edqd8agWxI8kwv2n/representations/primary_20261117/data/fv--11370617.iso",
+          "checksum": "be5f28e59747b3b9c85b3fb39bc6598a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/6hUYe0edqd8agWxI8kwv2n/representations/primary_20261117/data/fv--11370617.iso?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T090721Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=6945c79bc99154c1316f95a7ee4e5a7bc8a4b1b61e14b7e0206f7fec7e17c784"
+        },
+        {
+          "fileId": "1KjmfWaYwZswrWB6TsxKwb",
+          "filePath": "representations/primary_20261117/METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/6hUYe0edqd8agWxI8kwv2n/representations/primary_20261117/METS.xml",
+          "checksum": "e88bb4718aa028c088b8daf960e90cd8",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/6hUYe0edqd8agWxI8kwv2n/representations/primary_20261117/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T090721Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=a4c7412ac8e20af2556e41b41a1db37a08ec394088c0146f6665bc8846c0fc77"
+        },
+        {
+          "fileId": "5hzXjZJMkPKq74m0wP0UBK",
+          "filePath": "schemas/DILCISExtensionMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/6hUYe0edqd8agWxI8kwv2n/schemas/DILCISExtensionMETS.xsd",
+          "checksum": "eb72ef8ab5b1c93801dfacbfe6aa8e27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/6hUYe0edqd8agWxI8kwv2n/schemas/DILCISExtensionMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T090721Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=1342c8c64fa6f57850dc46cf9557f1d2d348a4283ae19bd96231b618f75a075d"
+        },
+        {
+          "fileId": "0q83gEJGAqvim4eJULLoJ8",
+          "filePath": "schemas/DILCISExtensionSIPMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/6hUYe0edqd8agWxI8kwv2n/schemas/DILCISExtensionSIPMETS.xsd",
+          "checksum": "83da1ff6f35adeece3cccfb5e2e9f83a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/6hUYe0edqd8agWxI8kwv2n/schemas/DILCISExtensionSIPMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T090721Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=204667bd60a3be70eec95dc61a4886c62d388f1df1322c8685890a2838e3a78e"
+        },
+        {
+          "fileId": "743RCzRWk3GKnYB6O9AsHn",
+          "filePath": "schemas/mets1_12.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/6hUYe0edqd8agWxI8kwv2n/schemas/mets1_12.xsd",
+          "checksum": "0504dedc1251e87d7e85f9ff2dbadc0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/6hUYe0edqd8agWxI8kwv2n/schemas/mets1_12.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T090721Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=ffc87767f079c80b4ed7814a394b1717248334e97acd88dd3da7699cd3096a74"
+        },
+        {
+          "fileId": "6du9rS51m7WTnWabZsH03n",
+          "filePath": "schemas/xlink.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/6hUYe0edqd8agWxI8kwv2n/schemas/xlink.xsd",
+          "checksum": "6bdc7f9459a502964f889d70a335cece",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/6hUYe0edqd8agWxI8kwv2n/schemas/xlink.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T090721Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=1475aa6e3abe4f3b6ef01b4458af823d5528f25de6414d110956ca31263599a8"
+        }
+      ]
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "1d0n32qfjuHcYHkuDNftqu",
+      "objectId": "digifilm_3384_20130906_FBIG00000874",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "01a1e8c6-e218-7eae-b720-d6e2e55cc839",
+      "status": "REGISTERED",
+      "priority": 70,
+      "message": null,
+      "files": [
+        {
+          "fileId": "3SpGttbmD727pKElaYeNMX",
+          "filePath": "metadata/descriptive/deprecated_mets/digifilm_3384_20130906_FBIG00000874.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/digifilm_3384_20130906_FBIG00000874.xml",
+          "checksum": "645b7d9f4b9cb841e17070569c406bfc",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/digifilm_3384_20130906_FBIG00000874.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091150Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=d3a496c9aab3fa4685067b786b0c90bb27df2f2393a3cf5599a411620cf19e90"
+        },
+        {
+          "fileId": "4hAsx8xEDEQQD1kUf7Ldpx",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0001.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0001.xml",
+          "checksum": "708930311bb6f9092d6f24fa828c3051",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0001.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091150Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=fabfae6e0083498d26e6dbed9c7d4e216b6721f0e817360d62d4d1a398acc8c8"
+        },
+        {
+          "fileId": "1I8Nr3KG8zaqD6GPowUNeB",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0002.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0002.xml",
+          "checksum": "ab8b39be4044fee28aa8d026ecd7905e",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0002.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091150Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=9d7f3730cc2f43094b103bb6e5db6c99f7085f8d791231b1f5be8f72d74b6b92"
+        },
+        {
+          "fileId": "7BECgMq427n20ohCNhRd2Z",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0003.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0003.xml",
+          "checksum": "b6c8445c75a6c9e962a3b6cc57189991",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0003.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091150Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=205ad2086554da3158d1dc61fbda9fd3a05e6b99728c5db04ad5dfb409f7a818"
+        },
+        {
+          "fileId": "61ieQ9W1a5JvCO2G9NICGf",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0004.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0004.xml",
+          "checksum": "6bb4e2db09cebece78faed4ab4229e5d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0004.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091150Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=1bc0e97bfba6a666a8ec7a8f1f80d68f65e25005840a0fe53f05cc1066c5b4b7"
+        },
+        {
+          "fileId": "5ohu8USZMi5Ud83kTtHiNw",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0005.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0005.xml",
+          "checksum": "e7060565c0cf22590e96740ac7f59cae",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0005.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=d2e020573441549d7ce569a19a198a9e3de9763adaa120d07d750a200b764af2"
+        },
+        {
+          "fileId": "6K99yKEGtqobEMG81iqmu9",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0006.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0006.xml",
+          "checksum": "5899689ab11e378a675a38b5ab7b2eba",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0006.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=2c8103a7f98cbdb00de9b81c9b898f8ecf7683b2f08025ce7d8f5347bafa1f1f"
+        },
+        {
+          "fileId": "6cn5pwcJCd7XJTC1mU6nZV",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0007.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0007.xml",
+          "checksum": "571e4fd7aed2b4e9e41858a8b9a9761c",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0007.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=a3cc8c476db2ba5d42c91f177784c323e7c6723725dbd67bf7c55112617f4e10"
+        },
+        {
+          "fileId": "3wiDzuUwj1Da8i4TZdWD5F",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0008.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0008.xml",
+          "checksum": "decf75a57b3b267a074bb8a347d9a804",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0008.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=06db9d5e264870dfe07ddbee7cc301991d6b2553aff5b2fb7b0a884a8ab9a482"
+        },
+        {
+          "fileId": "5Pdfh9ENt5fQDcDLjSEpoC",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0009.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0009.xml",
+          "checksum": "dcd67bde7b31424cf77f118b1ff57c9e",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0009.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=0bd1e62be769270d39775553178010bad4352377df7efa207d4fe7c908a806f4"
+        },
+        {
+          "fileId": "0ze7HQRGm1HOorWMy6C7ZU",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0010.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0010.xml",
+          "checksum": "48e11a5a20c5fe16a05949919939b0fa",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0010.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=9010858746f3bc1999136f23088b7715122a457e849051d8e79b071eead33bb2"
+        },
+        {
+          "fileId": "1zCOx4SnER6SFin52PYOHh",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0011.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0011.xml",
+          "checksum": "2d1bfb30746c62b4a45e057c617062e0",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0011.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=4e3355266a94c69d8c0d8f772f017dcbc0ac47dd5d8b652af26ec7601725b93d"
+        },
+        {
+          "fileId": "68ZMo0IAl689aXuROUa3qL",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0012.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0012.xml",
+          "checksum": "27af53ddaf78bdc84018d9687f244362",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0012.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=8b371f5ac1bd75740c821060197bab3875f1f6149ffc92548f2b1458f5ed08f7"
+        },
+        {
+          "fileId": "1xPU31ZuN3ViEG4n9R25Ye",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0013.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0013.xml",
+          "checksum": "0c1fcd5e1bfb82cdc8dd9801cad2ec69",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0013.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=4f66f709126a31d7e6b1709607a56bb2811975633ecd11bc4f13a1ddaac91b3b"
+        },
+        {
+          "fileId": "465bCVQRg4BpZTrxdTHQbX",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0014.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0014.xml",
+          "checksum": "79610b21563367a4f0be492f5f2162de",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0014.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=9079ed3c66dbbafc9731d6c5b8d149a717ff8ce0d7d821dc09fb5f95920410b7"
+        },
+        {
+          "fileId": "2ubZjJJ3WWiByI25BXDH5X",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0015.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0015.xml",
+          "checksum": "2da0af47890ae2052b09fe2dd2b83f05",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0015.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=e3f93c2ebe92558d2475a8a8d1b02a31f25541b9a091564a63fc169bf6a1cf45"
+        },
+        {
+          "fileId": "1eqXgJgeZ38hTzWxziPhHI",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0016.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0016.xml",
+          "checksum": "bbc2480b93fa8539c56fd2b7e397b919",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0016.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=85ca2bd7aa57dbf6f1f46feb6162df9d7deb5626c908aff88ab2172bd057634b"
+        },
+        {
+          "fileId": "6UAUEx0UKhWPifYsUvhVZE",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0017.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0017.xml",
+          "checksum": "c1ac1963b0ab4ab00a09ac27a37ed89c",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0017.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=f6a5f8c470d3020b5fec19fe256653c82da27f66a68fc91791f7a1e466a866d1"
+        },
+        {
+          "fileId": "5Jdr9bXLdi0d8CY9Bcjbkx",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0018.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0018.xml",
+          "checksum": "7b34ff5b591c39fa01384ad71a954b8a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0018.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=a4cf1580778c486671cc62b46c54bf571899ea11374b76692fcc256f65d66dd6"
+        },
+        {
+          "fileId": "4FlcR7W6G5oqD2E6lN3wKQ",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0019.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0019.xml",
+          "checksum": "b2bc70474192104eb194c517f052dab3",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0019.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=2c5044a3ae3ddf00c7a5c073c6c90f301154b75d5e0c9199421fdbc68c350284"
+        },
+        {
+          "fileId": "1MiacinSY0uoaHcbjALcOq",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0020.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0020.xml",
+          "checksum": "b180d9c130a951dadf5ceb57f3b86ca3",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_0020.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=852cf241442415d323d992656821ce127a2062e33d975e8d79a99e647df0bea4"
+        },
+        {
+          "fileId": "244imtW2P0Q8fBJnc0kPyO",
+          "filePath": "metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_pre.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_pre.xml",
+          "checksum": "49485eaec3d1e506ed6697d429d5aed7",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/deprecated_mets/METS_digifilm_3384_20130906_FBIG00000874_pre.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=2087c10be5a7d46bbb3e6337e425e590edddb293fc7302bf59f592803fe54dbf"
+        },
+        {
+          "fileId": "3dIrttahUxdLrIE2A01Vlw",
+          "filePath": "metadata/descriptive/digifilm_3384_20130906_FBIG00000874_DIGITAL_ITEM_69865332.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/digifilm_3384_20130906_FBIG00000874_DIGITAL_ITEM_69865332.xml",
+          "checksum": "569c9b5eb2958ec36e984b505c3ee4fa",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/digifilm_3384_20130906_FBIG00000874_DIGITAL_ITEM_69865332.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=62f15c46b82b9e90d13ad1f251b673cbdcf234a278d460a0758682ff69b4feda"
+        },
+        {
+          "fileId": "6zdODXpJHaFEIRIthHWCsk",
+          "filePath": "metadata/descriptive/digifilm_3384_20130906_FBIG00000874_DIGITAL_ITEM_69865334.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/digifilm_3384_20130906_FBIG00000874_DIGITAL_ITEM_69865334.xml",
+          "checksum": "5c0adee3d3df669c0ba2b35bdc4e8166",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/digifilm_3384_20130906_FBIG00000874_DIGITAL_ITEM_69865334.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=074cba5ae261422a7fdda768e6abd3c205441b3b450caf528e0517da16f836e3"
+        },
+        {
+          "fileId": "02410hBIxYrNEyZf4r5i20",
+          "filePath": "metadata/descriptive/digifilm_3384_20130906_FBIG00000874_DIGITAL_ITEM_PART_69865333_69865335.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/digifilm_3384_20130906_FBIG00000874_DIGITAL_ITEM_PART_69865333_69865335.xml",
+          "checksum": "1255c49f7cf82028ef6368f035ce0e4e",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/digifilm_3384_20130906_FBIG00000874_DIGITAL_ITEM_PART_69865333_69865335.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=e5033c8aa13caa975ed7ecbdd9a4392cd92d1f0137a94c305db0c3804ea7b439"
+        },
+        {
+          "fileId": "6IVfc46BrZIwhb9pI4Ib7F",
+          "filePath": "metadata/descriptive/digifilm_3384_20130906_FBIG00000874_MANIFESTATION_25003384.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/digifilm_3384_20130906_FBIG00000874_MANIFESTATION_25003384.xml",
+          "checksum": "79c9c6dc2c993611acf424e402550c96",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/digifilm_3384_20130906_FBIG00000874_MANIFESTATION_25003384.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=6e1f4fe6e9ed94437d97bd07bcc15d2debf64d9d0e1054ede9cb0146a4ece253"
+        },
+        {
+          "fileId": "1j3Q93MO0ZNl4HlW75j1x1",
+          "filePath": "metadata/descriptive/digifilm_3384_20130906_FBIG00000874_WORK_3384.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/digifilm_3384_20130906_FBIG00000874_WORK_3384.xml",
+          "checksum": "a98e4c44ae8b26622974de3ac74873ca",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/metadata/descriptive/digifilm_3384_20130906_FBIG00000874_WORK_3384.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=79c5fdd52fe160bec32cf38041ec1fc056cde0b07d294d7e8c7861835062e74d"
+        },
+        {
+          "fileId": "7O901rB8mBMxOidrOltVJQ",
+          "filePath": "METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/METS.xml",
+          "checksum": "e2c8ddb9bb90d248101629cb94adecfb",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091150Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=a4c76a8b0ae8bd570ee610b615fba2c482838863d8f7566355f5438da2554b05"
+        },
+        {
+          "fileId": "40dnxrDvquHfjQXCBV7PIW",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0001.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0001.mkv",
+          "checksum": "1301c3685e3b3ffa0549b99fdd00d949",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0001.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=8201db2c99bce36c2ec480c6ef88d71b55f59acbf30b3fe13d579a3de14b55a6"
+        },
+        {
+          "fileId": "54kLvvYAjED2WC4WpE7aVy",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0002.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0002.mkv",
+          "checksum": "579325db9004995da099850c7ccb2be7",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0002.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=6e5f733b8e9c89afeba83ca23453331384ab5406f473b3f8c6cb3c273a68db8f"
+        },
+        {
+          "fileId": "764rGPJdlDG0DACcFYgr9r",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0003.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0003.mkv",
+          "checksum": "0d9fe55b44901232006edefe4430b66f",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0003.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=d3946846290c1c4f62d941663295e8ba39b6d9ffc4579b85b802c3f09aabe893"
+        },
+        {
+          "fileId": "3sxNzWFVdBY2ZvqRXyBaGc",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0004.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0004.mkv",
+          "checksum": "6d795abf5a40bf70815db3b929c3ea0b",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0004.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=afbbc7e490bcb660b90516619a586cd4d26cb32056b97e225955f3de6681b3ca"
+        },
+        {
+          "fileId": "1gKiTyTJu2bRKFcBa1iUuu",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0005.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0005.mkv",
+          "checksum": "b91a7902718d6d19c3e5a479ac12b214",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0005.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=092abe99a830c13ff6ba8fca4b974ba64fe4171b557151d0229ad7bc101c541c"
+        },
+        {
+          "fileId": "2fgTqqGc5NfsA63c6DzPUe",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0006.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0006.mkv",
+          "checksum": "edbd2975fa2c7f49147e980f12e68c0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0006.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=78d07f7fb045de53e7e21d0b50607915910b08a810f086d3d75ec134ca959c67"
+        },
+        {
+          "fileId": "2R6ii4fBBvYtMotEFhxiS4",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0007.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0007.mkv",
+          "checksum": "b5ef21b3e78b4ab5807e0b0cd8bcd9fe",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0007.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=34d9414fb895ebb5e1677676bae7a023aaf73731150a64a4970a864c5308b119"
+        },
+        {
+          "fileId": "3tsqW8yIFjKVfS9tbso5Rc",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0008.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0008.mkv",
+          "checksum": "8a2c3bc828e66377ce6e21c7dce9aa6f",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0008.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=a09a6418997fb3000b2d3a9f8fba9627bd8944a6174a68e7ff64cfcecafcb16c"
+        },
+        {
+          "fileId": "2ahFnOlITqZLrezHrI9fFZ",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0009.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0009.mkv",
+          "checksum": "4e9a720d2ceefa42a90199369a3badcf",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0009.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=9fdb3c1a50e502a151fb37490774fc8c23939ce89a52752cdcde88ede46d8d89"
+        },
+        {
+          "fileId": "5qpRL28mxgM6ZzoM99ZHoy",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0010.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0010.mkv",
+          "checksum": "2cb506954b64723054770e0f35a2ab89",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0010.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=46db6481b5a75bb46d2088a9b603c0c6b9f3974e10df8644bd2f778ff4e1139a"
+        },
+        {
+          "fileId": "1NQqeXzeaVXE7OnBb8h39r",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0011.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0011.mkv",
+          "checksum": "8f0cfe63a79f8ffd59bd78e2d7fc970b",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0011.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=433b6bd249032f44fa89641dbd6004a2eb131e9afa3b0f816ee295002e20700a"
+        },
+        {
+          "fileId": "5vwc5lbDEzNEedHRXPUvgZ",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0012.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0012.mkv",
+          "checksum": "787c5451747e099fa2cfa95863649ed8",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0012.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=c6df9c68fa792be893c2a262fb19b0a255653b029e5902f7202e2829c40229bb"
+        },
+        {
+          "fileId": "4aUlByrM7VIPvfKW7qm1rk",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0013.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0013.mkv",
+          "checksum": "52b279648d0c44f29ac29af7f8d4f341",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0013.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=8491f00652eff2443f8c39e728e98d62f8b4296644a10a2f2ebfbbdb6c994252"
+        },
+        {
+          "fileId": "1fedkcnh3GjBEaEpSDJLiG",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0014.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0014.mkv",
+          "checksum": "0c840540f9d9182db3bd2c66bfa8ff07",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0014.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=f299bf60e970e987bb466450036553a44920ea997bb67e560042ba8fe37a1c7f"
+        },
+        {
+          "fileId": "3gtEJZQ4T6HV0TjM2xTArD",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0015.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0015.mkv",
+          "checksum": "89b19aae3d23033446705e5220e4dd87",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0015.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=40f0536b6698fd5f74fcc4ec3f3f1118755c014f9bc42a76af1e2b76cd60981b"
+        },
+        {
+          "fileId": "1QioaeVVYoNqBqGiYNmD4c",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0016.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0016.mkv",
+          "checksum": "547026cc55f75b7aaf88c0cb3cf3f64f",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0016.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=8cecdcb5ca2aceb077e15d522b3185b92203300a325dc731296f7e50b3f34949"
+        },
+        {
+          "fileId": "52keJZCiGjjUOJlGVCCbfG",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0017.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0017.mkv",
+          "checksum": "1398b73cb97cbbca29a1d9d572ca3363",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0017.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=446b7ec43d8a0d99532a0daca3df4d7e8b215045bff6523b176e844b1810cb97"
+        },
+        {
+          "fileId": "2dTsplRxCYH5vcDLgvwwA3",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0018.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0018.mkv",
+          "checksum": "17487ed7dafbcc1168b2eb9cfb024cec",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0018.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=c6a4ae2fa93c246ba7716cb66eb467ad06ca4b7b0f1dc92e6c648145f95df56d"
+        },
+        {
+          "fileId": "253Skujo3Cr3r2jXW0zxu7",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0019.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0019.mkv",
+          "checksum": "399072b73a4318c9890b1c2d9c1be1d0",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0019.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=a5d94dd245f7f11b8c25f7f87c1e64e8e330d500cbf2e3f09f61d37895604d99"
+        },
+        {
+          "fileId": "47W1845IGCY9Q3Ve7q8rnT",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0020.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0020.mkv",
+          "checksum": "f828527092feebcf236930ecf2a634cc",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batch0020.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=80e50f2d1049345950d91cd52788813196d6237795c3b7b9beb1ddea135e8bce"
+        },
+        {
+          "fileId": "1bFkkxvtdPYhWsJE1tFQmi",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batchPRE.mkv",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batchPRE.mkv",
+          "checksum": "8218ce43a8a3662077697ebdbf631a43",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874_batchPRE.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=ddc222c5c4eb9c9f07024f40d8b2d85c7814785f07e85a78034fc4dcb884df6c"
+        },
+        {
+          "fileId": "4eYcPVrFqyo3p3SYGmtbSP",
+          "filePath": "representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874.wav",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874.wav",
+          "checksum": "6a7405df65ab5bf8c70714e026b1c128",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/data/digifilm_3384_20130906_FBIG00000874.wav?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=a71b60edaa607a53c600fe9f3dabbaeaa01fc2fb5e581880801f2b9c09b9b9e7"
+        },
+        {
+          "fileId": "6Z0XTghLepHN8zlkC6mQxL",
+          "filePath": "representations/primary_20130906/metadata/preservation/dpx/digifilm_3384_20130906_FBIG00000874_dpx_manifest.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/metadata/preservation/dpx/digifilm_3384_20130906_FBIG00000874_dpx_manifest.xml",
+          "checksum": "449facbc39e49eb541670b046b84c844",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/metadata/preservation/dpx/digifilm_3384_20130906_FBIG00000874_dpx_manifest.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=423d0cc2e3bc58d3c7a15717b87089f5e66b4b74720b487eb4da942b281ced94"
+        },
+        {
+          "fileId": "44YPeB4n4YjOMkHpmI9VBx",
+          "filePath": "representations/primary_20130906/metadata/preservation/ScanityTransfer.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/metadata/preservation/ScanityTransfer.xml",
+          "checksum": "e9a77131554d3a627c34b55dc2027335",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/metadata/preservation/ScanityTransfer.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=35896535650a3998556fb344dc6c54eb33fcafc406ca6ec06506013929fca74a"
+        },
+        {
+          "fileId": "0H1FY2z6kCHgiuuwKJ38jF",
+          "filePath": "representations/primary_20130906/METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/METS.xml",
+          "checksum": "44d56e26a93ee6702c2887538e184acf",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/representations/primary_20130906/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=ca3f6dd98aba8a686c33ed62c550a5c7e1e598431604a4e88c853af606a80bf3"
+        },
+        {
+          "fileId": "6J8NKswyHJ4cQdhu1YF6cD",
+          "filePath": "schemas/DILCISExtensionMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/schemas/DILCISExtensionMETS.xsd",
+          "checksum": "eb72ef8ab5b1c93801dfacbfe6aa8e27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/schemas/DILCISExtensionMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=8096680081ddcfb64b9969609c22c5f2882a9f4d41553863a4bdea5b3a405cfd"
+        },
+        {
+          "fileId": "0N2tMbiuMVovFrKwHfQVVF",
+          "filePath": "schemas/DILCISExtensionSIPMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/schemas/DILCISExtensionSIPMETS.xsd",
+          "checksum": "83da1ff6f35adeece3cccfb5e2e9f83a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/schemas/DILCISExtensionSIPMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=251b8c63cf7dfd49fafe2c50d27ad6b12147003a0b257fda7292c7f6cfa9b116"
+        },
+        {
+          "fileId": "4qsFz7NY1tmWK1vOXk7jyR",
+          "filePath": "schemas/mets1_12.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/schemas/mets1_12.xsd",
+          "checksum": "0504dedc1251e87d7e85f9ff2dbadc0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/schemas/mets1_12.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=8807d33f3da6b7ccbf6743f85294d5a5df267605e6fbd2f7f6fff36c88d19f34"
+        },
+        {
+          "fileId": "0j5l0Rwj2zdUzzpRpPXoMU",
+          "filePath": "schemas/xlink.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/schemas/xlink.xsd",
+          "checksum": "6bdc7f9459a502964f889d70a335cece",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1d0n32qfjuHcYHkuDNftqu/schemas/xlink.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091151Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=4dbb18c9b65722cc48d3d50e9b4b53cb76765c2e97cec3bf5966d89a77463953"
+        }
+      ]
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "7HD3rcHo4dTwPcOiPRRIPv",
+      "objectId": "av_9dde4273-66fb-402d-bd52-24482cc3bd78",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "01a1e8c7-529c-7985-beec-56ce67ca59bf",
+      "status": "PROCESSING",
+      "priority": 50,
+      "sumSizeInBytes": 4432910189,
+      "message": null,
+      "files": [
+        {
+          "fileId": "70GRVipeXV4RsoyewNnoUY",
+          "filePath": "metadata/descriptive/PART_OF_222637416.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/7HD3rcHo4dTwPcOiPRRIPv/metadata/descriptive/PART_OF_222637416.xml",
+          "checksum": "0a3a3a855e6652b4a0cffb2be478c4a7",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/7HD3rcHo4dTwPcOiPRRIPv/metadata/descriptive/PART_OF_222637416.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091220Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=c20ff8934524e149644f4af65233fd2078b8b0509c305c26e44e6861f2080f38"
+        },
+        {
+          "fileId": "5qrpMjWRK2hAEtBNRc0PZr",
+          "filePath": "METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/7HD3rcHo4dTwPcOiPRRIPv/METS.xml",
+          "checksum": "8671e707a7d3ff0b1e65cb0d2b1a60ff",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/7HD3rcHo4dTwPcOiPRRIPv/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091220Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=24271f165094ed4321abb50879e99a572d92af386b98faeb4585fc268c559b91"
+        },
+        {
+          "fileId": "3InCh1rRfgLOhAVBkltHXA",
+          "filePath": "representations/primary_20261117/data/fv--11370618.iso",
+          "s3ObjectKey": "nb-levende-bilder/91c5/7HD3rcHo4dTwPcOiPRRIPv/representations/primary_20261117/data/fv--11370618.iso",
+          "checksum": "ecc2d0ec2fc40403819f8f8ea6105521",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/7HD3rcHo4dTwPcOiPRRIPv/representations/primary_20261117/data/fv--11370618.iso?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091220Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=d0fb17b34a8d4ad5b87de070acf78c0b3baf07b408d6e7e9a0f40b1eb913b437"
+        },
+        {
+          "fileId": "4E9UOgjX7FsdZZzSuBD0dF",
+          "filePath": "representations/primary_20261117/METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/7HD3rcHo4dTwPcOiPRRIPv/representations/primary_20261117/METS.xml",
+          "checksum": "3cdf0d6a54551bcdb898db3acebdf3c1",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/7HD3rcHo4dTwPcOiPRRIPv/representations/primary_20261117/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091220Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=68ebe4704d8e22dfec6f391f0894aa61de61b55c37ca8b47996c5c017d6f1131"
+        },
+        {
+          "fileId": "08b5jPnz7aqicMQEvNkKZ8",
+          "filePath": "schemas/DILCISExtensionMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/7HD3rcHo4dTwPcOiPRRIPv/schemas/DILCISExtensionMETS.xsd",
+          "checksum": "eb72ef8ab5b1c93801dfacbfe6aa8e27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/7HD3rcHo4dTwPcOiPRRIPv/schemas/DILCISExtensionMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091220Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=3d28c50df515172a57358f27c1f78d140ff195fff626f84032c1e7b5b29da387"
+        },
+        {
+          "fileId": "76DtItLOKWOIjOSblrEYvy",
+          "filePath": "schemas/DILCISExtensionSIPMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/7HD3rcHo4dTwPcOiPRRIPv/schemas/DILCISExtensionSIPMETS.xsd",
+          "checksum": "83da1ff6f35adeece3cccfb5e2e9f83a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/7HD3rcHo4dTwPcOiPRRIPv/schemas/DILCISExtensionSIPMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091220Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=a0a3af31e502510de6c2a418bd8a94b3f9ed3d94356931fc44e2337f4007b91f"
+        },
+        {
+          "fileId": "5rmWb6KkxnCJmaBfZlUjhE",
+          "filePath": "schemas/mets1_12.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/7HD3rcHo4dTwPcOiPRRIPv/schemas/mets1_12.xsd",
+          "checksum": "0504dedc1251e87d7e85f9ff2dbadc0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/7HD3rcHo4dTwPcOiPRRIPv/schemas/mets1_12.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091220Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=e879d487c991055042266dabfff8ae6888ad452f63fb4d8ce8f5db1d8ec55fc5"
+        },
+        {
+          "fileId": "4u05GgiNN2T3M1PVNH3NGs",
+          "filePath": "schemas/xlink.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/7HD3rcHo4dTwPcOiPRRIPv/schemas/xlink.xsd",
+          "checksum": "6bdc7f9459a502964f889d70a335cece",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/7HD3rcHo4dTwPcOiPRRIPv/schemas/xlink.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091220Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=490a1fb6933cab43a80ae82017264c902411ce4985c7e57d48f2cf17f0169532"
+        }
+      ]
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "1iVoYfSg394K0zmvYLt2Rt",
+      "objectId": "av_59c8ee7f-ecec-4169-8790-3373d80157e8",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "01a1e8c8-3ff2-70c0-b911-7022d8a9d62b",
+      "status": "PROCESSING",
+      "priority": 50,
+      "sumSizeInBytes": 4535836352,
+      "message": null,
+      "files": [
+        {
+          "fileId": "2WVShGQdiZUdgWIJCx5PRE",
+          "filePath": "metadata/descriptive/PART_OF_222637417.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1iVoYfSg394K0zmvYLt2Rt/metadata/descriptive/PART_OF_222637417.xml",
+          "checksum": "6f798e5c1b6c67ca56e33be28d31d7aa",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1iVoYfSg394K0zmvYLt2Rt/metadata/descriptive/PART_OF_222637417.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091320Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=3924621ed810d95c2164417ef85f738880094ee32a3f7a286237c681600acd37"
+        },
+        {
+          "fileId": "1ufZE8JgqMSZGAixH9YBSY",
+          "filePath": "METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1iVoYfSg394K0zmvYLt2Rt/METS.xml",
+          "checksum": "e876f0781012ccd5da9ca0048c11e97b",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1iVoYfSg394K0zmvYLt2Rt/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091321Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=f49a1abf0925707f2e25c57cb42b3cbdb5a9c53774e05bad458f128b5781db6b"
+        },
+        {
+          "fileId": "2xm9ZVjNcQIn6ZuYLX6fVg",
+          "filePath": "representations/primary_20261117/data/fv--11370619.iso",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1iVoYfSg394K0zmvYLt2Rt/representations/primary_20261117/data/fv--11370619.iso",
+          "checksum": "b624c7f639788ad5d1a9852ae5cef884",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1iVoYfSg394K0zmvYLt2Rt/representations/primary_20261117/data/fv--11370619.iso?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091321Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=9b22556336d75464910cab8847eaac578b6c28bff4398ccb8929a83ed3c93241"
+        },
+        {
+          "fileId": "46mDDo24RPUfxGES5BEZRT",
+          "filePath": "representations/primary_20261117/METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1iVoYfSg394K0zmvYLt2Rt/representations/primary_20261117/METS.xml",
+          "checksum": "ab42f9f94e5f9b6253f8b1c4c6a96cfa",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1iVoYfSg394K0zmvYLt2Rt/representations/primary_20261117/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091320Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=1f13095a071d3a7a21b8df7366fae40700184fcec320bae644aeda5b006a56e0"
+        },
+        {
+          "fileId": "0mqb8FscUcONs6e0OnlBBS",
+          "filePath": "schemas/DILCISExtensionMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1iVoYfSg394K0zmvYLt2Rt/schemas/DILCISExtensionMETS.xsd",
+          "checksum": "eb72ef8ab5b1c93801dfacbfe6aa8e27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1iVoYfSg394K0zmvYLt2Rt/schemas/DILCISExtensionMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091320Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=1b8e384c3b35fec4ebf849a560035ee975e104d32d02463da61e5ef5e58f3c5f"
+        },
+        {
+          "fileId": "6oUyN0djxnxrD9r6nNXIfU",
+          "filePath": "schemas/DILCISExtensionSIPMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1iVoYfSg394K0zmvYLt2Rt/schemas/DILCISExtensionSIPMETS.xsd",
+          "checksum": "83da1ff6f35adeece3cccfb5e2e9f83a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1iVoYfSg394K0zmvYLt2Rt/schemas/DILCISExtensionSIPMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091320Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=0d13646dc24b501c5707eb88cf092927e29dd681e55b0e0cff625fccba33b557"
+        },
+        {
+          "fileId": "0nf0tjhJn8g0vmkerswxYN",
+          "filePath": "schemas/mets1_12.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1iVoYfSg394K0zmvYLt2Rt/schemas/mets1_12.xsd",
+          "checksum": "0504dedc1251e87d7e85f9ff2dbadc0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1iVoYfSg394K0zmvYLt2Rt/schemas/mets1_12.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091320Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=4ad0852b8e90f7b12b271dd82d81ddb71fda690b660b3b607a25707c13d8426b"
+        },
+        {
+          "fileId": "1jxhWYmig6U1Eujvejivyg",
+          "filePath": "schemas/xlink.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1iVoYfSg394K0zmvYLt2Rt/schemas/xlink.xsd",
+          "checksum": "6bdc7f9459a502964f889d70a335cece",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1iVoYfSg394K0zmvYLt2Rt/schemas/xlink.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T091320Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=793ddf52cadf5cbd68063f419025d5fa8d081350b5398ce7b9454eb38e0baa7b"
+        }
+      ]
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "2xegQCNFaOhqasq2HF44hF",
+      "objectId": "av_e93b0236-7aa8-40b4-9c3b-eb512092de25",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "01a1e8ce-87ce-7d50-8a77-4bac333aee1e",
+      "status": "PROCESSING",
+      "priority": 50,
+      "sumSizeInBytes": 2880788611,
+      "message": null,
+      "files": [
+        {
+          "fileId": "4G9Tc8flFhc0MpLJxuQdT0",
+          "filePath": "metadata/descriptive/PART_OF_222637421.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2xegQCNFaOhqasq2HF44hF/metadata/descriptive/PART_OF_222637421.xml",
+          "checksum": "a625ed88173d76cea826e69111a87e34",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2xegQCNFaOhqasq2HF44hF/metadata/descriptive/PART_OF_222637421.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092012Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=23479d702a6581cc7e108b534be0124ec8078bbc9dca2a3044373f76365b0a64"
+        },
+        {
+          "fileId": "54VPNp6xX8xSUzLbTzp2lj",
+          "filePath": "METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2xegQCNFaOhqasq2HF44hF/METS.xml",
+          "checksum": "e34f4a46f768f6e3881f94616556c90f",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2xegQCNFaOhqasq2HF44hF/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092012Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=1234e44a2da0202fd29e13a5d5b28fff17c03d9f61ab9fbb9807e6fb93aa79b4"
+        },
+        {
+          "fileId": "4DZucX7DtR4kkiV3MndxcQ",
+          "filePath": "representations/primary_20261117/data/fv--11370621.iso",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2xegQCNFaOhqasq2HF44hF/representations/primary_20261117/data/fv--11370621.iso",
+          "checksum": "0daefc4ea619ad137bce84a5bb596642",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2xegQCNFaOhqasq2HF44hF/representations/primary_20261117/data/fv--11370621.iso?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092012Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=9bcc2240b7c3dcc5ca026c0dd1c8cd6401206c4c5c963b72ed7930f5edc46ec4"
+        },
+        {
+          "fileId": "2zOAwPj3Ec1HV65q8kTvyT",
+          "filePath": "representations/primary_20261117/METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2xegQCNFaOhqasq2HF44hF/representations/primary_20261117/METS.xml",
+          "checksum": "0de14a363afc172664b187c026856fef",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2xegQCNFaOhqasq2HF44hF/representations/primary_20261117/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092012Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=ada21caa67a1eb1e3e17a3096c7e7f3a9a313b1382ee457e6319ecc38d322219"
+        },
+        {
+          "fileId": "2u3XTllPmpKOqTz10nejEZ",
+          "filePath": "schemas/DILCISExtensionMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2xegQCNFaOhqasq2HF44hF/schemas/DILCISExtensionMETS.xsd",
+          "checksum": "eb72ef8ab5b1c93801dfacbfe6aa8e27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2xegQCNFaOhqasq2HF44hF/schemas/DILCISExtensionMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092012Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=bd6864aaedba3d9e34f056792e01ec49aca952d7e508ef1d339125cb5efb60cd"
+        },
+        {
+          "fileId": "3dm9d2MNYB1sJ4NvFkeASi",
+          "filePath": "schemas/DILCISExtensionSIPMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2xegQCNFaOhqasq2HF44hF/schemas/DILCISExtensionSIPMETS.xsd",
+          "checksum": "83da1ff6f35adeece3cccfb5e2e9f83a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2xegQCNFaOhqasq2HF44hF/schemas/DILCISExtensionSIPMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092012Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=0cf372d640603e147290895a3441b6c57380d3364f58481477fc9de8b4cdf04f"
+        },
+        {
+          "fileId": "1M9etODDPGzxR9hL1fftEs",
+          "filePath": "schemas/mets1_12.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2xegQCNFaOhqasq2HF44hF/schemas/mets1_12.xsd",
+          "checksum": "0504dedc1251e87d7e85f9ff2dbadc0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2xegQCNFaOhqasq2HF44hF/schemas/mets1_12.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092012Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=10dfbd6ce716d4e37cfd3ebebb6d4d368a238f8860f7ea5263f002a0e09973f3"
+        },
+        {
+          "fileId": "2JP9gIYLuPv3wcuGjJEfaQ",
+          "filePath": "schemas/xlink.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/2xegQCNFaOhqasq2HF44hF/schemas/xlink.xsd",
+          "checksum": "6bdc7f9459a502964f889d70a335cece",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/2xegQCNFaOhqasq2HF44hF/schemas/xlink.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092012Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=0b9a157615ae4a17bb3151060a126d92744ab0481b370ed42e64c16affd7f4f2"
+        }
+      ]
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "3xpohuWnqPXKsZLECdS2i5",
+      "objectId": "av_55345f27-d674-4488-bac2-afa0e2f6feb0",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "01a1e8d1-6755-750f-b4ac-d1daa0f5b0fe",
+      "status": "PROCESSING",
+      "priority": 50,
+      "sumSizeInBytes": 4198095200,
+      "message": null,
+      "files": [
+        {
+          "fileId": "03OhHJE2J3WsXjqPyV7wei",
+          "filePath": "metadata/descriptive/PART_OF_222637483.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3xpohuWnqPXKsZLECdS2i5/metadata/descriptive/PART_OF_222637483.xml",
+          "checksum": "5729a036bce6790b0f773a08a3d67eea",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3xpohuWnqPXKsZLECdS2i5/metadata/descriptive/PART_OF_222637483.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092320Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=8d3c5c763442345b8ad05288a8d404e935a0d9cc05ee79e9a925c4a9af6647b4"
+        },
+        {
+          "fileId": "4v01a4Mxb2On7Z8bsCtzNa",
+          "filePath": "METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3xpohuWnqPXKsZLECdS2i5/METS.xml",
+          "checksum": "ce95d8222d03b3cb0f7cd0ffb18d173d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3xpohuWnqPXKsZLECdS2i5/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092321Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=4d87d3283c535060bfa0f338997b90f25c21ddc53493d31be535197db22c7509"
+        },
+        {
+          "fileId": "4E8Px3ouyjsqARiASvQ7ve",
+          "filePath": "representations/primary_20261117/data/fv--11370622.iso",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3xpohuWnqPXKsZLECdS2i5/representations/primary_20261117/data/fv--11370622.iso",
+          "checksum": "0a29fe8bd6a38db8b4f56434a83d265b",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3xpohuWnqPXKsZLECdS2i5/representations/primary_20261117/data/fv--11370622.iso?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092320Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=4d1eddfb400915ea3126a1d95d89cafc56669095b9b9b5fc6025c5be8b9a4203"
+        },
+        {
+          "fileId": "69EQ3BUx0EvvLqmnR2lAX0",
+          "filePath": "representations/primary_20261117/METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3xpohuWnqPXKsZLECdS2i5/representations/primary_20261117/METS.xml",
+          "checksum": "059706e83667cd5552653df80faa1c64",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3xpohuWnqPXKsZLECdS2i5/representations/primary_20261117/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092320Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=5200883092198872934bd4715286a748bc61fde33132a0ba8919fc8e32762d6d"
+        },
+        {
+          "fileId": "3tY89zEShBjnEZa6x11BGU",
+          "filePath": "schemas/DILCISExtensionMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3xpohuWnqPXKsZLECdS2i5/schemas/DILCISExtensionMETS.xsd",
+          "checksum": "eb72ef8ab5b1c93801dfacbfe6aa8e27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3xpohuWnqPXKsZLECdS2i5/schemas/DILCISExtensionMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092320Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=b80edc0ee4013cc49e474a7ac35125989e5d18cef250278c1a1b95342145ebe7"
+        },
+        {
+          "fileId": "5DL8NhzTR6M9KBv8HHXoKd",
+          "filePath": "schemas/DILCISExtensionSIPMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3xpohuWnqPXKsZLECdS2i5/schemas/DILCISExtensionSIPMETS.xsd",
+          "checksum": "83da1ff6f35adeece3cccfb5e2e9f83a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3xpohuWnqPXKsZLECdS2i5/schemas/DILCISExtensionSIPMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092320Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=dbc4ee780d24ff2529d2531dd27c2c70255e65b88bb742d0849473f3031f3b24"
+        },
+        {
+          "fileId": "4vnzGq3zBklWq46fscwur7",
+          "filePath": "schemas/mets1_12.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3xpohuWnqPXKsZLECdS2i5/schemas/mets1_12.xsd",
+          "checksum": "0504dedc1251e87d7e85f9ff2dbadc0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3xpohuWnqPXKsZLECdS2i5/schemas/mets1_12.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092320Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=36b9c52aee23b7a078ac60096a3436b2a11a4a85c6b234f130521d522d65c875"
+        },
+        {
+          "fileId": "66GNmQESeOV6oleG6Vykwk",
+          "filePath": "schemas/xlink.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3xpohuWnqPXKsZLECdS2i5/schemas/xlink.xsd",
+          "checksum": "6bdc7f9459a502964f889d70a335cece",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3xpohuWnqPXKsZLECdS2i5/schemas/xlink.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092320Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=418c05d17743439ede957c5ca0dddbeac160a050373e3d944965a5b025a84992"
+        }
+      ]
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "3rnkBXD6hwh3Xdo2a5quwo",
+      "objectId": "av_ef857948-b23a-40e0-85b5-42717d2298ff",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "01a1e8d4-e67e-707a-ae69-679f32be1666",
+      "status": "PROCESSING",
+      "priority": 50,
+      "sumSizeInBytes": 2648922031,
+      "message": null,
+      "files": [
+        {
+          "fileId": "0YCaj5mmVspLkrGvMvlQex",
+          "filePath": "metadata/descriptive/PART_OF_222637814.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3rnkBXD6hwh3Xdo2a5quwo/metadata/descriptive/PART_OF_222637814.xml",
+          "checksum": "c2496328d6d37be288ce3fb9b87416db",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3rnkBXD6hwh3Xdo2a5quwo/metadata/descriptive/PART_OF_222637814.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092710Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=08d350991b47b9b646a3cae1a7db2a5a455ae666ab77d04c80cb16271f3c0fac"
+        },
+        {
+          "fileId": "5cETh2s4WPX54nWNws1xJf",
+          "filePath": "METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3rnkBXD6hwh3Xdo2a5quwo/METS.xml",
+          "checksum": "223f2874b1aa9c0e8c7e5ebc894db84f",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3rnkBXD6hwh3Xdo2a5quwo/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092710Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=e3ecac0c178ce7688a05b138c59d5bd0ba6b5de412625bf5353c53f0e5d36f8c"
+        },
+        {
+          "fileId": "3clUa8JkdtbBKMNGBYs6c7",
+          "filePath": "representations/primary_20261117/data/fv--11370623.iso",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3rnkBXD6hwh3Xdo2a5quwo/representations/primary_20261117/data/fv--11370623.iso",
+          "checksum": "5c9174bdae42b130093c85995bf96309",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3rnkBXD6hwh3Xdo2a5quwo/representations/primary_20261117/data/fv--11370623.iso?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092710Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=e9b5f04698f35ee379ff42610457eddbd29d49f226c7f6dcea5f2cdec897f688"
+        },
+        {
+          "fileId": "4ZfBAVubZl0dHjngKwQqAo",
+          "filePath": "representations/primary_20261117/METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3rnkBXD6hwh3Xdo2a5quwo/representations/primary_20261117/METS.xml",
+          "checksum": "585044d87113a10386e1e7ae26a5cc87",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3rnkBXD6hwh3Xdo2a5quwo/representations/primary_20261117/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092709Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=c220445a8a795161d78fcbdad27742c7ff59f727925ea6c5724449a05392ef34"
+        },
+        {
+          "fileId": "6XKyVwPTZKmkoA5y1bG39T",
+          "filePath": "schemas/DILCISExtensionMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3rnkBXD6hwh3Xdo2a5quwo/schemas/DILCISExtensionMETS.xsd",
+          "checksum": "eb72ef8ab5b1c93801dfacbfe6aa8e27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3rnkBXD6hwh3Xdo2a5quwo/schemas/DILCISExtensionMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092709Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=4429098a1a44ee9e091a081374396f346adc9af4d78d22aa79cfc7066c8898fc"
+        },
+        {
+          "fileId": "27X04e9zhtvDw6uaTvhsSB",
+          "filePath": "schemas/DILCISExtensionSIPMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3rnkBXD6hwh3Xdo2a5quwo/schemas/DILCISExtensionSIPMETS.xsd",
+          "checksum": "83da1ff6f35adeece3cccfb5e2e9f83a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3rnkBXD6hwh3Xdo2a5quwo/schemas/DILCISExtensionSIPMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092709Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=58ec0098156f5eaa900ec13476db3a532835aef82cfcd3ce414302dda7ee06cb"
+        },
+        {
+          "fileId": "24fqOR7kx10HkJLomCVQIl",
+          "filePath": "schemas/mets1_12.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3rnkBXD6hwh3Xdo2a5quwo/schemas/mets1_12.xsd",
+          "checksum": "0504dedc1251e87d7e85f9ff2dbadc0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3rnkBXD6hwh3Xdo2a5quwo/schemas/mets1_12.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092709Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=f18ea4559317ba0d91a8435bf595e8d597a5402fa001fc9fea8008aafe85f166"
+        },
+        {
+          "fileId": "383ggTlL3P89jHrBBjPJ5X",
+          "filePath": "schemas/xlink.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/3rnkBXD6hwh3Xdo2a5quwo/schemas/xlink.xsd",
+          "checksum": "6bdc7f9459a502964f889d70a335cece",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/3rnkBXD6hwh3Xdo2a5quwo/schemas/xlink.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092709Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=d930abbc0ba8dfec2c4e3bafeb043324839703e53dfe7fd3cdc46c88861d3bf2"
+        }
+      ]
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "45ofze1Omq6yQRqZyXaxrd",
+      "objectId": "av_28a97196-5bb3-46c6-9fa7-e5c4e7311bb9",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "01a1e8d6-e28c-7389-a2f4-11d1cf37b1c7",
+      "status": "REGISTERED",
+      "priority": 50,
+      "message": null,
+      "files": [
+        {
+          "fileId": "50eov8rgzqAeRl39Z4DDzE",
+          "filePath": "metadata/descriptive/PART_OF_222637814.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/45ofze1Omq6yQRqZyXaxrd/metadata/descriptive/PART_OF_222637814.xml",
+          "checksum": "bbf4aa8a6ff5d1caf4c655875906ba61",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/45ofze1Omq6yQRqZyXaxrd/metadata/descriptive/PART_OF_222637814.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092920Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=a9500100684975aeff77aa8e869c69a4738ae2685dba5147ef799529a7d4edbd"
+        },
+        {
+          "fileId": "41Pya9C03R289iTARXteTA",
+          "filePath": "METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/45ofze1Omq6yQRqZyXaxrd/METS.xml",
+          "checksum": "875324b0e01bce566405da80b6f40858",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/45ofze1Omq6yQRqZyXaxrd/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092920Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=c8550bc4767da3a263577cb6b817bf81eea1fbc9064ae1e7408b82a43ea629fa"
+        },
+        {
+          "fileId": "2wH1rwUDKCtzvf7a7icSWP",
+          "filePath": "representations/primary_20261117/data/fv--11370624.iso",
+          "s3ObjectKey": "nb-levende-bilder/91c5/45ofze1Omq6yQRqZyXaxrd/representations/primary_20261117/data/fv--11370624.iso",
+          "checksum": "6cb13a6cea605f7e845192994aab3a4e",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/45ofze1Omq6yQRqZyXaxrd/representations/primary_20261117/data/fv--11370624.iso?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092920Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=7a9383ec161aa8af880c70667abd130cd536bf378f743cb8e112160e4a3b1435"
+        },
+        {
+          "fileId": "4xWrII10DRM47rKgxwcXeP",
+          "filePath": "representations/primary_20261117/METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/45ofze1Omq6yQRqZyXaxrd/representations/primary_20261117/METS.xml",
+          "checksum": "dafd0271830ddacc8dea9a984dd4022b",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/45ofze1Omq6yQRqZyXaxrd/representations/primary_20261117/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092920Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=79552a2c53fd8f7476481a40206cc7e86bd37471d40013a33edf5fc9ad7f4cfd"
+        },
+        {
+          "fileId": "6XmhX2gR8lyaauDKTishAS",
+          "filePath": "schemas/DILCISExtensionMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/45ofze1Omq6yQRqZyXaxrd/schemas/DILCISExtensionMETS.xsd",
+          "checksum": "eb72ef8ab5b1c93801dfacbfe6aa8e27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/45ofze1Omq6yQRqZyXaxrd/schemas/DILCISExtensionMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092920Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=2742fc096a708d67e84e2111ecf90eca0bc1fc9cae5455fed9fba1558d1a13f0"
+        },
+        {
+          "fileId": "6Ej5hC5jPthaOWIG6OodJk",
+          "filePath": "schemas/DILCISExtensionSIPMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/45ofze1Omq6yQRqZyXaxrd/schemas/DILCISExtensionSIPMETS.xsd",
+          "checksum": "83da1ff6f35adeece3cccfb5e2e9f83a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/45ofze1Omq6yQRqZyXaxrd/schemas/DILCISExtensionSIPMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092920Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=e878ab68b4172282b26b40f451b5caa5b35b49b2d970962f8b8952e428e1f645"
+        },
+        {
+          "fileId": "0JF0rksZVwl4NdaB7afncM",
+          "filePath": "schemas/mets1_12.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/45ofze1Omq6yQRqZyXaxrd/schemas/mets1_12.xsd",
+          "checksum": "0504dedc1251e87d7e85f9ff2dbadc0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/45ofze1Omq6yQRqZyXaxrd/schemas/mets1_12.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092920Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=4fabee64bcc0801c719df37babb79a1e2e2a157b643d6909a35c6e858f1feb33"
+        },
+        {
+          "fileId": "5hm8b5m1HTDhZbus3Wn0RM",
+          "filePath": "schemas/xlink.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/45ofze1Omq6yQRqZyXaxrd/schemas/xlink.xsd",
+          "checksum": "6bdc7f9459a502964f889d70a335cece",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/45ofze1Omq6yQRqZyXaxrd/schemas/xlink.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T092920Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=4fe0b6f41599f2ad33307d26dabf5a9f7ee38cd610b311f68a3b264a2894360d"
+        }
+      ]
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "6gww8EnLr2Y4bRQw0TXO5b",
+      "objectId": "av_a310d92a-a6ee-488f-9c66-37403b8974f7",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "01a1e8d9-8be8-798b-8b69-6af767bed0bf",
+      "status": "REGISTERED",
+      "priority": 50,
+      "message": null,
+      "files": [
+        {
+          "fileId": "3Rq94nBpmkount6HHlmCN2",
+          "filePath": "metadata/descriptive/PART_OF_222637860.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/6gww8EnLr2Y4bRQw0TXO5b/metadata/descriptive/PART_OF_222637860.xml",
+          "checksum": "c9d3d0d91d96f833481250287360e7de",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/6gww8EnLr2Y4bRQw0TXO5b/metadata/descriptive/PART_OF_222637860.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T093214Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=b20e1c13af71fda4f6b42b96bce7fe518e1f7434509c135ca5a6391be73a76f8"
+        },
+        {
+          "fileId": "6nJLxFeHCpaN2a1Fj30DL4",
+          "filePath": "METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/6gww8EnLr2Y4bRQw0TXO5b/METS.xml",
+          "checksum": "d21e67d894c085f3516072bc9fab3590",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/6gww8EnLr2Y4bRQw0TXO5b/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T093214Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=edd6ae81412a302a9a34f401a00ab619001c20adc352cb425c7b75cae1afc78b"
+        },
+        {
+          "fileId": "7aStDKfNQHiu9pida4tQzF",
+          "filePath": "representations/primary_20261117/data/fv--11370625.iso",
+          "s3ObjectKey": "nb-levende-bilder/91c5/6gww8EnLr2Y4bRQw0TXO5b/representations/primary_20261117/data/fv--11370625.iso",
+          "checksum": "acb780e51e0f78b909a1e83c38d29b22",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/6gww8EnLr2Y4bRQw0TXO5b/representations/primary_20261117/data/fv--11370625.iso?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T093214Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=d22071581a49937aa22a19f21757987f35e3e92ee4e1fff1c294479d57347749"
+        },
+        {
+          "fileId": "4jFnSO10AKudLiACfCunUe",
+          "filePath": "representations/primary_20261117/METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/6gww8EnLr2Y4bRQw0TXO5b/representations/primary_20261117/METS.xml",
+          "checksum": "98236c4f9719e19cceac487082f865ec",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/6gww8EnLr2Y4bRQw0TXO5b/representations/primary_20261117/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T093214Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=116f907a1a21c86e00a6d66d283866a2c524515b0ad5f2442dbf363219877a7a"
+        },
+        {
+          "fileId": "3LkRNdY0wzay9SY2Eh75Sz",
+          "filePath": "schemas/DILCISExtensionMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/6gww8EnLr2Y4bRQw0TXO5b/schemas/DILCISExtensionMETS.xsd",
+          "checksum": "eb72ef8ab5b1c93801dfacbfe6aa8e27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/6gww8EnLr2Y4bRQw0TXO5b/schemas/DILCISExtensionMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T093214Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=72471ed30d2cdfccd385c556d952c27bdc647605056ed1a1a818acf3fcbc0143"
+        },
+        {
+          "fileId": "5OBwUHdIODUIfqt9hVsTCw",
+          "filePath": "schemas/DILCISExtensionSIPMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/6gww8EnLr2Y4bRQw0TXO5b/schemas/DILCISExtensionSIPMETS.xsd",
+          "checksum": "83da1ff6f35adeece3cccfb5e2e9f83a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/6gww8EnLr2Y4bRQw0TXO5b/schemas/DILCISExtensionSIPMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T093214Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=d7d281653ee32113b7f38db9cca80eeddf0a252faad318ac9fc4e058f17998cc"
+        },
+        {
+          "fileId": "1dZSFeeFzcSILHPI8voftW",
+          "filePath": "schemas/mets1_12.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/6gww8EnLr2Y4bRQw0TXO5b/schemas/mets1_12.xsd",
+          "checksum": "0504dedc1251e87d7e85f9ff2dbadc0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/6gww8EnLr2Y4bRQw0TXO5b/schemas/mets1_12.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T093214Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=561f7717d1685be123cbe22224ffcd0a145cd6ac3a1469fb3aca789bea1451c9"
+        },
+        {
+          "fileId": "3fv3KHbJPxFkDv84JSZoKe",
+          "filePath": "schemas/xlink.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/6gww8EnLr2Y4bRQw0TXO5b/schemas/xlink.xsd",
+          "checksum": "6bdc7f9459a502964f889d70a335cece",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/6gww8EnLr2Y4bRQw0TXO5b/schemas/xlink.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T093214Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=6c5e20e7325494699c87f1e18717f74defb15d89e7ee97bd72168f3a65894ed0"
+        }
+      ]
+    },
+    {
+      "contractId": "91c5",
+      "submissionId": "1poP8OCjA1hjsdMs6ebRH4",
+      "objectId": "av_5d116469-52d6-4b20-86ce-653769ef7d7d",
+      "clientId": "nb-levende-bilder",
+      "archiveId": "01a1e8db-73c0-75a7-a8a5-6bc538fa74b2",
+      "status": "REGISTERED",
+      "priority": 50,
+      "message": null,
+      "files": [
+        {
+          "fileId": "5UhwnoyvctbfVrTWdy5g2O",
+          "filePath": "metadata/descriptive/PART_OF_222637860.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1poP8OCjA1hjsdMs6ebRH4/metadata/descriptive/PART_OF_222637860.xml",
+          "checksum": "8d6af6b6784b6c2f6d8991b4561c0960",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1poP8OCjA1hjsdMs6ebRH4/metadata/descriptive/PART_OF_222637860.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T093419Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=dcf6b1aa41027b4b421bd4b762fe24862b0730863f39be80b15723edaef2b50a"
+        },
+        {
+          "fileId": "1OMC34x7KXlZB1qZUAZ1Hg",
+          "filePath": "METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1poP8OCjA1hjsdMs6ebRH4/METS.xml",
+          "checksum": "44de92d606ac4e64f5c45ecdbeefbadf",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1poP8OCjA1hjsdMs6ebRH4/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T093419Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=3049edb1012d31634e8909c91b69ddab2667c161b7fc9e62ba5c7ea821d97889"
+        },
+        {
+          "fileId": "2YSydnTIKK4CmrdXUbO3mq",
+          "filePath": "representations/primary_20261117/data/fv--11370626.iso",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1poP8OCjA1hjsdMs6ebRH4/representations/primary_20261117/data/fv--11370626.iso",
+          "checksum": "6070252c420c0a11fc9996adef6ad0e9",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1poP8OCjA1hjsdMs6ebRH4/representations/primary_20261117/data/fv--11370626.iso?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T093419Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=ea4d9556db9dbc480a9026c2ee28e14ac8d31445883d2b968adfed84294f127c"
+        },
+        {
+          "fileId": "4GkN2k3ul4AisYlPcbgmcb",
+          "filePath": "representations/primary_20261117/METS.xml",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1poP8OCjA1hjsdMs6ebRH4/representations/primary_20261117/METS.xml",
+          "checksum": "bf7152a27aeb1cabb14c733463e06873",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1poP8OCjA1hjsdMs6ebRH4/representations/primary_20261117/METS.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T093419Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=e182d904ef24d711dbe832beba5fb707b87e18a2593b82e85135d5b684fb0168"
+        },
+        {
+          "fileId": "3NMGiPzEtu8HRgWur3tBxX",
+          "filePath": "schemas/DILCISExtensionMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1poP8OCjA1hjsdMs6ebRH4/schemas/DILCISExtensionMETS.xsd",
+          "checksum": "eb72ef8ab5b1c93801dfacbfe6aa8e27",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1poP8OCjA1hjsdMs6ebRH4/schemas/DILCISExtensionMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T093419Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=45b071ae29e9c0ffb07f04ab2b0cffd6b34061ede9dce3de88c2191195c78931"
+        },
+        {
+          "fileId": "22nHScjPPQhMEspsAov2ip",
+          "filePath": "schemas/DILCISExtensionSIPMETS.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1poP8OCjA1hjsdMs6ebRH4/schemas/DILCISExtensionSIPMETS.xsd",
+          "checksum": "83da1ff6f35adeece3cccfb5e2e9f83a",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1poP8OCjA1hjsdMs6ebRH4/schemas/DILCISExtensionSIPMETS.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T093419Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=4c0116aedd4cdaa6734086940715351ba3fbb15d64820cab72a4382373fd6de1"
+        },
+        {
+          "fileId": "3BpkpWn52WPkeD98N9X6xW",
+          "filePath": "schemas/mets1_12.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1poP8OCjA1hjsdMs6ebRH4/schemas/mets1_12.xsd",
+          "checksum": "0504dedc1251e87d7e85f9ff2dbadc0d",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1poP8OCjA1hjsdMs6ebRH4/schemas/mets1_12.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T093419Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=5e4fbd564f65b92a62d1b98874a2a3babf8febff69553b244a9764a202f4e02b"
+        },
+        {
+          "fileId": "6pMN56i2ZM2ZeVYTLECfTI",
+          "filePath": "schemas/xlink.xsd",
+          "s3ObjectKey": "nb-levende-bilder/91c5/1poP8OCjA1hjsdMs6ebRH4/schemas/xlink.xsd",
+          "checksum": "6bdc7f9459a502964f889d70a335cece",
+          "isPackaged": false,
+          "uploadUrl": "https://bucket.nb.no/submission-service-prod/nb-levende-bilder/91c5/1poP8OCjA1hjsdMs6ebRH4/schemas/xlink.xsd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261117T093419Z&X-Amz-SignedHeaders=host&X-Amz-Credential=QV9O3W4WSRTLMACUKUBE%2F20261117%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=98b30dc39f12c9fd5b821c1bac629f6d6220c901b4fe21506126aadf699e6f57"
+        }
+      ]
+    }
+  ],
+  "page": {
+    "size": 100,
+    "number": 27,
+    "totalElements": 2718,
+    "totalPages": 28
+  }
+}
