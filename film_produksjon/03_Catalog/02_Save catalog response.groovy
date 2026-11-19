@@ -92,7 +92,7 @@ try {
     List ancestors = []
     if (phase == 'PRIMARY') {
         if (saved || queue) throw new IllegalArgumentException('Primary request must start an empty catalog run')
-        // Preserve the entire lookup response, including rejected duplicate candidates.
+        // Preserve the lookup response for inspection if the package fails validation.
         writeBytes(runDir.resolve('URN_RESPONSE.xml'), bytes)
         if (!records.size()) throw new IOException('URN lookup returned no records')
         String urn = ff.getAttribute('catalog.dump.urn')
@@ -103,58 +103,21 @@ try {
             }
         }
         if (records.size() > 1) {
-            def sizes = records.collect { candidate ->
-                String value = fileSizeOf(candidate)
-                [priref: idOf(candidate), type: typeOf(candidate), size: value,
-                 sizeValue: value ==~ /[0-9]+/ ? value.toBigInteger() : null]
+            def matches = records.collect { candidate ->
+                [priref: idOf(candidate), type: typeOf(candidate), size: fileSizeOf(candidate)]
             }
-            def positive = sizes.findAll { it.sizeValue != null && it.sizeValue > 0 }
-            String suggested = ff.getAttribute('catalog.dump.duplicates.mode') == 'film_produksjon' &&
-                sizes.every { it.type == 'ITEM_PART' && it.sizeValue != null } &&
-                positive.size() == 1 && sizes.every { it.sizeValue == 0 || it.priref == positive[0].priref } ?
-                positive[0].priref : null
-            // Compare complete top-level field groups, retaining repeated-field context
-            // and attributes. Empty groups may be absent in an incomplete record.
-            Closure canonical
-            canonical = { node ->
-                def children = node.children().collect { canonical(it) }
-                [name: node.name(), attributes: node.attributes().sort(),
-                 value: children ? null : node.text().trim(), children: children]
-            }
-            def fieldMap = { candidate ->
-                candidate.children().groupBy { it.name() }.collectEntries { key, nodes ->
-                    [(key): nodes.collect { canonical(it) }]
-                }
-            }
-            def comparisons = []
-            if (suggested) {
-                def selected = records.find { idOf(it) == suggested }
-                def reference = fieldMap(selected)
-                records.findAll { idOf(it) != suggested }.each { candidate ->
-                    def other = fieldMap(candidate)
-                    def differences = (reference.keySet() + other.keySet()).unique().sort().findAll {
-                        reference[it] != other[it]
-                    }.collect { key -> [field: key, proposedPrimary: reference[key], candidate: other[key]] }
-                    comparisons << [priref: idOf(candidate), differingFields: differences]
-                }
-            }
-            def report = [urn: urn, proposedPrimaryPriref: suggested,
-                candidates: sizes.collect { it.findAll { k, v -> k != 'sizeValue' } },
-                comparisons: comparisons]
             Path reportPath = runDir.resolve('DUPLICATES.json')
-            writeBytes(reportPath, json.toJson(report).getBytes('UTF-8'))
+            writeBytes(reportPath, json.toJson([urn: urn, candidates: matches]).getBytes('UTF-8'))
             ff = session.putAttribute(ff, 'catalog.dump.report.path', reportPath.toString())
-            if (suggested) ff = session.putAttribute(ff, 'catalog.dump.proposed.primary.priref', suggested)
-            throw new IOException('Multiple URN matches; catalog cleanup/review is required before continuing')
+            throw new IOException('Multiple URN matches; review the catalog before restarting the package')
         }
         record = records[0]
         String expected = ff.getAttribute('catalog.dump.expected.priref')
         if (expected && idOf(record) != expected) throw new IOException('URN lookup did not return the expected primary priref')
         String requiredType = ff.getAttribute('catalog.dump.required.type')
         if (requiredType && typeOf(record) != requiredType) throw new IOException('Unexpected primary record type')
-        if (ff.getAttribute('catalog.dump.duplicates.mode') == 'film_produksjon' &&
-            (fileSizeOf(record) ==~ /0+/)) {
-            throw new IOException('The sole production primary record has file.size=0; inspect the catalog before continuing')
+        if (typeOf(record) == 'ITEM_PART' && (fileSizeOf(record) ==~ /0+/)) {
+            throw new IOException('The sole primary ITEM_PART has file.size=0; inspect the catalog before continuing')
         }
         role = 'PRIMARY'
         ff = session.putAllAttributes(ff, [

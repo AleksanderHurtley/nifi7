@@ -5,10 +5,7 @@ import org.apache.nifi.processor.io.StreamCallback
 def ff = session.get()
 if (!ff) return
 
-def previousProposal = [id: ff.getAttribute('catalog.dump.proposed.primary.priref'),
-    pkg: ff.getAttribute('catalog.dump.package'), urn: ff.getAttribute('catalog.dump.urn')]
-// Configuration uses catalog.urn / catalog.expected.primary.priref /
-// catalog.duplicates.mode. Only transient state is reset here.
+// Keep the input configuration and reset the results from any previous run.
 ff.getAttributes().keySet().findAll {
     it.startsWith('catalog.dump.') || it.startsWith('catalog.primary.') ||
         it.startsWith('catalog.copied_from.')
@@ -28,14 +25,10 @@ try {
         throw new IllegalArgumentException('Expected package.name, catalog.urn (or media.urn/urn), absolute metadata.descriptive.dir and payloads.dir')
     }
     if (urn.contains("'")) throw new IllegalArgumentException('URN must not contain a query quote')
-    String expected = ff.getAttribute('catalog.expected.primary.priref')?.trim() ?:
-        (previousProposal.pkg == pkg && previousProposal.urn == urn ? previousProposal.id : null)
+    String expected = ff.getAttribute('catalog.expected.primary.priref')?.trim()
     if (expected && !(expected ==~ /[0-9]+/)) throw new IllegalArgumentException('Expected primary priref must be numeric')
-    String mode = ff.getAttribute('catalog.duplicates.mode') ?: 'stop'
-    if (!(mode in ['stop', 'film_produksjon'])) throw new IllegalArgumentException('Unknown catalog.duplicates.mode')
-    String requiredType = ff.getAttribute('catalog.required.primary.type')?.trim() ?:
-        (mode == 'film_produksjon' ? 'ITEM_PART' : '')
-    if (requiredType && !(requiredType in ['ITEM_PART', 'ITEM', 'MANIFESTATION', 'WORK'])) {
+    String requiredType = ff.getAttribute('catalog.required.primary.type')?.trim() ?: 'ITEM_PART'
+    if (!(requiredType in ['ITEM_PART', 'ITEM', 'MANIFESTATION', 'WORK'])) {
         throw new IllegalArgumentException('Unknown catalog.required.primary.type')
     }
     Path descriptive = Paths.get(dir).normalize()
@@ -56,7 +49,6 @@ try {
         'catalog.dump.queue': '[]',
         'catalog.dump.records': '[]',
         'catalog.dump.count': '0',
-        'catalog.dump.duplicates.mode': mode,
         'catalog.dump.required.type': requiredType,
         'catalog.dump.expected.priref': expected ?: ''
     ])

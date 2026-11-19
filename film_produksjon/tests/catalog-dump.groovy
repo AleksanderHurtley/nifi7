@@ -42,8 +42,6 @@ interface StreamCallback {
 }''')
 def prepareClass = loader.parseClass(new File('film_produksjon/03_Catalog/01_Prepare catalog dump.groovy'))
 def saveClass = loader.parseClass(new File('film_produksjon/03_Catalog/02_Save catalog response.groovy'))
-def readDuplicateClass = loader.parseClass(new File('film_produksjon/03_Catalog/03_Read duplicate report.groovy'))
-def advanceDeleteClass = loader.parseClass(new File('film_produksjon/03_Catalog/04_Advance duplicate deletion.groovy'))
 def builderClass = loader.parseClass(new File('film_produksjon/07_Submission body/01_Build submission body.groovy'))
 def run = { Class type, Map attrs, byte[] body = new byte[0] ->
     def ff = new CatalogDumpFlowFile(attributes: new LinkedHashMap(attrs), body: body)
@@ -77,7 +75,6 @@ try {
     def attrs = ['package.name': pkg, 'media.urn': urn,
         'metadata.descriptive.dir': descriptive.toString(), 'payloads.dir': payloads.toString(),
         'submission.payload.path': payloads.resolve('submission.json').toString(),
-        'catalog.duplicates.mode': 'film_produksjon',
         'catalog.dump.status': 'COMPLETE', 'catalog.primary.priref': 'STALE',
         'catalog.copied_from.status': 'COMPLETE', 'checksum.status': 'OK',
         'error.stage': 'catalog.dump.save', 'error.message': 'old error']
@@ -91,148 +88,18 @@ try {
     byte[] duplicates = Files.readAllBytes(fixture.resolve(pkg + '_DIGITAL_ITEM_PART_70398020_162311522.xml'))
     def duplicate = run(saveClass, prepared.attrs + ['invokehttp.status.code': '200'], duplicates)
     assert duplicate.relationship == 'failure': duplicate.attrs
-    assert duplicate.attrs['catalog.dump.proposed.primary.priref'] == '162311522'
+    assert duplicate.attrs['catalog.dump.status'] == 'FAIL'
+    assert duplicate.attrs['catalog.dump.queue'] == '[]'
     assert !duplicate.attrs.containsKey('catalog.primary.priref')
     Path reportFile = Path.of(duplicate.attrs['catalog.dump.report.path'])
     def report = parse(Files.readString(reportFile))
-    assert report.proposedPrimaryPriref == '162311522'
-    assert report.comparisons[0].differingFields*.field.contains('Alternative_number')
-    assert report.comparisons[0].differingFields*.field.contains('Part_of')
+    assert report == [urn: urn, candidates: [
+        [priref: '70398020', type: 'ITEM_PART', size: '0'],
+        [priref: '162311522', type: 'ITEM_PART', size: '41698832073']
+    ]]
     assert Arrays.equals(Files.readAllBytes(reportFile.parent.resolve('URN_RESPONSE.xml')), duplicates)
+    assert !Files.exists(reportFile.parent.resolve('CATALOG.json'))
     assert !Files.exists(descriptive.resolve('PACKAGE_CATALOG_RECORD_162311522.xml'))
-
-    byte[] reportBytes = Files.readAllBytes(reportFile)
-    def review = run(readDuplicateClass, duplicate.attrs, duplicates)
-    assert review.relationship == 'success': review.attrs
-    assert review.attrs['catalog.dump.duplicate.candidate.prirefs'] == '70398020'
-    assert review.attrs['catalog.dump.proposed.primary.priref'] == '162311522'
-    assert review.attrs['catalog.expected.primary.priref'] == '162311522'
-    assert !review.attrs.containsKey('catalog.delete.priref')
-    assert Arrays.equals(review.body, duplicates)
-    assert Arrays.equals(Files.readAllBytes(reportFile), reportBytes)
-
-    def mismatched = run(readDuplicateClass, review.attrs + ['catalog.dump.urn': 'urn:other'])
-    assert mismatched.relationship == 'failure'
-    assert !mismatched.attrs.containsKey('catalog.dump.duplicate.candidate.prirefs')
-
-    report.candidates << [priref: '70398020', type: 'ITEM_PART', size: '0']
-    Files.writeString(reportFile, groovy.json.JsonOutput.toJson(report))
-    assert run(readDuplicateClass, duplicate.attrs).relationship == 'failure'
-    Files.write(reportFile, reportBytes)
-
-    // Reproduce the stage candidate IDs and sizes with simulated responses.
-    String multiPkg = 'digifilm_815855_20131106'
-    String multiUrn = 'URN:NBN:no-nb_' + multiPkg
-    List zeroByteIds = ['70941498', '70941500', '71394280']
-    String keepId = '71394278'
-    def multiAttrs = attrs + ['package.name': multiPkg, 'media.urn': multiUrn,
-        'metadata.descriptive.dir': scratch.resolve('multi/work/metadata/descriptive').toString(),
-        'payloads.dir': scratch.resolve('multi/payloads').toString()]
-    def multiStart = run(prepareClass, multiAttrs)
-    def record = { String id, String size ->
-        """<record priref="${id}"><record_type><value lang="neutral">ITEM_PART</value></record_type>
-           <PID_data_URN>${multiUrn}</PID_data_URN><file.size>${size}</file.size></record>"""
-    }
-    String retained = record(keepId, '8392215310')
-    def response = { List records ->
-        """<adlibXML><recordList>${records.join('')}</recordList>
-           <diagnostic><hits>${records.size()}</hits></diagnostic></adlibXML>""".getBytes('UTF-8')
-    }
-    byte[] multiBody = response(zeroByteIds.collect { record(it, '0') } + [retained])
-    def multiDump = run(saveClass, multiStart.attrs + ['invokehttp.status.code': '200'], multiBody)
-    assert multiDump.relationship == 'failure': multiDump.attrs
-    def multiReview = run(readDuplicateClass, multiDump.attrs, multiBody)
-    assert multiReview.relationship == 'success': multiReview.attrs
-    assert multiReview.attrs['catalog.dump.duplicate.candidate.prirefs'] == zeroByteIds.join(',')
-    ['', keepId, '70941498,70941498'].each { badQueue ->
-        def refused = run(advanceDeleteClass, multiReview.attrs + ['catalog.dump.duplicate.candidate.prirefs': badQueue])
-        assert refused.relationship == 'failure'
-        assert !refused.attrs.containsKey('catalog.delete.priref')
-    }
-
-    def deleting = run(advanceDeleteClass, multiReview.attrs)
-    zeroByteIds.eachWithIndex { id, index ->
-        assert deleting.relationship == 'success': deleting.attrs
-        assert deleting.attrs['catalog.delete.attempted'] == 'true'
-        assert deleting.attrs['catalog.delete.status'] == 'DELETE'
-        assert deleting.attrs['catalog.delete.priref'] == id
-        assert deleting.attrs['catalog.delete.pending.prirefs'] == zeroByteIds.drop(index).join(',')
-        assert deleting.attrs['catalog.delete.completed.prirefs'] == zeroByteIds.take(index).join(',')
-        assert !deleting.attrs.containsKey('invokehttp.status.code')
-        if (index == 1) {
-            [null, '202', '500'].each { code ->
-                def blocked = run(advanceDeleteClass, code ? deleting.attrs + ['invokehttp.status.code': code] : deleting.attrs)
-                assert blocked.relationship == 'failure'
-                assert blocked.attrs['catalog.delete.priref'] == id
-                assert blocked.attrs['catalog.delete.pending.prirefs'] == zeroByteIds.drop(index).join(',')
-                assert blocked.attrs['catalog.delete.completed.prirefs'] == zeroByteIds.take(index).join(',')
-            }
-        }
-        deleting = run(advanceDeleteClass, deleting.attrs + ['invokehttp.status.code': '204'])
-    }
-    assert deleting.relationship == 'success': deleting.attrs
-    assert deleting.attrs['catalog.delete.status'] == 'COMPLETE'
-    assert !deleting.attrs.containsKey('catalog.delete.priref')
-    assert deleting.attrs['catalog.delete.completed.prirefs'] == zeroByteIds.join(',')
-    def verifying = run(prepareClass, deleting.attrs)
-    assert verifying.relationship == 'success': verifying.attrs
-    assert verifying.attrs['catalog.dump.expected.priref'] == keepId
-    assert verifying.attrs['catalog.delete.attempted'] == 'true'
-    assert verifying.attrs['catalog.dump.run.dir'] != multiDump.attrs['catalog.dump.run.dir']
-    assert java.net.URLDecoder.decode(verifying.attrs['catalog.dump.query'], 'UTF-8') == "PID_data_URN = '${multiUrn}'"
-    def remainingDuplicates = run(saveClass, verifying.attrs + ['invokehttp.status.code': '200'], multiBody)
-    assert remainingDuplicates.relationship == 'failure'
-    assert remainingDuplicates.attrs['catalog.delete.attempted'] == 'true'
-    def verified = run(saveClass, verifying.attrs + ['invokehttp.status.code': '200'], response([retained]))
-    assert verified.relationship == 'success': verified.attrs
-    assert verified.attrs['catalog.primary.priref'] == keepId
-    assert verified.attrs['catalog.dump.status'] == 'COMPLETE'
-
-    def readPrimaryMatches = { List records, Map extraAttrs = [:] ->
-        def lookup = run(prepareClass, multiAttrs + extraAttrs)
-        def dumped = run(saveClass, lookup.attrs + ['invokehttp.status.code': '200'], response(records))
-        assert dumped.relationship == 'failure': dumped.attrs
-        run(readDuplicateClass, dumped.attrs)
-    }
-    String zero = record('70941498', '0')
-    String unknown = record('219355162', '')
-    String secondRetained = record('999', '123')
-
-    def partial = readPrimaryMatches([zero, retained, secondRetained, unknown])
-    assert partial.relationship == 'success': partial.attrs
-    assert !partial.attrs['catalog.dump.proposed.primary.priref']
-    assert !partial.attrs['catalog.expected.primary.priref']
-    assert partial.attrs['catalog.dump.duplicate.candidate.prirefs'] == '70941498'
-    def partialDeletion = run(advanceDeleteClass, partial.attrs)
-    assert partialDeletion.attrs['catalog.delete.priref'] == '70941498'
-    def partialComplete = run(advanceDeleteClass, partialDeletion.attrs + ['invokehttp.status.code': '204'])
-    assert partialComplete.attrs['catalog.delete.status'] == 'COMPLETE'
-    def partialVerification = run(prepareClass, partialComplete.attrs)
-    def stillMultiple = run(saveClass, partialVerification.attrs + ['invokehttp.status.code': '200'],
-        response([retained, secondRetained, unknown]))
-    assert stillMultiple.relationship == 'failure'
-    assert stillMultiple.attrs['catalog.delete.attempted'] == 'true'
-    assert stillMultiple.attrs['catalog.dump.report.path']
-    assert run(readDuplicateClass, stillMultiple.attrs).relationship == 'failure'
-
-    def keepUnknown = readPrimaryMatches([zero, unknown])
-    assert keepUnknown.relationship == 'success': keepUnknown.attrs
-    assert keepUnknown.attrs['catalog.dump.duplicate.candidate.prirefs'] == '70941498'
-    assert keepUnknown.attrs['catalog.expected.primary.priref'] == '219355162'
-    [[retained, unknown], [zero, record('70941500', '0')]].each { matches ->
-        def refused = readPrimaryMatches(matches)
-        assert refused.relationship == 'failure'
-        assert !refused.attrs['catalog.dump.duplicate.candidate.prirefs']
-    }
-    def expectedZero = readPrimaryMatches([zero, retained], ['catalog.expected.primary.priref': '70941498'])
-    assert expectedZero.relationship == 'failure'
-    assert !expectedZero.attrs['catalog.dump.duplicate.candidate.prirefs']
-
-    def generic = run(prepareClass, attrs + ['catalog.duplicates.mode': 'stop'])
-    def genericDuplicate = run(saveClass, generic.attrs + ['invokehttp.status.code': '200'], duplicates)
-    assert genericDuplicate.relationship == 'failure'
-    assert !genericDuplicate.attrs.containsKey('catalog.dump.proposed.primary.priref')
-    assert run(readDuplicateClass, genericDuplicate.attrs).relationship == 'failure'
 
     // Synthetic new response after external cleanup; no live catalog change.
     def parsed = new groovy.xml.XmlParser().parse(new ByteArrayInputStream(duplicates))
@@ -240,10 +107,12 @@ try {
     parsed.diagnostic.hits[0].setValue('1')
     parsed.diagnostic.hits_on_display[0].setValue('1')
     byte[] unique = groovy.xml.XmlUtil.serialize(parsed).getBytes('UTF-8')
-    def start = run(prepareClass, duplicate.attrs)
+    def start = run(prepareClass, duplicate.attrs + ['catalog.dump.proposed.primary.priref': '70398020'])
     assert start.relationship == 'success'
     assert start.attrs['catalog.dump.run.dir'] != prepared.attrs['catalog.dump.run.dir']
-    assert start.attrs['catalog.dump.expected.priref'] == '162311522'
+    assert start.attrs['catalog.dump.expected.priref'] == ''
+    assert !start.attrs.containsKey('catalog.dump.proposed.primary.priref')
+    assert !start.attrs.containsKey('catalog.dump.report.path')
     def stage = run(saveClass, start.attrs + ['invokehttp.status.code': '200'], unique)
     assert stage.relationship == 'success': stage.attrs
     assert stage.attrs['catalog.primary.priref'] == '162311522'
@@ -306,9 +175,12 @@ try {
     def wrongExpected = run(prepareClass, attrs + ['catalog.expected.primary.priref': '70398020'])
     assert run(saveClass, wrongExpected.attrs + ['invokehttp.status.code': '200'], unique).relationship == 'failure'
 
-    def itemStart = run(prepareClass, attrs + ['package.name': 'another-package', 'catalog.duplicates.mode': 'stop'])
-    def item = run(saveClass, itemStart.attrs + ['invokehttp.status.code': '200'],
-        xml('10', 'ITEM', "<PID_data_URN>${urn}</PID_data_URN>"))
+    byte[] itemBody = xml('10', 'ITEM', "<PID_data_URN>${urn}</PID_data_URN>")
+    def wrongType = run(saveClass, prepared.attrs + ['invokehttp.status.code': '200'], itemBody)
+    assert wrongType.relationship == 'failure'
+    assert wrongType.attrs['error.message'] == 'Unexpected primary record type'
+    def itemStart = run(prepareClass, attrs + ['package.name': 'another-package', 'catalog.required.primary.type': 'ITEM'])
+    def item = run(saveClass, itemStart.attrs + ['invokehttp.status.code': '200'], itemBody)
     assert item.relationship == 'success': item.attrs
     assert item.attrs['catalog.dump.status'] == 'COMPLETE'
     assert item.attrs['catalog.primary.type'] == 'ITEM'
@@ -319,7 +191,9 @@ try {
     def miniStart = { -> run(prepareClass, attrs + ['catalog.expected.primary.priref': '']) }
     def feed = { state, body -> run(saveClass, state.attrs + ['invokehttp.status.code': '200'], body) }
     def primary = { extra -> xml('10', 'ITEM_PART', "<PID_data_URN>${urn}</PID_data_URN>" + extra) }
-    assert feed(miniStart(), primary('<file.size>0</file.size>')).relationship == 'failure'
+    def zeroSize = feed(miniStart(), primary('<file.size>0</file.size>'))
+    assert zeroSize.relationship == 'failure'
+    assert !zeroSize.attrs.containsKey('catalog.primary.priref')
     def both = feed(miniStart(), primary('''<Part_of><part_of_reference.lref>20</part_of_reference.lref></Part_of>
         <CopiedFrom><copied_from.lref>20</copied_from.lref></CopiedFrom>'''))
     assert parse(both.attrs['catalog.dump.queue']).size() == 1
@@ -350,7 +224,7 @@ try {
     byte[] truncated = new String(unique, 'UTF-8').replace('<hits>1</hits>', '<hits>2</hits>').getBytes('UTF-8')
     assert feed(miniStart(), truncated).relationship == 'failure'
     assert run(prepareClass, attrs + ['package.name': '../escape']).relationship == 'failure'
-    println 'PASS: catalog dump, sequential zero-byte deletion, fresh URN verification and submission integration.'
+    println 'PASS: catalog dump, duplicate rejection, retry after external cleanup and submission integration.'
 } finally {
     Files.walk(scratch).withCloseable { it.sorted(Comparator.reverseOrder()).forEach { Files.deleteIfExists(it) } }
     loader.close()
