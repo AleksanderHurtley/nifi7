@@ -1,0 +1,54 @@
+{
+  "urn": "URN:NBN:no-nb_digifilm_600555_20130815",
+  "primaryPriref": "70398032",
+  "records": [
+    {
+      "id": "70398032",
+      "type": "ITEM_PART",
+      "role": "PRIMARY",
+      "filename": "PACKAGE_CATALOG_RECORD_70398032.xml",
+      "parents": [
+        "70398031"
+      ]
+    },
+    {
+      "id": "70398031",
+      "type": "ITEM",
+      "role": "PARENT",
+      "filename": "ITEM_70398031.xml",
+      "parents": [
+        "25600555"
+      ]
+    },
+    {
+      "id": "25600555",
+      "type": "MANIFESTATION",
+      "role": "PARENT",
+      "filename": "MANIFESTATION_25600555.xml",
+      "parents": [
+        "600555"
+      ]
+    },
+    {
+      "id": "600555",
+      "type": "WORK",
+      "role": "PARENT",
+      "filename": "WORK_600555.xml",
+      "parents": []
+    },
+    {
+      "id": "69447240",
+      "type": "ITEM_PART",
+      "role": "SOURCE",
+      "filename": "COPIED_FROM_69447240.xml",
+      "parents": []
+    },
+    {
+      "id": "69447242",
+      "type": "ITEM_PART",
+      "role": "SOURCE",
+      "filename": "COPIED_FROM_69447242.xml",
+      "parents": []
+    }
+  ]
+}

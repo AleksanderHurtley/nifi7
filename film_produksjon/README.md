@@ -12,11 +12,14 @@ Catalog/submission-body preparation is complete in the live flow and E-ARK is
 configured; that configuration is not fully exported into the repo. The
 [post-E-ARK event builder](04_Events/README.md) is locally tested on the 2023
 example, and its [2013 live output](examples/events/README.md) is recorded from
-the successful nifi7 run after work cleanup. The latest complete captured
+the successful nifi7 run after work cleanup. An earlier captured
 [submission](examples/submission/README.md) and
 [events](examples/events/README.md#digifilm_815655_20130726) are for
 `digifilm_815655_20130726` (`Per på landet`), supplied on 2026-11-03 after
 correcting catalog-attribute resets, duplicate countries and item-part sources.
+The [Kurs for Hong Kong example](examples/digifilm_600555_20130815/README.md)
+collects the catalog manifest and XML exports, submission body and events from
+the full nifi7 run on 2026-11-19.
 Confirmed DPS completion remains pending.
 
 ## Prepare package FlowFiles

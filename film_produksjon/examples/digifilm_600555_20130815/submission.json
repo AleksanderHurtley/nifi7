@@ -1,0 +1,94 @@
+{
+  "objectId": "digifilm_600555_20130815",
+  "priority": 70,
+  "metadata": {
+    "type": "Film",
+    "identifier": [
+      {
+        "type": "URN",
+        "value": "URN:NBN:no-nb_digifilm_600555_20130815",
+        "lang": "eng"
+      }
+    ],
+    "title": {
+      "value": "Kurs for Hong Kong"
+    },
+    "alternative": [
+      {
+        "type": "Tittelvariant",
+        "value": "Med kurs for Hong Kong"
+      }
+    ],
+    "creator": [],
+    "contributor": [],
+    "publisher": [],
+    "spatial": [
+      {
+        "name": "Norge",
+        "type": "Country"
+      }
+    ],
+    "date": [
+      {
+        "type": "Utgitt",
+        "value": "1964"
+      },
+      {
+        "type": "Opprettelse av MOV-fil",
+        "value": "2013-08-16T11:26:04Z"
+      }
+    ],
+    "relation": [
+      {
+        "title": "[Med kurs for Hong Kong]",
+        "id": "601911",
+        "type": "RelatedTo"
+      },
+      {
+        "title": "Kurs for Hong Kong",
+        "id": "69447240",
+        "type": "CopiedFrom"
+      },
+      {
+        "title": "Kurs for Hong Kong",
+        "id": "69447242",
+        "type": "CopiedFrom"
+      }
+    ],
+    "language": [],
+    "provenance": [
+      {
+        "value": "Digitale sikringsfiler og mezzaninfiler produsert ved NB for bevaring og formidling. Filtypene dette gjelder er digitale sikringsfiler fra film- og lydskannere (DPX og Wav) og etterarbeidede masterfiler (mezzanin/MOV). Dette er bilde- og lydfiler som er kopiert fra analogt filmmateriale.",
+        "lang": "nob"
+      }
+    ],
+    "description": [
+      {
+        "value": "Norsk båt til Hong Kong.",
+        "lang": "nob"
+      }
+    ],
+    "source": [
+      {
+        "identifier": [
+          {
+            "type": "Collections priref",
+            "value": "69447240"
+          }
+        ],
+        "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/69447240",
+        "description": "Kurs for Hong Kong — Image/x-dpx"
+      },
+      {
+        "identifier": [
+          {
+            "type": "Collections priref",
+            "value": "69447242"
+          }
+        ],
+        "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/69447242",
+        "description": "Kurs for Hong Kong — Audio/wav"
+      }
+    ]
+  }
+}
