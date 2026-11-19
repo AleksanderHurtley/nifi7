@@ -115,10 +115,9 @@ use the completed exports.
 | `payloads.dir` | Absolute package payload directory, outside descriptive metadata |
 | `catalog.urn` | URN to look up; falls back to `media.urn`, then `urn` |
 | `catalog.required.primary.type` | Optional expected root type, defaults to `ITEM_PART` |
-| `catalog.expected.primary.priref` | Optional expected priref for this package |
 
 For this flow, `media.urn` is already set by Fetch. Alternatively retain
-`Set urn` with `URN:NBN:no-nb_${package.name}`. Set an expected priref only when it is known for the individual package.
+`Set urn` with `URN:NBN:no-nb_${package.name}`.
 
 ### Outputs
 
@@ -144,7 +143,7 @@ attributes and builds the payload directly from the completed catalog exports.
 An initial URN response must contain exactly one active matching record before
 traversal starts. No matches, multiple matches, or a sole `ITEM_PART` with
 explicit zero file size go to **Failure**. The primary must match the required
-type and any explicitly supplied expected priref. For multiple matches,
+type. For multiple matches,
 `DUPLICATES.json` lists each priref, type and reported size alongside the raw
 `URN_RESPONSE.xml`. Resolve the catalog issue separately, then restart the
 package at **Prepare catalog dump** for a fresh URN lookup.
@@ -210,6 +209,6 @@ groovy film_produksjon/tests/submission-body.groovy
 
 The traversal test uses captured catalog responses and a simulated response
 after external cleanup. It verifies rejection of duplicate matches and a sole
-zero-byte part, type and expected-ID checks, hierarchy traversal, direct
+zero-byte part, primary type validation, hierarchy traversal, direct
 sources, shared references, cycles, byte-for-byte exports, failure/restart,
 stale-export cleanup on completion, and submission output. HTTP delivery is mocked.

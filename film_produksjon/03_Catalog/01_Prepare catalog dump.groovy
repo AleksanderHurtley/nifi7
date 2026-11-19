@@ -25,8 +25,6 @@ try {
         throw new IllegalArgumentException('Expected package.name, catalog.urn (or media.urn/urn), absolute metadata.descriptive.dir and payloads.dir')
     }
     if (urn.contains("'")) throw new IllegalArgumentException('URN must not contain a query quote')
-    String expected = ff.getAttribute('catalog.expected.primary.priref')?.trim()
-    if (expected && !(expected ==~ /[0-9]+/)) throw new IllegalArgumentException('Expected primary priref must be numeric')
     String requiredType = ff.getAttribute('catalog.required.primary.type')?.trim() ?: 'ITEM_PART'
     if (!(requiredType in ['ITEM_PART', 'ITEM', 'MANIFESTATION', 'WORK'])) {
         throw new IllegalArgumentException('Unknown catalog.required.primary.type')
@@ -49,8 +47,7 @@ try {
         'catalog.dump.queue': '[]',
         'catalog.dump.records': '[]',
         'catalog.dump.count': '0',
-        'catalog.dump.required.type': requiredType,
-        'catalog.dump.expected.priref': expected ?: ''
+        'catalog.dump.required.type': requiredType
     ])
     ff = session.write(ff, { input, output -> } as StreamCallback)
     session.transfer(ff, REL_SUCCESS)

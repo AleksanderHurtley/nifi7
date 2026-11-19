@@ -89,6 +89,7 @@ try {
     def duplicate = run(saveClass, prepared.attrs + ['invokehttp.status.code': '200'], duplicates)
     assert duplicate.relationship == 'failure': duplicate.attrs
     assert duplicate.attrs['catalog.dump.status'] == 'FAIL'
+    assert duplicate.attrs['error.message'].startsWith('Multiple URN matches')
     assert duplicate.attrs['catalog.dump.queue'] == '[]'
     assert !duplicate.attrs.containsKey('catalog.primary.priref')
     Path reportFile = Path.of(duplicate.attrs['catalog.dump.report.path'])
@@ -110,7 +111,6 @@ try {
     def start = run(prepareClass, duplicate.attrs + ['catalog.dump.proposed.primary.priref': '70398020'])
     assert start.relationship == 'success'
     assert start.attrs['catalog.dump.run.dir'] != prepared.attrs['catalog.dump.run.dir']
-    assert start.attrs['catalog.dump.expected.priref'] == ''
     assert !start.attrs.containsKey('catalog.dump.proposed.primary.priref')
     assert !start.attrs.containsKey('catalog.dump.report.path')
     def stage = run(saveClass, start.attrs + ['invokehttp.status.code': '200'], unique)
@@ -172,9 +172,6 @@ try {
     assert metadata.title.value == 'Per på landet'
     assert parse(new String(payload.body, 'UTF-8')) == new JsonSlurper().parse(new File(
         'film_produksjon/examples/submission/digifilm_815655_20130726.titled-relations.submission.json'))
-    def wrongExpected = run(prepareClass, attrs + ['catalog.expected.primary.priref': '70398020'])
-    assert run(saveClass, wrongExpected.attrs + ['invokehttp.status.code': '200'], unique).relationship == 'failure'
-
     byte[] itemBody = xml('10', 'ITEM', "<PID_data_URN>${urn}</PID_data_URN>")
     def wrongType = run(saveClass, prepared.attrs + ['invokehttp.status.code': '200'], itemBody)
     assert wrongType.relationship == 'failure'
@@ -188,7 +185,7 @@ try {
     assert Files.exists(descriptive.resolve('PACKAGE_CATALOG_RECORD_10.xml'))
     assert !Files.exists(descriptive.resolve('ITEM_10.xml'))
     assert parse(item.attrs['catalog.dump.records'])[0].filename == 'PACKAGE_CATALOG_RECORD_10.xml'
-    def miniStart = { -> run(prepareClass, attrs + ['catalog.expected.primary.priref': '']) }
+    def miniStart = { -> run(prepareClass, attrs) }
     def feed = { state, body -> run(saveClass, state.attrs + ['invokehttp.status.code': '200'], body) }
     def primary = { extra -> xml('10', 'ITEM_PART', "<PID_data_URN>${urn}</PID_data_URN>" + extra) }
     def zeroSize = feed(miniStart(), primary('<file.size>0</file.size>'))

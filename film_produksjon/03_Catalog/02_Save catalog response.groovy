@@ -112,8 +112,6 @@ try {
             throw new IOException('Multiple URN matches; review the catalog before restarting the package')
         }
         record = records[0]
-        String expected = ff.getAttribute('catalog.dump.expected.priref')
-        if (expected && idOf(record) != expected) throw new IOException('URN lookup did not return the expected primary priref')
         String requiredType = ff.getAttribute('catalog.dump.required.type')
         if (requiredType && typeOf(record) != requiredType) throw new IOException('Unexpected primary record type')
         if (typeOf(record) == 'ITEM_PART' && (fileSizeOf(record) ==~ /0+/)) {
